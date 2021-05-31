@@ -1,0 +1,4 @@
+[submodule "ModsCommon"]
+	path = ModsCommon
+	url = C:\\Users\\MacSergey\\source\\repos\\ModsCommon
+	branch = BuildingSpawnPoints
