@@ -78,7 +78,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -88,8 +90,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingData.cs" />
+    <Compile Include="DataExtensions.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Mod.cs" />
+    <Compile Include="Panel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Tool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -107,6 +115,16 @@
   <Import Project="..\ModsCommon\PluginsShared\PluginsShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\SingletonShared\SingletonShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\UIShared\ModsUIShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LoadExtensionShared\LoadExtensionShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\ToolShared\ModsToolShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\RenderExtension\RenderExtension.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\ObjectMapShared\ObjectMapShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\TrajectoryShared\TrajectoryShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\XmlExtension\XmlExtension.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\NetExtension\NetExtension.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\ToolPanelShared\ToolPanelShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\PropertyPanelShared\PropertyPanelShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\HeaderShared\HeaderShared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
