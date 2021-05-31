@@ -128,5 +128,15 @@ namespace BuildingSpawnPoints
             Tool.SetData(null);
             Tool.SetMode(ToolModeType.Select);
         }
+        public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
+        {
+            var overlayData = new OverlayData(cameraInfo) { Color = Colors.Orange, Width = 2f };
+            var building = Tool.Data.Id.GetBuilding();
+            foreach (var point in Tool.Data.Points)
+            {
+                var position = point.GetAbsolutePosition(ref building);
+                position.RenderCircle(overlayData);
+            }
+        }
     }
 }

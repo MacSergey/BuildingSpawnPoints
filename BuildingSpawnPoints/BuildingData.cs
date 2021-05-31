@@ -13,18 +13,13 @@ namespace BuildingSpawnPoints
     {
         public ushort Id { get; }
         private List<BuildingSpawnPoint> SpawnPoints { get; } = new List<BuildingSpawnPoint>();
+        public IEnumerable<BuildingSpawnPoint> Points => SpawnPoints;
 
         public BuildingData(ushort id)
         {
             Id = id;
 
-            var spawnPoint = new BuildingSpawnPoint()
-            {
-                Angle = 0f,
-                Position = Vector3.forward * (id.GetBuilding().Length * 4f + 2f),
-                VehicleType = VehicleType.All,
-            };
-            SpawnPoints.Add(spawnPoint);
+            AddPoint();
         }
 
         public void GetPosition(ref Building data, VehicleInfo vehicle, ref Randomizer randomizer, out Vector3 position, out Vector3 target)
@@ -35,7 +30,7 @@ namespace BuildingSpawnPoints
             if (points.Length != 0)
             {
                 var point = points[randomizer.Int32((uint)points.Length)];
-                position = data.m_position + point.Position.TurnDeg(data.m_angle, true);
+                position = point.GetAbsolutePosition(ref data);
                 target = position;
             }
             else
@@ -44,12 +39,28 @@ namespace BuildingSpawnPoints
                 target = position;
             }
         }
+
+        public BuildingSpawnPoint AddPoint()
+        {
+            var spawnPoint = new BuildingSpawnPoint()
+            {
+                Angle = 0f,
+                Position = Vector3.forward * (Id.GetBuilding().Length * 4f + 2f),
+                VehicleType = VehicleType.All,
+            };
+            SpawnPoints.Add(spawnPoint);
+
+            return spawnPoint;
+        }
+        public void DeletePoint(BuildingSpawnPoint point) => SpawnPoints.Remove(point);
     }
     public class BuildingSpawnPoint
     {
         public VehicleType VehicleType { get; set; }
         public Vector3 Position { get; set; }
         public float Angle { get; set; }
+
+        public Vector3 GetAbsolutePosition(ref Building data) => data.m_position + Position.TurnRad(data.m_angle, false);
     }
 
     public static class VehicleExtension
