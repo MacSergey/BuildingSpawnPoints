@@ -7,6 +7,7 @@ using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -38,11 +39,19 @@ namespace BuildingSpawnPoints
 #endif
         #endregion
 
+        public override CultureInfo Culture
+        {
+            get => Localize.Culture;
+            protected set => Localize.Culture = value;
+        }
+
         protected override void GetSettings(UIHelperBase helper)
         {
             var settings = new Settings();
             settings.OnSettingsUI(helper);
         }
+
+        public override string GetLocalizeString(string str, CultureInfo culture = null) => Localize.ResourceManager.GetString(str, culture ?? Culture);
 
         #region PATCHES
 
@@ -82,11 +91,11 @@ namespace BuildingSpawnPoints
         }
         private bool Patch_BuildingAI_CalculateSpawnPosition(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.CalculatePositionTranspiler), typeof(BuildingAI), nameof(BuildingAI.CalculateSpawnPosition), parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.CalculateSpawnPositionTranspiler), typeof(BuildingAI), nameof(BuildingAI.CalculateSpawnPosition), parameters);
         }
         private bool Patch_BuildingAI_CalculateUnspawnPosition(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.CalculatePositionTranspiler), typeof(BuildingAI), nameof(BuildingAI.CalculateUnspawnPosition), parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.CalculateUnpawnPositionTranspiler), typeof(BuildingAI), nameof(BuildingAI.CalculateUnspawnPosition), parameters);
         }
 
         #endregion
@@ -100,7 +109,9 @@ namespace BuildingSpawnPoints
 
         //public static void LoadAssetPanelOnLoadPostfix(LoadAssetPanel __instance, UIListBox ___m_SaveList) => ModsCommon.Patcher.LoadAssetPanelOnLoadPostfix<AssetDataExtension>(__instance, ___m_SaveList);
 
-        public static IEnumerable<CodeInstruction> CalculatePositionTranspiler(IEnumerable<CodeInstruction> instructions, MethodBase original)
+        public static IEnumerable<CodeInstruction> CalculateSpawnPositionTranspiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => CalculatePositionTranspiler(PointType.Spawn, instructions, original);
+        public static IEnumerable<CodeInstruction> CalculateUnpawnPositionTranspiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => CalculatePositionTranspiler(PointType.Unspawn, instructions, original);
+        private static IEnumerable<CodeInstruction> CalculatePositionTranspiler(PointType type, IEnumerable<CodeInstruction> instructions, MethodBase original)
         {
             var enumerator = instructions.GetEnumerator();
             while (enumerator.MoveNext())
@@ -116,6 +127,7 @@ namespace BuildingSpawnPoints
             }
 
             yield return new CodeInstruction(OpCodes.Nop) { labels = enumerator.Current.labels };
+            yield return new CodeInstruction(OpCodes.Ldc_I4, (int)type);
             yield return original.GetLDArg("buildingID");
             yield return original.GetLDArg("data");
             yield return original.GetLDArg("randomizer");
@@ -126,10 +138,10 @@ namespace BuildingSpawnPoints
             yield return new CodeInstruction(OpCodes.Ret);
         }
 
-        private static void GetPosition(ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
+        private static void GetPosition(PointType type, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
         {
             if (SingletonManager<Manager>.Instance[buildingID] is BuildingData buildingData)
-                buildingData.GetPosition(ref data, info, ref randomizer, out position, out target);
+                buildingData.GetPosition(type, ref data, info, ref randomizer, out position, out target);
             else
             {
                 position = data.CalculateSidewalkPosition(0f, 2f);

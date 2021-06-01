@@ -82,23 +82,32 @@ namespace BuildingSpawnPoints
         }
         private void SetPanel()
         {
-            Header.Text = $"Building #{Data.Id}";
+            ResetPanel();
 
+            ContentPanel.Content.StopLayout();
+
+            Header.Text = string.Format(BuildingSpawnPoints.Localize.Panel_Title, Data.Id);
             AddAddButton();
 
             foreach (var point in Data.Points)
                 AddPointPanel(point);
+
+            ContentPanel.Content.StartLayout();
         }
         private void ResetPanel()
         {
+            ContentPanel.Content.StopLayout();
+
             foreach (var component in ContentPanel.Content.components.ToArray())
                 ComponentPool.Free(component);
+
+            ContentPanel.Content.StartLayout();
         }
 
         private void AddAddButton()
         {
             AddButton = ComponentPool.Get<AddPointButton>(ContentPanel.Content);
-            AddButton.Text = "Add point";
+            AddButton.Text = BuildingSpawnPoints.Localize.Panel_AddPoint;
             AddButton.Init();
             AddButton.OnButtonClick += AddPoint;
         }
@@ -151,8 +160,9 @@ namespace BuildingSpawnPoints
             StopLayout();
 
             AddHeader();
-            AddPosition(0, "X");
-            AddPosition(2, "Z");
+            AddPointType();
+            AddPosition();
+            AddAngle();
 
             StartLayout();
 
@@ -172,26 +182,49 @@ namespace BuildingSpawnPoints
             Header.Init();
             Header.OnDelete += () => SingletonItem<SpawnPointsPanel>.Instance.DeletePoint(this);
         }
-        private void AddPosition(int i, string name)
+        private void AddPointType()
         {
-            var position = ComponentPool.Get<FloatPropertyPanel>(this);
-            position.Text = $"Position {name}";
-            position.Init();
-            position.UseWheel = true;
-            position.WheelStep = 1f;
-            position.Value = Point.Position[i];
-            position.OnValueChanged += (value) => PositionChanged(i, value);
+            var type = ComponentPool.Get<PointTypePropertyPanel>(this);
+            type.Text = BuildingSpawnPoints.Localize.Property_PointType;
+            type.Init();
+            type.SelectedObject = Point.Type;
+            type.OnSelectObjectChanged += (value) => Point.Type = value;
         }
-
-        private void PositionChanged(int i, float value)
+        private void AddPosition()
         {
-            var position = Point.Position;
-            position[i] = value;
-            Point.Position = position;
+            var position = ComponentPool.Get<Vector3PropertyPanel>(this);
+            position.Text = BuildingSpawnPoints.Localize.Property_Position;
+            position.WheelTip = true;
+            position.Init(0,2);
+            position.Value = Point.Position;
+            position.OnValueChanged += (value) => Point.Position = value;
+        }
+        private void AddAngle()
+        {
+            var angle = ComponentPool.Get<FloatPropertyPanel>(this);
+            angle.Text = BuildingSpawnPoints.Localize.Property_Angle;
+            angle.UseWheel = true;
+            angle.WheelStep = 1f;
+            angle.WheelTip = true;
+            angle.CheckMin = true;
+            angle.MinValue = -180;
+            angle.CheckMax = true;
+            angle.MaxValue = 180;
+            angle.CyclicalValue = true;
+            angle.Init();
+            angle.Value = Point.Angle;
+            angle.OnValueChanged += (float value) => Point.Angle = value;
         }
     }
     public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent> 
     {
         
+    }
+    public class PointTypePropertyPanel : EnumMultyPropertyPanel<PointType, PointTypePropertyPanel.PointTypeSegmented>
+    {
+        protected override bool IsEqual(PointType first, PointType second) => first == second;
+        protected override string GetDescription(PointType value) => value.Description<PointType, Mod>();
+
+        public class PointTypeSegmented : UIMultySegmented<PointType> { }
     }
 }

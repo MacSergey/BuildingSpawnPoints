@@ -130,12 +130,22 @@ namespace BuildingSpawnPoints
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
-            var overlayData = new OverlayData(cameraInfo) { Color = Colors.Orange, Width = 2f };
             var building = Tool.Data.Id.GetBuilding();
             foreach (var point in Tool.Data.Points)
             {
-                var position = point.GetAbsolutePosition(ref building);
-                position.RenderCircle(overlayData);
+                var color = point.Type switch
+                {
+                    PointType.None => Colors.Gray,
+                    PointType.Spawn => Colors.Green,
+                    PointType.Unspawn => Colors.Red,
+                    PointType.Both => Colors.Orange,
+                };
+
+                point.GetAbsolute(ref building, out var position, out var target);
+                position.RenderCircle(new OverlayData(cameraInfo) { Color = color, Width = 2f });
+
+                var direction = target - position;
+                new StraightTrajectory(position + direction, position + direction * 2f).Render(new OverlayData(cameraInfo) { Color = color });
             }
         }
     }
