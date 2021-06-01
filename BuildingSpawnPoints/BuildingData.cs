@@ -28,7 +28,7 @@ namespace BuildingSpawnPoints
         public void GetPosition(PointType type, ref Building data, VehicleInfo vehicle, ref Randomizer randomizer, out Vector3 position, out Vector3 target)
         {
             var vehicleType = vehicle.GetVehicleType();
-            var points = SpawnPoints.Where(p => (p.Type & type) != PointType.None && (p.VehicleType & vehicleType) != VehicleType.None).ToArray();
+            var points = SpawnPoints.Where(p => (p.Type & type) != PointType.None && (p.VehicleTypes & vehicleType) != VehicleType.None).ToArray();
 
             if (points.Length != 0)
             {
@@ -52,17 +52,17 @@ namespace BuildingSpawnPoints
     }
     public class BuildingSpawnPoint
     {
-        public VehicleType VehicleType { get; set; }
+        public VehicleType VehicleTypes { get; set; }
         public PointType Type { get; set; }
         public Vector3 Position { get; set; }
         public float Angle { get; set; }
 
-        public BuildingSpawnPoint(Vector3 position, float angle = 0f, VehicleType vehicleType = VehicleType.DefaultBuilding, PointType type = PointType.Both)
+        public BuildingSpawnPoint(Vector3 position, float angle = 0f, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both)
         {
             Fix(ref position);
             Init(position, angle, vehicleType, type);
         }
-        public BuildingSpawnPoint(Vector3 position, Vector3 target, VehicleType vehicleType = VehicleType.DefaultBuilding, PointType type = PointType.Both, bool invert = false)
+        public BuildingSpawnPoint(Vector3 position, Vector3 target, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both, bool invert = false)
         {
             Fix(ref position);
             Fix(ref target);
@@ -74,7 +74,7 @@ namespace BuildingSpawnPoints
         {
             Position = position;
             Angle = angle;
-            VehicleType = vehicleType;
+            VehicleTypes = vehicleType;
             Type = type;
         }
         private void Fix(ref Vector3 vector) => vector.z = -vector.z;
@@ -170,9 +170,9 @@ namespace BuildingSpawnPoints
             }
         }
 
-        public static VehicleType GetVehicleType(this BuildingInfo info)
+        public static VehicleType GetVehicleTypes(this BuildingInfo info)
         {
-            var type = VehicleType.DefaultBuilding;
+            var type = VehicleType.Default;
 
             switch (info.m_buildingAI)
             {
@@ -288,7 +288,7 @@ namespace BuildingSpawnPoints
 
         public static VehicleType GetVehicleType(this VehicleInfo.VehicleType vehicleType) => vehicleType switch
         {
-            VehicleInfo.VehicleType.Car => VehicleType.DefaultBuilding,
+            VehicleInfo.VehicleType.Car => VehicleType.Default,
             VehicleInfo.VehicleType.Metro => VehicleType.MetroTrain,
             VehicleInfo.VehicleType.Train => VehicleType.Trains,
             VehicleInfo.VehicleType.Ship => VehicleType.CargoShip | VehicleType.PassengerShip,
@@ -469,6 +469,10 @@ namespace BuildingSpawnPoints
         Trains = CargoTrain | PassengerTrain,
 
         [NotItem]
+        [Description(nameof(Localize.VehicleTypeGroup_Ships))]
+        Ships = CargoShip | PassengerShip,
+
+        [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Air))]
         Air = Planes | Copters | Balloon | PassengerBlimp,
 
@@ -509,10 +513,40 @@ namespace BuildingSpawnPoints
         PassengerRail = Passenger & Rail,
 
         [NotItem]
-        DefaultBuilding = Ambulance | Hearse | Police | Post | Taxi | GarbageTruck | CargoTruck | Disaster | MaintenanceTruck | SnowTruck,
+        [Description(nameof(Localize.VehicleTypeGroup_Default))]
+        Default = Ambulance | Hearse | Police | Post | Taxi | GarbageTruck | CargoTruck | Disaster | MaintenanceTruck | SnowTruck,
 
         [NotItem]
         [Description(nameof(Localize.VehicleType_All))]
         All = ulong.MaxValue,
+    }
+
+    public enum VehicleTypeGroupA : ulong
+    {
+        Trucks = VehicleType.Trucks,
+        Trains = VehicleType.Trains,
+        Planes = VehicleType.Planes,
+        Copters = VehicleType.Copters,
+        Ships = VehicleType.Ships,
+    }
+    public enum VehicleTypeGroupB : ulong
+    {
+        Road = VehicleType.Road,
+        Rail = VehicleType.Rail,
+        Air = VehicleType.Air,
+        Water = VehicleType.Water,
+    }
+    public enum VehicleTypeGroupC : ulong
+    {
+        Passenger = VehicleType.Passenger,
+        Service = VehicleType.Service,
+        Cargo = VehicleType.Cargo,
+    }
+    public enum VehicleTypeGroupD : ulong
+    {
+        PassengerRoad = VehicleType.PassengerRoad,
+        PassengerRail = VehicleType.PassengerRail,
+        PassengerAir = VehicleType.PassengerAir,
+        PassengerWater = VehicleType.PassengerWater,      
     }
 }

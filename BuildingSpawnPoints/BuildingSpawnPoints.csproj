@@ -94,7 +94,7 @@
     <Compile Include="DataExtensions.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Mod.cs" />
-    <Compile Include="Panel.cs" />
+    <Compile Include="UI\Panel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Localize.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -102,7 +102,10 @@
       <DependentUpon>Localize.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="UI\PointPanel.cs" />
+    <Compile Include="UI\SpawnPointsTextures.cs" />
     <Compile Include="Tool.cs" />
+    <Compile Include="UI\VehicleTypeProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -113,6 +116,9 @@
       <LastGenOutput>Localize.Designer.cs</LastGenOutput>
       <CustomToolNamespace>BuildingSpawnPoints</CustomToolNamespace>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HeaderButtons.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\CustomUIShared\CustomUIShared.projitems" Label="Shared" />

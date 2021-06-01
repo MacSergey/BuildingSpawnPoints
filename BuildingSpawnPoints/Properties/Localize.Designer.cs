@@ -70,6 +70,42 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add vehicle type.
+        /// </summary>
+        internal static string Panel_AddVehicle {
+            get {
+                return ResourceManager.GetString("Panel_AddVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add vehicle type group.
+        /// </summary>
+        internal static string Panel_AddVehicleGroup {
+            get {
+                return ResourceManager.GetString("Panel_AddVehicleGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {0}°.
+        /// </summary>
+        internal static string Panel_AngleFormat {
+            get {
+                return ResourceManager.GetString("Panel_AngleFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {0}m.
+        /// </summary>
+        internal static string Panel_PositionFormat {
+            get {
+                return ResourceManager.GetString("Panel_PositionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Building #{0}.
         /// </summary>
         internal static string Panel_Title {
@@ -93,15 +129,6 @@ namespace BuildingSpawnPoints {
         internal static string PointType_Unspawn {
             get {
                 return ResourceManager.GetString("PointType_Unspawn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Angle.
-        /// </summary>
-        internal static string Property_Angle {
-            get {
-                return ResourceManager.GetString("Property_Angle", resourceCulture);
             }
         }
         
@@ -511,7 +538,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Air vehicle.
+        ///   Ищет локализованную строку, похожую на Air vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Air {
             get {
@@ -520,7 +547,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Cargo vehicle.
+        ///   Ищет локализованную строку, похожую на Cargo vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Cargo {
             get {
@@ -538,7 +565,16 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Passenger vehicle.
+        ///   Ищет локализованную строку, похожую на Default vehicles.
+        /// </summary>
+        internal static string VehicleTypeGroup_Default {
+            get {
+                return ResourceManager.GetString("VehicleTypeGroup_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Passenger vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Passenger {
             get {
@@ -547,7 +583,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Passenger air vehicle.
+        ///   Ищет локализованную строку, похожую на Passenger air vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_PassengerAir {
             get {
@@ -556,7 +592,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Passenger rail vehicle.
+        ///   Ищет локализованную строку, похожую на Passenger rail vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_PassengerRail {
             get {
@@ -565,7 +601,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Passenger road vehicle.
+        ///   Ищет локализованную строку, похожую на Passenger road vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_PassengerRoad {
             get {
@@ -574,7 +610,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Passenger water vehicle.
+        ///   Ищет локализованную строку, похожую на Passenger water vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_PassengerWater {
             get {
@@ -592,7 +628,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Rail vehicle.
+        ///   Ищет локализованную строку, похожую на Rail vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Rail {
             get {
@@ -601,7 +637,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Road vehicle.
+        ///   Ищет локализованную строку, похожую на Road vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Road {
             get {
@@ -610,11 +646,20 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Service vehicle.
+        ///   Ищет локализованную строку, похожую на Service vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Service {
             get {
                 return ResourceManager.GetString("VehicleTypeGroup_Service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ships.
+        /// </summary>
+        internal static string VehicleTypeGroup_Ships {
+            get {
+                return ResourceManager.GetString("VehicleTypeGroup_Ships", resourceCulture);
             }
         }
         
@@ -637,7 +682,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Water vehicle.
+        ///   Ищет локализованную строку, похожую на Water vehicles.
         /// </summary>
         internal static string VehicleTypeGroup_Water {
             get {

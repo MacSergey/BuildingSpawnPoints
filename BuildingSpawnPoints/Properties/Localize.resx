@@ -120,6 +120,18 @@
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Add point</value>
   </data>
+  <data name="Panel_AddVehicle" xml:space="preserve">
+    <value>Add vehicle type</value>
+  </data>
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Add vehicle type group</value>
+  </data>
+  <data name="Panel_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
+  <data name="Panel_PositionFormat" xml:space="preserve">
+    <value>{0}m</value>
+  </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Building #{0}</value>
   </data>
@@ -128,9 +140,6 @@
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Unspawn</value>
-  </data>
-  <data name="Property_Angle" xml:space="preserve">
-    <value>Angle</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
@@ -145,40 +154,46 @@
     <value>Select building</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicle</value>
+    <value>Air vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicle</value>
+    <value>Cargo vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
     <value>Copters</value>
   </data>
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>Default vehicles</value>
+  </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicle</value>
+    <value>Passenger vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicle</value>
+    <value>Passenger air vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicle</value>
+    <value>Passenger rail vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicle</value>
+    <value>Passenger road vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicle</value>
+    <value>Passenger water vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Planes</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicle</value>
+    <value>Rail vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicle</value>
+    <value>Road vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicle</value>
+    <value>Service vehicles</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Ships</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
     <value>Trains</value>
@@ -187,7 +202,7 @@
     <value>Trucks</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicle</value>
+    <value>Water vehicles</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>All</value>
