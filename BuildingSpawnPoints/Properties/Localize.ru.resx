@@ -235,10 +235,10 @@
     <value>Грузовой поезд</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Грузовой автомобиль</value>
+    <value>Грузовик</value>
   </data>
   <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Эвакуация</value>
+    <value>Эвакуационный транспорт</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
     <value>Эвакуационный вертолет</value>
@@ -259,7 +259,7 @@
     <value>Катафалк</value>
   </data>
   <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Грузовик дорожных служб</value>
+    <value>Дорожная служба</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Поезд метро</value>
@@ -268,7 +268,7 @@
     <value>Монорельс</value>
   </data>
   <data name="VehicleType_Park" xml:space="preserve">
-    <value>Обслуживание парков</value>
+    <value>Парковая служба</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Пассажирский дирижабль</value>
@@ -316,6 +316,6 @@
     <value>Троллейбус</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Водооткачка</value>
+    <value>Насосная служба</value>
   </data>
 </root>

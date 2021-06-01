@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Add point</value>
+    <value>ポイントの追加</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Add vehicle type</value>
+    <value>車両のタイプを追加</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Add vehicle type group</value>
+    <value>車両のグループを追加</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -133,189 +133,189 @@
     <value>{0}m</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>建物 #{0} を選択中</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>出現</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>帰還</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>タイプ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Position</value>
+    <value>ポジション</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>建物 #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Select building</value>
+    <value>編集したい建物を選択</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
+    <value>航空車両</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicles</value>
+    <value>貨物車両</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Copters</value>
+    <value>ヘリコプター</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Default vehicles</value>
+    <value>デフォルトの車両</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicles</value>
+    <value>乗用車両</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicles</value>
+    <value>旅客飛行機</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicles</value>
+    <value>旅客鉄道</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicles</value>
+    <value>乗用車</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicles</value>
+    <value>旅客船舶</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Planes</value>
+    <value>飛行機</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
+    <value>鉄道車両</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
+    <value>道路車両</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicles</value>
+    <value>サービス車両</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Ships</value>
+    <value>船舶</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Trains</value>
+    <value>鉄道</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Trucks</value>
+    <value>トラック</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
+    <value>水上車両</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>All</value>
+    <value>すべて</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>救急車</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>救急ヘリ</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>気球</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Bicycle</value>
+    <value>自転車</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>バス</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>ケーブルカー</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Cargo plane</value>
+    <value>貨物飛行機</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Cargo ship</value>
+    <value>貨物船</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Cargo train</value>
+    <value>貨物列車</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Cargo truck</value>
+    <value>貨物トラック</value>
   </data>
   <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Disaster</value>
+    <value>災害救助車両</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster copter</value>
+    <value>災害救助ヘリ</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>消防ヘリ</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>消防車</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>漁船</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>ゴミ収集車</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
+    <value>霊柩車</value>
   </data>
   <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Maintenance truck</value>
+    <value>道路整備車両</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro train</value>
+    <value>地下鉄</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>モノレール</value>
   </data>
   <data name="VehicleType_Park" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>パーク整備車両</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>飛行船</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>旅客ヘリ</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>フェリー</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passenger plane</value>
+    <value>旅客飛行機</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passenger ship</value>
+    <value>旅客船</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>旅客鉄道</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>パトカー</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>警察ヘリ</value>
   </data>
   <data name="VehicleType_Post" xml:space="preserve">
-    <value>Post</value>
+    <value>郵便車両</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Private plane</value>
+    <value>軽飛行機</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Rocket</value>
+    <value>ロケット</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snow truck</value>
+    <value>除雪車</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>タクシー</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>トラム</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>トロリーバス</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Water truck</value>
+    <value>バキュームカー</value>
   </data>
 </root>

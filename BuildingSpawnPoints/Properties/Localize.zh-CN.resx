@@ -118,204 +118,204 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Add point</value>
+    <value>添加点</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Add vehicle type</value>
+    <value>添加载具类型</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Add vehicle type group</value>
+    <value>添加载具类型组</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
-    <value>{0}m</value>
+    <value>{0}米</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>建筑 #{0}</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>生成</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>取消生成</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>类型</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Position</value>
+    <value>位置</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>间住 #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Select building</value>
+    <value>选择建筑</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
+    <value>空中载具</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicles</value>
+    <value>货运载具</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Copters</value>
+    <value>直升机</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Default vehicles</value>
+    <value>默认载具</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicles</value>
+    <value>客用载具</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicles</value>
+    <value>客用空中载具</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicles</value>
+    <value>客用铁道载具</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicles</value>
+    <value>客用道路载具</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicles</value>
+    <value>客用水上载具</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Planes</value>
+    <value>飞机</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
+    <value>铁道载具</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
+    <value>道路载具</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicles</value>
+    <value>维护用载具</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Ships</value>
+    <value>船舶</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Trains</value>
+    <value>火车</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Trucks</value>
+    <value>货车</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
+    <value>水上载具</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>All</value>
+    <value>全部</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>救护车</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>救护直升机</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>热气球</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Bicycle</value>
+    <value>自行车</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>公交车</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>缆车</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Cargo plane</value>
+    <value>货运飞机</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Cargo ship</value>
+    <value>货运轮船</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Cargo train</value>
+    <value>货运列车</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Cargo truck</value>
+    <value>货运卡车</value>
   </data>
   <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Disaster</value>
+    <value>灾难</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster copter</value>
+    <value>灾难反应直升机</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>消防直升机</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>消防车</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>渔船</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>垃圾车</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
+    <value>灵车</value>
   </data>
   <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Maintenance truck</value>
+    <value>维护车</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro train</value>
+    <value>地铁列车</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>单轨列车</value>
   </data>
   <data name="VehicleType_Park" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>公园维护</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>载客飞艇</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>载客直升机</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>载客轮渡</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passenger plane</value>
+    <value>载客飞机</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passenger ship</value>
+    <value>载客轮船</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>载客列车</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>警察</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>警用直升机</value>
   </data>
   <data name="VehicleType_Post" xml:space="preserve">
-    <value>Post</value>
+    <value>邮政</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Private plane</value>
+    <value>私人飞机</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Rocket</value>
+    <value>火箭</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snow truck</value>
+    <value>除雪车</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>出租车</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>有轨电车</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>无轨电车</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Water truck</value>
+    <value>水泵车</value>
   </data>
 </root>
