@@ -223,7 +223,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на CableCar.
+        ///   Ищет локализованную строку, похожую на Cable car.
         /// </summary>
         internal static string VehicleType_CableCar {
             get {
@@ -340,15 +340,6 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Meteor.
-        /// </summary>
-        internal static string VehicleType_Meteor {
-            get {
-                return ResourceManager.GetString("VehicleType_Meteor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Metro train.
         /// </summary>
         internal static string VehicleType_MetroTrain {
@@ -363,15 +354,6 @@ namespace BuildingSpawnPoints {
         internal static string VehicleType_Monorail {
             get {
                 return ResourceManager.GetString("VehicleType_Monorail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на None.
-        /// </summary>
-        internal static string VehicleType_None {
-            get {
-                return ResourceManager.GetString("VehicleType_None", resourceCulture);
             }
         }
         
@@ -516,15 +498,6 @@ namespace BuildingSpawnPoints {
         internal static string VehicleType_Trolleybus {
             get {
                 return ResourceManager.GetString("VehicleType_Trolleybus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Vortex.
-        /// </summary>
-        internal static string VehicleType_Vortex {
-            get {
-                return ResourceManager.GetString("VehicleType_Vortex", resourceCulture);
             }
         }
         

@@ -296,8 +296,6 @@ namespace BuildingSpawnPoints
             VehicleInfo.VehicleType.Bicycle => VehicleType.Bicycle,
             VehicleInfo.VehicleType.Tram => VehicleType.Tram,
             VehicleInfo.VehicleType.Helicopter => VehicleType.Copters,
-            VehicleInfo.VehicleType.Meteor => VehicleType.Meteor,
-            VehicleInfo.VehicleType.Vortex => VehicleType.Vortex,
             VehicleInfo.VehicleType.Ferry => VehicleType.PassengerFerry,
             VehicleInfo.VehicleType.Monorail => VehicleType.Monorail,
             VehicleInfo.VehicleType.CableCar => VehicleType.CableCar,
@@ -305,6 +303,7 @@ namespace BuildingSpawnPoints
             VehicleInfo.VehicleType.Balloon => VehicleType.Balloon,
             VehicleInfo.VehicleType.Rocket => VehicleType.Rocket,
             VehicleInfo.VehicleType.Trolleybus => VehicleType.Trolleybus,
+            _ => VehicleType.Default,
         };
     }
     public static class BuildingExtension
@@ -315,7 +314,6 @@ namespace BuildingSpawnPoints
     public enum VehicleType : ulong
     {
         [NotItem]
-        [Description(nameof(Localize.VehicleType_None))]
         None = 0ul,
 
 
@@ -434,17 +432,11 @@ namespace BuildingSpawnPoints
 
 
 
-        [Description(nameof(Localize.VehicleType_Meteor))]
-        Meteor = 1ul << 35,
-
-        [Description(nameof(Localize.VehicleType_Vortex))]
-        Vortex = 1ul << 36,
-
         [Description(nameof(Localize.VehicleType_Rocket))]
-        Rocket = 1ul << 37,
+        Rocket = 1ul << 35,
 
         [Description(nameof(Localize.VehicleType_CableCar))]
-        CableCar = 1ul << 38,
+        CableCar = 1ul << 36,
 
 
 
