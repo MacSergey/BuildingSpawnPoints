@@ -12,7 +12,7 @@ namespace BuildingSpawnPoints
     {
         protected override void OnSettingsUI()
         {
-            //AddLanguage(GeneralTab);
+            AddLanguage(GeneralTab);
 
 
             var generalGroup = GeneralTab.AddGroup("General");

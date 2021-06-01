@@ -14,7 +14,7 @@ namespace BuildingSpawnPoints
 {
     public class SpawnPointsTool : BaseTool<Mod, SpawnPointsTool, ToolModeType>
     {
-        public static SpawnPointsShortcut ActivationShortcut { get; } = new SpawnPointsShortcut(nameof(ActivationShortcut), "Activate", SavedInputKey.Encode(KeyCode.P, true, false, false));
+        public static SpawnPointsShortcut ActivationShortcut { get; } = new SpawnPointsShortcut(nameof(ActivationShortcut), nameof(Localize.Settings_ShortcutActivateTool), SavedInputKey.Encode(KeyCode.P, true, false, false));
 
         public override Shortcut Activation => ActivationShortcut;
         protected override bool ShowToolTip => true;

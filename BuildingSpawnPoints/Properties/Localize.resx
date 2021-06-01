@@ -147,6 +147,9 @@
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
   </data>
+  <data name="Settings_ShortcutActivateTool" xml:space="preserve">
+    <value>Activate tool</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Building #{0}</value>
   </data>
