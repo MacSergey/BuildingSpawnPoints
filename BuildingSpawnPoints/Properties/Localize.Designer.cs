@@ -151,15 +151,6 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Activate tool.
-        /// </summary>
-        internal static string Settings_ShortcutActivateTool {
-            get {
-                return ResourceManager.GetString("Settings_ShortcutActivateTool", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Building #{0}.
         /// </summary>
         internal static string Tool_InfoHoverBuilding {

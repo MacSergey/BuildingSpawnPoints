@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Resources;
 using System.Text;
 using UnityEngine;
 
@@ -38,20 +39,14 @@ namespace BuildingSpawnPoints
         public override bool IsBeta => false;
 #endif
         #endregion
-
-        public override CultureInfo Culture
-        {
-            get => Localize.Culture;
-            protected set => Localize.Culture = value;
-        }
+        protected override ResourceManager LocalizeManager => Localize.ResourceManager;
 
         protected override void GetSettings(UIHelperBase helper)
         {
             var settings = new Settings();
             settings.OnSettingsUI(helper);
         }
-
-        public override string GetLocalizeString(string str, CultureInfo culture = null) => Localize.ResourceManager.GetString(str, culture ?? Culture);
+        protected override void SetCulture(CultureInfo culture) => Localize.Culture = culture;
 
         #region PATCHES
 
