@@ -87,7 +87,10 @@ namespace BuildingSpawnPoints
 
                 if (SpawnPointsTool.RayCast(input, out var output))
                 {
-                    HoverBuildingId = output.m_building;
+                    if (output.m_building.GetBuilding().m_flags.IsSet(Building.Flags.Untouchable))
+                        HoverBuildingId = Building.FindParentBuilding(output.m_building);
+                    else
+                        HoverBuildingId = output.m_building;
                     return;
                 }
             }
@@ -109,14 +112,23 @@ namespace BuildingSpawnPoints
         public override string GetToolInfo()
         {
             if (IsHoverBuilding)
-                return $"Building #{HoverBuildingId}";
+                return string.Format(Localize.Tool_InfoHoverBuilding, HoverBuildingId);
             else
-                return "Select building";
+                return Localize.Tool_InfoSelectBuilding;
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
             if (IsHoverBuilding)
-                BuildingTool.RenderOverlay(cameraInfo, ref HoverBuildingId.GetBuilding(), Colors.Blue, Colors.Red);
+            {
+                var building = HoverBuildingId.GetBuilding();
+                BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Blue, Colors.Red);
+
+                while(building.m_subBuilding != 0)
+                {
+                    building = building.m_subBuilding.GetBuilding();
+                    BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Blue, Colors.Red);
+                }
+            }
         }
     }
     public class EditSpawnPointsMode : SpawnPointsToolMode

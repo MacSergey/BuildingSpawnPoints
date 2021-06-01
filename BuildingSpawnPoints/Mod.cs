@@ -27,8 +27,8 @@ namespace BuildingSpawnPoints
             new Version(1,0)
         };
 
-        protected override ulong StableWorkshopId => 0ul;
-        protected override ulong BetaWorkshopId => 0ul;
+        protected override ulong StableWorkshopId => 2504315382ul;
+        protected override ulong BetaWorkshopId => 2504315382ul;
 
         protected override string IdRaw => nameof(BuildingSpawnPoints);
 

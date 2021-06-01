@@ -124,6 +124,24 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Building #{0}.
+        /// </summary>
+        internal static string Tool_InfoHoverBuilding {
+            get {
+                return ResourceManager.GetString("Tool_InfoHoverBuilding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select building.
+        /// </summary>
+        internal static string Tool_InfoSelectBuilding {
+            get {
+                return ResourceManager.GetString("Tool_InfoSelectBuilding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на All.
         /// </summary>
         internal static string VehicleType_All {
@@ -174,6 +192,15 @@ namespace BuildingSpawnPoints {
         internal static string VehicleType_Bus {
             get {
                 return ResourceManager.GetString("VehicleType_Bus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на CableCar.
+        /// </summary>
+        internal static string VehicleType_CableCar {
+            get {
+                return ResourceManager.GetString("VehicleType_CableCar", resourceCulture);
             }
         }
         
@@ -286,11 +313,29 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Meteor.
+        /// </summary>
+        internal static string VehicleType_Meteor {
+            get {
+                return ResourceManager.GetString("VehicleType_Meteor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Metro train.
         /// </summary>
         internal static string VehicleType_MetroTrain {
             get {
                 return ResourceManager.GetString("VehicleType_MetroTrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Monorail.
+        /// </summary>
+        internal static string VehicleType_Monorail {
+            get {
+                return ResourceManager.GetString("VehicleType_Monorail", resourceCulture);
             }
         }
         
@@ -403,6 +448,15 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Rocket.
+        /// </summary>
+        internal static string VehicleType_Rocket {
+            get {
+                return ResourceManager.GetString("VehicleType_Rocket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Snow truck.
         /// </summary>
         internal static string VehicleType_SnowTruck {
@@ -435,6 +489,15 @@ namespace BuildingSpawnPoints {
         internal static string VehicleType_Trolleybus {
             get {
                 return ResourceManager.GetString("VehicleType_Trolleybus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Vortex.
+        /// </summary>
+        internal static string VehicleType_Vortex {
+            get {
+                return ResourceManager.GetString("VehicleType_Vortex", resourceCulture);
             }
         }
         

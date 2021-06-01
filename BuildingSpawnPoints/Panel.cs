@@ -160,6 +160,7 @@ namespace BuildingSpawnPoints
             StopLayout();
 
             AddHeader();
+            AddVehicleType();
             AddPointType();
             AddPosition();
             AddAngle();
@@ -172,6 +173,9 @@ namespace BuildingSpawnPoints
         {
             base.DeInit();
 
+            foreach (var component in components.ToArray())
+                ComponentPool.Free(component);
+
             Point = null;
             Header = null;
         }
@@ -181,6 +185,11 @@ namespace BuildingSpawnPoints
             Header = ComponentPool.Get<PointHeaderPanel>(this, nameof(Header));
             Header.Init();
             Header.OnDelete += () => SingletonItem<SpawnPointsPanel>.Instance.DeletePoint(this);
+        }
+        private void AddVehicleType()
+        {
+            var vehicle = ComponentPool.Get<VehicleTypePropertyPanel>(this);
+            vehicle.Init(Point.VehicleType);
         }
         private void AddPointType()
         {
@@ -195,7 +204,7 @@ namespace BuildingSpawnPoints
             var position = ComponentPool.Get<Vector3PropertyPanel>(this);
             position.Text = BuildingSpawnPoints.Localize.Property_Position;
             position.WheelTip = true;
-            position.Init(0,2);
+            position.Init(0, 2);
             position.Value = Point.Position;
             position.OnValueChanged += (value) => Point.Position = value;
         }
@@ -216,9 +225,9 @@ namespace BuildingSpawnPoints
             angle.OnValueChanged += (float value) => Point.Angle = value;
         }
     }
-    public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent> 
+    public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent>
     {
-        
+
     }
     public class PointTypePropertyPanel : EnumMultyPropertyPanel<PointType, PointTypePropertyPanel.PointTypeSegmented>
     {
@@ -226,5 +235,120 @@ namespace BuildingSpawnPoints
         protected override string GetDescription(PointType value) => value.Description<PointType, Mod>();
 
         public class PointTypeSegmented : UIMultySegmented<PointType> { }
+    }
+    public class VehicleTypePropertyPanel : EditorItem, IReusable
+    {
+        bool IReusable.InCache { get; set; }
+
+        private Dictionary<VehicleType, VehicleItem> Items = new Dictionary<VehicleType, VehicleItem>();
+        private float Padding => 5f;
+
+        public void Init(VehicleType types)
+        {
+            foreach (var type in EnumExtension.GetEnumValues<VehicleType>(t => t.IsItem() && (t & types) != VehicleType.None))
+                AddItem(type);
+
+            FitItems();
+        }
+        void IReusable.DeInit()
+        {
+            foreach (var component in components.ToArray())
+                ComponentPool.Free(component);
+
+            Items.Clear();
+        }
+
+        private void AddItem(VehicleType type)
+        {
+            var item = ComponentPool.Get<VehicleItem>(this);
+            item.Init(type);
+            Items.Add(type, item);
+        }
+        public void AddType(VehicleType type)
+        {
+            if (!Items.ContainsKey(type))
+                AddItem(type);
+        }
+
+
+        private void FitItems()
+        {
+            var prev = default(VehicleItem);
+
+            foreach (var item in Items.Values)
+            {
+                if (prev == null)
+                    item.relativePosition = new Vector2(Padding, Padding);
+                else if (prev.relativePosition.x + prev.width + item.width + Padding * 2 < width)
+                    item.relativePosition = prev.relativePosition + new Vector3(prev.width + Padding, 0f);
+                else
+                    item.relativePosition = new Vector2(Padding, prev.relativePosition.y + prev.height + Padding);
+
+                prev = item;
+            }
+
+            if (prev != null)
+                height = prev.relativePosition.y + prev.height + Padding;
+            else
+                height = 30f;
+        }
+
+        protected override void OnSizeChanged()
+        {
+            base.OnSizeChanged();
+            FitItems();
+        }
+    }
+    public class VehicleItem : UIAutoLayoutPanel, IReusable
+    {
+        public event Action OnDelete;
+
+        bool IReusable.InCache { get; set; }
+
+        private CustomUILabel Label { get; }
+        private CustomUIButton Button { get; }
+
+        public VehicleType Type { get; private set; }
+
+        public VehicleItem()
+        {
+            height = 20f;
+            autoLayoutDirection = LayoutDirection.Horizontal;
+            autoFitChildrenHorizontally = true;
+
+            atlas = CommonTextures.Atlas;
+            backgroundSprite = CommonTextures.FieldNormal;
+
+            StopLayout();
+
+            Label = AddUIComponent<CustomUILabel>();
+            Label.autoSize = true;
+            Label.wordWrap = false;
+            Label.textScale = 0.8f;
+            Label.verticalAlignment = UIVerticalAlignment.Middle;
+            Label.padding = new RectOffset(4, 0, 4, 0);
+
+            Button = AddUIComponent<CustomUIButton>();
+            Button.size = new Vector2(20f, 20f);
+            Button.text = "×";
+            Button.textScale = 1.2f;
+            Button.textPadding = new RectOffset(0, 0, 0, 0);
+            Button.textColor = new Color32(204, 204, 204, 255);
+            Button.pressedColor = new Color32(224, 224, 224, 255);
+            Button.eventClick += (_, _) => OnDelete?.Invoke();
+
+            StartLayout();
+        }
+        public void Init(VehicleType type)
+        {
+            Type = type;
+            Label.text = type.Description<VehicleType, Mod>();
+        }
+
+        void IReusable.DeInit()
+        {
+            Label.text = string.Empty;
+            OnDelete = null;
+        }
     }
 }
