@@ -223,7 +223,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Cable car.
+        ///   Ищет локализованную строку, похожую на CableCar.
         /// </summary>
         internal static string VehicleType_CableCar {
             get {
@@ -502,7 +502,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Water truck.
+        ///   Ищет локализованную строку, похожую на Pump truck.
         /// </summary>
         internal static string VehicleType_WaterTruck {
             get {
