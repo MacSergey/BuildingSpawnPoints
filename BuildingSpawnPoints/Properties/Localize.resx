@@ -223,7 +223,7 @@
     <value>Bus</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>CableCar</value>
+    <value>Cable car</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
     <value>Cargo plane</value>

@@ -223,7 +223,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на CableCar.
+        ///   Ищет локализованную строку, похожую на Cable car.
         /// </summary>
         internal static string VehicleType_CableCar {
             get {
