@@ -223,7 +223,7 @@
     <value>Bus</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>CableCar</value>
+    <value>Cable car</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
     <value>Cargo plane</value>
@@ -261,17 +261,11 @@
   <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
     <value>Maintenance truck</value>
   </data>
-  <data name="VehicleType_Meteor" xml:space="preserve">
-    <value>Meteor</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Metro train</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>Monorail</value>
-  </data>
-  <data name="VehicleType_None" xml:space="preserve">
-    <value>None</value>
   </data>
   <data name="VehicleType_Park" xml:space="preserve">
     <value>Park maintenance</value>
@@ -320,9 +314,6 @@
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Trolleybus</value>
-  </data>
-  <data name="VehicleType_Vortex" xml:space="preserve">
-    <value>Vortex</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
     <value>Water truck</value>
