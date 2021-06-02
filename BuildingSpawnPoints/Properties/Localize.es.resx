@@ -265,7 +265,7 @@
     <value>Monorraíl</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Mantenimiento de parques</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Globo aerostático</value>
@@ -292,7 +292,7 @@
     <value>Helicóptero de policía</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>Servicio Postal</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Avión privado</value>
