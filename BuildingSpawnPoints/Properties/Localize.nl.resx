@@ -160,7 +160,7 @@
     <value>Vrachtvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Copters</value>
+    <value>Helikopters</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Standaard voertuigen</value>
@@ -169,142 +169,142 @@
     <value>Passagiersvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicles</value>
+    <value>Passagiersluchtvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicles</value>
+    <value>Passagiersspoorvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicles</value>
+    <value>Passagierswegvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicles</value>
+    <value>Passagierswatervoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Planes</value>
+    <value>Vliegtuigen</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
+    <value>Spoorvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
+    <value>Wegvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicles</value>
+    <value>Servicevoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Ships</value>
+    <value>Schepen</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Trains</value>
+    <value>Treinen</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Trucks</value>
+    <value>Vrachtwagens</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
+    <value>Watervoertuigen</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>All</value>
+    <value>Alle</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulance</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>Traumahelikopter</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>Ballon</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Bicycle</value>
+    <value>Fiets</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Bus</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>Kabelbaan</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Cargo plane</value>
+    <value>Vrachtvliegtuig</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Cargo ship</value>
+    <value>Vrachtschip</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Cargo train</value>
+    <value>Vrachttrein</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Cargo truck</value>
-  </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Disaster</value>
+    <value>Vrachtwagen</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster copter</value>
+    <value>Reddingshelikopter</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>Blushelikopter</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>Brandweerwagen</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>Vissersboot</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>Vuilniswagen</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
-  </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Maintenance truck</value>
+    <value>Lijkwagen</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro train</value>
+    <value>Metro</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>Monorail</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
     <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>Passagierszeppelin</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>Passagiershelikopter</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>Veerboot</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passenger plane</value>
+    <value>Passagiersvliegtuig</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passenger ship</value>
+    <value>Passagiersschip</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>Passagierstrein</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>Politie</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>Politiehelikopter</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
+  <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Private plane</value>
+    <value>Privévliegtuig</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Road maintenance</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Rocket</value>
+    <value>Raket</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snow truck</value>
+    <value>Sneeuwschuiver</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
     <value>Taxi</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Trolleybus</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Pump truck</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vacuum truck</value>
   </data>
 </root>

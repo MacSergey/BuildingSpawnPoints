@@ -237,11 +237,11 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>貨物トラック</value>
   </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>災害救助車両</value>
-  </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
     <value>災害救助ヘリ</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>消防ヘリ</value>
@@ -258,17 +258,14 @@
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>霊柩車</value>
   </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>道路整備車両</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>地下鉄</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>モノレール</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
-    <value>パーク整備車両</value>
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
+    <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>飛行船</value>
@@ -294,11 +291,14 @@
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>警察ヘリ</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
-    <value>郵便車両</value>
+  <data name="VehicleType_PostTruck" xml:space="preserve">
+    <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>軽飛行機</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Road maintenance</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>ロケット</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>トロリーバス</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>バキュームカー</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vacuum truck</value>
   </data>
 </root>

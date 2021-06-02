@@ -237,11 +237,11 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>Rahtirekka</value>
   </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Katastrofit</value>
-  </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
     <value>Katastrofiapuhelikopterit</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Palohelikopterit</value>
@@ -258,17 +258,14 @@
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>Ruumisautot</value>
   </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Huoltoautot</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Metrot</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>Yksiraiteiset</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
-    <value>Puiston kunnossapito</value>
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
+    <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Ilmalaivat</value>
@@ -294,11 +291,14 @@
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>Poliisihelikopterit</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
-    <value>Posti</value>
+  <data name="VehicleType_PostTruck" xml:space="preserve">
+    <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Yksityislentokoneet</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Road maintenance</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Avaruusraketit</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Johdinautot</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Pumppuautot</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vacuum truck</value>
   </data>
 </root>

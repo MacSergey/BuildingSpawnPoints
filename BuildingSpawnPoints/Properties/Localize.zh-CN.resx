@@ -237,11 +237,11 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>货运卡车</value>
   </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>灾难</value>
-  </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
     <value>灾难反应直升机</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>消防直升机</value>
@@ -258,17 +258,14 @@
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>灵车</value>
   </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>维护车</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>地铁列车</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>单轨列车</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
-    <value>公园维护</value>
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
+    <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>载客飞艇</value>
@@ -294,11 +291,14 @@
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>警用直升机</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
-    <value>邮政</value>
+  <data name="VehicleType_PostTruck" xml:space="preserve">
+    <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>私人飞机</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Road maintenance</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>火箭</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>无轨电车</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>水泵车</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vacuum truck</value>
   </data>
 </root>

@@ -223,7 +223,7 @@
     <value>Автобус</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Канатная дорога</value>
+    <value>Фуникулер</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
     <value>Грузовой самолет</value>
@@ -237,17 +237,17 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>Грузовик</value>
   </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Эвакуационный транспорт</value>
-  </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
     <value>Эвакуационный вертолет</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Служба спасения</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Пожарный вертолет</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Пожарный автомобиль</value>
+    <value>Пожарные</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
     <value>Рыболовецкое судно</value>
@@ -258,16 +258,13 @@
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>Катафалк</value>
   </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Дорожная служба</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Поезд метро</value>
+    <value>Метро</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>Монорельс</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
     <value>Парковая служба</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
@@ -294,11 +291,14 @@
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>Полицейский вертолет</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
+  <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Почта</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Частный самолет</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Дорожная служба</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Ракета</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Троллейбус</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Насосная служба</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Вакуумная машина</value>
   </data>
 </root>
