@@ -237,11 +237,11 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>Camion de marchandises</value>
   </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Catastrophe</value>
-  </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
     <value>Hélicoptère de catastrophes</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Hélicopère de pompiers</value>
@@ -258,17 +258,14 @@
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>Corbillards</value>
   </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Camions d'entretien</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Métro</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>Monorail</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
-    <value>Maintenance des parcs</value>
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
+    <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Dirigeable</value>
@@ -294,11 +291,14 @@
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>Hélicoptères de police</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
-    <value>La Poste</value>
+  <data name="VehicleType_PostTruck" xml:space="preserve">
+    <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Avions privés</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Road maintenance</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Fusée</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Trolleybus</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Camions de pompage des eaux</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vacuum truck</value>
   </data>
 </root>
