@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Add point</value>
+    <value>Punt toevoegen</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Add vehicle type</value>
+    <value>Voertuigtype toevoegen</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Add vehicle type group</value>
+    <value>Voertuigtypegroep toevoegen</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -133,40 +133,40 @@
     <value>{0}m</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Gebouw #{0}</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Startpunt</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>Eindpunt</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Position</value>
+    <value>Positie</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Gebouw #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Select building</value>
+    <value>Selecteer gebouw</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
+    <value>Luchtvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicles</value>
+    <value>Vrachtvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
     <value>Copters</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Default vehicles</value>
+    <value>Standaard voertuigen</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicles</value>
+    <value>Passagiersvoertuigen</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
     <value>Passenger air vehicles</value>
