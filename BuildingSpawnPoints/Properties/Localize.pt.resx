@@ -316,6 +316,6 @@
     <value>Trolleybus</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Water truck</value>
+    <value>Pump truck</value>
   </data>
 </root>

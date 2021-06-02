@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Add point</value>
+    <value>Punkt hinzufügen</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Add vehicle type</value>
+    <value>Fahrzeugtyp hinzufügen</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Add vehicle type group</value>
+    <value>Fahrzeugtypen-Gruppe hinzufügen</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -133,189 +133,189 @@
     <value>{0}m</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Gebäude #{0}</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Startpunkt</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>Zielpunkt</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>Typ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Gebäude #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Select building</value>
+    <value>Gebäude auswählen</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
+    <value>Luftfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicles</value>
+    <value>Frachtfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Copters</value>
+    <value>Hubschrauber</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Default vehicles</value>
+    <value>Standardfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicles</value>
+    <value>PKW</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicles</value>
+    <value>Passagierluftfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicles</value>
+    <value>Schienenfahrzeuge mit Personenverkehr</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicles</value>
+    <value>Straßenfahrzeuge mit Personenverkehr</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicles</value>
+    <value>Schiffe mit Personenverkehr</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Planes</value>
+    <value>Flugzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
+    <value>Schienenfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
+    <value>Straßenfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicles</value>
+    <value>Dienstfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Ships</value>
+    <value>Schiffe</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Trains</value>
+    <value>Züge</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Trucks</value>
+    <value>Lastwagen</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
+    <value>Wasserfahrzeuge</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>All</value>
+    <value>Alle</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>Rettungswagen</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>Rettungshubschrauber</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>Heißluftballone</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Bicycle</value>
+    <value>Fahrräder</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>Busse</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>Seilbahnen</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Cargo plane</value>
+    <value>Frachtflugzeuge</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Cargo ship</value>
+    <value>Frachtschiffe</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Cargo train</value>
+    <value>Güterzüge</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Cargo truck</value>
+    <value>Güterlastwagen</value>
   </data>
   <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Disaster</value>
+    <value>Katastrophenschutz</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster copter</value>
+    <value>Katastrophenschutz-Hubschrauber</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>Feuerwehr-Hubschrauber</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>Feuerwehrfahrzeug</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>Fischerboote</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>Müllwagen</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
+    <value>Leichenwagen</value>
   </data>
   <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Maintenance truck</value>
+    <value>Straßenmeisterei-Fahrzeug</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro train</value>
+    <value>U-Bahn-Zug</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>Schwebebahn</value>
   </data>
   <data name="VehicleType_Park" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Parkpflege</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>Passagier-Luftschiff</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>Passagier-Hubschrauber</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>Passagier-Fähre</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passenger plane</value>
+    <value>Passagierflugzeuge</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passenger ship</value>
+    <value>Passagier-Schiffe</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>Personenzug</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>Polizei</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>Polizei-Hubschrauber</value>
   </data>
   <data name="VehicleType_Post" xml:space="preserve">
     <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Private plane</value>
+    <value>Privatflugzeug</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Rocket</value>
+    <value>Rakete</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snow truck</value>
+    <value>Räumfahrzeug</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>Taxis</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>Straßenbahn</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>Oberleitungsbusse</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Water truck</value>
+    <value>Pumpenwagen</value>
   </data>
 </root>

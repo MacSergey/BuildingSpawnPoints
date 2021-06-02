@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Add point</value>
+    <value>Lisää piste</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Add vehicle type</value>
+    <value>Lisää ajoneuvon tyyppi</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Add vehicle type group</value>
+    <value>Lisää ajoneuvon tyyppi ryhmään</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -133,189 +133,189 @@
     <value>{0}m</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Rakennus #{0}</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Uloskäynti</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>Sisäänkäynti</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>Tyyppi</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Position</value>
+    <value>Sijainti</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Rakennus #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Select building</value>
+    <value>Valitse rakennus</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
+    <value>Ilma-alukset</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicles</value>
+    <value>Rahtiajoneuvot</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Copters</value>
+    <value>Helikopterit</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Default vehicles</value>
+    <value>Oletusarvoiset ajoneuvot</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicles</value>
+    <value>Matkustaja-ajoneuvot</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicles</value>
+    <value>Matkustajailma-alukset</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicles</value>
+    <value>Matkustajaraideliikenne</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicles</value>
+    <value>Matkustajaliikenne</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicles</value>
+    <value>Matkustajavesiliikenne</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Planes</value>
+    <value>Lentokoneet</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
+    <value>Raideliikenne</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
+    <value>Tieliikenne</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicles</value>
+    <value>Huoltoajoneuvot</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Ships</value>
+    <value>Laivat</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Trains</value>
+    <value>Junat</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Trucks</value>
+    <value>Rekat</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
+    <value>Vesiliikenne</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>All</value>
+    <value>Kaikki</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>Ambulanssit</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>Pelastushelikopterit</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>Kuumailmapallot</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Bicycle</value>
+    <value>Polkupyörät</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>Linja-autot</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>Köysiradan vaunut</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Cargo plane</value>
+    <value>Rahtilentokoneet</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Cargo ship</value>
+    <value>Rahtilaivat</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Cargo train</value>
+    <value>Rahtijunat</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Cargo truck</value>
+    <value>Rahtirekka</value>
   </data>
   <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Disaster</value>
+    <value>Katastrofit</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster copter</value>
+    <value>Katastrofiapuhelikopterit</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>Palohelikopterit</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>Paloautot</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>Kalastusalukset</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>Roska-autot</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
+    <value>Ruumisautot</value>
   </data>
   <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Maintenance truck</value>
+    <value>Huoltoautot</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro train</value>
+    <value>Metrot</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>Yksiraiteiset</value>
   </data>
   <data name="VehicleType_Park" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Puiston kunnossapito</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>Ilmalaivat</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>Matkustajahelikopterit</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>Matkustajalautat</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passenger plane</value>
+    <value>Matkustajalentokoneet</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passenger ship</value>
+    <value>Matkustajalaivat</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>Matkustajajunat</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>Poliisiautot</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>Poliisihelikopterit</value>
   </data>
   <data name="VehicleType_Post" xml:space="preserve">
-    <value>Post</value>
+    <value>Posti</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Private plane</value>
+    <value>Yksityislentokoneet</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Rocket</value>
+    <value>Avaruusraketit</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snow truck</value>
+    <value>Aura-autot</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>Taksit</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>Raitiovaunut</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>Johdinautot</value>
   </data>
   <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Water truck</value>
+    <value>Pumppuautot</value>
   </data>
 </root>
