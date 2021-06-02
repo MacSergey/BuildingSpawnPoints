@@ -483,7 +483,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Trucks))]
-        Trucks = CargoTruck | FireTruck | SnowTruck | WaterTruck | GarbageTruck | RoadTruck,
+        Trucks = CargoTruck | FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Road))]

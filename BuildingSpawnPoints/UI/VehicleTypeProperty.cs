@@ -64,18 +64,36 @@ namespace BuildingSpawnPoints.UI
         }
         private void FitItems()
         {
+            var items = Items.Values.OrderBy(i => i.width).ToList();
             var prev = default(VehicleItem);
 
-            foreach (var item in Items.Values)
+            for(var i = items.Count - 1; i >= 0; i -= 1 )
             {
                 if (prev == null)
-                    item.relativePosition = new Vector2(Padding, Padding);
-                else if (prev.relativePosition.x + prev.width + item.width + Padding * 2 < width)
-                    item.relativePosition = prev.relativePosition + new Vector3(prev.width + Padding, 0f);
+                {
+                    items[i].relativePosition = new Vector2(Padding, Padding);
+                    prev = items[i];
+                    items.RemoveAt(i);
+                }
                 else
-                    item.relativePosition = new Vector2(Padding, prev.relativePosition.y + prev.height + Padding);
+                {
+                    var j = i;
+                    while (j >= 0 && prev.relativePosition.x + prev.width + items[j].width + Padding * 2 > width)
+                        j -= 1;
 
-                prev = item;
+                    if(j >= 0)
+                    {
+                        items[j].relativePosition = prev.relativePosition + new Vector3(prev.width + Padding, 0f);
+                        prev = items[j];
+                        items.RemoveAt(j);
+                    }
+                    else
+                    {
+                        items[i].relativePosition = new Vector2(Padding, prev.relativePosition.y + prev.height + Padding);
+                        prev = items[i];
+                        items.RemoveAt(i);
+                    }
+                }
             }
 
             if (prev != null)

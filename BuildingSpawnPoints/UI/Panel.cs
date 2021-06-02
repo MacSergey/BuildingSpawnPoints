@@ -32,7 +32,7 @@ namespace BuildingSpawnPoints.UI
             CreateContent();
             CreateSizeChanger();
 
-            minimumSize = GetSize(200f, 200f);
+            minimumSize = GetSize(300f, 200f);
         }
         public override void Start()
         {
