@@ -117,14 +117,14 @@ namespace BuildingSpawnPoints
             {typeof(FireTruckAI),VehicleType.FireTruck },
             {typeof(GarbageTruckAI),VehicleType.GarbageTruck },
             {typeof(HearseAI),VehicleType.Hearse },
-            {typeof(MaintenanceTruckAI),VehicleType.MaintenanceTruck },
-            {typeof(ParkMaintenanceVehicleAI),VehicleType.Park },
+            {typeof(MaintenanceTruckAI),VehicleType.RoadTruck },
+            {typeof(ParkMaintenanceVehicleAI),VehicleType.ParkTruck },
             {typeof(PoliceCarAI),VehicleType.Police },
-            {typeof(PostVanAI),VehicleType.Post },
+            {typeof(PostVanAI),VehicleType.PostTruck },
             {typeof(SnowTruckAI),VehicleType.SnowTruck },
             {typeof(TaxiAI),VehicleType.Taxi },
             {typeof(TrolleybusAI),VehicleType.Trolleybus },
-            {typeof(WaterTruckAI),VehicleType.WaterTruck },
+            {typeof(WaterTruckAI),VehicleType.VacuumTruck },
             {typeof(FishingBoatAI),VehicleType.FishingBoat },
             {typeof(PassengerFerryAI),VehicleType.PassengerFerry },
             {typeof(AmbulanceCopterAI),VehicleType.AmbulanceCopter },
@@ -222,8 +222,8 @@ namespace BuildingSpawnPoints
 
         public static IEnumerable<BuildingSpawnPoint> GetPoints(this CargoStationAI cargoStation)
         {
-            yield return new BuildingSpawnPoint(cargoStation.m_truckSpawnPosition, 0f, VehicleType.CargoTruck | VehicleType.Post, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
-            yield return new BuildingSpawnPoint(cargoStation.m_truckUnspawnPosition, 0f, VehicleType.CargoTruck | VehicleType.Post, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
+            yield return new BuildingSpawnPoint(cargoStation.m_truckSpawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
+            yield return new BuildingSpawnPoint(cargoStation.m_truckUnspawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
 
             if (cargoStation.m_transportInfo is TransportInfo info1)
             {
@@ -324,56 +324,57 @@ namespace BuildingSpawnPoints
         Hearse = 1ul << 1,
 
         [Description(nameof(Localize.VehicleType_Police))]
-        Police = 1ul << 2,
+        Police = 1ul << 3,
 
-        [Description(nameof(Localize.VehicleType_Post))]
-        Post = 1ul << 3,
-
-        [Description(nameof(Localize.VehicleType_Disaster))]
+        [Description(nameof(Localize.VehicleType_DisasterResponse))]
         Disaster = 1ul << 4,
-
-        [Description(nameof(Localize.VehicleType_Park))]
-        Park = 1ul << 5,
 
 
         [Description(nameof(Localize.VehicleType_Bus))]
-        Bus = 1ul << 6,
+        Bus = 1ul << 4,
 
         [Description(nameof(Localize.VehicleType_Trolleybus))]
-        Trolleybus = 1ul << 7,
+        Trolleybus = 1ul << 5,
 
         [Description(nameof(Localize.VehicleType_Taxi))]
-        Taxi = 1ul << 8,
+        Taxi = 1ul << 6,
 
         [Description(nameof(Localize.VehicleType_Bicycle))]
-        Bicycle = 1ul << 9,
+        Bicycle = 1ul << 7,
 
 
 
         [Description(nameof(Localize.VehicleType_CargoTruck))]
-        CargoTruck = 1ul << 10,
+        CargoTruck = 1ul << 8,
 
         [Description(nameof(Localize.VehicleType_FireTruck))]
-        FireTruck = 1ul << 11,
+        FireTruck = 1ul << 9,
 
-        [Description(nameof(Localize.VehicleType_SnowTruck))]
-        SnowTruck = 1ul << 12,
-
-        [Description(nameof(Localize.VehicleType_WaterTruck))]
-        WaterTruck = 1ul << 13,
+        [Description(nameof(Localize.VehicleType_PostTruck))]
+        PostTruck = 1ul << 10,
 
         [Description(nameof(Localize.VehicleType_GarbageTruck))]
-        GarbageTruck = 1ul << 14,
+        GarbageTruck = 1ul << 11,
 
-        [Description(nameof(Localize.VehicleType_MaintenanceTruck))]
-        MaintenanceTruck = 1ul << 15,
+        [Description(nameof(Localize.VehicleType_RoadMaintenanceTruck))]
+        RoadTruck = 1ul << 12,
+
+        [Description(nameof(Localize.VehicleType_ParkMaintenanceTruck))]
+        ParkTruck = 1ul << 13,
+
+        [Description(nameof(Localize.VehicleType_SnowTruck))]
+        SnowTruck = 1ul << 14,
+
+        [Description(nameof(Localize.VehicleType_VacuumTruck))]
+        VacuumTruck = 1ul << 15,
 
 
-        [Description(nameof(Localize.VehicleType_CargoPlane))]
-        CargoPlane = 1ul << 16,
 
         [Description(nameof(Localize.VehicleType_PassengerPlane))]
-        PassengerPlane = 1ul << 17,
+        PassengerPlane = 1ul << 16,
+
+        [Description(nameof(Localize.VehicleType_CargoPlane))]
+        CargoPlane = 1ul << 17,
 
         [Description(nameof(Localize.VehicleType_PrivatePlane))]
         PrivatePlane = 1ul << 18,
@@ -381,45 +382,45 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.VehicleType_PassengerCopter))]
         PassengerCopter = 1ul << 19,
 
-        [Description(nameof(Localize.VehicleType_Balloon))]
-        Balloon = 1ul << 20,
-
-        [Description(nameof(Localize.VehicleType_PassengerBlimp))]
-        PassengerBlimp = 1ul << 21,
-
         [Description(nameof(Localize.VehicleType_AmbulanceCopter))]
-        AmbulanceCopter = 1ul << 22,
+        AmbulanceCopter = 1ul << 20,
+
+        [Description(nameof(Localize.VehicleType_FireCopter))]
+        FireCopter = 1ul << 21,
+
+        [Description(nameof(Localize.VehicleType_PoliceCopter))]
+        PoliceCopter = 1ul << 22,
 
         [Description(nameof(Localize.VehicleType_DisasterCopter))]
         DisasterCopter = 1ul << 23,
 
-        [Description(nameof(Localize.VehicleType_FireCopter))]
-        FireCopter = 1ul << 24,
+        [Description(nameof(Localize.VehicleType_Balloon))]
+        Balloon = 1ul << 24,
 
-        [Description(nameof(Localize.VehicleType_PoliceCopter))]
-        PoliceCopter = 1ul << 25,
+        [Description(nameof(Localize.VehicleType_PassengerBlimp))]
+        PassengerBlimp = 1ul << 25,
 
 
-
-        [Description(nameof(Localize.VehicleType_FishingBoat))]
-        FishingBoat = 1ul << 26,
-
-        [Description(nameof(Localize.VehicleType_PassengerFerry))]
-        PassengerFerry = 1ul << 27,
-
-        [Description(nameof(Localize.VehicleType_CargoShip))]
-        CargoShip = 1ul << 28,
 
         [Description(nameof(Localize.VehicleType_PassengerShip))]
-        PassengerShip = 1ul << 29,
+        PassengerShip = 1ul << 26,
+
+        [Description(nameof(Localize.VehicleType_CargoShip))]
+        CargoShip = 1ul << 27,
+
+        [Description(nameof(Localize.VehicleType_PassengerFerry))]
+        PassengerFerry = 1ul << 28,
+
+        [Description(nameof(Localize.VehicleType_FishingBoat))]
+        FishingBoat = 1ul << 29,
 
 
-
-        [Description(nameof(Localize.VehicleType_CargoTrain))]
-        CargoTrain = 1ul << 30,
 
         [Description(nameof(Localize.VehicleType_PassengerTrain))]
-        PassengerTrain = 1ul << 31,
+        PassengerTrain = 1ul << 30,
+
+        [Description(nameof(Localize.VehicleType_CargoTrain))]
+        CargoTrain = 1ul << 31,
 
         [Description(nameof(Localize.VehicleType_MetroTrain))]
         MetroTrain = 1ul << 32,
@@ -446,7 +447,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Service))]
-        Service = FireTruck | SnowTruck | WaterTruck | GarbageTruck | MaintenanceTruck | Ambulance | Disaster | Hearse | Park | Police | Post,
+        Service = FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck | Ambulance | Disaster | Hearse | ParkTruck | Police | PostTruck,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Planes))]
@@ -482,11 +483,11 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Trucks))]
-        Trucks = CargoTruck | FireTruck | SnowTruck | WaterTruck | GarbageTruck | MaintenanceTruck,
+        Trucks = CargoTruck | FireTruck | SnowTruck | WaterTruck | GarbageTruck | RoadTruck,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Road))]
-        Road = Trucks | Ambulance | Bus | Disaster | Hearse | Park | Police | Post | Taxi | Trolleybus,
+        Road = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | Taxi | Trolleybus,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_PassengerRoad))]
@@ -506,7 +507,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Default))]
-        Default = Ambulance | Hearse | Police | Post | Taxi | GarbageTruck | CargoTruck | Disaster | MaintenanceTruck | SnowTruck,
+        Default = Ambulance | Hearse | Police | PostTruck | Taxi | GarbageTruck | CargoTruck | Disaster | RoadTruck | SnowTruck,
 
         [NotItem]
         [Description(nameof(Localize.VehicleType_All))]

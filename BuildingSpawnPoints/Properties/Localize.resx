@@ -237,37 +237,34 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>Cargo truck</value>
   </data>
-  <data name="VehicleType_Disaster" xml:space="preserve">
-    <value>Disaster</value>
-  </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster copter</value>
+    <value>Disaster response copter</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Fire copter</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>Fire</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
     <value>Fishing boat</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>Garbage</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>Hearse</value>
   </data>
-  <data name="VehicleType_MaintenanceTruck" xml:space="preserve">
-    <value>Maintenance truck</value>
-  </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro train</value>
+    <value>Metro</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
     <value>Monorail</value>
   </data>
-  <data name="VehicleType_Park" xml:space="preserve">
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
     <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
@@ -294,17 +291,20 @@
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>Police copter</value>
   </data>
-  <data name="VehicleType_Post" xml:space="preserve">
+  <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Private plane</value>
   </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>Road maintenance</value>
+  </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Rocket</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snow truck</value>
+    <value>Snowplow</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
     <value>Taxi</value>
@@ -315,7 +315,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Trolleybus</value>
   </data>
-  <data name="VehicleType_WaterTruck" xml:space="preserve">
-    <value>Pump truck</value>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vacuum</value>
   </data>
 </root>
