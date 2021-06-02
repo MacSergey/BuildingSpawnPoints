@@ -166,10 +166,10 @@
     <value>Standardfahrzeuge</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>PKW</value>
+    <value>Personenverkehr</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passagierluftfahrzeuge</value>
+    <value>Passagierluftfahrt</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
     <value>Schienenfahrzeuge mit Personenverkehr</value>
