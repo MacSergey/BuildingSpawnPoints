@@ -265,7 +265,7 @@
     <value>Monorail</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Entretien des parcs</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Dirigeable</value>
@@ -298,7 +298,7 @@
     <value>Avions privés</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>Entretien de la voirie</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Fusée</value>
