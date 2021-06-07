@@ -19,7 +19,7 @@ namespace BuildingSpawnPoints
         public override Shortcut Activation => ActivationShortcut;
         protected override bool ShowToolTip => true;
         protected override IToolMode DefaultMode => ToolModes[ToolModeType.Select];
-        public SpawnPointsPanel Panel => SingletonItem<SpawnPointsPanel>.Instance;
+        public BuildingSpawnPointsPanel Panel => SingletonItem<BuildingSpawnPointsPanel>.Instance;
 
         public BuildingData Data { get; private set; }
 
@@ -32,7 +32,7 @@ namespace BuildingSpawnPoints
         protected override void InitProcess()
         {
             base.InitProcess();
-            SpawnPointsPanel.CreatePanel();
+            BuildingSpawnPointsPanel.CreatePanel();
         }
 
         public void SetDefaultMode() => SetMode(ToolModeType.Edit);
@@ -143,6 +143,8 @@ namespace BuildingSpawnPoints
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
+            Tool.Panel.Render(cameraInfo);
+
             var building = Tool.Data.Id.GetBuilding();
             foreach (var point in Tool.Data.Points)
             {
@@ -155,7 +157,7 @@ namespace BuildingSpawnPoints
                 };
 
                 point.GetAbsolute(ref building, out var position, out var target);
-                position.RenderCircle(new OverlayData(cameraInfo) { Color = color, Width = 2f });
+                position.RenderCircle(new OverlayData(cameraInfo) { Color = color}, 2f, 1.5f);
 
                 var direction = target - position;
                 new StraightTrajectory(position + direction, position + direction * 2f).Render(new OverlayData(cameraInfo) { Color = color });

@@ -58,7 +58,37 @@ namespace BuildingSpawnPoints
             success &= ToolOnEscape();
             //success &= AssetDataExtensionFix();
 
-            Patch_BuildingAI(ref success);
+            var parameters = new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() };
+
+            success &= Patch_BuildingAI_CalculateSpawnPosition(parameters);
+            success &= Patch_BuildingAI_CalculateUnspawnPosition(parameters);
+
+            //success &= Patch_CalculateSpawnPosition(typeof(CargoStationAI), parameters);
+            //success &= Patch_CalculateUnspawnPosition(typeof(CargoStationAI), parameters);
+
+            //success &= Patch_CalculateSpawnPosition(typeof(FishingHarborAI), parameters);
+            //success &= Patch_CalculateUnspawnPosition(typeof(FishingHarborAI), parameters);
+
+            success &= Patch_CalculateSpawnPosition(typeof(PostOfficeAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(PostOfficeAI), parameters);
+
+            //success &= Patch_CalculateSpawnPosition(typeof(ShelterAI), parameters);
+            //success &= Patch_CalculateUnspawnPosition(typeof(ShelterAI), parameters);
+
+            success &= Patch_CalculateSpawnPosition(typeof(TaxiStandAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(TaxiStandAI), parameters);
+
+            //success &= Patch_CalculateSpawnPosition(typeof(PrivateAirportAI), parameters);
+            //success &= Patch_CalculateUnspawnPosition(typeof(PrivateAirportAI), parameters);
+
+            success &= Patch_CalculateSpawnPosition(typeof(MaintenanceDepotAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(MaintenanceDepotAI), parameters);
+
+            success &= Patch_CalculateSpawnPosition(typeof(DepotAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
+
+            success &= Patch_CalculateUnspawnPosition(typeof(TourBuildingAI), parameters);
+
             return success;
         }
 
@@ -77,13 +107,7 @@ namespace BuildingSpawnPoints
         //    return AddPostfix(typeof(Patcher), nameof(Patcher.LoadAssetPanelOnLoadPostfix), typeof(LoadAssetPanel), nameof(LoadAssetPanel.OnLoad));
         //}
 
-        private void Patch_BuildingAI(ref bool success)
-        {
-            var parameters = new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() };
 
-            success &= Patch_BuildingAI_CalculateSpawnPosition(parameters);
-            success &= Patch_BuildingAI_CalculateUnspawnPosition(parameters);
-        }
         private bool Patch_BuildingAI_CalculateSpawnPosition(Type[] parameters)
         {
             return AddTranspiler(typeof(Patcher), nameof(Patcher.CalculateSpawnPositionTranspiler), typeof(BuildingAI), nameof(BuildingAI.CalculateSpawnPosition), parameters);
@@ -91,6 +115,15 @@ namespace BuildingSpawnPoints
         private bool Patch_BuildingAI_CalculateUnspawnPosition(Type[] parameters)
         {
             return AddTranspiler(typeof(Patcher), nameof(Patcher.CalculateUnpawnPositionTranspiler), typeof(BuildingAI), nameof(BuildingAI.CalculateUnspawnPosition), parameters);
+        }
+
+        private bool Patch_CalculateSpawnPosition(Type type, Type[] parameters)
+        {
+            return AddPrefix(typeof(Patcher), nameof(Patcher.CalculateSpawnPositionPrefix), type, nameof(BuildingAI.CalculateSpawnPosition), parameters);
+        }
+        private bool Patch_CalculateUnspawnPosition(Type type, Type[] parameters)
+        {
+            return AddPrefix(typeof(Patcher), nameof(Patcher.CalculateUnspawnPositionPrefix), type, nameof(BuildingAI.CalculateUnspawnPosition), parameters);
         }
 
         #endregion
@@ -135,17 +168,20 @@ namespace BuildingSpawnPoints
 
         private static void GetPosition(PointType type, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
         {
-            if (SingletonManager<Manager>.Instance[buildingID] is BuildingData buildingData)
-                buildingData.GetPosition(type, ref data, info, ref randomizer, out position, out target);
-            else
+            if (SingletonManager<Manager>.Instance[buildingID] is not BuildingData buildingData || !buildingData.GetPosition(type, ref data, info, ref randomizer, out position, out target))
             {
                 position = data.CalculateSidewalkPosition(0f, 2f);
                 target = position;
             }
+        }
 
-            //var zOffset = info.m_class.m_service == ItemClass.Service.Industrial ? Settings.ZOffset : 2f;
-            //position = data.CalculateSidewalkPosition(randomizer.Int32(-16, 16), zOffset);
-            //target = position + new Vector3(Mathf.Cos(data.m_angle), 0f, Mathf.Sin(data.m_angle));
+        public static bool CalculateSpawnPositionPrefix(ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, ref Vector3 position, ref Vector3 target)
+        {
+            return SingletonManager<Manager>.Instance[buildingID] is not BuildingData buildingData || !buildingData.GetPosition(PointType.Spawn, ref data, info, ref randomizer, out position, out target);
+        }
+        public static bool CalculateUnspawnPositionPrefix(ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, ref Vector3 position, ref Vector3 target)
+        {
+            return SingletonManager<Manager>.Instance[buildingID] is not BuildingData buildingData || !buildingData.GetPosition(PointType.Unspawn, ref data, info, ref randomizer, out position, out target);
         }
     }
 }

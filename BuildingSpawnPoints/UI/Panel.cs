@@ -11,14 +11,15 @@ using UnityEngine;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class SpawnPointsPanel : ToolPanel<Mod, SpawnPointsTool, SpawnPointsPanel>
+    public class BuildingSpawnPointsPanel : ToolPanel<Mod, SpawnPointsTool, BuildingSpawnPointsPanel>
     {
         private PanelHeader Header { get; set; }
         private AdvancedScrollablePanel ContentPanel { get; set; }
-
         private AddPointButton AddButton { get; set; }
 
         public BuildingData Data { get; private set; }
+
+        private PointPanel HoverPointPanel { get; set; }
 
         public override void Awake()
         {
@@ -26,7 +27,7 @@ namespace BuildingSpawnPoints.UI
 
             atlas = TextureHelper.InGameAtlas;
             backgroundSprite = "MenuPanel2";
-            name = nameof(SpawnPointsPanel);
+            name = nameof(BuildingSpawnPointsPanel);
 
             CreateHeader();
             CreateContent();
@@ -100,6 +101,8 @@ namespace BuildingSpawnPoints.UI
         {
             ContentPanel.Content.StopLayout();
 
+            HoverPointPanel = null;
+
             foreach (var component in ContentPanel.Content.components.ToArray())
                 ComponentPool.Free(component);
 
@@ -115,8 +118,10 @@ namespace BuildingSpawnPoints.UI
         }
         private void AddPointPanel(BuildingSpawnPoint point)
         {
-            var pointPanel = ComponentPool.Get<SpawnPointPanel>(ContentPanel.Content);
-            pointPanel.Init(point);
+            var pointPanel = ComponentPool.Get<PointPanel>(ContentPanel.Content);
+            pointPanel.Init(Data.Id, point);
+            pointPanel.OnEnter += PointMouseEnter;
+            pointPanel.OnLeave += PointMouseLeave;
 
             AddButton.zOrder = -1;
         }
@@ -129,10 +134,31 @@ namespace BuildingSpawnPoints.UI
             ContentPanel.Content.ScrollToBottom();
         }
 
-        public void DeletePoint(SpawnPointPanel pointPanel)
+        public void DeletePoint(PointPanel pointPanel)
         {
             Data.DeletePoint(pointPanel.Point);
             ComponentPool.Free(pointPanel);
+        }
+
+        private void PointMouseEnter(PointPanel rulePanel, UIMouseEventParameter eventParam) => HoverPointPanel = rulePanel;
+        private void PointMouseLeave(PointPanel rulePanel, UIMouseEventParameter eventParam)
+        {
+            var uiView = rulePanel.GetUIView();
+            var mouse = uiView.ScreenPointToGUI((eventParam.position + eventParam.moveDelta) / uiView.inputScale);
+            var pointRect = new Rect(ContentPanel.absolutePosition + rulePanel.relativePosition, rulePanel.size);
+            var contentRect = new Rect(ContentPanel.absolutePosition, ContentPanel.size);
+
+            if (eventParam.source == rulePanel || !pointRect.Contains(mouse) || !contentRect.Contains(mouse))
+                HoverPointPanel = null;
+        }
+
+        public void Render(RenderManager.CameraInfo cameraInfo)
+        {
+            if (HoverPointPanel is PointPanel pointPanel)
+            {
+                pointPanel.Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
+                position.RenderCircle(new OverlayData(cameraInfo), 1.5f, 0f);
+            }
         }
     }
 

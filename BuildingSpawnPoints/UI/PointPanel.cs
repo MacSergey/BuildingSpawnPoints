@@ -11,16 +11,21 @@ using UnityEngine;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class SpawnPointPanel : PropertyGroupPanel
+    public class PointPanel : PropertyGroupPanel
     {
+        public event Action<PointPanel, UIMouseEventParameter> OnEnter;
+        public event Action<PointPanel, UIMouseEventParameter> OnLeave;
+
+        public ushort BuildingId { get; private set; }
         public BuildingSpawnPoint Point { get; private set; }
-        private VehicleType NotAdded => SingletonItem<SpawnPointsPanel>.Instance.Data.Id.GetBuilding().Info.GetVehicleTypes() & ~Point.VehicleTypes;
+        private VehicleType NotAdded => BuildingId.GetBuilding().GetPossibleVehicles() & ~Point.VehicleTypes;
 
         private PointHeaderPanel Header { get; set; }
         private VehicleTypePropertyPanel Vehicle { get; set; }
 
-        public void Init(BuildingSpawnPoint point)
+        public void Init(ushort buildingId, BuildingSpawnPoint point)
         {
+            BuildingId = buildingId;
             Point = point;
 
             StopLayout();
@@ -29,7 +34,6 @@ namespace BuildingSpawnPoints.UI
             AddVehicleType();
             AddPointType();
             AddPosition();
-            //AddAngle();
 
             StartLayout();
 
@@ -42,6 +46,7 @@ namespace BuildingSpawnPoints.UI
             foreach (var component in components.ToArray())
                 ComponentPool.Free(component);
 
+            BuildingId = 0;
             Point = null;
             Header = null;
             Vehicle = null;
@@ -51,7 +56,7 @@ namespace BuildingSpawnPoints.UI
         {
             Header = ComponentPool.Get<PointHeaderPanel>(this, nameof(Header));
             InitHeader();
-            Header.OnDelete += () => SingletonItem<SpawnPointsPanel>.Instance.DeletePoint(this);
+            Header.OnDelete += () => SingletonItem<BuildingSpawnPointsPanel>.Instance.DeletePoint(this);
             Header.OnAddType += AddVehicleType;
         }
         private void AddVehicleType()
@@ -73,32 +78,7 @@ namespace BuildingSpawnPoints.UI
             Point.VehicleTypes &= ~type;
             InitHeader();
         }
-        private void InitHeader()
-        {
-            var notAdded = NotAdded;
-
-            var types = GetGroup<VehicleType>(notAdded).ToArray();
-            var typeGroups = new List<VehicleType>();
-            if ((VehicleType.Default & notAdded) != VehicleType.None)
-                typeGroups.Add(VehicleType.Default);
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupA>(notAdded));
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupB>(notAdded));
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupC>(notAdded));
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupD>(notAdded));
-            if ((VehicleType.All & notAdded) != VehicleType.None)
-                typeGroups.Add(VehicleType.All);
-
-            Header.Init(types, typeGroups.ToArray());
-        }
-        private IEnumerable<VehicleType> GetGroup<Type>(VehicleType notAdded)
-            where Type : Enum
-        {
-            foreach (var type in EnumExtension.GetEnumValues<Type>(v => v.IsItem()))
-            {
-                if (((ulong)(object)type & (ulong)notAdded) != 0ul)
-                    yield return (VehicleType)(object)type;
-            }
-        }
+        private void InitHeader() => Header.Init(NotAdded);
 
         private void AddPointType()
         {
@@ -121,33 +101,71 @@ namespace BuildingSpawnPoints.UI
                     Point.Angle = value.w;
                 };
         }
+
+        protected override void OnMouseEnter(UIMouseEventParameter p)
+        {
+            base.OnMouseEnter(p);
+            OnEnter?.Invoke(this, p);
+        }
+        protected override void OnMouseLeave(UIMouseEventParameter p)
+        {
+            base.OnMouseLeave(p);
+            OnLeave?.Invoke(this, p);
+        }
     }
     public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent>
     {
         public event Action<VehicleType> OnAddType;
 
         private SelectVehicleHeaderButton AddTypeButton { get; }
-        private SelectVehicleHeaderButton AddTypeGroupButton { get; }
+        //private SelectVehicleHeaderButton AddTypeGroupButton { get; }
         public PointHeaderPanel()
         {
             AddTypeButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicle, BuildingSpawnPoints.Localize.Panel_AddVehicle);
-            AddTypeGroupButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
+            //AddTypeGroupButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
 
             AddTypeButton.OnSelect += AddType;
-            AddTypeGroupButton.OnSelect += AddType;
+            //AddTypeGroupButton.OnSelect += AddType;
         }
 
-        private void AddType(VehicleType type) => OnAddType?.Invoke(type);
+        private void AddType(VehicleType type)
+        {
+            OnAddType?.Invoke(type);
+        }
 
-        public void Init(VehicleType[] types, VehicleType[] groups)
+        public void Init(VehicleType notAdded)
         {
             base.Init();
-
-            AddTypeButton.isEnabled = types.Length != 0;
-            AddTypeGroupButton.isEnabled = groups.Length != 0;
+            Fill(notAdded);
+        }
+        private void Fill(VehicleType notAdded)
+        {
+            var types = GetGroup<VehicleType>(notAdded).ToArray();
+            var typeGroups = new List<VehicleType>();
+            if ((VehicleType.Default & notAdded) != VehicleType.None)
+                typeGroups.Add(VehicleType.Default);
+            typeGroups.AddRange(GetGroup<VehicleTypeGroupA>(notAdded));
+            typeGroups.AddRange(GetGroup<VehicleTypeGroupB>(notAdded));
+            typeGroups.AddRange(GetGroup<VehicleTypeGroupC>(notAdded));
+            typeGroups.AddRange(GetGroup<VehicleTypeGroupD>(notAdded));
+            if ((VehicleType.All & notAdded) != VehicleType.None)
+                typeGroups.Add(VehicleType.All);
 
             AddTypeButton.Init(types);
-            AddTypeGroupButton.Init(groups);
+            //AddTypeGroupButton.Init(groups);
+
+            AddTypeButton.isEnabled = types.Length != 0;
+            //AddTypeGroupButton.isEnabled = groups.Length != 0;
+        }
+
+        private IEnumerable<VehicleType> GetGroup<Type>(VehicleType notAdded)
+            where Type : Enum
+        {
+            foreach (var type in EnumExtension.GetEnumValues<Type>(v => v.IsItem()))
+            {
+                if (((ulong)(object)type & (ulong)notAdded) != 0ul)
+                    yield return (VehicleType)(object)type;
+            }
         }
     }
     public class SelectVehicleHeaderButton : BaseHeaderDropDown<VehicleType>
@@ -158,7 +176,6 @@ namespace BuildingSpawnPoints.UI
         {
             MinListWidth = 100f;
         }
-
         protected override string GetItemLabel(VehicleType item) => item.Description<VehicleType, Mod>();
     }
     public class PointTypePropertyPanel : EnumMultyPropertyPanel<PointType, PointTypePropertyPanel.PointTypeSegmented>
