@@ -99,7 +99,7 @@ namespace BuildingSpawnPoints.UI
             if (prev != null)
                 height = prev.relativePosition.y + prev.height + Padding;
             else
-                height = 30f;
+                height = 0f;
         }
 
         protected override void OnSizeChanged()

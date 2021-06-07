@@ -69,25 +69,20 @@ namespace BuildingSpawnPoints
             //success &= Patch_CalculateSpawnPosition(typeof(FishingHarborAI), parameters);
             //success &= Patch_CalculateUnspawnPosition(typeof(FishingHarborAI), parameters);
 
-            success &= Patch_CalculateSpawnPosition(typeof(PostOfficeAI), parameters);
-            success &= Patch_CalculateUnspawnPosition(typeof(PostOfficeAI), parameters);
-
             //success &= Patch_CalculateSpawnPosition(typeof(ShelterAI), parameters);
             //success &= Patch_CalculateUnspawnPosition(typeof(ShelterAI), parameters);
 
+            success &= Patch_CalculateSpawnPosition(typeof(PostOfficeAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(PostOfficeAI), parameters);
+
             success &= Patch_CalculateSpawnPosition(typeof(TaxiStandAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(TaxiStandAI), parameters);
-
-            //success &= Patch_CalculateSpawnPosition(typeof(PrivateAirportAI), parameters);
-            //success &= Patch_CalculateUnspawnPosition(typeof(PrivateAirportAI), parameters);
 
             success &= Patch_CalculateSpawnPosition(typeof(MaintenanceDepotAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(MaintenanceDepotAI), parameters);
 
             success &= Patch_CalculateSpawnPosition(typeof(DepotAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
-
-            success &= Patch_CalculateUnspawnPosition(typeof(TourBuildingAI), parameters);
 
             return success;
         }

@@ -76,6 +76,9 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MoveItIntegration">
+      <HintPath>..\..\CS-MoveIt\MoveItIntegration\bin\Debug\MoveItIntegration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq">
@@ -90,7 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AIExtensions.cs" />
+    <Compile Include="Utilites\AIExtensions.cs" />
     <Compile Include="BuildingData.cs" />
     <Compile Include="DataExtensions.cs" />
     <Compile Include="Manager.cs" />
@@ -107,6 +110,8 @@
     <Compile Include="UI\SpawnPointsTextures.cs" />
     <Compile Include="Tool.cs" />
     <Compile Include="UI\VehicleTypeProperty.cs" />
+    <Compile Include="Utilites\MoveItIntegration.cs" />
+    <Compile Include="Utilites\ObjectMap.cs" />
     <Compile Include="VehicleTypes.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +161,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_StartDate="2000/1/1" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_DetectChanges="False" />
+      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_StartDate="2000/1/1" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">

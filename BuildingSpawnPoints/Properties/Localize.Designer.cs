@@ -61,6 +61,15 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add all types of vehicles.
+        /// </summary>
+        internal static string Panel_AddAllVehicle {
+            get {
+                return ResourceManager.GetString("Panel_AddAllVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add point.
         /// </summary>
         internal static string Panel_AddPoint {
@@ -97,11 +106,56 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Apply to all buildings of this type.
+        /// </summary>
+        internal static string Panel_ApplyToAll {
+            get {
+                return ResourceManager.GetString("Panel_ApplyToAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Copy.
+        /// </summary>
+        internal static string Panel_Copy {
+            get {
+                return ResourceManager.GetString("Panel_Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Duplicate point.
+        /// </summary>
+        internal static string Panel_DuplicatePoint {
+            get {
+                return ResourceManager.GetString("Panel_DuplicatePoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Paste.
+        /// </summary>
+        internal static string Panel_Paste {
+            get {
+                return ResourceManager.GetString("Panel_Paste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на {0}m.
         /// </summary>
         internal static string Panel_PositionFormat {
             get {
                 return ResourceManager.GetString("Panel_PositionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reset to default.
+        /// </summary>
+        internal static string Panel_ResetToDefault {
+            get {
+                return ResourceManager.GetString("Panel_ResetToDefault", resourceCulture);
             }
         }
         
@@ -295,7 +349,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Fire.
+        ///   Ищет локализованную строку, похожую на Fire truck.
         /// </summary>
         internal static string VehicleType_FireTruck {
             get {
@@ -313,7 +367,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Garbage.
+        ///   Ищет локализованную строку, похожую на Garbage truck.
         /// </summary>
         internal static string VehicleType_GarbageTruck {
             get {
@@ -502,7 +556,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Vacuum.
+        ///   Ищет локализованную строку, похожую на Vacuum truck.
         /// </summary>
         internal static string VehicleType_VacuumTruck {
             get {

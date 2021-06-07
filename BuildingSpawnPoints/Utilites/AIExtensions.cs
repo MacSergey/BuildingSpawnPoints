@@ -119,9 +119,9 @@ namespace BuildingSpawnPoints
             //Transport
             { typeof(CargoStationAI), VehicleType.Default },
             { typeof(CargoHarborAI), VehicleType.Default },
-            { typeof(PrivateAirportAI), VehicleType.Default | VehicleType.PrivatePlane },
+            { typeof(PrivateAirportAI), VehicleType.Default },
             { typeof(TaxiStandAI), VehicleType.Default & ~VehicleType.Taxi },
-            { typeof(PostOfficeAI), VehicleType.Default | VehicleType.PostTruck },
+            { typeof(PostOfficeAI), VehicleType.Default },
 
             //Depot
             { typeof(DepotAI), VehicleType.Default },
@@ -137,7 +137,7 @@ namespace BuildingSpawnPoints
             //Other
             { typeof(PowerPlantAI), VehicleType.Default | VehicleType.CargoTruck },
             { typeof(HeatingPlantAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(MonumentAI), VehicleType.Default },
+            { typeof(MonumentAI), VehicleType.Default | VehicleType.PostTruck},
 
 
             //{ typeof(), VehicleType.Default },
@@ -155,9 +155,10 @@ namespace BuildingSpawnPoints
         public static VehicleType GetDefaultVehicleTypes(this BuildingInfo info) => GetVehicleType(info.m_buildingAI.GetType(), BuildingAllow, BuildingForbidden);
         public static VehicleType GetAllVehicleTypes(this BuildingInfo info)
         {
-            var vehicleTypes = info.GetDefaultVehicleTypes();
+            var type = info.m_buildingAI.GetType();
+            var vehicleTypes = GetVehicleType(type, BuildingAllow, BuildingForbidden);
 
-            if (BuildingAdditional.TryGetValue(info.m_buildingAI.GetType(), out var additional))
+            if (BuildingAdditional.TryGetValue(type, out var additional))
                 vehicleTypes |= additional;
 
             //switch (info.m_buildingAI)
@@ -213,39 +214,37 @@ namespace BuildingSpawnPoints
             }
         }
 
-        public static IEnumerable<BuildingSpawnPoint> GetDefaultPoints(this BuildingInfo info) => info.m_buildingAI switch
+        public static IEnumerable<BuildingSpawnPoint> GetDefaultPoints(this BuildingData data) => data.Id.GetBuilding().Info.m_buildingAI switch
         {
-            //CargoStationAI cargoStation => cargoStation.GetPoints(),
-            //DepotAI depot => depot.GetPoints(),
-            //FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(),
-            //ShelterAI shelter => shelter.GetPoints(),
-            TaxiStandAI taxiStand => taxiStand.GetPoints(),
-            //PrivateAirportAI privateAirport => privateAirport.GetPoints(),
-            PostOfficeAI postOffice => postOffice.GetPoints(),
-            MaintenanceDepotAI maintenanceDepot => maintenanceDepot.GetPoints(),
-            //TourBuildingAI tourBuilding => tourBuilding.GetPoints(),
+            //CargoStationAI cargoStation => cargoStation.GetPoints(data),
+            //DepotAI depot => depot.GetPoints(data),
+            //FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
+            //ShelterAI shelter => shelter.GetPoints(data),
+            TaxiStandAI taxiStand => taxiStand.GetPoints(data),
+            PostOfficeAI postOffice => postOffice.GetPoints(data),
+            MaintenanceDepotAI maintenanceDepot => maintenanceDepot.GetPoints(data),
             _ => new BuildingSpawnPoint[0],
         };
 
 
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this CargoStationAI cargoStation)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this CargoStationAI cargoStation, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(cargoStation.m_truckSpawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
-            yield return new BuildingSpawnPoint(cargoStation.m_truckUnspawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
+            yield return new BuildingSpawnPoint(data, cargoStation.m_truckSpawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
+            yield return new BuildingSpawnPoint(data, cargoStation.m_truckUnspawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
 
             if (cargoStation.m_transportInfo is TransportInfo info1)
             {
                 var vehicleType = info1.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
-                yield return new BuildingSpawnPoint(cargoStation.m_spawnPosition, cargoStation.m_spawnTarget, vehicleType, invert: cargoStation.m_canInvertTarget && InvertTraffic);
+                yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition, cargoStation.m_spawnTarget, vehicleType, invert: cargoStation.m_canInvertTarget && InvertTraffic);
             }
 
             if (cargoStation.m_transportInfo2 is TransportInfo info2)
             {
                 var vehicleType = info2.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
-                yield return new BuildingSpawnPoint(cargoStation.m_spawnPosition2, cargoStation.m_spawnTarget2, vehicleType, invert: cargoStation.m_canInvertTarget2 && InvertTraffic);
+                yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition2, cargoStation.m_spawnTarget2, vehicleType, invert: cargoStation.m_canInvertTarget2 && InvertTraffic);
             }
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this DepotAI depot)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this DepotAI depot, BuildingData data)
         {
             if (depot.m_transportInfo is TransportInfo info1)
             {
@@ -255,10 +254,10 @@ namespace BuildingSpawnPoints
                 if (depot.m_spawnPoints != null && depot.m_spawnPoints.Length != 0)
                 {
                     foreach (var point in depot.m_spawnPoints)
-                        yield return new BuildingSpawnPoint(point.m_position, point.m_target, vehicleType, invert: invert);
+                        yield return new BuildingSpawnPoint(data, point.m_position, point.m_target, vehicleType, invert: invert);
                 }
                 else
-                    yield return new BuildingSpawnPoint(depot.m_spawnPosition, depot.m_spawnTarget, vehicleType, invert: invert);
+                    yield return new BuildingSpawnPoint(data, depot.m_spawnPosition, depot.m_spawnTarget, vehicleType, invert: invert);
             }
             if (depot.m_secondaryTransportInfo is TransportInfo info2)
             {
@@ -268,43 +267,34 @@ namespace BuildingSpawnPoints
                 if (depot.m_spawnPoints2 != null && depot.m_spawnPoints2.Length != 0)
                 {
                     foreach (var point in depot.m_spawnPoints2)
-                        yield return new BuildingSpawnPoint(point.m_position, point.m_target, vehicleType, invert: invert);
+                        yield return new BuildingSpawnPoint(data, point.m_position, point.m_target, vehicleType, invert: invert);
                 }
                 else
-                    yield return new BuildingSpawnPoint(depot.m_spawnPosition2, depot.m_spawnTarget2, vehicleType, invert: invert);
+                    yield return new BuildingSpawnPoint(data, depot.m_spawnPosition2, depot.m_spawnTarget2, vehicleType, invert: invert);
             }
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this FishingHarborAI fishingHarbor)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this FishingHarborAI fishingHarbor, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(fishingHarbor.m_boatSpawnPosition, fishingHarbor.m_boatSpawnTarget, VehicleType.FishingBoat);
+            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatSpawnPosition, fishingHarbor.m_boatSpawnTarget, VehicleType.FishingBoat);
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this ShelterAI shelter)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this ShelterAI shelter, BuildingData data)
         {
             var invert = shelter.m_canInvertTarget && InvertTraffic;
-            yield return new BuildingSpawnPoint(shelter.m_spawnPosition, shelter.m_spawnTarget, shelter.m_transportInfo.m_vehicleType, invert: invert);
+            yield return new BuildingSpawnPoint(data, shelter.m_spawnPosition, shelter.m_spawnTarget, shelter.m_transportInfo.m_vehicleType, invert: invert);
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this TaxiStandAI taxiStand)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this TaxiStandAI taxiStand, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(taxiStand.m_queueStartPos, taxiStand.m_queueEndPos, VehicleType.Taxi, invert: InvertTraffic);
+            yield return new BuildingSpawnPoint(data, taxiStand.m_queueStartPos, taxiStand.m_queueEndPos, VehicleType.Taxi, invert: InvertTraffic);
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this PrivateAirportAI privateAirport)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this PostOfficeAI postOffice, BuildingData data)
         {
-            foreach (var runway in privateAirport.m_runways)
-                yield return new BuildingSpawnPoint(runway.m_position, runway.m_target, VehicleType.PrivatePlane);
+            yield return new BuildingSpawnPoint(data, postOffice.m_truckSpawnPosition, 0f, VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
+            yield return new BuildingSpawnPoint(data, postOffice.m_truckUnspawnPosition, 0f, VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this PostOfficeAI postOffice)
+        public static IEnumerable<BuildingSpawnPoint> GetPoints(this MaintenanceDepotAI maintenanceDepot, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(postOffice.m_truckSpawnPosition, 0f, VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
-            yield return new BuildingSpawnPoint(postOffice.m_truckUnspawnPosition, 0f, VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
+            yield return new BuildingSpawnPoint(data, maintenanceDepot.m_spawnPosition, maintenanceDepot.m_spawnTarget, VehicleType.PostTruck, PointType.Both);
         }
-        public static IEnumerable<BuildingSpawnPoint> GetPoints(this MaintenanceDepotAI maintenanceDepot)
-        {
-            yield return new BuildingSpawnPoint(maintenanceDepot.m_spawnPosition, maintenanceDepot.m_spawnTarget, VehicleType.PostTruck, PointType.Both);
-        }
-        //public static IEnumerable<BuildingSpawnPoint> GetPoints(this TourBuildingAI tourBuilding)
-        //{
-        //    yield return new BuildingSpawnPoint(tourBuilding.m_vehicleSpawnPosition, 0f, VehicleType,, PointType.Unspawn);
-        //}
 
         public static VehicleType GetVehicleType(this VehicleInfo.VehicleType vehicleType) => vehicleType switch
         {

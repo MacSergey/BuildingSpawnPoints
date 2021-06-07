@@ -1,4 +1,5 @@
-﻿using ColossalFramework;
+﻿using BuildingSpawnPoints.Utilites;
+using ColossalFramework;
 using ColossalFramework.Math;
 using ModsCommon.Utilities;
 using System;
@@ -6,23 +7,29 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using UnityEngine;
 
 namespace BuildingSpawnPoints
 {
-    public class BuildingData
+    public class BuildingData : IToXml
     {
+        public static string XmlName => "B";
+
         public ushort Id { get; }
         private List<BuildingSpawnPoint> SpawnPoints { get; } = new List<BuildingSpawnPoint>();
         public IEnumerable<BuildingSpawnPoint> Points => SpawnPoints;
+        public VehicleType DefaultVehicles => Id.GetBuilding().GetDefaultVehicles();
+        public VehicleType PossibleVehicles => Id.GetBuilding().GetPossibleVehicles();
 
-        public BuildingData(ushort id)
+        public string XmlSection => XmlName;
+
+        public BuildingData(ushort id, bool init = true)
         {
             Id = id;
 
-            var building = id.GetBuilding();
-            SpawnPoints.Add(new BuildingSpawnPoint(Vector3.back * (id.GetBuilding().Length * 4f + 2f), 0f, building.GetDefaultVehicles()));
-            SpawnPoints.AddRange(building.Info.GetDefaultPoints());
+            if (init)
+                ResetToDefault();
         }
 
         public bool GetPosition(PointType type, ref Building data, VehicleInfo vehicle, ref Randomizer randomizer, out Vector3 position, out Vector3 target)
@@ -46,36 +53,102 @@ namespace BuildingSpawnPoints
 
         public BuildingSpawnPoint AddPoint()
         {
-            var spawnPoint = new BuildingSpawnPoint(Vector3.zero, vehicleType: VehicleType.None);
+            var spawnPoint = new BuildingSpawnPoint(this, Vector3.zero, vehicleType: VehicleType.None);
             SpawnPoints.Add(spawnPoint);
             return spawnPoint;
         }
         public void DeletePoint(BuildingSpawnPoint point) => SpawnPoints.Remove(point);
+        public BuildingSpawnPoint DuplicatePoint(BuildingSpawnPoint point)
+        {
+            var copyPoint = point.Copy();
+            SpawnPoints.Add(copyPoint);
+            return copyPoint;
+        }
+        public void ResetToDefault()
+        {
+            SpawnPoints.Clear();
+            SpawnPoints.Add(new BuildingSpawnPoint(this, Vector3.back * (Id.GetBuilding().Length * 4f + 2f), 0f, DefaultVehicles));
+            SpawnPoints.AddRange(this.GetDefaultPoints());
+        }
+
+        public XElement ToXml()
+        {
+            var config = new XElement(XmlSection);
+
+            config.AddAttr(nameof(Id), Id);
+
+            foreach (var point in Points)
+                config.Add(point.ToXml());
+
+            return config;
+        }
+
+        public void FromXml(XElement config)
+        {
+            SpawnPoints.Clear();
+
+            foreach (var pointConfig in config.Elements(BuildingSpawnPoint.XmlName))
+            {
+                if (BuildingSpawnPoint.FromXml(pointConfig, this, out var point))
+                    SpawnPoints.Add(point);
+            }
+        }
+        public static bool FromXml(XElement config, ObjectsMap map, out BuildingData data)
+        {
+            var id = config.GetAttrValue(nameof(Id), (ushort)0);
+
+            if (map.TryGetBuilding(id, out var targetId))
+                id = targetId;
+
+            if (id != 0 && id <= BuildingManager.MAX_BUILDING_COUNT)
+            {
+                try
+                {
+                    data = new BuildingData(id, false);
+                    data.FromXml(config);
+
+                    return true;
+                }
+                catch { }
+            }
+
+            data = null;
+            return false;
+        }
     }
-    public class BuildingSpawnPoint
+    public class BuildingSpawnPoint : IToXml
     {
+        public static string XmlName => "P";
+
+        public BuildingData Data { get; }
+
         public VehicleType VehicleTypes { get; set; }
         public PointType Type { get; set; }
-        public Vector3 Position { get; set; }
-        public float Angle { get; set; }
+        public Vector4 Position { get; set; }
 
-        public BuildingSpawnPoint(Vector3 position, float angle = 0f, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both)
+        public string XmlSection => XmlName;
+
+        private BuildingSpawnPoint(BuildingData data)
+        {
+            Data = data;
+        }
+        public BuildingSpawnPoint(BuildingData data, Vector3 position, float angle = 0f, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both) : this(data)
         {
             Fix(ref position);
             Init(position, angle, vehicleType, type);
         }
-        public BuildingSpawnPoint(Vector3 position, Vector3 target, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both, bool invert = false)
+        public BuildingSpawnPoint(BuildingData data, Vector3 position, Vector3 target, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both, bool invert = false) : this(data)
         {
             Fix(ref position);
             Fix(ref target);
             Init(position, (invert ? position - target : target - position).AbsoluteAngle(), vehicleType, type);
         }
-        public BuildingSpawnPoint(Vector3 position, Vector3 target, VehicleInfo.VehicleType vehicleType, PointType type = PointType.Both, bool invert = false) : this(position, target, vehicleType.GetVehicleType(), type, invert) { }
+        public BuildingSpawnPoint(BuildingData data, Vector3 position, Vector3 target, VehicleInfo.VehicleType vehicleType, PointType type = PointType.Both, bool invert = false) : this(data, position, target, vehicleType.GetVehicleType(), type, invert) { }
 
-        private void Init(Vector3 position, float angle, VehicleType vehicleType, PointType type)
+        private void Init(Vector4 position, float angle, VehicleType vehicleType, PointType type)
         {
+            position.w = angle;
             Position = position;
-            Angle = angle;
             VehicleTypes = vehicleType;
             Type = type;
         }
@@ -83,8 +156,41 @@ namespace BuildingSpawnPoints
 
         public void GetAbsolute(ref Building data, out Vector3 position, out Vector3 target)
         {
-            position = data.m_position + Position.TurnRad(data.m_angle, false);
-            target = position + Vector3.forward.TurnRad(data.m_angle + Angle * Mathf.Deg2Rad, false);
+            position = data.m_position + (Vector3)Position.TurnRad(data.m_angle, false);
+            target = position + Vector3.forward.TurnRad(data.m_angle + Position.w * Mathf.Deg2Rad, false);
+        }
+        public BuildingSpawnPoint Copy() => new BuildingSpawnPoint(Data)
+        {
+            VehicleTypes = VehicleTypes,
+            Type = Type,
+            Position = Position,
+        };
+
+        public XElement ToXml()
+        {
+            var config = new XElement(XmlSection);
+
+            config.AddAttr("T", (int)Type);
+            config.AddAttr("V", (int)VehicleTypes);
+            config.AddAttr("X", Position.x);
+            config.AddAttr("Z", Position.z);
+            config.AddAttr("A", Position.w);
+
+            return config;
+        }
+        public static bool FromXml(XElement config, BuildingData data, out BuildingSpawnPoint point)
+        {
+            point = new BuildingSpawnPoint(data);
+
+            point.Type = (PointType)config.GetAttrValue("T", (int)PointType.Both);
+            point.VehicleTypes = (VehicleType)config.GetAttrValue("V", (int)data.DefaultVehicles);
+
+            var x = config.GetAttrValue("X", 0f);
+            var z = config.GetAttrValue("Z", 0f);
+            var w = config.GetAttrValue("A", 0f);
+            point.Position = new Vector4(x, 0f, z, w);
+
+            return true;
         }
     }
 
