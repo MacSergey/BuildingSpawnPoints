@@ -16,6 +16,7 @@ namespace BuildingSpawnPoints.UI
         private PanelHeader Header { get; set; }
         private AdvancedScrollablePanel ContentPanel { get; set; }
         private AddPointButton AddButton { get; set; }
+        private WarningPanel Warning { get; set; }
 
         public BuildingData Data { get; private set; }
 
@@ -89,7 +90,9 @@ namespace BuildingSpawnPoints.UI
 
             ContentPanel.Content.StopLayout();
 
-            Header.Text = string.Format(BuildingSpawnPoints.Localize.Panel_Title, Data.Id);
+            RefreshHeader();
+            AddWarning();
+            RefreshWarning();
             AddAddButton();
 
             foreach (var point in Data.Points)
@@ -109,6 +112,11 @@ namespace BuildingSpawnPoints.UI
             ContentPanel.Content.StartLayout();
         }
 
+        private void AddWarning()
+        {
+            Warning = ComponentPool.Get<WarningPanel>(ContentPanel.Content);
+            Warning.Init();
+        }
         private void AddAddButton()
         {
             AddButton = ComponentPool.Get<AddPointButton>(ContentPanel.Content);
@@ -122,16 +130,34 @@ namespace BuildingSpawnPoints.UI
             pointPanel.Init(Data.Id, point);
             pointPanel.OnEnter += PointMouseEnter;
             pointPanel.OnLeave += PointMouseLeave;
+            pointPanel.OnChanged += RefreshWarning;
 
             AddButton.zOrder = -1;
         }
 
-        public override void RefreshPanel()
+        public override void RefreshPanel() => SetPanel();
+        public void RefreshHeader()
         {
-            RefreshHeader();
-            SetPanel();
+            Header.Text = string.Format(BuildingSpawnPoints.Localize.Panel_Title, Data.Id);
+            Header.Refresh();
         }
-        public void RefreshHeader() => Header.Refresh();
+        private void RefreshWarning()
+        {
+            Warning.Init(Data.NeededVehicles);
+            //var needed = Data.NeededVehicles;
+            //if (needed == VehicleType.None)
+            //{
+            //    Warning.Text = string.Empty;
+            //    Warning.isVisible = false;
+            //}
+            //else
+            //{
+            //    var types = EnumExtension.GetEnumValues<VehicleType>(v => v.IsItem() && (v & needed) == v).ToArray();
+            //    var strings = types.Select(t => t.Description<VehicleType, Mod>()).ToArray();
+            //    Warning.Text = string.Format(BuildingSpawnPoints.Localize.Panel_NoPointWarning, string.Join(", ", strings));
+            //    Warning.isVisible = true;
+            //}
+        }
 
         private void AddPoint()
         {

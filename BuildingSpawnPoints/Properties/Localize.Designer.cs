@@ -133,6 +133,24 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на No point in this building contains these types of vehicles:.
+        /// </summary>
+        internal static string Panel_NoPointWarning {
+            get {
+                return ResourceManager.GetString("Panel_NoPointWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на They will spawn in default position..
+        /// </summary>
+        internal static string Panel_NoPointWarningContinue {
+            get {
+                return ResourceManager.GetString("Panel_NoPointWarningContinue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Paste.
         /// </summary>
         internal static string Panel_Paste {
@@ -201,6 +219,24 @@ namespace BuildingSpawnPoints {
         internal static string Property_Position {
             get {
                 return ResourceManager.GetString("Property_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Apply to all buildings of type.
+        /// </summary>
+        internal static string Tool_ApplyToAllCaption {
+            get {
+                return ResourceManager.GetString("Tool_ApplyToAllCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you really want apply this setting to all buildings of this type?.
+        /// </summary>
+        internal static string Tool_ApplyToAllMessage {
+            get {
+                return ResourceManager.GetString("Tool_ApplyToAllMessage", resourceCulture);
             }
         }
         

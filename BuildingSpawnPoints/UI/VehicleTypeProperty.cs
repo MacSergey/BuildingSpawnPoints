@@ -15,8 +15,10 @@ namespace BuildingSpawnPoints.UI
 
         bool IReusable.InCache { get; set; }
 
-        private Dictionary<VehicleType, VehicleItem> Items = new Dictionary<VehicleType, VehicleItem>();
+        private Dictionary<VehicleType, VehicleItem> Items { get; } = new Dictionary<VehicleType, VehicleItem>();
         private float Padding => 5f;
+
+        public bool Deletable { get; set; } = true;
 
         public void AddItems(VehicleType types)
         {
@@ -25,21 +27,23 @@ namespace BuildingSpawnPoints.UI
 
             FitItems();
         }
+        public void SetItems(VehicleType types)
+        {
+            ClearItems();
+            AddItems(types);
+        }
         void IReusable.DeInit()
         {
-            foreach (var component in components.ToArray())
-                ComponentPool.Free(component);
-
-            Items.Clear();
+            ClearItems();
             OnDelete = null;
+            Deletable = true;
         }
-
         private void AddItem(VehicleType type)
         {
             if (!Items.ContainsKey(type))
             {
                 var item = ComponentPool.Get<VehicleItem>(this);
-                item.Init(type);
+                item.Init(type, Deletable);
                 item.OnDelete += DeleteItem;
                 Items.Add(type, item);
             }
@@ -52,6 +56,13 @@ namespace BuildingSpawnPoints.UI
             ComponentPool.Free(item);
 
             FitItems();
+        }
+        private void ClearItems()
+        {
+            foreach (var component in components.ToArray())
+                ComponentPool.Free(component);
+
+            Items.Clear();
         }
 
         public void AddType(VehicleType type)
@@ -141,23 +152,24 @@ namespace BuildingSpawnPoints.UI
             Label.wordWrap = false;
             Label.textScale = 0.8f;
             Label.verticalAlignment = UIVerticalAlignment.Middle;
-            Label.padding = new RectOffset(4, 0, 4, 0);
+            Label.padding = new RectOffset(4, 4, 4, 0);
 
             Button = AddUIComponent<CustomUIButton>();
-            Button.size = new Vector2(20f, 20f);
+            Button.size = new Vector2(16f, 20f);
             Button.text = "×";
             Button.textScale = 1.2f;
-            Button.textPadding = new RectOffset(0, 0, 0, 0);
+            Button.textPadding = new RectOffset(0, 4, 0, 0);
             Button.textColor = new Color32(204, 204, 204, 255);
             Button.pressedColor = new Color32(224, 224, 224, 255);
             Button.eventClick += (_, _) => OnDelete?.Invoke(this);
 
             StartLayout();
         }
-        public void Init(VehicleType type)
+        public void Init(VehicleType type, bool deletable = true)
         {
             Type = type;
             Label.text = type.Description<VehicleType, Mod>();
+            Button.isVisible = deletable;
         }
 
         void IReusable.DeInit()

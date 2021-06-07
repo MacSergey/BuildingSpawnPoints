@@ -119,7 +119,6 @@
   </resheader>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
-    <comment> </comment>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Add point</value>
@@ -141,6 +140,12 @@
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Duplicate point</value>
+  </data>
+  <data name="Panel_NoPointWarning" xml:space="preserve">
+    <value>No point in this building contains these types of vehicles:</value>
+  </data>
+  <data name="Panel_NoPointWarningContinue" xml:space="preserve">
+    <value>They will spawn in default position.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Paste</value>
@@ -165,6 +170,12 @@
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
+  </data>
+  <data name="Tool_ApplyToAllCaption" xml:space="preserve">
+    <value>Apply to all buildings of type</value>
+  </data>
+  <data name="Tool_ApplyToAllMessage" xml:space="preserve">
+    <value>Do you really want apply this setting to all buildings of this type?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Building #{0}</value>

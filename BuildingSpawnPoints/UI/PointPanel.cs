@@ -15,6 +15,7 @@ namespace BuildingSpawnPoints.UI
     {
         public event Action<PointPanel, UIMouseEventParameter> OnEnter;
         public event Action<PointPanel, UIMouseEventParameter> OnLeave;
+        public event Action OnChanged;
 
         public ushort BuildingId { get; private set; }
         public BuildingSpawnPoint Point { get; private set; }
@@ -56,9 +57,9 @@ namespace BuildingSpawnPoints.UI
         {
             Header = ComponentPool.Get<PointHeaderPanel>(this, nameof(Header));
             InitHeader();
-            Header.OnDelete += () => SingletonItem<BuildingSpawnPointsPanel>.Instance.DeletePoint(this);
+            Header.OnDelete += Delete;
             Header.OnAddType += AddVehicleType;
-            Header.OnDuplicate += () => SingletonItem<BuildingSpawnPointsPanel>.Instance.DuplicatePoint(this);
+            Header.OnDuplicate += Duplicate;
         }
         private void AddVehicleType()
         {
@@ -67,17 +68,32 @@ namespace BuildingSpawnPoints.UI
             Vehicle.OnDelete += DeleteVehicleType;
         }
 
+        private void Changed() => OnChanged?.Invoke();
+        private void Delete()
+        {
+            SingletonItem<BuildingSpawnPointsPanel>.Instance.DeletePoint(this);
+            Changed();
+        }
         private void AddVehicleType(VehicleType type)
         {
             type &= NotAdded;
             Point.VehicleTypes |= type;
             Vehicle.AddItems(type);
             InitHeader();
+
+            Changed();
         }
         private void DeleteVehicleType(VehicleType type)
         {
             Point.VehicleTypes &= ~type;
             InitHeader();
+
+            Changed();
+        }
+        private void Duplicate()
+        {
+            SingletonItem<BuildingSpawnPointsPanel>.Instance.DuplicatePoint(this);
+            Changed();
         }
         private void InitHeader() => Header.Init(NotAdded);
 

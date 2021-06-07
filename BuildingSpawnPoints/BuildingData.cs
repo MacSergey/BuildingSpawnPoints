@@ -21,6 +21,8 @@ namespace BuildingSpawnPoints
         public IEnumerable<BuildingSpawnPoint> Points => SpawnPoints;
         public VehicleType DefaultVehicles => Id.GetBuilding().GetDefaultVehicles();
         public VehicleType PossibleVehicles => Id.GetBuilding().GetPossibleVehicles();
+        public VehicleType NeededVehicles => SpawnPoints.Aggregate(PossibleVehicles, (v, p) => v & ~p.VehicleTypes);
+        public bool IsCorrect => NeededVehicles == VehicleType.None;
 
         public string XmlSection => XmlName;
 

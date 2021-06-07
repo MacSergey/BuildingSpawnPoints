@@ -2,6 +2,7 @@
 using ColossalFramework;
 using ColossalFramework.Math;
 using ModsCommon;
+using ModsCommon.UI;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -78,17 +79,27 @@ namespace BuildingSpawnPoints
         {
             SingletonMod<Mod>.Logger.Debug($"Apply to all");
 
-            var config = Data.ToXml();
-            var info = Data.Id.GetBuilding().Info;
+            var messageBox = MessageBox.Show<YesNoMessageBox>();
+            messageBox.CaptionText = Localize.Tool_ApplyToAllCaption;
+            messageBox.MessageText = Localize.Tool_ApplyToAllMessage;
+            messageBox.OnButton1Click = Apply;
 
-            var buildings = BuildingManager.instance.m_buildings.m_buffer;
-            for (ushort i = 0; i < buildings.Length; i += 1)
+            bool Apply()
             {
-                if (i == Data.Id)
-                    continue;
+                var config = Data.ToXml();
+                var info = Data.Id.GetBuilding().Info;
 
-                if(buildings[i].Info == info && buildings[i].m_flags.IsSet(Building.Flags.Created) && SingletonManager<Manager>.Instance[i, Options.Create] is BuildingData data)
-                    data.FromXml(config);
+                var buildings = BuildingManager.instance.m_buildings.m_buffer;
+                for (ushort i = 0; i < buildings.Length; i += 1)
+                {
+                    if (i == Data.Id)
+                        continue;
+
+                    if (buildings[i].Info == info && buildings[i].m_flags.IsSet(Building.Flags.Created) && SingletonManager<Manager>.Instance[i, Options.Create] is BuildingData data)
+                        data.FromXml(config);
+                }
+
+                return true;
             }
         }
 
@@ -167,12 +178,14 @@ namespace BuildingSpawnPoints
             if (IsHoverBuilding)
             {
                 var building = HoverBuildingId.GetBuilding();
-                BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Blue, Colors.Red);
+                BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Red, Colors.Red);
 
-                while (building.m_subBuilding != 0)
+                var i = 0;
+                while (building.m_subBuilding != 0 && i < BuildingManager.MAX_BUILDING_COUNT)
                 {
                     building = building.m_subBuilding.GetBuilding();
-                    BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Blue, Colors.Red);
+                    BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Red, Colors.Red);
+                    i += 1;
                 }
             }
         }

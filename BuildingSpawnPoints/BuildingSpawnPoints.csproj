@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\WarningPanel.cs" />
     <Compile Include="Utilites\AIExtensions.cs" />
     <Compile Include="BuildingData.cs" />
     <Compile Include="DataExtensions.cs" />
