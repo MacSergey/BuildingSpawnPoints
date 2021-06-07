@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Panel_AddAllVehicle" xml:space="preserve">
+    <value>Alle Fahrzeugtypen hinzufügen</value>
+  </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Punkt hinzufügen</value>
   </data>
@@ -129,8 +132,29 @@
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  <data name="Panel_ApplyToAll" xml:space="preserve">
+    <value>Auf alle Gebäude dieses Typs anwenden</value>
+  </data>
+  <data name="Panel_Copy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="Panel_DuplicatePoint" xml:space="preserve">
+    <value>Punkt duplizieren</value>
+  </data>
+  <data name="Panel_NoPointWarning" xml:space="preserve">
+    <value>No point in this building contains these types of vehicles:</value>
+  </data>
+  <data name="Panel_NoPointWarningContinue" xml:space="preserve">
+    <value>They will spawn in default position.</value>
+  </data>
+  <data name="Panel_Paste" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
+  </data>
+  <data name="Panel_ResetToDefault" xml:space="preserve">
+    <value>Auf Standard zurücksetzen</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Gebäude #{0}</value>
@@ -146,6 +170,12 @@
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
+  </data>
+  <data name="Tool_ApplyToAllCaption" xml:space="preserve">
+    <value>Apply to all buildings of type</value>
+  </data>
+  <data name="Tool_ApplyToAllMessage" xml:space="preserve">
+    <value>Do you really want apply this setting to all buildings of this type?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Gebäude #{0}</value>
@@ -241,7 +271,7 @@
     <value>Katastrophenschutz-Hubschrauber</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>Katastrophenschutzfahrzeuge</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Feuerwehr-Hubschrauber</value>
@@ -265,7 +295,7 @@
     <value>Schwebebahnen</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Parkpflegefahrzeuge</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Passagier-Luftschiffe</value>
@@ -292,13 +322,13 @@
     <value>Polizei-Hubschrauber</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>Postfahrzeuge</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Privatflugzeuge</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>Straßenmeistereifahrzeuge</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Raketen</value>
@@ -316,6 +346,6 @@
     <value>Oberleitungsbusse</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>Absaugfahrzeuge</value>
   </data>
 </root>

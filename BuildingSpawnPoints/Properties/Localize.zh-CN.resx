@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Panel_AddAllVehicle" xml:space="preserve">
+    <value>添加所有类型的车辆</value>
+  </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>添加点</value>
   </data>
@@ -129,8 +132,29 @@
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  <data name="Panel_ApplyToAll" xml:space="preserve">
+    <value>适用于所有此类型的建筑</value>
+  </data>
+  <data name="Panel_Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Panel_DuplicatePoint" xml:space="preserve">
+    <value>复制点</value>
+  </data>
+  <data name="Panel_NoPointWarning" xml:space="preserve">
+    <value>No point in this building contains these types of vehicles:</value>
+  </data>
+  <data name="Panel_NoPointWarningContinue" xml:space="preserve">
+    <value>They will spawn in default position.</value>
+  </data>
+  <data name="Panel_Paste" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}米</value>
+  </data>
+  <data name="Panel_ResetToDefault" xml:space="preserve">
+    <value>重置为默认值</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>建筑 #{0}</value>
@@ -146,6 +170,12 @@
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>位置</value>
+  </data>
+  <data name="Tool_ApplyToAllCaption" xml:space="preserve">
+    <value>Apply to all buildings of type</value>
+  </data>
+  <data name="Tool_ApplyToAllMessage" xml:space="preserve">
+    <value>Do you really want apply this setting to all buildings of this type?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>间住 #{0}</value>
@@ -241,7 +271,7 @@
     <value>灾难反应直升机</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>灾难反应</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>消防直升机</value>
@@ -265,7 +295,7 @@
     <value>单轨列车</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>公园维护</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>载客飞艇</value>
@@ -292,13 +322,13 @@
     <value>警用直升机</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>邮政</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>私人飞机</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>道路维护</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>火箭</value>
@@ -316,6 +346,6 @@
     <value>无轨电车</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>吸水车</value>
   </data>
 </root>

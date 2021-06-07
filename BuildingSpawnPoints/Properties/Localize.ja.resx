@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Panel_AddAllVehicle" xml:space="preserve">
+    <value>全タイプの車両を追加</value>
+  </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>ポイントの追加</value>
   </data>
@@ -129,8 +132,29 @@
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  <data name="Panel_ApplyToAll" xml:space="preserve">
+    <value>同じタイプの建物を一括で適用しますか？</value>
+  </data>
+  <data name="Panel_Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Panel_DuplicatePoint" xml:space="preserve">
+    <value>ポイントを複製</value>
+  </data>
+  <data name="Panel_NoPointWarning" xml:space="preserve">
+    <value>ポイントの設定が建物内にありません、指定された車両のタイプが含まれていません。</value>
+  </data>
+  <data name="Panel_NoPointWarningContinue" xml:space="preserve">
+    <value>未設定の場合は、デフォルトの設定でスポーンします。</value>
+  </data>
+  <data name="Panel_Paste" xml:space="preserve">
+    <value>貼り付け</value>
+  </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
+  </data>
+  <data name="Panel_ResetToDefault" xml:space="preserve">
+    <value>デフォルトに戻す</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>建物 #{0} を選択中</value>
@@ -146,6 +170,12 @@
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>ポジション</value>
+  </data>
+  <data name="Tool_ApplyToAllCaption" xml:space="preserve">
+    <value>同じタイプの建物を一括で適用</value>
+  </data>
+  <data name="Tool_ApplyToAllMessage" xml:space="preserve">
+    <value>選択しているタイプの建物に、現在の設定を一括で適用してよろしいですか？</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>建物 #{0}</value>
@@ -208,7 +238,7 @@
     <value>すべて</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>救急車</value>
+    <value>救急車両</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
     <value>救急ヘリ</value>
@@ -241,13 +271,13 @@
     <value>災害救助ヘリ</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>災害救援車両</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>消防ヘリ</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>消防車</value>
+    <value>消防車両</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
     <value>漁船</value>
@@ -265,7 +295,7 @@
     <value>モノレール</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>パーク整備車両</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>飛行船</value>
@@ -286,25 +316,25 @@
     <value>旅客鉄道</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>パトカー</value>
+    <value>警察車両</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>警察ヘリ</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>郵便車両</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>軽飛行機</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>道路整備車両</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>ロケット</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>除雪車</value>
+    <value>除雪車両</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
     <value>タクシー</value>
@@ -316,6 +346,6 @@
     <value>トロリーバス</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>バキュームカー</value>
   </data>
 </root>
