@@ -30,7 +30,7 @@ namespace BuildingSpawnPoints
             new Version(1,0)
         };
 
-        protected override ulong StableWorkshopId => 2504315382ul;
+        protected override ulong StableWorkshopId => 2511258910ul;
         protected override ulong BetaWorkshopId => 2504315382ul;
 
         protected override string IdRaw => nameof(BuildingSpawnPoints);
@@ -201,6 +201,7 @@ namespace BuildingSpawnPoints
             button.relativePosition = routesButton.relativePosition + new Vector3(36f, 0f);
             button.size = new Vector2(32f, 32f);
             button.zOrder = routesButton.zOrder + 1;
+            button.eventTooltipEnter += (_,_) => button.tooltip = $"{SingletonMod<Mod>.Instance.NameRaw} ({SingletonTool<SpawnPointsTool>.Activation})";
 
             button.BgAtlas = TextureHelper.InGameAtlas;
             button.normalBgSprite = "InfoIconBaseNormal";
@@ -223,6 +224,11 @@ namespace BuildingSpawnPoints
                     tool.SetDefaultMode();
                 }
             };
+        }
+
+        private static void Button_eventTooltipEnter(UIComponent component, UIMouseEventParameter eventParam)
+        {
+            throw new NotImplementedException();
         }
     }
 }
