@@ -142,10 +142,10 @@
     <value>Punkt duplizieren</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>Kein Punkt in diesem Gebäude enthält diese Fahrzeugtypen:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>They will spawn in default position.</value>
+    <value>Sie werden an der Standardposition spawnen.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Einfügen</value>
@@ -172,10 +172,10 @@
     <value>Position</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>Auf alle Gebäude dieses Typs anwenden</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>Möchtest du diese Einstellung wirklich auf alle Gebäude dieser Art anwenden?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Gebäude #{0}</value>

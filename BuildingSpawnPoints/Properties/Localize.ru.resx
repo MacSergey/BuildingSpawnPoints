@@ -277,7 +277,7 @@
     <value>Пожарный вертолет</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Пожарные</value>
+    <value>Пожарная машина</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
     <value>Рыболовецкое судно</value>

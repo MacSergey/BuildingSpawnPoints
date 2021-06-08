@@ -142,10 +142,10 @@
     <value>复制点</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>这座建筑物中没有任何生成点包含这些车辆类别：</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>They will spawn in default position.</value>
+    <value>这些会在默认位置上生成。</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>粘贴</value>
@@ -172,10 +172,10 @@
     <value>位置</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>适用于所有此类型的建筑</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>确定想要将本设置应用于所有此类型的建筑物吗？</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>间住 #{0}</value>

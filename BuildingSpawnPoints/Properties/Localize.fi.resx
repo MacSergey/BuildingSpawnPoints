@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Add all types of vehicles</value>
+    <value>Lisää kaikki ajoneuvotyypit</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Lisää piste</value>
@@ -133,28 +133,28 @@
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Apply to all buildings of this type</value>
+    <value>Käytä kaikissa samanlaisissa rakennuksissa</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Copy</value>
+    <value>Kopioi</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Duplicate point</value>
+    <value>Monista piste</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>Mikään piste rakennuksessa ei sisällä näitä ajoneuvoja:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>They will spawn in default position.</value>
+    <value>Ne syntyvät oletussijaintiin.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Paste</value>
+    <value>Liitä</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Reset to default</value>
+    <value>Palauta oletukseksi</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Rakennus #{0}</value>
@@ -172,10 +172,10 @@
     <value>Sijainti</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>Käytä kaikissa samanlaisissa rakennuksissa</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>Haluatko varmasti asettaa nämä asetukset kaikkiin tämäntyyppisiin rakennuksiin?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Rakennus #{0}</value>
@@ -271,7 +271,7 @@
     <value>Katastrofiapuhelikopterit</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>Katastrofiapu</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Palohelikopterit</value>
@@ -295,7 +295,7 @@
     <value>Yksiraiteiset</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Puiston kunnossapito</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Ilmalaivat</value>
@@ -322,13 +322,13 @@
     <value>Poliisihelikopterit</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>Posti</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Yksityislentokoneet</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>Teiden kunnossapito</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Avaruusraketit</value>
@@ -346,6 +346,6 @@
     <value>Johdinautot</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>Imuauto</value>
   </data>
 </root>
