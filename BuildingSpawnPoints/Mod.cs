@@ -1,9 +1,11 @@
-﻿using ColossalFramework;
+﻿using BuildingSpawnPoints.Utilities;
+using ColossalFramework;
 using ColossalFramework.Math;
 using ColossalFramework.UI;
 using HarmonyLib;
 using ICities;
 using ModsCommon;
+using ModsCommon.UI;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -56,6 +58,7 @@ namespace BuildingSpawnPoints
 
             success &= AddTool();
             success &= ToolOnEscape();
+            success &= Patch_BuildingWorldInfoPanel_Start();
             //success &= AssetDataExtensionFix();
 
             var parameters = new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() };
@@ -92,7 +95,7 @@ namespace BuildingSpawnPoints
             return AddTranspiler(typeof(Patcher), nameof(Patcher.ToolControllerAwakeTranspiler), typeof(ToolController), "Awake");
         }
 
-        protected bool ToolOnEscape()
+        private bool ToolOnEscape()
         {
             return AddTranspiler(typeof(Patcher), nameof(Patcher.GameKeyShortcutsEscapeTranspiler), typeof(GameKeyShortcuts), "Escape");
         }
@@ -101,7 +104,10 @@ namespace BuildingSpawnPoints
         //{
         //    return AddPostfix(typeof(Patcher), nameof(Patcher.LoadAssetPanelOnLoadPostfix), typeof(LoadAssetPanel), nameof(LoadAssetPanel.OnLoad));
         //}
-
+        private bool Patch_BuildingWorldInfoPanel_Start()
+        {
+            return AddPostfix(typeof(Patcher), nameof(Patcher.BuildingWorldInfoPanelStartPostfix), typeof(BuildingWorldInfoPanel), "Start");
+        }
 
         private bool Patch_BuildingAI_CalculateSpawnPosition(Type[] parameters)
         {
@@ -177,6 +183,46 @@ namespace BuildingSpawnPoints
         public static bool CalculateUnspawnPositionPrefix(ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, ref Vector3 position, ref Vector3 target)
         {
             return SingletonManager<Manager>.Instance[buildingID] is not BuildingData buildingData || !buildingData.GetPosition(PointType.Unspawn, ref data, info, ref randomizer, out position, out target);
+        }
+        public static void BuildingWorldInfoPanelStartPostfix(CityServiceWorldInfoPanel __instance)
+        {
+            var buildingName = __instance.Find<UITextField>("BuildingName");
+            var namePosition = buildingName.relativePosition;
+            buildingName.width -= 36f;
+            buildingName.relativePosition = namePosition;
+
+            var locationMarker = __instance.Find<UIMultiStateButton>("LocationMarker");
+            locationMarker.relativePosition -= new Vector3(36f, 0f);
+
+            var routesButton = __instance.Find<UIMultiStateButton>("ShowHideRoutesButton");
+            routesButton.relativePosition -= new Vector3(36f, 0f);
+
+            var button = routesButton.parent.AddUIComponent<MultyAtlasUIButton>();
+            button.relativePosition = routesButton.relativePosition + new Vector3(36f, 0f);
+            button.size = new Vector2(32f, 32f);
+            button.zOrder = routesButton.zOrder + 1;
+
+            button.BgAtlas = TextureHelper.InGameAtlas;
+            button.normalBgSprite = "InfoIconBaseNormal";
+            button.pressedBgSprite = "InfoIconBasePressed";
+            button.hoveredBgSprite = "InfoIconBaseHovered";
+            button.disabledBgSprite = "InfoIconBaseDisabled";
+
+            button.FgAtlas = SpawnPointsTextures.Atlas;
+            button.normalFgSprite = SpawnPointsTextures.InfoNormal;
+            button.pressedFgSprite = SpawnPointsTextures.InfoPressed;
+
+            button.eventClicked += (_, _) =>
+            {
+                var currentInstance = WorldInfoPanel.GetCurrentInstanceID();
+                if (currentInstance.Building != 0)
+                {
+                    var tool = SingletonTool<SpawnPointsTool>.Instance;
+                    tool.Enable();
+                    tool.SetData(SingletonManager<Manager>.Instance[currentInstance.Building, Options.Default]);
+                    tool.SetDefaultMode();
+                }
+            };
         }
     }
 }

@@ -74,7 +74,7 @@ namespace BuildingSpawnPoints
 
             //PrivateBuilding
             { typeof(CommercialBuildingAI), VehicleType.Default | VehicleType.Ambulance | VehicleType.Hearse |VehicleType.CargoTruck },
-            { typeof(IndustryBuildingAI), VehicleType.Default | VehicleType.Ambulance | VehicleType.Hearse | VehicleType.CargoTruck },
+            { typeof(IndustrialBuildingAI), VehicleType.Default | VehicleType.Ambulance | VehicleType.Hearse | VehicleType.CargoTruck },
             { typeof(IndustrialExtractorAI), VehicleType.Default | VehicleType.Ambulance | VehicleType.Hearse |VehicleType.CargoTruck },
             { typeof(OfficeBuildingAI), VehicleType.Default | VehicleType.Ambulance |VehicleType.Hearse | VehicleType.PostTruck },
             { typeof(ResidentialBuildingAI), VehicleType.Default | VehicleType.Ambulance | VehicleType.Hearse | VehicleType.PostTruck },
@@ -199,8 +199,7 @@ namespace BuildingSpawnPoints
                 return VehicleType.None;
             else
             {
-                var parentType = type.BaseType;
-                while (parentType != null)
+                for (var parentType = type.BaseType; parentType != null; parentType = parentType.BaseType)
                 {
                     if (allow.TryGetValue(parentType, out vehicleType))
                     {

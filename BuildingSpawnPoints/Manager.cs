@@ -60,6 +60,8 @@ namespace BuildingSpawnPoints
             }
         }
     }
+
+    [Flags]
     public enum Options
     {
         None = 0,
