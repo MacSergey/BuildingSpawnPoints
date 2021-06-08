@@ -15,6 +15,7 @@ namespace BuildingSpawnPoints.UI
     {
         public event Action<PointPanel, UIMouseEventParameter> OnEnter;
         public event Action<PointPanel, UIMouseEventParameter> OnLeave;
+        public event Action OnChanged;
 
         public ushort BuildingId { get; private set; }
         public BuildingSpawnPoint Point { get; private set; }
@@ -56,8 +57,9 @@ namespace BuildingSpawnPoints.UI
         {
             Header = ComponentPool.Get<PointHeaderPanel>(this, nameof(Header));
             InitHeader();
-            Header.OnDelete += () => SingletonItem<BuildingSpawnPointsPanel>.Instance.DeletePoint(this);
+            Header.OnDelete += Delete;
             Header.OnAddType += AddVehicleType;
+            Header.OnDuplicate += Duplicate;
         }
         private void AddVehicleType()
         {
@@ -66,17 +68,32 @@ namespace BuildingSpawnPoints.UI
             Vehicle.OnDelete += DeleteVehicleType;
         }
 
+        private void Changed() => OnChanged?.Invoke();
+        private void Delete()
+        {
+            SingletonItem<BuildingSpawnPointsPanel>.Instance.DeletePoint(this);
+            Changed();
+        }
         private void AddVehicleType(VehicleType type)
         {
             type &= NotAdded;
             Point.VehicleTypes |= type;
             Vehicle.AddItems(type);
             InitHeader();
+
+            Changed();
         }
         private void DeleteVehicleType(VehicleType type)
         {
             Point.VehicleTypes &= ~type;
             InitHeader();
+
+            Changed();
+        }
+        private void Duplicate()
+        {
+            SingletonItem<BuildingSpawnPointsPanel>.Instance.DuplicatePoint(this);
+            Changed();
         }
         private void InitHeader() => Header.Init(NotAdded);
 
@@ -94,12 +111,8 @@ namespace BuildingSpawnPoints.UI
             position.Text = BuildingSpawnPoints.Localize.Property_Position;
             position.WheelTip = true;
             position.Init(0, 2, 3);
-            position.Value = (Vector4)Point.Position + new Vector4(0f, 0f, 0f, Point.Angle);
-            position.OnValueChanged += (value) =>
-                {
-                    Point.Position = value;
-                    Point.Angle = value.w;
-                };
+            position.Value = Point.Position;
+            position.OnValueChanged += (value) => Point.Position = value;
         }
 
         protected override void OnMouseEnter(UIMouseEventParameter p)
@@ -116,45 +129,54 @@ namespace BuildingSpawnPoints.UI
     public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent>
     {
         public event Action<VehicleType> OnAddType;
+        public event Action OnDuplicate;
 
         private SelectVehicleHeaderButton AddTypeButton { get; }
+        private SimpleHeaderButton AddAllTypesButton { get; }
         //private SelectVehicleHeaderButton AddTypeGroupButton { get; }
         public PointHeaderPanel()
         {
             AddTypeButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicle, BuildingSpawnPoints.Localize.Panel_AddVehicle);
+            AddAllTypesButton = Content.AddButton<SimpleHeaderButton>(SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, onClick: AddAllTypes);
             //AddTypeGroupButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
+            Content.AddButton<SimpleHeaderButton>(SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, onClick: DuplicateClick);
 
             AddTypeButton.OnSelect += AddType;
             //AddTypeGroupButton.OnSelect += AddType;
         }
 
-        private void AddType(VehicleType type)
-        {
-            OnAddType?.Invoke(type);
-        }
+        private void AddType(VehicleType type) => OnAddType?.Invoke(type);
 
         public void Init(VehicleType notAdded)
         {
             base.Init();
             Fill(notAdded);
         }
+        public override void DeInit()
+        {
+            base.DeInit();
+
+            OnAddType = null;
+            OnDuplicate = null;
+        }
         private void Fill(VehicleType notAdded)
         {
             var types = GetGroup<VehicleType>(notAdded).ToArray();
-            var typeGroups = new List<VehicleType>();
-            if ((VehicleType.Default & notAdded) != VehicleType.None)
-                typeGroups.Add(VehicleType.Default);
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupA>(notAdded));
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupB>(notAdded));
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupC>(notAdded));
-            typeGroups.AddRange(GetGroup<VehicleTypeGroupD>(notAdded));
-            if ((VehicleType.All & notAdded) != VehicleType.None)
-                typeGroups.Add(VehicleType.All);
-
             AddTypeButton.Init(types);
-            //AddTypeGroupButton.Init(groups);
-
             AddTypeButton.isEnabled = types.Length != 0;
+            AddAllTypesButton.isEnabled = types.Length != 0;
+
+            //var typeGroups = new List<VehicleType>();
+            //if ((VehicleType.Default & notAdded) != VehicleType.None)
+            //    typeGroups.Add(VehicleType.Default);
+            //typeGroups.AddRange(GetGroup<VehicleTypeGroupA>(notAdded));
+            //typeGroups.AddRange(GetGroup<VehicleTypeGroupB>(notAdded));
+            //typeGroups.AddRange(GetGroup<VehicleTypeGroupC>(notAdded));
+            //typeGroups.AddRange(GetGroup<VehicleTypeGroupD>(notAdded));
+            //if ((VehicleType.All & notAdded) != VehicleType.None)
+            //    typeGroups.Add(VehicleType.All);
+
+            //AddTypeGroupButton.Init(groups);
             //AddTypeGroupButton.isEnabled = groups.Length != 0;
         }
 
@@ -167,6 +189,13 @@ namespace BuildingSpawnPoints.UI
                     yield return (VehicleType)(object)type;
             }
         }
+
+        private void DuplicateClick(UIComponent component, UIMouseEventParameter eventParam) => OnDuplicate?.Invoke();
+        private void AddAllTypes(UIComponent component, UIMouseEventParameter eventParam) => AddType(VehicleType.All);
+    }
+    public class SimpleHeaderButton : HeaderButton
+    {
+        protected override UITextureAtlas IconAtlas => SpawnPointsTextures.Atlas;
     }
     public class SelectVehicleHeaderButton : BaseHeaderDropDown<VehicleType>
     {
@@ -197,7 +226,7 @@ namespace BuildingSpawnPoints.UI
                 field.Format = BuildingSpawnPoints.Localize.Panel_PositionFormat;
                 field.width = 50f;
 
-                if(i == 3)
+                if (i == 3)
                 {
                     field.Format = BuildingSpawnPoints.Localize.Panel_AngleFormat;
                     field.NumberFormat = "0";
