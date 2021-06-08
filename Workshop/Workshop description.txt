@@ -5,19 +5,20 @@
 [HR][/HR] 
 [h1]What’s Included[/h1]
 [list] 
-[*] Change position on existing spawn points
+[*] Change position of existing spawn points
 [*] Add additional spawn points
+[*] Spawn vehicles from any side of once building to many different roads
 [*] Set point type: spawn, unspawn, spawn&unspawn
 [*] Set vehicles types for each point
 [*] Apply settings for all building of type
-[*] Translation into languages: Chinese, Finnish, French, German, Japanese, Polish, Russian, Spanish
+[*] Translation into languages: Chinese, Dutch, Finnish, French, German, Japanese, Polish, Russian, Spanish
 [/list]
 
 [HR][/HR] 
 [h1]How activate[/h1]
 [olist]
 [*] Press Ctrl+P (You can change binding shortcut in mod settings)
-[*] Select building and click button [img]https://i.imgur.com/GPFONM6.png[/img]
+[*] Select building and click button on header of info panel [img]https://i.imgur.com/GPFONM6.png[/img]
 [/olist]
 
 [HR][/HR]
@@ -48,6 +49,7 @@ If you want to help improve existing translations or you want to translate into 
 [*] [url=https://steamcommunity.com/id/Dogg_One]Dogg1[/url] (Finnish translation)
 [*] [url=https://steamcommunity.com/profiles/76561198141193559]krzychu124[/url]
 [*] [url=https://steamcommunity.com/id/mrlojnat/]MrLojnat[/url] (French translation)
+[*] [url=https://steamcommunity.com/profiles/76561198087011973/]ristrettoridder[/url] (Dutch translation)
 [*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
 [*] [url=https://steamcommunity.com/id/mrwoozie/]Woozie[/url] (Polish translation)
 [/list]
