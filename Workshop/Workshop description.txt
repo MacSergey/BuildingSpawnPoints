@@ -17,7 +17,7 @@
 [h1]How activate[/h1]
 [olist]
 [*] Press Ctrl+P (You can change binding shortcut in mod settings)
-[*] Select building and click button [img]https://i.imgur.com/Itw4p0H.png[/img]
+[*] Select building and click button [img]https://i.imgur.com/GPFONM6.png[/img]
 [/olist]
 
 [HR][/HR]

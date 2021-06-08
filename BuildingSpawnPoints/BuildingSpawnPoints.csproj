@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\InfoIcon.tga" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Localize.de.resx" />
@@ -139,9 +140,6 @@
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
     <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
     <EmbeddedResource Include="Resources\HeaderButtons.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\InfoIcon.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\CustomUIShared\CustomUIShared.projitems" Label="Shared" />
