@@ -15,10 +15,12 @@ namespace BuildingSpawnPoints
             AddLanguage(GeneralTab);
 
 
-            var generalGroup = GeneralTab.AddGroup("General");
+            var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
 
             var keymappings = AddKeyMappingPanel(generalGroup);
             keymappings.AddKeymapping(SpawnPointsTool.ActivationShortcut);
+
+            AddNotifications(GeneralTab);
 
 #if DEBUG
             var debugTab = CreateTab("Debug");
