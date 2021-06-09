@@ -1,3 +1,5 @@
+[HR][/HR]
+[img]https://i.imgur.com/j5BJcCL.png[/img]
 [code][h1]Overview[/h1]
 [list][h2]This mod allows you change and add building points where spawn vehicles[/h2][/list]
 [/code]
@@ -11,6 +13,7 @@
 [*] Set point type: spawn, unspawn, spawn&unspawn
 [*] Set vehicles types for each point
 [*] Apply settings for all building of type
+[*] MoveIt integration - points data copied when you copy building
 [*] Translation into languages: Chinese, Dutch, Finnish, French, German, Japanese, Polish, Russian, Spanish
 [/list]
 

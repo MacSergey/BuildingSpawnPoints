@@ -22,6 +22,8 @@ namespace BuildingSpawnPoints
 
             AddNotifications(GeneralTab);
 
+            var reportGroup = GeneralTab.AddGroup("Report");
+            AddHarmonyReport(reportGroup);
 #if DEBUG
             var debugTab = CreateTab("Debug");
             AddDebug(debugTab);
@@ -29,13 +31,9 @@ namespace BuildingSpawnPoints
         }
 #if DEBUG
 
-        public static SavedFloat ZOffset { get; } = new SavedFloat(nameof(ZOffset), SettingsFile, 2f, false);
-
         private void AddDebug(UIAdvancedHelper helper)
         {
-            var group = helper.AddGroup("Debug");
 
-            AddFloatField(group, "Z Offset", ZOffset, 2f);
         }
 #endif
     }
