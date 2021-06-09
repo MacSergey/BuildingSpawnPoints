@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Add all types of vehicles</value>
+    <value>Adicionar todos os tipos de veículo</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Add point</value>
+    <value>Adicionar ponto</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Add vehicle type</value>
+    <value>Adicionar tipo de veículo</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
     <value>Add vehicle type group</value>
@@ -133,55 +133,55 @@
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Apply to all buildings of this type</value>
+    <value>Aplicar a todos os edifícios deste tipo</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Copy</value>
+    <value>Copiar</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Duplicate point</value>
+    <value>Duplicar ponto</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>Nenhum ponto neste edifício contém estes tipos de veículos:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>They will spawn in default position.</value>
+    <value>Eles aparecerão na posição predefinida.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Paste</value>
+    <value>Colar</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Reset to default</value>
+    <value>Repor predefinição</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Edifício #{0}</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Invocar</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>Destino</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>Tipo</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Position</value>
+    <value>Posição</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>Aplicar a todos os edifícios deste tipo</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>Deseja realmente aplicar esta configuração a todos os edifícios deste tipo?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Edifício #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Select building</value>
+    <value>Selecione o edifício</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
     <value>Air vehicles</value>
@@ -238,7 +238,7 @@
     <value>All</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>Ambulância</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
     <value>Ambulance copter</value>
@@ -271,22 +271,22 @@
     <value>Disaster response copter</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>Resposta a desastres</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Fire copter</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>Camião dos bombeiros</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
     <value>Fishing boat</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>Camião do lixo</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
+    <value>Carro funerário</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Metro</value>
@@ -295,7 +295,7 @@
     <value>Monorail</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Manutenção de parques</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Passenger blimp</value>
@@ -316,28 +316,28 @@
     <value>Passenger train</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>Polícia</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>Police copter</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>Correios</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Private plane</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>Manutenção de parques</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Rocket</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snowplow</value>
+    <value>Limpa-neve</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>Táxi</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
     <value>Tram</value>
@@ -346,6 +346,6 @@
     <value>Trolleybus</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>Camião de vácuo</value>
   </data>
 </root>

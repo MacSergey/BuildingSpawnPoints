@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Add all types of vehicles</value>
+    <value>Ajouter tous les types de véhicules</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Ajouter un point</value>
@@ -133,37 +133,37 @@
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Apply to all buildings of this type</value>
+    <value>Appliquer à tous les bâtiments de ce type</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Copy</value>
+    <value>Copier</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Duplicate point</value>
+    <value>Dupliquer le point</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>Aucun point dans ce bâtiment ne contient ces types de véhicules :</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>They will spawn in default position.</value>
+    <value>Ils apparaîtront dans la position par défaut.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Paste</value>
+    <value>Coller</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Reset to default</value>
+    <value>Réinitialiser les paramètres</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Bâtiment #{0}</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Apparition</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Déspawn</value>
+    <value>Disparition</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
@@ -172,10 +172,10 @@
     <value>Position</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>Appliquer à tous les bâtiments de ce type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>Voulez-vous vraiment appliquer ce paramètre à tous les bâtiments de ce type ?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Bâtiment #{0}</value>
@@ -271,7 +271,7 @@
     <value>Hélicoptère de catastrophes</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>Réponse aux catastrophes</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Hélicopère de pompiers</value>
@@ -322,7 +322,7 @@
     <value>Hélicoptères de police</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>La Poste</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Avions privés</value>
@@ -346,6 +346,6 @@
     <value>Trolleybus</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>Camion à pompe</value>
   </data>
 </root>

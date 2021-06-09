@@ -133,7 +133,7 @@
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>同じタイプの建物を一括で適用しますか？</value>
+    <value>同じタイプの建物を一括で適用</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>コピー</value>
@@ -142,10 +142,11 @@
     <value>ポイントを複製</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>ポイントの設定が建物内にありません、指定された車両のタイプが含まれていません。</value>
+    <value>有効なポイントの設定が、建物内にありません。
+もしくは、下記で指定された車両のタイプが含まれていません。</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>未設定の場合は、デフォルトの設定でスポーンします。</value>
+    <value>未設定・不適切な場合は、デフォルトの設定で処理されます。</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>貼り付け</value>

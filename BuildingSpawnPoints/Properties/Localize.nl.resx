@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Add all types of vehicles</value>
+    <value>Voeg alle typen voertuigen toe</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Punt toevoegen</value>
@@ -133,28 +133,28 @@
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Apply to all buildings of this type</value>
+    <value>Toepassen op alle gebouwen van dit type</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Copy</value>
+    <value>Kopiëren</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Duplicate point</value>
+    <value>Kopieer punt</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>Geen enkel punt in dit gebouw bevat deze soorten voertuigen:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>They will spawn in default position.</value>
+    <value>Ze zullen in de standaardpositie tevoorschijn komen.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Paste</value>
+    <value>Plakken</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Reset to default</value>
+    <value>Terug naar standaardwaarde</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Gebouw #{0}</value>
@@ -172,10 +172,10 @@
     <value>Positie</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>Toepassen op alle gebouwen van dit type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>Weet u zeker dat u deze instelling wilt toepassen op alle gebouwen van dit type?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Gebouw #{0}</value>
@@ -295,7 +295,7 @@
     <value>Monorail</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Parkonderhoud</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
     <value>Passagierszeppelin</value>
@@ -328,7 +328,7 @@
     <value>Privévliegtuig</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>Onderhoud aan de weg</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Raket</value>
@@ -346,6 +346,6 @@
     <value>Trolleybus</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>Veegwagen</value>
   </data>
 </root>
