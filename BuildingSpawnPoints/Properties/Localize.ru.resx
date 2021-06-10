@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Mod_Description" xml:space="preserve">
+    <value>Измените и добавьте точки появления транспортных средств</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
+    <value>- Разрешен конфликт с модом More Effective Transfer Manager.
+- Добавлены Голландский, Французский и Португальский переводы.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Добавить все типы транспортных средств</value>
   </data>

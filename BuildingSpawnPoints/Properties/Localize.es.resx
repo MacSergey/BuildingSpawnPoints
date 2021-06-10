@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Mod_Description" xml:space="preserve">
+    <value>Change and add vehicles spawn points</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
+    <value>- Resolved conflict with More Effective Transfer Manager mod.
+- Added Dutch, French and Portuguese translations.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>
