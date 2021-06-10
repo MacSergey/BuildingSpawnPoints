@@ -24,11 +24,12 @@ namespace BuildingSpawnPoints
     {
         #region PROPERTIES
         public override string NameRaw => "Building Spawn Points";
-        public override string Description => string.Empty;
+        public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;
 
         public override List<Version> Versions => new List<Version>()
         {
-            new Version(1,0)
+            new Version(1,0,1),
+            new Version(1,0),
         };
 
         protected override ulong StableWorkshopId => 2511258910ul;

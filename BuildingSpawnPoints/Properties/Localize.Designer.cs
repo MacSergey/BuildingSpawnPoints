@@ -61,6 +61,25 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Change and add vehicles spawn points.
+        /// </summary>
+        internal static string Mod_Description {
+            get {
+                return ResourceManager.GetString("Mod_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на - Resolved conflict with More Effective Transfer Manager mod.
+        ///- Added Dutch, French and Portuguese translations..
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_0_1 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_0_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add all types of vehicles.
         /// </summary>
         internal static string Panel_AddAllVehicle {
