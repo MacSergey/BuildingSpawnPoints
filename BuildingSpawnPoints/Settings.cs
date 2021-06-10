@@ -21,9 +21,10 @@ namespace BuildingSpawnPoints
             keymappings.AddKeymapping(SpawnPointsTool.ActivationShortcut);
 
             AddNotifications(GeneralTab);
-
+#if BETA
             var reportGroup = GeneralTab.AddGroup("Report");
             AddHarmonyReport(reportGroup);
+#endif
 #if DEBUG
             var debugTab = CreateTab("Debug");
             AddDebug(debugTab);
