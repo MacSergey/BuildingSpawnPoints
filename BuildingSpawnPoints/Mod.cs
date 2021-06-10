@@ -16,6 +16,7 @@ using System.Reflection.Emit;
 using System.Resources;
 using System.Text;
 using UnityEngine;
+using static ColossalFramework.Plugins.PluginManager;
 
 namespace BuildingSpawnPoints
 {
@@ -23,11 +24,12 @@ namespace BuildingSpawnPoints
     {
         #region PROPERTIES
         public override string NameRaw => "Building Spawn Points";
-        public override string Description => string.Empty;
+        public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;
 
         public override List<Version> Versions => new List<Version>()
         {
-            new Version(1,0)
+            new Version(1,0,1),
+            new Version(1,0),
         };
 
         protected override ulong StableWorkshopId => 2511258910ul;
@@ -42,6 +44,11 @@ namespace BuildingSpawnPoints
 #endif
         #endregion
         protected override ResourceManager LocalizeManager => Localize.ResourceManager;
+
+        private static string METMName => "More Effective Transfer Manager";
+        private static ulong METMId => 1680840913ul;
+        private static PluginSearcher METMSearcher { get; } = PluginUtilities.GetSearcher(METMName, METMId);
+        public static PluginInfo METM => PluginUtilities.GetPlugin(METMSearcher);
 
         protected override void GetSettings(UIHelperBase helper)
         {
@@ -87,6 +94,11 @@ namespace BuildingSpawnPoints
             success &= Patch_CalculateSpawnPosition(typeof(DepotAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
 
+            if (METM is null)
+                Logger.Debug("METM not exist, skip patches");
+            else
+                Patch_METM(ref success, parameters);
+
             return success;
         }
 
@@ -125,6 +137,14 @@ namespace BuildingSpawnPoints
         private bool Patch_CalculateUnspawnPosition(Type type, Type[] parameters)
         {
             return AddPrefix(typeof(Patcher), nameof(Patcher.CalculateUnspawnPositionPrefix), type, nameof(BuildingAI.CalculateUnspawnPosition), parameters);
+        }
+
+        private void Patch_METM(ref bool success, Type[] parameters)
+        {
+            success &= AddTranspiler(typeof(Patcher), nameof(Patcher.METMTargetMethodTranspiler), Type.GetType("MoreEffectiveTransfer.Patch.WarehouseAICalculateSpawnPositionPatch"), "TargetMethod");
+            success &= AddTranspiler(typeof(Patcher), nameof(Patcher.METMTargetMethodTranspiler), Type.GetType("MoreEffectiveTransfer.Patch.WarehouseAICalculateUnspawnPositionPatch"), "TargetMethod");
+            success &= AddTranspiler(typeof(Patcher), nameof(Patcher.METMPostfixTranspiler), Type.GetType("MoreEffectiveTransfer.Patch.WarehouseAICalculateSpawnPositionPatch"), "Postfix");
+            success &= AddTranspiler(typeof(Patcher), nameof(Patcher.METMPostfixTranspiler), Type.GetType("MoreEffectiveTransfer.Patch.WarehouseAICalculateUnspawnPositionPatch"), "Postfix");
         }
 
         #endregion
@@ -201,7 +221,7 @@ namespace BuildingSpawnPoints
             button.relativePosition = routesButton.relativePosition + new Vector3(36f, 0f);
             button.size = new Vector2(32f, 32f);
             button.zOrder = routesButton.zOrder + 1;
-            button.eventTooltipEnter += (_,_) => button.tooltip = $"{SingletonMod<Mod>.Instance.NameRaw} ({SingletonTool<SpawnPointsTool>.Activation})";
+            button.eventTooltipEnter += (_, _) => button.tooltip = $"{SingletonMod<Mod>.Instance.NameRaw} ({SingletonTool<SpawnPointsTool>.Activation})";
 
             button.BgAtlas = TextureHelper.InGameAtlas;
             button.normalBgSprite = "InfoIconBaseNormal";
@@ -226,9 +246,21 @@ namespace BuildingSpawnPoints
             };
         }
 
-        private static void Button_eventTooltipEnter(UIComponent component, UIMouseEventParameter eventParam)
+        public static IEnumerable<CodeInstruction> METMTargetMethodTranspiler(IEnumerable<CodeInstruction> instructions)
         {
-            throw new NotImplementedException();
+            var wrongType = typeof(WarehouseAI);
+            var needType = typeof(BuildingAI);
+            foreach (var instruction in instructions)
+            {
+                if (instruction.opcode == OpCodes.Ldtoken && instruction.operand == wrongType)
+                    instruction.operand = needType;
+
+                yield return instruction;
+            }
+        }
+        public static IEnumerable<CodeInstruction> METMPostfixTranspiler(IEnumerable<CodeInstruction> instructions)
+        {
+            yield return new CodeInstruction(OpCodes.Ret);
         }
     }
 }
