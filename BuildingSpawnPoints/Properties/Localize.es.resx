@@ -124,6 +124,9 @@
     <value>- Resolved conflict with More Effective Transfer Manager mod.
 - Added Dutch, French and Portuguese translations.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
+    <value>- Added Italian translation.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>
