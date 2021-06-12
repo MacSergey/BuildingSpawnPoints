@@ -10,8 +10,10 @@ namespace BuildingSpawnPoints
 {
     public class Settings : BaseSettings<Mod>
     {
-        protected override void OnSettingsUI()
+        protected override void FillSettings()
         {
+            base.FillSettings();
+
             AddLanguage(GeneralTab);
 
 
@@ -21,21 +23,6 @@ namespace BuildingSpawnPoints
             keymappings.AddKeymapping(SpawnPointsTool.ActivationShortcut);
 
             AddNotifications(GeneralTab);
-#if BETA
-            var reportGroup = GeneralTab.AddGroup("Report");
-            AddHarmonyReport(reportGroup);
-#endif
-#if DEBUG
-            var debugTab = CreateTab("Debug");
-            AddDebug(debugTab);
-#endif
         }
-#if DEBUG
-
-        private void AddDebug(UIAdvancedHelper helper)
-        {
-
-        }
-#endif
     }
 }
