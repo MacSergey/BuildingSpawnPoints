@@ -127,6 +127,15 @@
   <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
     <value>- Added Italian translation.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
+    <value>- Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
+- Added transport station, but it will work only like depot. Stop position set by transport line.
+- Added cargo stations (train, plane, ship). Truck points not implimented yet.
+- Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
+- Added copters (police, ambulance, fire, disaster, passenger).
+- Added point height.
+- Fixed police car, fire truck, park maintenance and disaster response unspawn.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>全タイプの車両を追加</value>
   </data>
@@ -152,11 +161,11 @@
     <value>ポイントを複製</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>有効なポイントの設定が、建物内にありません。
-もしくは、下記で指定された車両のタイプが含まれていません。</value>
+    <value>有効なポイントの設定が建物内にありません。
+もしくは下記で指定された、車両のタイプが含まれていません。</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>未設定・不適切な場合は、デフォルトの設定で処理されます。</value>
+    <value>未設定・不適切な場合は、デフォルトの設定が適用されます。</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>貼り付け</value>
@@ -170,6 +179,9 @@
   <data name="Panel_Title" xml:space="preserve">
     <value>建物 #{0} を選択中</value>
   </data>
+  <data name="PointType_Middle" xml:space="preserve">
+    <value>Middle</value>
+  </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>出現</value>
   </data>
@@ -177,7 +189,7 @@
     <value>帰還</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>タイプ</value>
+    <value>スポーンのタイプ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>ポジション</value>
@@ -249,13 +261,13 @@
     <value>すべて</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>救急車両</value>
+    <value>救急車</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
     <value>救急ヘリ</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>気球</value>
+    <value>熱気球</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>自転車</value>
@@ -288,7 +300,7 @@
     <value>消防ヘリ</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>消防車両</value>
+    <value>消防車</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
     <value>漁船</value>
@@ -324,10 +336,10 @@
     <value>旅客船</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>旅客鉄道</value>
+    <value>旅客列車</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>警察車両</value>
+    <value>パトカー</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
     <value>警察ヘリ</value>
@@ -345,7 +357,7 @@
     <value>ロケット</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>除雪車両</value>
+    <value>除雪車</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
     <value>タクシー</value>

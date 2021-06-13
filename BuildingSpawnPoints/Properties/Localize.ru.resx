@@ -127,6 +127,15 @@
   <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
     <value>- Добавлен перевод на итальянский.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
+    <value>- Добавлено депо (автобус, троллейбус, трамвай, поезда, вертолет, дирижабль). Теперь возможно создавать произвольные депо.
+- Добавлены транспортные станции, но они работают как депо. Места остановки задаются транспортными линиями.
+- Добавлены грузовые станции (поезда, самолет, корабль). Точки для грузовиков еще не реализованы.
+- Добавлены рыболовецкий порт (рыболовецкое судно), убежище (эвакуационный автобус), туристические здания (туристический автобус, воздушный шар).
+- Добавлены вертолеты (полиция, скорая помощь, пожарный, спасательный, пассажирский).
+- Добавлена высота точки.
+- Исправлена позиция исчезновения для полиции, пожарных, обслуживания парков и спасателей.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Добавить все типы транспортных средств</value>
   </data>
@@ -168,6 +177,9 @@
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Здание #{0}</value>
+  </data>
+  <data name="PointType_Middle" xml:space="preserve">
+    <value>Middle</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Появление</value>
@@ -278,7 +290,7 @@
     <value>Грузовик</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Эвакуационный вертолет</value>
+    <value>Вертолет службы спасения</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
     <value>Служба спасения</value>

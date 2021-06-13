@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Change and add vehicles spawn points</value>
+    <value>Modifier et ajouter les points d'apparition des véhicules</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
     <value>- Resolved conflict with More Effective Transfer Manager mod.
@@ -126,6 +126,15 @@
   </data>
   <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
     <value>- Added Italian translation.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
+    <value>- Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
+- Added transport station, but it will work only like depot. Stop position set by transport line.
+- Added cargo stations (train, plane, ship). Truck points not implimented yet.
+- Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
+- Added copters (police, ambulance, fire, disaster, passenger).
+- Added point height.
+- Fixed police car, fire truck, park maintenance and disaster response unspawn.</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
@@ -168,6 +177,9 @@
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>Bâtiment #{0}</value>
+  </data>
+  <data name="PointType_Middle" xml:space="preserve">
+    <value>Milieu</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Apparition</value>
