@@ -163,6 +163,7 @@ namespace BuildingSpawnPoints
 
             success &= Patch_FireTruckAI_SetSource();
             success &= Patch_DisasterResponseVehicleAI_SetSource();
+            success &= Patch_BalloonAI_SetSource();
         }
 
         private bool Patch_PoliceCarAI_StartPathFind(Type[] parameters)
@@ -209,6 +210,10 @@ namespace BuildingSpawnPoints
         private bool Patch_DisasterResponseVehicleAI_SetSource()
         {
             return AddPrefix(typeof(Patcher), nameof(Patcher.DisasterResponseAI_SetSource_Prefix), typeof(DisasterResponseVehicleAI), nameof(DisasterResponseVehicleAI.SetSource));
+        }
+        private bool Patch_BalloonAI_SetSource()
+        {
+            return AddPrefix(typeof(Patcher), nameof(Patcher.BalloonAI_SetSource_Prefix), typeof(BalloonAI), nameof(BalloonAI.SetSource));
         }
 
         #endregion

@@ -192,16 +192,18 @@ namespace BuildingSpawnPoints
             }
         }
 
-        public delegate void RemoveSourceDelegate<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data) where TypeAI : CarAI;
+        public delegate void RemoveSourceDelegate<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data) where TypeAI : VehicleAI;
 
         private static RemoveSourceDelegate<FireTruckAI> FireTruckRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<FireTruckAI>>(AccessTools.Method(typeof(FireTruckAI), "RemoveSource"));
         private static RemoveSourceDelegate<DisasterResponseVehicleAI> DisasterResponseRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<DisasterResponseVehicleAI>>(AccessTools.Method(typeof(DisasterResponseVehicleAI), "RemoveSource"));
+        private static RemoveSourceDelegate<BalloonAI> BalloonRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<BalloonAI>>(AccessTools.Method(typeof(BalloonAI), "RemoveSource"));
 
-        public static bool FireTruckAI_SetSource_Prefix(FireTruckAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => CarAISetSource(__instance, vehicleID, ref data, sourceBuilding, FireTruckRemoveSource);
-        public static bool DisasterResponseAI_SetSource_Prefix(DisasterResponseVehicleAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => CarAISetSource(__instance, vehicleID, ref data, sourceBuilding, DisasterResponseRemoveSource);
+        public static bool FireTruckAI_SetSource_Prefix(FireTruckAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, FireTruckRemoveSource);
+        public static bool DisasterResponseAI_SetSource_Prefix(DisasterResponseVehicleAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, DisasterResponseRemoveSource);
+        public static bool BalloonAI_SetSource_Prefix(BalloonAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, BalloonRemoveSource);
 
-        public static bool CarAISetSource<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding, RemoveSourceDelegate<TypeAI> removeSource)
-            where TypeAI : CarAI
+        private static bool VehicleAISetSource<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding, RemoveSourceDelegate<TypeAI> removeSource)
+            where TypeAI : VehicleAI
         {
             removeSource(instance, vehicleID, ref data);
             data.m_sourceBuilding = sourceBuilding;

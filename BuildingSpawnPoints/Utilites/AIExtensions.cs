@@ -56,7 +56,7 @@ namespace BuildingSpawnPoints
             { typeof(PassengerHelicopterAI),VehicleType.PassengerCopter },
 
             //Air
-            { typeof(BalloonAI),VehicleType.Balloon },
+            { typeof(BalloonAI),VehicleType.PassengerBalloon },
             { typeof(PassengerBlimpAI),VehicleType.PassengerBlimp },
 
             //Ships
@@ -380,7 +380,7 @@ namespace BuildingSpawnPoints
             VehicleInfo.VehicleType.Monorail => VehicleType.Monorail,
             VehicleInfo.VehicleType.CableCar => VehicleType.CableCar,
             VehicleInfo.VehicleType.Blimp => VehicleType.PassengerBlimp,
-            VehicleInfo.VehicleType.Balloon => VehicleType.Balloon,
+            VehicleInfo.VehicleType.Balloon => VehicleType.PassengerBalloon,
             VehicleInfo.VehicleType.Rocket => VehicleType.Rocket,
             VehicleInfo.VehicleType.Trolleybus => VehicleType.Trolleybus,
             _ => VehicleType.Default,
@@ -389,7 +389,7 @@ namespace BuildingSpawnPoints
         {
             { m_subService: ItemClass.SubService.PublicTransportBus } => VehicleType.Bus,
             { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level3 } => VehicleType.Bus,
-            { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level4 } => VehicleType.Balloon,
+            { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level4 } => VehicleType.PassengerBalloon,
             { m_subService: ItemClass.SubService.PublicTransportMetro } => VehicleType.MetroTrain,
             { m_subService: ItemClass.SubService.PublicTransportTrain } => VehicleType.PassengerTrain,
             { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level2 } => VehicleType.PassengerFerry,
