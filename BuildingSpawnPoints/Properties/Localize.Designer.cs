@@ -215,6 +215,15 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Middle.
+        /// </summary>
+        internal static string PointType_Middle {
+            get {
+                return ResourceManager.GetString("PointType_Middle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Spawn.
         /// </summary>
         internal static string PointType_Spawn {

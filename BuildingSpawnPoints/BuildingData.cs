@@ -207,8 +207,14 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.PointType_Unspawn))]
         Unspawn = 2,
 
+        //[Description(nameof(Localize.PointType_Middle))]
+        //Middle = 4,
+
         [NotVisible]
         Both = Spawn | Unspawn,
+
+        //[NotVisible]
+        //All = Both | Middle,
     }
 
 }

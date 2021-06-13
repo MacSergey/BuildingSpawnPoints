@@ -210,7 +210,8 @@ namespace BuildingSpawnPoints
                 {
                     PointType.Spawn => Colors.Green,
                     PointType.Unspawn => Colors.Red,
-                    PointType.Both => Colors.Orange,
+                    //PointType.Middle => Colors.Purple,
+                    PointType.Both /*or PointType.All*/ => Colors.Orange,
                     _ => Colors.Gray,
                 };
 
