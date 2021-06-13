@@ -167,6 +167,10 @@ namespace BuildingSpawnPoints
                     vehicleTypes |= info.GetCopterType();
                     break;
 
+                case FishingHarborAI:
+                    vehicleTypes |= VehicleType.FishingBoat;
+                    break;
+
                 case DepotAI depot:
                     {
                         //if (depot is not TransportStationAI)
@@ -239,13 +243,13 @@ namespace BuildingSpawnPoints
         public static IEnumerable<BuildingSpawnPoint> GetDefaultPoints(this BuildingData data) => data.Id.GetBuilding().Info.m_buildingAI switch
         {
             //CargoStationAI cargoStation => cargoStation.GetPoints(data),
-            //FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
             //ShelterAI shelter => shelter.GetPoints(data),
             DepotAI depot => depot.GetPoints(data),
             TaxiStandAI taxiStand => taxiStand.GetPoints(data),
             PostOfficeAI postOffice => postOffice.GetPoints(data),
             MaintenanceDepotAI maintenanceDepot => maintenanceDepot.GetPoints(data),
             TourBuildingAI tourBuilding => tourBuilding.GetPoints(data),
+            FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
             _ => GetCopterPoints(data),
         };
 
@@ -309,7 +313,8 @@ namespace BuildingSpawnPoints
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this FishingHarborAI fishingHarbor, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatSpawnPosition, fishingHarbor.m_boatSpawnTarget, VehicleType.FishingBoat);
+            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatSpawnPosition, fishingHarbor.m_boatSpawnTarget, VehicleType.FishingBoat, PointType.Spawn);
+            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatUnspawnPosition, fishingHarbor.m_boatUnspawnTarget, VehicleType.FishingBoat, PointType.Unspawn);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this ShelterAI shelter, BuildingData data)
         {

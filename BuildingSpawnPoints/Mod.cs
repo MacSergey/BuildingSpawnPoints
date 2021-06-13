@@ -98,14 +98,8 @@ namespace BuildingSpawnPoints
             success &= Patch_BuildingAI_CalculateSpawnPosition(parameters);
             success &= Patch_BuildingAI_CalculateUnspawnPosition(parameters);
 
-            //success &= Patch_CalculateSpawnPosition(typeof(CargoStationAI), parameters);
-            //success &= Patch_CalculateUnspawnPosition(typeof(CargoStationAI), parameters);
-
-            //success &= Patch_CalculateSpawnPosition(typeof(FishingHarborAI), parameters);
-            //success &= Patch_CalculateUnspawnPosition(typeof(FishingHarborAI), parameters);
-
-            //success &= Patch_CalculateSpawnPosition(typeof(ShelterAI), parameters);
-            //success &= Patch_CalculateUnspawnPosition(typeof(ShelterAI), parameters);
+            success &= Patch_CalculateSpawnPosition(typeof(FishingHarborAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(FishingHarborAI), parameters);
 
             success &= Patch_CalculateSpawnPosition(typeof(PostOfficeAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(PostOfficeAI), parameters);
@@ -120,6 +114,12 @@ namespace BuildingSpawnPoints
             success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
 
             success &= Patch_CalculateUnspawnPosition(typeof(TourBuildingAI), parameters);
+
+            //success &= Patch_CalculateSpawnPosition(typeof(CargoStationAI), parameters);
+            //success &= Patch_CalculateUnspawnPosition(typeof(CargoStationAI), parameters);
+
+            //success &= Patch_CalculateSpawnPosition(typeof(ShelterAI), parameters);
+            //success &= Patch_CalculateUnspawnPosition(typeof(ShelterAI), parameters);
         }
         private bool Patch_BuildingWorldInfoPanel_Start()
         {
