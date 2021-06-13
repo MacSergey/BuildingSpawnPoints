@@ -153,6 +153,7 @@ namespace BuildingSpawnPoints
             success &= Patch_FireTruckAI_StartPathFind(startPathFindParams);
             success &= Patch_DisasterResponseVehicleAI_StartPathFind(startPathFindParams);
             success &= Patch_ParkMaintenanceVehicleAI_StartPathFind(startPathFindParams);
+            success &= Patch_BusAI_StartPathFind(startPathFindParams);
 
             success &= Patch_FireTruckAI_SetSource();
             success &= Patch_DisasterResponseVehicleAI_SetSource();
@@ -160,20 +161,25 @@ namespace BuildingSpawnPoints
 
         private bool Patch_PoliceCarAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.StartPathFind_Transpiler), typeof(PoliceCarAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(PoliceCarAI), "StartPathFind", parameters);
         }
         private bool Patch_FireTruckAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.StartPathFind_Transpiler), typeof(FireTruckAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(FireTruckAI), "StartPathFind", parameters);
         }
         private bool Patch_DisasterResponseVehicleAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.StartPathFind_Transpiler), typeof(DisasterResponseVehicleAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(DisasterResponseVehicleAI), "StartPathFind", parameters);
         }
         private bool Patch_ParkMaintenanceVehicleAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.StartPathFind_Transpiler), typeof(ParkMaintenanceVehicleAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(ParkMaintenanceVehicleAI), "StartPathFind", parameters);
         }
+        private bool Patch_BusAI_StartPathFind(Type[] parameters)
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.PublicTransport_StartPathFind_Transpiler), typeof(BusAI), "StartPathFind", parameters);
+        }
+
         private bool Patch_FireTruckAI_SetSource()
         {
             return AddPrefix(typeof(Patcher), nameof(Patcher.FireTruckAI_SetSource_Prefix), typeof(FireTruckAI), nameof(FireTruckAI.SetSource));
@@ -208,7 +214,7 @@ namespace BuildingSpawnPoints
 
 
         private delegate bool FindParkingSpaceDelegate(BuildingAI instance, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo.VehicleType type, bool isElectric, out Vector3 position, out Vector3 target);
-        private static FindParkingSpaceDelegate FindParkingSpace { get; } = AccessTools.MethodDelegate<FindParkingSpaceDelegate>(AccessTools.Method(typeof(BuildingAI), "FindParkingSpace", new Type[] {typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo.VehicleType), typeof(bool), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() }));
+        private static FindParkingSpaceDelegate FindParkingSpace { get; } = AccessTools.MethodDelegate<FindParkingSpaceDelegate>(AccessTools.Method(typeof(BuildingAI), "FindParkingSpace", new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo.VehicleType), typeof(bool), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() }));
 
         private static void CalculatePosition(PointType type, BuildingAI instance, ushort buildingId, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
         {
@@ -294,41 +300,50 @@ namespace BuildingSpawnPoints
 
             position = data.CalculateSidewalkPosition();
         }
-        public static IEnumerable<CodeInstruction> StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original)
+        public static IEnumerable<CodeInstruction> Service_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, byte>() { { 1, 128 }, { 2, 1 } });
+        public static IEnumerable<CodeInstruction> PublicTransport_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, byte>() { { 1, 128 } });
+
+
+        private static IEnumerable<CodeInstruction> StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original, Dictionary<int, byte> toPatch)
         {
             var enumerator = instructions.GetEnumerator();
             var getInstance = AccessTools.PropertyGetter(typeof(Singleton<BuildingManager>), nameof(Singleton<BuildingManager>.instance));
             var sidewalk = AccessTools.Method(typeof(Building), nameof(Building.CalculateSidewalkPosition), new Type[0]);
-            var i = 0;
+            var count = 0;
 
             while (enumerator.MoveNext())
             {
                 var instruction = enumerator.Current;
                 if (instruction.opcode == OpCodes.Call && instruction.operand == getInstance)
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4, (int)PointType.Unspawn);
-                    yield return original.GetLDArg("vehicleData");
-                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Vehicle), i == 0 ? nameof(Vehicle.m_sourceBuilding) : nameof(Vehicle.m_targetBuilding)));
+                    count += 1;
 
-                    for (; instruction != null && (instruction.opcode != OpCodes.Call || instruction.operand != sidewalk); instruction = enumerator.Current)
+                    if (toPatch.TryGetValue(count, out var j))
                     {
-                        yield return instruction;
+                        yield return new CodeInstruction(OpCodes.Ldc_I4, (int)PointType.Unspawn);
+                        yield return original.GetLDArg("vehicleData");
+                        yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Vehicle), (j & 128) != 0 ? nameof(Vehicle.m_sourceBuilding) : nameof(Vehicle.m_targetBuilding)));
+
+                        for (; instruction != null && (instruction.opcode != OpCodes.Call || instruction.operand != sidewalk); instruction = enumerator.Current)
+                        {
+                            yield return instruction;
+                            enumerator.MoveNext();
+                        }
+
+                        yield return original.GetLDArg("vehicleID");
+                        yield return original.GetLDArg("vehicleData");
+                        yield return new CodeInstruction(OpCodes.Ldloca_S, j & 127);
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.GetStartPathFindPosition)));
+
                         enumerator.MoveNext();
+                        continue;
                     }
-
-                    yield return original.GetLDArg("vehicleID");
-                    yield return original.GetLDArg("vehicleData");
-                    yield return new CodeInstruction(OpCodes.Ldloca_S, i);
-                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.GetStartPathFindPosition)));
-
-                    enumerator.MoveNext();
-
-                    i += 1;
                 }
-                else
-                    yield return instruction;
+
+                yield return instruction;
             }
         }
+
         public delegate void RemoveSourceDelegate<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data) where TypeAI : CarAI;
 
         private static RemoveSourceDelegate<FireTruckAI> FireTruckRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<FireTruckAI>>(AccessTools.Method(typeof(FireTruckAI), "RemoveSource"));

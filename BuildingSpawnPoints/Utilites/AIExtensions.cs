@@ -166,6 +166,15 @@ namespace BuildingSpawnPoints
                 case HelicopterDepotAI:
                     vehicleTypes |= info.GetCopterType();
                     break;
+
+                case DepotAI depot:
+                    {
+                        if (depot.m_transportInfo is TransportInfo info1)
+                            vehicleTypes |= info1.GetVehicleType() & VehicleType.Passenger;
+                        if (depot.m_secondaryTransportInfo is TransportInfo info2)
+                            vehicleTypes |= info2.GetVehicleType() & VehicleType.Passenger;
+                        break;
+                    }
             }
 
             return vehicleTypes;
@@ -188,19 +197,8 @@ namespace BuildingSpawnPoints
             //    //            type |= info2.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
             //    //        break;
             //    //    }
-            //    //case DepotAI depot:
-            //    //    {
-            //    //        if (depot.m_transportInfo is TransportInfo info1)
-            //    //            type |= info1.m_vehicleType.GetVehicleType() & VehicleType.Passenger;
-            //    //        if (depot.m_secondaryTransportInfo is TransportInfo info2)
-            //    //            type |= info2.m_vehicleType.GetVehicleType() & VehicleType.Passenger;
-            //    //        break;
-            //    //    }
             //    //case ShelterAI shelter:
             //    //    type |= shelter.m_transportInfo.m_vehicleType.GetVehicleType();
-            //    //    break;
-            //    //case TaxiStandAI:
-            //    //    type |= VehicleType.Taxi;
             //    //    break;
             //}
 
@@ -232,9 +230,9 @@ namespace BuildingSpawnPoints
         public static IEnumerable<BuildingSpawnPoint> GetDefaultPoints(this BuildingData data) => data.Id.GetBuilding().Info.m_buildingAI switch
         {
             //CargoStationAI cargoStation => cargoStation.GetPoints(data),
-            //DepotAI depot => depot.GetPoints(data),
             //FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
             //ShelterAI shelter => shelter.GetPoints(data),
+            DepotAI depot => depot.GetPoints(data),
             TaxiStandAI taxiStand => taxiStand.GetPoints(data),
             PostOfficeAI postOffice => postOffice.GetPoints(data),
             MaintenanceDepotAI maintenanceDepot => maintenanceDepot.GetPoints(data),
@@ -263,7 +261,7 @@ namespace BuildingSpawnPoints
             if (depot.m_transportInfo is TransportInfo info1)
             {
                 var invert = depot.m_canInvertTarget && InvertTraffic;
-                var vehicleType = info1.m_vehicleType.GetVehicleType() & VehicleType.Passenger;
+                var vehicleType = info1.GetVehicleType() & VehicleType.Passenger;
 
                 if (depot.m_spawnPoints != null && depot.m_spawnPoints.Length != 0)
                 {
@@ -276,7 +274,7 @@ namespace BuildingSpawnPoints
             if (depot.m_secondaryTransportInfo is TransportInfo info2)
             {
                 var invert = depot.m_canInvertTarget2 && InvertTraffic;
-                var vehicleType = info2.m_vehicleType.GetVehicleType() & VehicleType.Passenger;
+                var vehicleType = info2.GetVehicleType() & VehicleType.Passenger;
 
                 if (depot.m_spawnPoints2 != null && depot.m_spawnPoints2.Length != 0)
                 {
@@ -350,6 +348,19 @@ namespace BuildingSpawnPoints
             VehicleInfo.VehicleType.Rocket => VehicleType.Rocket,
             VehicleInfo.VehicleType.Trolleybus => VehicleType.Trolleybus,
             _ => VehicleType.Default,
+        };
+        public static VehicleType GetVehicleType(this TransportInfo info) => info.m_class.m_subService switch
+        {
+            ItemClass.SubService.PublicTransportBus => VehicleType.Bus,
+            ItemClass.SubService.PublicTransportMetro => VehicleType.MetroTrain,
+            ItemClass.SubService.PublicTransportTrain => VehicleType.PassengerTrain,
+            ItemClass.SubService.PublicTransportShip => VehicleType.PassengerFerry,
+            ItemClass.SubService.PublicTransportPlane => VehicleType.PassengerPlane,
+            ItemClass.SubService.PublicTransportTram => VehicleType.Tram,
+            ItemClass.SubService.PublicTransportMonorail => VehicleType.Monorail,
+            ItemClass.SubService.PublicTransportCableCar => VehicleType.CableCar,
+            ItemClass.SubService.PublicTransportTrolleybus => VehicleType.Trolleybus,
+            _ => VehicleType.None,
         };
         public static VehicleType GetCopterType(this BuildingInfo info) => info.m_class.m_service switch
         {

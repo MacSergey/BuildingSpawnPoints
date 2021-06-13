@@ -31,7 +31,7 @@ namespace BuildingSpawnPoints
 
 
         [Description(nameof(Localize.VehicleType_Bus))]
-        Bus = 1ul << 4,
+        Bus = 1ul << 2,
 
         [Description(nameof(Localize.VehicleType_Trolleybus))]
         Trolleybus = 1ul << 5,
