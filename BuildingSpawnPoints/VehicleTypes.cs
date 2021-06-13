@@ -207,7 +207,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Default))]
-        Default = Police | FireTruck | GarbageTruck | Hearse | Taxi,
+        Default = Police | FireTruck | GarbageTruck | Ambulance | Hearse | Taxi | Disaster,
 
         [NotItem]
         [Description(nameof(Localize.VehicleType_All))]
