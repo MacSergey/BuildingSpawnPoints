@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patcher.cs" />
     <Compile Include="UI\WarningPanel.cs" />
     <Compile Include="Utilites\AIExtensions.cs" />
     <Compile Include="BuildingData.cs" />

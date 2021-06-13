@@ -118,6 +118,8 @@ namespace BuildingSpawnPoints
 
             success &= Patch_CalculateSpawnPosition(typeof(DepotAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
+
+            success &= Patch_CalculateUnspawnPosition(typeof(TourBuildingAI), parameters);
         }
         private bool Patch_BuildingWorldInfoPanel_Start()
         {
@@ -154,6 +156,10 @@ namespace BuildingSpawnPoints
             success &= Patch_DisasterResponseVehicleAI_StartPathFind(startPathFindParams);
             success &= Patch_ParkMaintenanceVehicleAI_StartPathFind(startPathFindParams);
             success &= Patch_BusAI_StartPathFind(startPathFindParams);
+            success &= Patch_PassengerTrainAI_StartPathFind(startPathFindParams);
+            success &= Patch_PassengerPlaneAI_StartPathFind(startPathFindParams);
+            success &= Patch_PassengerBlimpAI_StartPathFind(startPathFindParams);
+            success &= Patch_PassengerHelicopterAI_StartPathFind(startPathFindParams);
 
             success &= Patch_FireTruckAI_SetSource();
             success &= Patch_DisasterResponseVehicleAI_SetSource();
@@ -177,7 +183,23 @@ namespace BuildingSpawnPoints
         }
         private bool Patch_BusAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.PublicTransport_StartPathFind_Transpiler), typeof(BusAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Bus_StartPathFind_Transpiler), typeof(BusAI), "StartPathFind", parameters);
+        }
+        private bool Patch_PassengerTrainAI_StartPathFind(Type[] parameters)
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Train_StartPathFind_Transpiler), typeof(PassengerTrainAI), "StartPathFind", parameters);
+        }
+        private bool Patch_PassengerPlaneAI_StartPathFind(Type[] parameters)
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Plane_StartPathFind_Transpiler), typeof(PassengerPlaneAI), "StartPathFind", parameters);
+        }
+        private bool Patch_PassengerBlimpAI_StartPathFind(Type[] parameters)
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Blimp_StartPathFind_Transpiler), typeof(PassengerBlimpAI), "StartPathFind", parameters);
+        }
+        private bool Patch_PassengerHelicopterAI_StartPathFind(Type[] parameters)
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Copter_StartPathFind_Transpiler), typeof(PassengerHelicopterAI), "StartPathFind", parameters);
         }
 
         private bool Patch_FireTruckAI_SetSource()
@@ -204,206 +226,5 @@ namespace BuildingSpawnPoints
         #endregion
 
         #endregion
-    }
-
-    public static class Patcher
-    {
-        public static IEnumerable<CodeInstruction> ToolControllerAwakeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.ToolControllerAwakeTranspiler<Mod, SpawnPointsTool>(generator, instructions);
-
-        public static IEnumerable<CodeInstruction> GameKeyShortcutsEscapeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.GameKeyShortcutsEscapeTranspiler<Mod, SpawnPointsTool>(generator, instructions);
-
-
-        private delegate bool FindParkingSpaceDelegate(BuildingAI instance, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo.VehicleType type, bool isElectric, out Vector3 position, out Vector3 target);
-        private static FindParkingSpaceDelegate FindParkingSpace { get; } = AccessTools.MethodDelegate<FindParkingSpaceDelegate>(AccessTools.Method(typeof(BuildingAI), "FindParkingSpace", new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo.VehicleType), typeof(bool), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() }));
-
-        private static void CalculatePosition(PointType type, BuildingAI instance, ushort buildingId, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
-        {
-            if (SingletonManager<Manager>.Instance[buildingId] is not BuildingData buildingData || !buildingData.GetPosition(type, ref data, info, ref randomizer, out position, out target))
-            {
-                if (info.m_vehicleType != VehicleInfo.VehicleType.Helicopter || !FindParkingSpace(instance, buildingId, ref data, ref randomizer, info.m_vehicleType, false, out position, out target))
-                {
-                    position = data.CalculateSidewalkPosition(0f, 2f);
-                    target = position;
-                }
-            }
-        }
-        public static bool BuildingAI_CalculateSpawnPosition_Prefix(BuildingAI __instance, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
-        {
-            CalculatePosition(PointType.Spawn, __instance, buildingID, ref data, ref randomizer, info, out position, out target);
-            return false;
-        }
-        public static bool BuildingAI_CalculateUnpawnPosition_Prefix(BuildingAI __instance, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
-        {
-            CalculatePosition(PointType.Unspawn, __instance, buildingID, ref data, ref randomizer, info, out position, out target);
-            return false;
-        }
-
-        public static bool CalculateSpawnPosition_Prefix(ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, ref Vector3 position, ref Vector3 target)
-        {
-            return SingletonManager<Manager>.Instance[buildingID] is not BuildingData buildingData || !buildingData.GetPosition(PointType.Spawn, ref data, info, ref randomizer, out position, out target);
-        }
-        public static bool CalculateUnspawnPosition_Prefix(ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo info, ref Vector3 position, ref Vector3 target)
-        {
-            return SingletonManager<Manager>.Instance[buildingID] is not BuildingData buildingData || !buildingData.GetPosition(PointType.Unspawn, ref data, info, ref randomizer, out position, out target);
-        }
-
-        public static void BuildingWorldInfoPanelStartPostfix(CityServiceWorldInfoPanel __instance)
-        {
-            var buildingName = __instance.Find<UITextField>("BuildingName");
-            var namePosition = buildingName.relativePosition;
-            buildingName.width -= 36f;
-            buildingName.relativePosition = namePosition;
-
-            var locationMarker = __instance.Find<UIMultiStateButton>("LocationMarker");
-            locationMarker.relativePosition -= new Vector3(36f, 0f);
-
-            var routesButton = __instance.Find<UIMultiStateButton>("ShowHideRoutesButton");
-            routesButton.relativePosition -= new Vector3(36f, 0f);
-
-            var button = routesButton.parent.AddUIComponent<MultyAtlasUIButton>();
-            button.relativePosition = routesButton.relativePosition + new Vector3(36f, 0f);
-            button.size = new Vector2(32f, 32f);
-            button.zOrder = routesButton.zOrder + 1;
-            button.eventTooltipEnter += (_, _) => button.tooltip = $"{SingletonMod<Mod>.Instance.NameRaw} ({SingletonTool<SpawnPointsTool>.Activation})";
-
-            button.BgAtlas = TextureHelper.InGameAtlas;
-            button.normalBgSprite = "InfoIconBaseNormal";
-            button.pressedBgSprite = "InfoIconBasePressed";
-            button.hoveredBgSprite = "InfoIconBaseHovered";
-            button.disabledBgSprite = "InfoIconBaseDisabled";
-
-            button.FgAtlas = SpawnPointsTextures.Atlas;
-            button.normalFgSprite = SpawnPointsTextures.InfoNormal;
-            button.pressedFgSprite = SpawnPointsTextures.InfoPressed;
-
-            button.eventClicked += (_, _) =>
-            {
-                var currentInstance = WorldInfoPanel.GetCurrentInstanceID();
-                if (currentInstance.Building != 0)
-                {
-                    var tool = SingletonTool<SpawnPointsTool>.Instance;
-                    tool.Enable();
-                    tool.SetData(SingletonManager<Manager>.Instance[currentInstance.Building, Options.Default]);
-                    tool.SetDefaultMode();
-                }
-            };
-        }
-
-        private static void GetStartPathFindPosition(PointType type, ushort buildingId, ref Building data, ushort vehicleId, ref Vehicle vehicle, out Vector3 position)
-        {
-            if (SingletonManager<Manager>.Instance[buildingId] is BuildingData buildingData)
-            {
-                var randomizer = new Randomizer(vehicleId);
-                if (buildingData.GetPosition(type, ref data, vehicle.Info, ref randomizer, out position, out _))
-                    return;
-            }
-
-            position = data.CalculateSidewalkPosition();
-        }
-        public static IEnumerable<CodeInstruction> Service_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, byte>() { { 1, 128 }, { 2, 1 } });
-        public static IEnumerable<CodeInstruction> PublicTransport_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, byte>() { { 1, 128 } });
-
-
-        private static IEnumerable<CodeInstruction> StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original, Dictionary<int, byte> toPatch)
-        {
-            var enumerator = instructions.GetEnumerator();
-            var getInstance = AccessTools.PropertyGetter(typeof(Singleton<BuildingManager>), nameof(Singleton<BuildingManager>.instance));
-            var sidewalk = AccessTools.Method(typeof(Building), nameof(Building.CalculateSidewalkPosition), new Type[0]);
-            var count = 0;
-
-            while (enumerator.MoveNext())
-            {
-                var instruction = enumerator.Current;
-                if (instruction.opcode == OpCodes.Call && instruction.operand == getInstance)
-                {
-                    count += 1;
-
-                    if (toPatch.TryGetValue(count, out var j))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4, (int)PointType.Unspawn);
-                        yield return original.GetLDArg("vehicleData");
-                        yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Vehicle), (j & 128) != 0 ? nameof(Vehicle.m_sourceBuilding) : nameof(Vehicle.m_targetBuilding)));
-
-                        for (; instruction != null && (instruction.opcode != OpCodes.Call || instruction.operand != sidewalk); instruction = enumerator.Current)
-                        {
-                            yield return instruction;
-                            enumerator.MoveNext();
-                        }
-
-                        yield return original.GetLDArg("vehicleID");
-                        yield return original.GetLDArg("vehicleData");
-                        yield return new CodeInstruction(OpCodes.Ldloca_S, j & 127);
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.GetStartPathFindPosition)));
-
-                        enumerator.MoveNext();
-                        continue;
-                    }
-                }
-
-                yield return instruction;
-            }
-        }
-
-        public delegate void RemoveSourceDelegate<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data) where TypeAI : CarAI;
-
-        private static RemoveSourceDelegate<FireTruckAI> FireTruckRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<FireTruckAI>>(AccessTools.Method(typeof(FireTruckAI), "RemoveSource"));
-        private static RemoveSourceDelegate<DisasterResponseVehicleAI> DisasterResponseRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<DisasterResponseVehicleAI>>(AccessTools.Method(typeof(DisasterResponseVehicleAI), "RemoveSource"));
-
-        public static bool FireTruckAI_SetSource_Prefix(FireTruckAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => CarAISetSource(__instance, vehicleID, ref data, sourceBuilding, FireTruckRemoveSource);
-        public static bool DisasterResponseAI_SetSource_Prefix(DisasterResponseVehicleAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => CarAISetSource(__instance, vehicleID, ref data, sourceBuilding, DisasterResponseRemoveSource);
-
-        public static bool CarAISetSource<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding, RemoveSourceDelegate<TypeAI> removeSource)
-            where TypeAI : CarAI
-        {
-            removeSource(instance, vehicleID, ref data);
-            data.m_sourceBuilding = sourceBuilding;
-
-            if (sourceBuilding != 0)
-            {
-                data.Unspawn(vehicleID);
-
-                var building = sourceBuilding.GetBuilding();
-                var randomizer = new Randomizer(vehicleID);
-                building.Info.m_buildingAI.CalculateSpawnPosition(sourceBuilding, ref building, ref randomizer, instance.m_info, out var position, out var target);
-                var rotation = Quaternion.identity;
-                var forward = target - position;
-                if (forward.sqrMagnitude > 0.01f)
-                    rotation = Quaternion.LookRotation(forward);
-
-                data.m_frame0 = new Vehicle.Frame(position, rotation);
-                data.m_frame1 = data.m_frame0;
-                data.m_frame2 = data.m_frame0;
-                data.m_frame3 = data.m_frame0;
-                data.m_targetPos0 = position;
-                data.m_targetPos0.w = 2f;
-                data.m_targetPos1 = target;
-                data.m_targetPos1.w = 2f;
-                data.m_targetPos2 = data.m_targetPos1;
-                data.m_targetPos3 = data.m_targetPos1;
-
-                instance.FrameDataUpdated(vehicleID, ref data, ref data.m_frame0);
-                building.AddOwnVehicle(vehicleID, ref data);
-            }
-
-            return false;
-        }
-
-
-        public static IEnumerable<CodeInstruction> METMTargetMethodTranspiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var wrongType = typeof(WarehouseAI);
-            var needType = typeof(BuildingAI);
-            foreach (var instruction in instructions)
-            {
-                if (instruction.opcode == OpCodes.Ldtoken && instruction.operand == wrongType)
-                    instruction.operand = needType;
-
-                yield return instruction;
-            }
-        }
-        public static IEnumerable<CodeInstruction> METMPostfixTranspiler(IEnumerable<CodeInstruction> instructions)
-        {
-            yield return new CodeInstruction(OpCodes.Ret);
-        }
     }
 }
