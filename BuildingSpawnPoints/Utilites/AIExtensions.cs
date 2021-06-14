@@ -373,6 +373,7 @@ namespace BuildingSpawnPoints
             { m_subService: ItemClass.SubService.PublicTransportMetro } => VehicleType.MetroTrain,
             { m_subService: ItemClass.SubService.PublicTransportMonorail } => VehicleType.Monorail,
 
+            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level1 } => /*VehicleType.PassengerShip |*/ VehicleType.CargoShip,
             { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level2 } => VehicleType.PassengerFerry,
 
             { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level1 } => VehicleType.CargoPlane,
