@@ -197,12 +197,54 @@ namespace BuildingSpawnPoints
         private static RemoveSourceDelegate<FireTruckAI> FireTruckRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<FireTruckAI>>(AccessTools.Method(typeof(FireTruckAI), "RemoveSource"));
         private static RemoveSourceDelegate<DisasterResponseVehicleAI> DisasterResponseRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<DisasterResponseVehicleAI>>(AccessTools.Method(typeof(DisasterResponseVehicleAI), "RemoveSource"));
         private static RemoveSourceDelegate<BalloonAI> BalloonRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<BalloonAI>>(AccessTools.Method(typeof(BalloonAI), "RemoveSource"));
+        private static RemoveSourceDelegate<CargoTrainAI> TrainRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<CargoTrainAI>>(AccessTools.Method(typeof(CargoTrainAI), "RemoveSource"));
 
-        public static bool FireTruckAI_SetSource_Prefix(FireTruckAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, FireTruckRemoveSource);
-        public static bool DisasterResponseAI_SetSource_Prefix(DisasterResponseVehicleAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, DisasterResponseRemoveSource);
-        public static bool BalloonAI_SetSource_Prefix(BalloonAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding) => VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, BalloonRemoveSource);
+        public static bool FireTruckAI_SetSource_Prefix(FireTruckAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding)
+        {
+            VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, FireTruckRemoveSource);
+            return false;
+        }
+        public static bool DisasterResponseAI_SetSource_Prefix(DisasterResponseVehicleAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding)
+        {
+            VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, DisasterResponseRemoveSource);
+            return false;
+        }
+        public static bool BalloonAI_SetSource_Prefix(BalloonAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding)
+        {
+            VehicleAISetSource(__instance, vehicleID, ref data, sourceBuilding, BalloonRemoveSource);
+            return false;
+        }
+        public static bool CargoTrainAI_SetSource_Prefix(CargoTrainAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding)
+        {
+            TrainRemoveSource(__instance, vehicleID, ref data);
+            data.m_sourceBuilding = sourceBuilding;
+            if (sourceBuilding != 0)
+            {
+                data.Unspawn(vehicleID);
 
-        private static bool VehicleAISetSource<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding, RemoveSourceDelegate<TypeAI> removeSource)
+                var building = sourceBuilding.GetBuilding();
+                var randomizer = new Randomizer(vehicleID);
+                building.Info.m_buildingAI.CalculateSpawnPosition(sourceBuilding, ref building, ref randomizer, __instance.m_info, out var position, out _);
+
+                data.m_targetPos0 = position;
+                data.m_targetPos0.w = 2f;
+                data.m_targetPos1 = data.m_targetPos0;
+                data.m_targetPos2 = data.m_targetPos0;
+                data.m_targetPos3 = data.m_targetPos0;
+                Singleton<BuildingManager>.instance.m_buildings.m_buffer[sourceBuilding].AddOwnVehicle(vehicleID, ref data);
+                if ((sourceBuilding.GetBuilding().m_flags & Building.Flags.IncomingOutgoing) != 0)
+                {
+                    if ((data.m_flags & Vehicle.Flags.TransferToTarget) != 0)
+                        data.m_flags |= Vehicle.Flags.Importing;
+                    else if ((data.m_flags & Vehicle.Flags.TransferToSource) != 0)
+                        data.m_flags |= Vehicle.Flags.Exporting;
+                }
+            }
+
+            return false;
+        }
+
+        private static void VehicleAISetSource<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding, RemoveSourceDelegate<TypeAI> removeSource)
             where TypeAI : VehicleAI
         {
             removeSource(instance, vehicleID, ref data);
@@ -234,8 +276,28 @@ namespace BuildingSpawnPoints
                 instance.FrameDataUpdated(vehicleID, ref data, ref data.m_frame0);
                 building.AddOwnVehicle(vehicleID, ref data);
             }
+        }
+        public static IEnumerable<CodeInstruction> CargoPlaneAI_FixRandomizer_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original)
+        {
+            var enumerator = instructions.GetEnumerator();
+            var seed = AccessTools.Field(typeof(Randomizer), nameof(Randomizer.seed));
 
-            return false;
+            while (enumerator.MoveNext())
+            {
+                var instruction = enumerator.Current;
+                if (instruction.opcode == OpCodes.Initobj && instruction.operand == typeof(Randomizer))
+                {
+                    yield return original.GetLDArg("vehicleID");
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Constructor(typeof(Randomizer), new Type[] { typeof(int)}));
+
+                    for (; instruction != null && (instruction.opcode != OpCodes.Stfld || instruction.operand != seed); instruction = enumerator.Current)
+                        enumerator.MoveNext();
+
+                    continue;
+                }
+
+                yield return instruction;
+            }
         }
 
 

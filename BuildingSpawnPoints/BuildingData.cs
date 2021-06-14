@@ -1,6 +1,7 @@
 ﻿using BuildingSpawnPoints.Utilites;
 using ColossalFramework;
 using ColossalFramework.Math;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace BuildingSpawnPoints
     {
         public static string XmlName => "B";
 
+        //private static Randomizer Randomizer = new Randomizer(DateTime.Now.Ticks);
         public ushort Id { get; }
         private List<BuildingSpawnPoint> SpawnPoints { get; } = new List<BuildingSpawnPoint>();
         public IEnumerable<BuildingSpawnPoint> Points => SpawnPoints;
@@ -46,8 +48,14 @@ namespace BuildingSpawnPoints
 
             if (points.Length != 0)
             {
+#if DEBUG
+                var vehicleId = randomizer.seed;
+#endif
                 var index = randomizer.Int32((uint)points.Length);
                 points[index].GetAbsolute(ref data, out position, out target);
+#if DEBUG
+                SingletonMod<Mod>.Logger.Debug($"{type} {vehicleType} on building #{Id}; {index+1} of {points.Length}; {position}");
+#endif
                 return true;
             }
             else
@@ -190,7 +198,6 @@ namespace BuildingSpawnPoints
             target = target.FixZ();
             Init(position, (invert ? position - target : target - position).AbsoluteAngle(), vehicleType, type);
         }
-        public BuildingSpawnPoint(BuildingData data, Vector3 position, Vector3 target, VehicleInfo.VehicleType vehicleType, PointType type = PointType.Both, bool invert = false) : this(data, position, target, vehicleType.GetVehicleType(), type, invert) { }
 
         private void Init(Vector4 position, float angle, VehicleType vehicleType, PointType type)
         {

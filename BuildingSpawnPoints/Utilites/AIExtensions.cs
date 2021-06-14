@@ -155,6 +155,25 @@ namespace BuildingSpawnPoints
 
             switch (info.m_buildingAI)
             {
+                case DepotAI depot:
+                    {
+                        if (depot.m_transportInfo is TransportInfo info1)
+                            vehicleTypes |= info1.GetVehicleType() & VehicleType.Passenger;
+                        if (depot.m_secondaryTransportInfo is TransportInfo info2)
+                            vehicleTypes |= info2.GetVehicleType() & VehicleType.Passenger;
+                        break;
+                    }
+
+                case CargoStationAI cargoStation:
+                    {
+                        //type |= VehicleType.CargoTruck | VehicleType.PostTruck;
+                        if (cargoStation.m_transportInfo is TransportInfo info1)
+                            vehicleTypes |= info1.GetVehicleType() & VehicleType.Cargo;
+                        if (cargoStation.m_transportInfo2 is TransportInfo info2)
+                            vehicleTypes |= info2.GetVehicleType() & VehicleType.Cargo;
+                        break;
+                    }
+
                 case TaxiStandAI:
                     vehicleTypes |= VehicleType.Taxi;
                     break;
@@ -171,23 +190,15 @@ namespace BuildingSpawnPoints
                     vehicleTypes |= VehicleType.FishingBoat;
                     break;
 
-                case DepotAI depot:
-                    {
-                        //if (depot is not TransportStationAI)
-                        //{
-                        if (depot.m_transportInfo is TransportInfo info1)
-                            vehicleTypes |= info1.GetVehicleType() & VehicleType.Passenger;
-                        if (depot.m_secondaryTransportInfo is TransportInfo info2)
-                            vehicleTypes |= info2.GetVehicleType() & VehicleType.Passenger;
-                        //}
-                        break;
-                    }
                 case TourBuildingAI tourBuilding:
                     {
                         if (tourBuilding.m_transportInfo is TransportInfo transportInfo)
                             vehicleTypes |= transportInfo.GetVehicleType() & VehicleType.Passenger;
                         break;
                     }
+                case ShelterAI shelter:
+                    vehicleTypes |= shelter.m_transportInfo.GetVehicleType();
+                    break;
             }
 
             return vehicleTypes;
@@ -198,22 +209,6 @@ namespace BuildingSpawnPoints
 
             if (info.m_buildingAI is not HelicopterDepotAI)
                 vehicleTypes |= VehicleType.AmbulanceCopter | VehicleType.PoliceCopter | VehicleType.DisasterCopter;
-
-            //switch (info.m_buildingAI)
-            //{
-            //    //case CargoStationAI cargoStation:
-            //    //    {
-            //    //        type |= VehicleType.CargoTruck | VehicleType.PostTruck;
-            //    //        if (cargoStation.m_transportInfo is TransportInfo info1)
-            //    //            type |= info1.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
-            //    //        if (cargoStation.m_transportInfo2 is TransportInfo info2)
-            //    //            type |= info2.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
-            //    //        break;
-            //    //    }
-            //    //case ShelterAI shelter:
-            //    //    type |= shelter.m_transportInfo.m_vehicleType.GetVehicleType();
-            //    //    break;
-            //}
 
             return vehicleTypes;
         }
@@ -242,39 +237,38 @@ namespace BuildingSpawnPoints
 
         public static IEnumerable<BuildingSpawnPoint> GetDefaultPoints(this BuildingData data) => data.Id.GetBuilding().Info.m_buildingAI switch
         {
-            //CargoStationAI cargoStation => cargoStation.GetPoints(data),
-            //ShelterAI shelter => shelter.GetPoints(data),
+            CargoStationAI cargoStation => cargoStation.GetPoints(data),
             DepotAI depot => depot.GetPoints(data),
             TaxiStandAI taxiStand => taxiStand.GetPoints(data),
             PostOfficeAI postOffice => postOffice.GetPoints(data),
             MaintenanceDepotAI maintenanceDepot => maintenanceDepot.GetPoints(data),
             TourBuildingAI tourBuilding => tourBuilding.GetPoints(data),
             FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
+            ShelterAI shelter => shelter.GetPoints(data),
             _ => GetCopterPoints(data),
         };
 
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this CargoStationAI cargoStation, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, cargoStation.m_truckSpawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
-            yield return new BuildingSpawnPoint(data, cargoStation.m_truckUnspawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
+            //yield return new BuildingSpawnPoint(data, cargoStation.m_truckSpawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
+            //yield return new BuildingSpawnPoint(data, cargoStation.m_truckUnspawnPosition, 0f, VehicleType.CargoTruck | VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
 
             if (cargoStation.m_transportInfo is TransportInfo info1)
             {
-                var vehicleType = info1.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
-                yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition, cargoStation.m_spawnTarget, vehicleType, invert: cargoStation.m_canInvertTarget && InvertTraffic);
+                var vehicleType = info1.GetVehicleType() & VehicleType.Cargo;
+                if (vehicleType != VehicleType.None)
+                    yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition, cargoStation.m_spawnTarget, vehicleType, invert: cargoStation.m_canInvertTarget && InvertTraffic);
             }
 
             if (cargoStation.m_transportInfo2 is TransportInfo info2)
             {
-                var vehicleType = info2.m_vehicleType.GetVehicleType() & VehicleType.Cargo;
-                yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition2, cargoStation.m_spawnTarget2, vehicleType, invert: cargoStation.m_canInvertTarget2 && InvertTraffic);
+                var vehicleType = info2.GetVehicleType() & VehicleType.Cargo;
+                if (vehicleType != VehicleType.None)
+                    yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition2, cargoStation.m_spawnTarget2, vehicleType, invert: cargoStation.m_canInvertTarget2 && InvertTraffic);
             }
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this DepotAI depot, BuildingData data)
         {
-            //if (depot is TransportStationAI)
-            //    yield break;
-
             if (depot.m_transportInfo is TransportInfo info1)
             {
                 var invert = depot.m_canInvertTarget && InvertTraffic;
@@ -319,7 +313,7 @@ namespace BuildingSpawnPoints
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this ShelterAI shelter, BuildingData data)
         {
             var invert = shelter.m_canInvertTarget && InvertTraffic;
-            yield return new BuildingSpawnPoint(data, shelter.m_spawnPosition, shelter.m_spawnTarget, shelter.m_transportInfo.m_vehicleType, invert: invert);
+            yield return new BuildingSpawnPoint(data, shelter.m_spawnPosition, shelter.m_spawnTarget, shelter.m_transportInfo.GetVehicleType(), invert: invert);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this TaxiStandAI taxiStand, BuildingData data)
         {
@@ -340,7 +334,7 @@ namespace BuildingSpawnPoints
             {
                 var vehicleType = info.GetVehicleType() & VehicleType.Passenger;
                 if (vehicleType != VehicleType.None)
-                    yield return new BuildingSpawnPoint(data, tourBuilding.m_vehicleSpawnPosition, 0f, vehicleType, PointType.Unspawn);
+                    yield return new BuildingSpawnPoint(data, tourBuilding.m_vehicleSpawnPosition, 0f, vehicleType, PointType.Both);
             }
         }
         private static IEnumerable<BuildingSpawnPoint> GetCopterPoints(BuildingData data)
@@ -366,39 +360,28 @@ namespace BuildingSpawnPoints
             }
         }
 
-        public static VehicleType GetVehicleType(this VehicleInfo.VehicleType vehicleType) => vehicleType switch
-        {
-            VehicleInfo.VehicleType.Car => VehicleType.Default,
-            VehicleInfo.VehicleType.Metro => VehicleType.MetroTrain,
-            VehicleInfo.VehicleType.Train => VehicleType.Trains,
-            VehicleInfo.VehicleType.Ship => VehicleType.CargoShip | VehicleType.PassengerShip,
-            VehicleInfo.VehicleType.Plane => VehicleType.CargoPlane | VehicleType.PassengerPlane,
-            VehicleInfo.VehicleType.Bicycle => VehicleType.Bicycle,
-            VehicleInfo.VehicleType.Tram => VehicleType.Tram,
-            VehicleInfo.VehicleType.Helicopter => VehicleType.Copters,
-            VehicleInfo.VehicleType.Ferry => VehicleType.PassengerFerry,
-            VehicleInfo.VehicleType.Monorail => VehicleType.Monorail,
-            VehicleInfo.VehicleType.CableCar => VehicleType.CableCar,
-            VehicleInfo.VehicleType.Blimp => VehicleType.PassengerBlimp,
-            VehicleInfo.VehicleType.Balloon => VehicleType.PassengerBalloon,
-            VehicleInfo.VehicleType.Rocket => VehicleType.Rocket,
-            VehicleInfo.VehicleType.Trolleybus => VehicleType.Trolleybus,
-            _ => VehicleType.Default,
-        };
         public static VehicleType GetVehicleType(this TransportInfo info) => info.m_class switch
         {
             { m_subService: ItemClass.SubService.PublicTransportBus } => VehicleType.Bus,
+            { m_subService: ItemClass.SubService.PublicTransportTrolleybus } => VehicleType.Trolleybus,
+            { m_subService: ItemClass.SubService.PublicTransportTram } => VehicleType.Tram,
+
             { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level3 } => VehicleType.Bus,
             { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level4 } => VehicleType.PassengerBalloon,
+
+            { m_subService: ItemClass.SubService.PublicTransportTrain } => VehicleType.PassengerTrain | VehicleType.CargoTrain,
             { m_subService: ItemClass.SubService.PublicTransportMetro } => VehicleType.MetroTrain,
-            { m_subService: ItemClass.SubService.PublicTransportTrain } => VehicleType.PassengerTrain,
+            { m_subService: ItemClass.SubService.PublicTransportMonorail } => VehicleType.Monorail,
+
             { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level2 } => VehicleType.PassengerFerry,
+
+            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level1 } => VehicleType.CargoPlane,
             { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level2 } => VehicleType.PassengerBlimp,
             { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level3 } => VehicleType.PassengerCopter,
-            { m_subService: ItemClass.SubService.PublicTransportTram } => VehicleType.Tram,
-            { m_subService: ItemClass.SubService.PublicTransportMonorail } => VehicleType.Monorail,
+
             { m_subService: ItemClass.SubService.PublicTransportCableCar } => VehicleType.CableCar,
-            { m_subService: ItemClass.SubService.PublicTransportTrolleybus } => VehicleType.Trolleybus,
+            { m_service: ItemClass.Service.Disaster, m_level: ItemClass.Level.Level4 } => VehicleType.Bus,
+
             _ => VehicleType.None,
         };
         public static VehicleType GetCopterType(this BuildingInfo info) => info.m_class.m_service switch

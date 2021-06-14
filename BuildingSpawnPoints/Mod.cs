@@ -98,6 +98,12 @@ namespace BuildingSpawnPoints
             success &= Patch_BuildingAI_CalculateSpawnPosition(parameters);
             success &= Patch_BuildingAI_CalculateUnspawnPosition(parameters);
 
+            success &= Patch_CalculateSpawnPosition(typeof(DepotAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
+
+            success &= Patch_CalculateSpawnPosition(typeof(CargoStationAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(CargoStationAI), parameters);
+
             success &= Patch_CalculateSpawnPosition(typeof(FishingHarborAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(FishingHarborAI), parameters);
 
@@ -110,16 +116,10 @@ namespace BuildingSpawnPoints
             success &= Patch_CalculateSpawnPosition(typeof(MaintenanceDepotAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(MaintenanceDepotAI), parameters);
 
-            success &= Patch_CalculateSpawnPosition(typeof(DepotAI), parameters);
-            success &= Patch_CalculateUnspawnPosition(typeof(DepotAI), parameters);
+            success &= Patch_CalculateSpawnPosition(typeof(ShelterAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(ShelterAI), parameters);
 
             success &= Patch_CalculateUnspawnPosition(typeof(TourBuildingAI), parameters);
-
-            //success &= Patch_CalculateSpawnPosition(typeof(CargoStationAI), parameters);
-            //success &= Patch_CalculateUnspawnPosition(typeof(CargoStationAI), parameters);
-
-            //success &= Patch_CalculateSpawnPosition(typeof(ShelterAI), parameters);
-            //success &= Patch_CalculateUnspawnPosition(typeof(ShelterAI), parameters);
         }
         private bool Patch_BuildingWorldInfoPanel_Start()
         {
@@ -160,10 +160,14 @@ namespace BuildingSpawnPoints
             success &= Patch_PassengerPlaneAI_StartPathFind(startPathFindParams);
             success &= Patch_PassengerBlimpAI_StartPathFind(startPathFindParams);
             success &= Patch_PassengerHelicopterAI_StartPathFind(startPathFindParams);
+            success &= Patch_CargoPlaneAI_StartPathFind(startPathFindParams);
 
             success &= Patch_FireTruckAI_SetSource();
             success &= Patch_DisasterResponseVehicleAI_SetSource();
-            success &= Patch_BalloonAI_SetSource();
+            //success &= Patch_BalloonAI_SetSource();
+            success &= Patch_CargoTrainAI_SetSource();
+
+            success &= Patch_CargoPlaneAI_UpdateBuildingTargetPositions();
         }
 
         private bool Patch_PoliceCarAI_StartPathFind(Type[] parameters)
@@ -214,6 +218,19 @@ namespace BuildingSpawnPoints
         private bool Patch_BalloonAI_SetSource()
         {
             return AddPrefix(typeof(Patcher), nameof(Patcher.BalloonAI_SetSource_Prefix), typeof(BalloonAI), nameof(BalloonAI.SetSource));
+        }
+        private bool Patch_CargoTrainAI_SetSource()
+        {
+            return AddPrefix(typeof(Patcher), nameof(Patcher.CargoTrainAI_SetSource_Prefix), typeof(CargoTrainAI), nameof(CargoTrainAI.SetSource));
+        }
+
+        private bool Patch_CargoPlaneAI_UpdateBuildingTargetPositions()
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.CargoPlaneAI_FixRandomizer_Transpiler), typeof(CargoPlaneAI), nameof(CargoPlaneAI.UpdateBuildingTargetPositions));
+        }
+        private bool Patch_CargoPlaneAI_StartPathFind(Type[] parameters)
+        {
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.CargoPlaneAI_FixRandomizer_Transpiler), typeof(CargoPlaneAI), "StartPathFind", parameters);
         }
 
         #endregion
