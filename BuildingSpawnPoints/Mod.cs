@@ -28,6 +28,7 @@ namespace BuildingSpawnPoints
 
         public override List<Version> Versions => new List<Version>()
         {
+            new Version(1,1),
             new Version(1,0,2),
             new Version(1,0,1),
             new Version(1,0),
