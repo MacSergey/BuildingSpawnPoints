@@ -127,6 +127,15 @@
   <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
     <value>- Added Italian translation.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
+    <value>- Added Depot (Bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
+- Added Transport station, but it will work only like depot. Stop position set by transport line.
+- Added cargo stations (train, plane, ship). Truck points not implimented yet.
+- Added fishing harbor(boat), shelter(bus), tour building(bus, balloon).
+- Added copters (police, ambulance, fire, disaster, passenger).
+- Added point height.
+- Fixed police car, fire truck, park maintenance and disaster response unspawn.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
   </data>
