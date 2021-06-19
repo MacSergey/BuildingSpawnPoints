@@ -206,11 +206,12 @@ namespace BuildingSpawnPoints
             var building = Tool.Data.Id.GetBuilding();
             foreach (var point in Tool.Data.Points)
             {
-                var color = point.VehicleTypes == VehicleType.None || point.Type == PointType.None ? Colors.Gray : point.Type switch
+                var color = point.VehicleTypes == VehicleType.None || point.Type == PointType.None ? Colors.Gray : point.Type.Value switch
                 {
                     PointType.Spawn => Colors.Green,
                     PointType.Unspawn => Colors.Red,
-                    PointType.Both => Colors.Orange,
+                    //PointType.Middle => Colors.Purple,
+                    PointType.Both /*or PointType.All*/ => Colors.Orange,
                     _ => Colors.Gray,
                 };
 
@@ -219,6 +220,9 @@ namespace BuildingSpawnPoints
 
                 var direction = target - position;
                 new StraightTrajectory(position + direction, position + direction * 2f).Render(new OverlayData(cameraInfo) { Color = color });
+
+                //var str = new StraightTrajectory(position + direction, position - direction);
+                //Singleton<RenderManager>.instance.OverlayEffect.DrawBezier(cameraInfo, color, str.Trajectory.GetBezier(), 0f, 0f, 0f, position.y - 1f, position.y + 1f, true, true);
             }
         }
     }

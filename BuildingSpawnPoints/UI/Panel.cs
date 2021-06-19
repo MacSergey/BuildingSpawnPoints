@@ -127,7 +127,7 @@ namespace BuildingSpawnPoints.UI
         private void AddPointPanel(BuildingSpawnPoint point)
         {
             var pointPanel = ComponentPool.Get<PointPanel>(ContentPanel.Content);
-            pointPanel.Init(Data.Id, point);
+            pointPanel.Init(Data, point);
             pointPanel.OnEnter += PointMouseEnter;
             pointPanel.OnLeave += PointMouseLeave;
             pointPanel.OnChanged += RefreshWarning;
@@ -141,23 +141,7 @@ namespace BuildingSpawnPoints.UI
             Header.Text = string.Format(BuildingSpawnPoints.Localize.Panel_Title, Data.Id);
             Header.Refresh();
         }
-        private void RefreshWarning()
-        {
-            Warning.Init(Data.NeededVehicles);
-            //var needed = Data.NeededVehicles;
-            //if (needed == VehicleType.None)
-            //{
-            //    Warning.Text = string.Empty;
-            //    Warning.isVisible = false;
-            //}
-            //else
-            //{
-            //    var types = EnumExtension.GetEnumValues<VehicleType>(v => v.IsItem() && (v & needed) == v).ToArray();
-            //    var strings = types.Select(t => t.Description<VehicleType, Mod>()).ToArray();
-            //    Warning.Text = string.Format(BuildingSpawnPoints.Localize.Panel_NoPointWarning, string.Join(", ", strings));
-            //    Warning.isVisible = true;
-            //}
-        }
+        private void RefreshWarning() => Warning.Init(Data.LostVehicles);
 
         private void AddPoint()
         {

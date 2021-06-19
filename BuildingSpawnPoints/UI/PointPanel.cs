@@ -17,16 +17,17 @@ namespace BuildingSpawnPoints.UI
         public event Action<PointPanel, UIMouseEventParameter> OnLeave;
         public event Action OnChanged;
 
-        public ushort BuildingId { get; private set; }
+        public BuildingData Data { get; private set; }
         public BuildingSpawnPoint Point { get; private set; }
-        private VehicleType NotAdded => BuildingId.GetBuilding().GetPossibleVehicles() & ~Point.VehicleTypes;
 
         private PointHeaderPanel Header { get; set; }
         private VehicleTypePropertyPanel Vehicle { get; set; }
 
-        public void Init(ushort buildingId, BuildingSpawnPoint point)
+        private VehicleType NotAdded => Data.PossibleVehicles & ~Point.VehicleTypes.Value;
+
+        public void Init(BuildingData data, BuildingSpawnPoint point)
         {
-            BuildingId = buildingId;
+            Data = data;
             Point = point;
 
             StopLayout();
@@ -47,7 +48,7 @@ namespace BuildingSpawnPoints.UI
             foreach (var component in components.ToArray())
                 ComponentPool.Free(component);
 
-            BuildingId = 0;
+            Data = null;
             Point = null;
             Header = null;
             Vehicle = null;
@@ -76,8 +77,8 @@ namespace BuildingSpawnPoints.UI
         }
         private void AddVehicleType(VehicleType type)
         {
-            type &= NotAdded;
-            Point.VehicleTypes |= type;
+            type &= Data.PossibleVehicles;
+            Point.VehicleTypes.Value |= type;
             Vehicle.AddItems(type);
             InitHeader();
 
@@ -85,7 +86,7 @@ namespace BuildingSpawnPoints.UI
         }
         private void DeleteVehicleType(VehicleType type)
         {
-            Point.VehicleTypes &= ~type;
+            Point.VehicleTypes.Value &= ~type;
             InitHeader();
 
             Changed();
@@ -103,16 +104,16 @@ namespace BuildingSpawnPoints.UI
             type.Text = BuildingSpawnPoints.Localize.Property_PointType;
             type.Init();
             type.SelectedObject = Point.Type;
-            type.OnSelectObjectChanged += (value) => Point.Type = value;
+            type.OnSelectObjectChanged += (value) => Point.Type.Value = value;
         }
         private void AddPosition()
         {
             var position = ComponentPool.Get<PointPositionPropertyPanel>(this);
             position.Text = BuildingSpawnPoints.Localize.Property_Position;
             position.WheelTip = true;
-            position.Init(0, 2, 3);
+            position.Init(0, 2, 1, 3);
             position.Value = Point.Position;
-            position.OnValueChanged += (value) => Point.Position = value;
+            position.OnValueChanged += (value) => Point.Position.Value = value;
         }
 
         protected override void OnMouseEnter(UIMouseEventParameter p)
@@ -214,16 +215,15 @@ namespace BuildingSpawnPoints.UI
 
         public class PointTypeSegmented : UIMultySegmented<PointType> { }
     }
-    public class PointPositionPropertyPanel : Vector4PropertyPanel
+    public class PointPositionPropertyPanel : BaseVectorPropertyPanel<Vector4>
     {
+        protected override uint Dimension => 4;
+
         public PointPositionPropertyPanel()
         {
-            Labels[3].text = "A";
-
             for (var i = 0; i < Dimension; i += 1)
             {
                 var field = Fields[i];
-                field.Format = BuildingSpawnPoints.Localize.Panel_PositionFormat;
                 field.width = 50f;
 
                 if (i == 3)
@@ -239,7 +239,20 @@ namespace BuildingSpawnPoints.UI
                     field.MaxValue = 180;
                     field.CyclicalValue = true;
                 }
+                else
+                    field.Format = BuildingSpawnPoints.Localize.Panel_PositionFormat;
             }
         }
+
+        protected override string GetName(int index) => index switch
+        {
+            0 => "X",
+            1 => "H",
+            2 => "Y",
+            3 => "A",
+            _ => "?",
+        };
+        protected override float Get(ref Vector4 vector, int index) => vector[index];
+        protected override void Set(ref Vector4 vector, int index, float value) => vector[index] = value;
     }
 }

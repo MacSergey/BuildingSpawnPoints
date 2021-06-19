@@ -89,6 +89,21 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Added Depot (Bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
+        ///- Added Transport station, but it will work only like depot. Stop position set by transport line.
+        ///- Added cargo stations (train, plane, ship). Truck points not implimented yet.
+        ///- Added fishing harbor(boat), shelter(bus), tour building(bus, balloon).
+        ///- Added copters (police, ambulance, fire, disaster, passenger).
+        ///- Added point height.
+        ///- Fixed police car, fire truck, park maintenance and disaster response unsp [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_1 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add all types of vehicles.
         /// </summary>
         internal static string Panel_AddAllVehicle {
@@ -211,6 +226,15 @@ namespace BuildingSpawnPoints {
         internal static string Panel_Title {
             get {
                 return ResourceManager.GetString("Panel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Middle.
+        /// </summary>
+        internal static string PointType_Middle {
+            get {
+                return ResourceManager.GetString("PointType_Middle", resourceCulture);
             }
         }
         

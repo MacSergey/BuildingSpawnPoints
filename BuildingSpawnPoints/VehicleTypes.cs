@@ -31,7 +31,7 @@ namespace BuildingSpawnPoints
 
 
         [Description(nameof(Localize.VehicleType_Bus))]
-        Bus = 1ul << 4,
+        Bus = 1ul << 2,
 
         [Description(nameof(Localize.VehicleType_Trolleybus))]
         Trolleybus = 1ul << 5,
@@ -95,7 +95,7 @@ namespace BuildingSpawnPoints
         DisasterCopter = 1ul << 23,
 
         [Description(nameof(Localize.VehicleType_Balloon))]
-        Balloon = 1ul << 24,
+        PassengerBalloon = 1ul << 24,
 
         [Description(nameof(Localize.VehicleType_PassengerBlimp))]
         PassengerBlimp = 1ul << 25,
@@ -143,7 +143,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Passenger))]
-        Passenger = Bus | Taxi | Trolleybus | Bicycle | PassengerPlane | PassengerCopter | PassengerBlimp | PassengerFerry | PassengerShip | PassengerTrain | MetroTrain | Monorail | Tram,
+        Passenger = Bus | Taxi | Trolleybus | Bicycle | PassengerPlane | PassengerCopter | PassengerBlimp | PassengerFerry | PassengerShip | PassengerTrain | MetroTrain | Monorail | Tram | PassengerBalloon,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Service))]
@@ -167,7 +167,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Air))]
-        Air = Planes | Copters | Balloon | PassengerBlimp,
+        Air = Planes | Copters | PassengerBalloon | PassengerBlimp,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Water))]
@@ -207,7 +207,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Default))]
-        Default = Police | FireTruck | GarbageTruck | Hearse | Taxi,
+        Default = Police | FireTruck | GarbageTruck | Ambulance | Hearse | Taxi | Disaster,
 
         [NotItem]
         [Description(nameof(Localize.VehicleType_All))]

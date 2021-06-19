@@ -54,5 +54,6 @@ If you want to help improve existing translations or you want to translate into 
 [*] [url=https://steamcommunity.com/id/mrlojnat/]MrLojnat[/url] (French translation)
 [*] [url=https://steamcommunity.com/profiles/76561198087011973/]ristrettoridder[/url] (Dutch translation)
 [*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
+[*] Svis (French translation)
 [*] [url=https://steamcommunity.com/id/mrwoozie/]Woozie[/url] (Polish translation)
 [/list]
