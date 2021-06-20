@@ -178,6 +178,9 @@
   <data name="Panel_Title" xml:space="preserve">
     <value>Здание #{0}</value>
   </data>
+  <data name="Panel_TooFarPoint" xml:space="preserve">
+    <value>Эта точка расположена слишком далеко от дорог для некоторых типов транспортных средств, пододвиньте ее ближе иначе на не будет работать</value>
+  </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
   </data>

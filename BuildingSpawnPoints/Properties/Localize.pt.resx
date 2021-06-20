@@ -178,6 +178,9 @@
   <data name="Panel_Title" xml:space="preserve">
     <value>Edifício #{0}</value>
   </data>
+  <data name="Panel_TooFarPoint" xml:space="preserve">
+    <value>Este ponto ficou muito longe da estrada para algum tipo de veículo, mova-o para perto, caso contrário não funcionará</value>
+  </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
   </data>
@@ -263,46 +266,46 @@
     <value>Ambulância</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>Helicóptero-ambulância</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>Balão de ar quente</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicycle</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>Autocarro</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>Teleférico</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Cargo plane</value>
+    <value>Avião de carga</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Cargo ship</value>
+    <value>Cargueiro</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Cargo train</value>
+    <value>Comboio de carga</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Cargo truck</value>
+    <value>Camião de carga</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster response copter</value>
+    <value>Helicóptero de resposta a desastres</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
     <value>Resposta a desastres</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>Helicóptero de combate a incêndios</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
     <value>Camião dos bombeiros</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>Barco de pesca</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
     <value>Camião do lixo</value>
@@ -314,19 +317,19 @@
     <value>Metro</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>Monotrilho</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
     <value>Manutenção de parques</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>Dirigível</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>Helicóptero</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>Ferry</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
     <value>Passenger plane</value>
@@ -335,13 +338,13 @@
     <value>Passenger ship</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>Comboio de passageiros</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
     <value>Polícia</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>Helicóptero da polícia</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Correios</value>
@@ -362,7 +365,7 @@
     <value>Táxi</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>Elétrico</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Trolleybus</value>

@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Change and add vehicles spawn points</value>
+    <value>更改和添加车辆生成点</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
-    <value>- Resolved conflict with More Effective Transfer Manager mod.
-- Added Dutch, French and Portuguese translations.</value>
+    <value>- 解决与More Effective Transfer Manager模组的冲突。
+- 添加荷兰语、法语和葡萄牙语翻译。</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
-    <value>- Added Italian translation.</value>
+    <value>- 添加意大利语翻译。</value>
   </data>
   <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
     <value>- Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
@@ -177,6 +177,9 @@
   </data>
   <data name="Panel_Title" xml:space="preserve">
     <value>建筑 #{0}</value>
+  </data>
+  <data name="Panel_TooFarPoint" xml:space="preserve">
+    <value>This point placed too far from road for some type of vehicles, move it closer, otherwise it will not work</value>
   </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
