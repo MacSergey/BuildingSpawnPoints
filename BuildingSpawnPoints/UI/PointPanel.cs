@@ -127,13 +127,13 @@ namespace BuildingSpawnPoints.UI
             OnLeave?.Invoke(this, p);
         }
     }
-    public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent>
+    public class PointHeaderPanel : BaseDeletableHeaderPanel<HeaderContent>
     {
         public event Action<VehicleType> OnAddType;
         public event Action OnDuplicate;
 
         private HeaderButtonInfo<SelectVehicleHeaderButton> AddTypeButton { get; set; }
-        private HeaderButtonInfo<BasePanelHeaderButton> AddAllTypesButton { get; set; }
+        private HeaderButtonInfo<HeaderButton> AddAllTypesButton { get; set; }
 
         public PointHeaderPanel()
         {
@@ -141,10 +141,10 @@ namespace BuildingSpawnPoints.UI
             AddTypeButton.Button.OnSelect += AddType;
             Content.AddButton(AddTypeButton);
 
-            AddAllTypesButton = new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
+            AddAllTypesButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
             Content.AddButton(AddAllTypesButton);
 
-            Content.AddButton(new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
         }
 
         private void AddType(VehicleType type) => OnAddType?.Invoke(type);
