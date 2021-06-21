@@ -199,42 +199,32 @@ namespace BuildingSpawnPoints.UI
         }
     }
 
-    public class PanelHeader : HeaderMoveablePanel<PanelHeaderContent>
+    public class PanelHeader : HeaderMoveablePanel<BaseHeaderContent>
     {
+        private HeaderButtonInfo<BasePanelHeaderButton> PasteButton { get; set; }
         protected override float DefaultHeight => 40f;
-    }
 
-    public class PanelHeaderContent : BasePanelHeaderContent<PanelHeaderButton, AdditionallyHeaderButton>
-    {
-        private PanelHeaderButton PasteButton { get; set; }
-        protected override void AddButtons()
+        public PanelHeader()
         {
-            AddButton(SpawnPointsTextures.Copy, BuildingSpawnPoints.Localize.Panel_Copy, OnCopy);
-            PasteButton = AddButton(SpawnPointsTextures.Paste, BuildingSpawnPoints.Localize.Panel_Paste, OnPaste);
-            AddButton(SpawnPointsTextures.ApplyAll, BuildingSpawnPoints.Localize.Panel_ApplyToAll, OnApplyToAll);
-            AddButton(SpawnPointsTextures.Reset, BuildingSpawnPoints.Localize.Panel_ResetToDefault, OnResetToDefault);
+            Content.AddButton(new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Copy, BuildingSpawnPoints.Localize.Panel_Copy, OnCopy));
 
-            SetPasteEnabled();
+            PasteButton = new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Paste, BuildingSpawnPoints.Localize.Panel_Paste, OnPaste);
+            Content.AddButton(PasteButton);
+
+            Content.AddButton(new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.ApplyAll, BuildingSpawnPoints.Localize.Panel_ApplyToAll, OnApplyToAll));
+
+            Content.AddButton(new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Reset, BuildingSpawnPoints.Localize.Panel_ResetToDefault, OnResetToDefault));
         }
 
-        private void OnCopy(UIComponent component, UIMouseEventParameter eventParam) => SingletonTool<SpawnPointsTool>.Instance.Copy();
-        private void OnPaste(UIComponent component, UIMouseEventParameter eventParam) => SingletonTool<SpawnPointsTool>.Instance.Paste();
-        private void OnApplyToAll(UIComponent component, UIMouseEventParameter eventParam) => SingletonTool<SpawnPointsTool>.Instance.ApplyToAll();
-        private void OnResetToDefault(UIComponent component, UIMouseEventParameter eventParam) => SingletonTool<SpawnPointsTool>.Instance.ResetToDefault();
+        private void OnCopy() => SingletonTool<SpawnPointsTool>.Instance.Copy();
+        private void OnPaste() => SingletonTool<SpawnPointsTool>.Instance.Paste();
+        private void OnApplyToAll() => SingletonTool<SpawnPointsTool>.Instance.ApplyToAll();
+        private void OnResetToDefault() => SingletonTool<SpawnPointsTool>.Instance.ResetToDefault();
 
         public override void Refresh()
         {
-            SetPasteEnabled();
+            PasteButton.Enable = !SingletonTool<SpawnPointsTool>.Instance.IsBufferEmpty;
             base.Refresh();
         }
-        private void SetPasteEnabled() => PasteButton.isEnabled = !SingletonTool<SpawnPointsTool>.Instance.IsBufferEmpty;
-    }
-    public class PanelHeaderButton : BasePanelHeaderButton
-    {
-        protected override UITextureAtlas IconAtlas => SpawnPointsTextures.Atlas;
-    }
-    public class AdditionallyHeaderButton : BaseAdditionallyHeaderButton
-    {
-        protected override UITextureAtlas IconAtlas => SpawnPointsTextures.Atlas;
     }
 }

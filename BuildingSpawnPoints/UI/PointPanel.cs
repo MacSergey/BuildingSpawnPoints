@@ -132,18 +132,19 @@ namespace BuildingSpawnPoints.UI
         public event Action<VehicleType> OnAddType;
         public event Action OnDuplicate;
 
-        private SelectVehicleHeaderButton AddTypeButton { get; }
-        private SimpleHeaderButton AddAllTypesButton { get; }
-        //private SelectVehicleHeaderButton AddTypeGroupButton { get; }
+        private HeaderButtonInfo<SelectVehicleHeaderButton> AddTypeButton { get; set; }
+        private HeaderButtonInfo<BasePanelHeaderButton> AddAllTypesButton { get; set; }
+
         public PointHeaderPanel()
         {
-            AddTypeButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicle, BuildingSpawnPoints.Localize.Panel_AddVehicle);
-            AddAllTypesButton = Content.AddButton<SimpleHeaderButton>(SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, onClick: AddAllTypes);
-            //AddTypeGroupButton = Content.AddButton<SelectVehicleHeaderButton>(SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
-            Content.AddButton<SimpleHeaderButton>(SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, onClick: DuplicateClick);
+            AddTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicle, BuildingSpawnPoints.Localize.Panel_AddVehicle);
+            AddTypeButton.Button.OnSelect += AddType;
+            Content.AddButton(AddTypeButton);
 
-            AddTypeButton.OnSelect += AddType;
-            //AddTypeGroupButton.OnSelect += AddType;
+            AddAllTypesButton = new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
+            Content.AddButton(AddAllTypesButton);
+
+            Content.AddButton(new HeaderButtonInfo<BasePanelHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
         }
 
         private void AddType(VehicleType type) => OnAddType?.Invoke(type);
@@ -163,22 +164,9 @@ namespace BuildingSpawnPoints.UI
         private void Fill(VehicleType notAdded)
         {
             var types = GetGroup<VehicleType>(notAdded).ToArray();
-            AddTypeButton.Init(types);
-            AddTypeButton.isEnabled = types.Length != 0;
-            AddAllTypesButton.isEnabled = types.Length != 0;
-
-            //var typeGroups = new List<VehicleType>();
-            //if ((VehicleType.Default & notAdded) != VehicleType.None)
-            //    typeGroups.Add(VehicleType.Default);
-            //typeGroups.AddRange(GetGroup<VehicleTypeGroupA>(notAdded));
-            //typeGroups.AddRange(GetGroup<VehicleTypeGroupB>(notAdded));
-            //typeGroups.AddRange(GetGroup<VehicleTypeGroupC>(notAdded));
-            //typeGroups.AddRange(GetGroup<VehicleTypeGroupD>(notAdded));
-            //if ((VehicleType.All & notAdded) != VehicleType.None)
-            //    typeGroups.Add(VehicleType.All);
-
-            //AddTypeGroupButton.Init(groups);
-            //AddTypeGroupButton.isEnabled = groups.Length != 0;
+            AddTypeButton.Button.Init(types);
+            AddTypeButton.Enable = types.Length != 0;
+            AddAllTypesButton.Enable = types.Length != 0;
         }
 
         private IEnumerable<VehicleType> GetGroup<Type>(VehicleType notAdded)
@@ -191,17 +179,11 @@ namespace BuildingSpawnPoints.UI
             }
         }
 
-        private void DuplicateClick(UIComponent component, UIMouseEventParameter eventParam) => OnDuplicate?.Invoke();
-        private void AddAllTypes(UIComponent component, UIMouseEventParameter eventParam) => AddType(VehicleType.All);
-    }
-    public class SimpleHeaderButton : HeaderButton
-    {
-        protected override UITextureAtlas IconAtlas => SpawnPointsTextures.Atlas;
+        private void DuplicateClick() => OnDuplicate?.Invoke();
+        private void AddAllTypes() => AddType(VehicleType.All);
     }
     public class SelectVehicleHeaderButton : BaseHeaderDropDown<VehicleType>
     {
-        protected override UITextureAtlas IconAtlas => SpawnPointsTextures.Atlas;
-
         public SelectVehicleHeaderButton()
         {
             MinListWidth = 100f;
