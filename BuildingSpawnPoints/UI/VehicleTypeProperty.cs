@@ -12,6 +12,7 @@ namespace BuildingSpawnPoints.UI
     public class VehicleTypePropertyPanel : EditorItem, IReusable
     {
         public event Action<VehicleType> OnDelete;
+        public event Action<VehicleType> OnSelect;
 
         bool IReusable.InCache { get; set; }
 
@@ -36,6 +37,7 @@ namespace BuildingSpawnPoints.UI
         {
             ClearItems();
             OnDelete = null;
+            OnSelect = null;
             Deletable = true;
         }
         private void AddItem(VehicleType type)
@@ -45,6 +47,8 @@ namespace BuildingSpawnPoints.UI
                 var item = ComponentPool.Get<VehicleItem>(this);
                 item.Init(type, Deletable);
                 item.OnDelete += DeleteItem;
+                item.OnEnter += EnterItem;
+                item.OnLeave += LeaveItem;
                 Items.Add(type, item);
             }
         }
@@ -124,10 +128,15 @@ namespace BuildingSpawnPoints.UI
             if (isVisible)
                 FitItems();
         }
+
+        private void EnterItem(VehicleItem item) => OnSelect?.Invoke(item.Type);
+        private void LeaveItem(VehicleItem item) => OnSelect?.Invoke(VehicleType.None);
     }
     public class VehicleItem : UIAutoLayoutPanel, IReusable
     {
         public event Action<VehicleItem> OnDelete;
+        public event Action<VehicleItem> OnEnter;
+        public event Action<VehicleItem> OnLeave;
 
         bool IReusable.InCache { get; set; }
 
@@ -176,6 +185,19 @@ namespace BuildingSpawnPoints.UI
         {
             Label.text = string.Empty;
             OnDelete = null;
+            OnEnter = null;
+            OnLeave = null;
+        }
+
+        protected override void OnMouseEnter(UIMouseEventParameter p)
+        {
+            base.OnMouseEnter(p);
+            OnEnter?.Invoke(this);
+        }
+        protected override void OnMouseLeave(UIMouseEventParameter p)
+        {
+            base.OnMouseLeave(p);
+            OnLeave?.Invoke(this);
         }
     }
 }

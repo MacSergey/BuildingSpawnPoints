@@ -24,6 +24,7 @@ namespace BuildingSpawnPoints.UI
         private VehicleTypePropertyPanel Vehicle { get; set; }
 
         private VehicleType NotAdded => Data.PossibleVehicles & ~Point.VehicleTypes.Value;
+        private VehicleType SelectedType { get; set; }
 
         public void Init(BuildingData data, BuildingSpawnPoint point)
         {
@@ -52,6 +53,7 @@ namespace BuildingSpawnPoints.UI
             Point = null;
             Header = null;
             Vehicle = null;
+            SelectedType = VehicleType.None;
         }
 
         private void AddHeader()
@@ -67,6 +69,7 @@ namespace BuildingSpawnPoints.UI
             Vehicle = ComponentPool.Get<VehicleTypePropertyPanel>(this);
             Vehicle.AddItems(Point.VehicleTypes);
             Vehicle.OnDelete += DeleteVehicleType;
+            Vehicle.OnSelect += SelectVehicleType;
         }
 
         private void Changed() => OnChanged?.Invoke();
@@ -91,6 +94,7 @@ namespace BuildingSpawnPoints.UI
 
             Changed();
         }
+        private void SelectVehicleType(VehicleType type) => SelectedType = type;
         private void Duplicate()
         {
             SingletonItem<BuildingSpawnPointsPanel>.Instance.DuplicatePoint(this);
@@ -125,6 +129,35 @@ namespace BuildingSpawnPoints.UI
         {
             base.OnMouseLeave(p);
             OnLeave?.Invoke(this, p);
+        }
+
+        public void Render(RenderManager.CameraInfo cameraInfo)
+        {
+            Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
+            position.RenderCircle(new OverlayData(cameraInfo), 1.5f, 0f);
+            //position.RenderCircle(new OverlayData(cameraInfo) { Width = 64f });
+
+            if (SelectedType == VehicleType.None)
+                return;
+
+            var group = EnumExtension.GetEnumValues<VehicleTypeGroup>().FirstOrDefault(v => ((ulong)v & (ulong)SelectedType) != 0);
+            if (group == VehicleTypeGroup.None)
+                return;
+
+            var laneData = VehicleLaneData.Get(group);
+            if (!PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, false, false, laneData.Distance, out var pathPos))
+                return;
+
+            var segment = pathPos.m_segment.GetSegment();
+            var lanes = segment.GetLaneIds().ToArray();
+            if (pathPos.m_lane > lanes.Length - 1)
+                return;
+
+            var lane = lanes[pathPos.m_lane].GetLane();
+            lane.m_bezier.RenderBezier(new OverlayData(cameraInfo) { Width = segment.Info.m_lanes[pathPos.m_lane].m_width, Cut = true });
+
+            var lanePos = lane.m_bezier.Position(pathPos.m_offset / 255f);
+            new StraightTrajectory(position, lanePos).Render(new OverlayData(cameraInfo));
         }
     }
     public class PointHeaderPanel : BaseDeletableHeaderPanel<HeaderContent>

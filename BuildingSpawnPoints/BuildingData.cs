@@ -257,14 +257,40 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.PointType_Unspawn))]
         Unspawn = 2,
 
-        //[Description(nameof(Localize.PointType_Middle))]
-        //Middle = 4,
-
         [NotVisible]
         Both = Spawn | Unspawn,
-
-        //[NotVisible]
-        //All = Both | Middle,
     }
+    public struct VehicleLaneData
+    {
+        public ItemClass.Service Service;
+        public NetInfo.LaneType Lane;
+        public VehicleInfo.VehicleType Type;
+        public float Distance;
 
+        public VehicleLaneData(ItemClass.Service service, NetInfo.LaneType lane, VehicleInfo.VehicleType type, float distance)
+        {
+            Service = service;
+            Lane = lane;
+            Type = type;
+            Distance = distance;
+        }
+        private static Dictionary<VehicleTypeGroup, VehicleLaneData> Dictinary { get; } = new Dictionary<VehicleTypeGroup, VehicleLaneData>()
+        {
+            {VehicleTypeGroup.Car, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle | NetInfo.LaneType.TransportVehicle, VehicleInfo.VehicleType.Car, 32f) },
+            {VehicleTypeGroup.Trolleybus, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Trolleybus, 32f) },
+            {VehicleTypeGroup.Tram, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Tram, 32f) },
+            {VehicleTypeGroup.Plane, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Plane, 16f) },
+            {VehicleTypeGroup.Balloon, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Balloon, 64f) },
+            {VehicleTypeGroup.Blimp, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Blimp, 64f) },
+            {VehicleTypeGroup.Ship, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 64f) },
+            {VehicleTypeGroup.Ferry, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, 64f) },
+            {VehicleTypeGroup.Fishing, new VehicleLaneData(ItemClass.Service.Fishing, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, 40f) },
+            {VehicleTypeGroup.Train, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Train, 32f) },
+            {VehicleTypeGroup.Metro, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Metro, 32f) },
+            {VehicleTypeGroup.Monorail, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Monorail, 32f) },
+            {VehicleTypeGroup.CableCar, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.CableCar, 32f) },
+        };
+
+        public static VehicleLaneData Get(VehicleTypeGroup type) => Dictinary[type];
+    }
 }

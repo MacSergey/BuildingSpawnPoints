@@ -183,10 +183,7 @@ namespace BuildingSpawnPoints.UI
         public void Render(RenderManager.CameraInfo cameraInfo)
         {
             if (HoverPointPanel is PointPanel pointPanel)
-            {
-                pointPanel.Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
-                position.RenderCircle(new OverlayData(cameraInfo), 1.5f, 0f);
-            }
+                pointPanel.Render(cameraInfo);
         }
 
         private class AddPointButton : ButtonPanel
@@ -226,5 +223,6 @@ namespace BuildingSpawnPoints.UI
             PasteButton.Enable = !SingletonTool<SpawnPointsTool>.Instance.IsBufferEmpty;
             base.Refresh();
         }
+        public void Init(float height) => base.Init(height);
     }
 }
