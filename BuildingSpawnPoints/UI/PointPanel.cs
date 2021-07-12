@@ -21,9 +21,11 @@ namespace BuildingSpawnPoints.UI
         public BuildingSpawnPoint Point { get; private set; }
 
         private PointHeaderPanel Header { get; set; }
+        private WarningTextProperty Warning { get; set; }
         private VehicleTypePropertyPanel Vehicle { get; set; }
 
         private VehicleType NotAdded => Data.PossibleVehicles & ~Point.VehicleTypes.Value;
+        private Dictionary<VehicleTypeGroup, PathUnit.Position> Groups { get; } = new Dictionary<VehicleTypeGroup, PathUnit.Position>();
         private VehicleType SelectedType { get; set; }
 
         public void Init(BuildingData data, BuildingSpawnPoint point)
@@ -34,9 +36,12 @@ namespace BuildingSpawnPoints.UI
             StopLayout();
 
             AddHeader();
+            AddWarning();
             AddVehicleType();
             AddPointType();
             AddPosition();
+
+            Refresh();
 
             StartLayout();
 
@@ -52,8 +57,10 @@ namespace BuildingSpawnPoints.UI
             Data = null;
             Point = null;
             Header = null;
+            Warning = null;
             Vehicle = null;
             SelectedType = VehicleType.None;
+            Groups.Clear();
         }
 
         private void AddHeader()
@@ -63,6 +70,12 @@ namespace BuildingSpawnPoints.UI
             Header.OnDelete += Delete;
             Header.OnAddType += AddVehicleType;
             Header.OnDuplicate += Duplicate;
+        }
+        private void AddWarning()
+        {
+            Warning = ComponentPool.Get<WarningTextProperty>(this);
+            Warning.Init();
+            Warning.Text = BuildingSpawnPoints.Localize.Panel_TooFarPoint;
         }
         private void AddVehicleType()
         {
@@ -86,6 +99,7 @@ namespace BuildingSpawnPoints.UI
             InitHeader();
 
             Changed();
+            Refresh();
         }
         private void DeleteVehicleType(VehicleType type)
         {
@@ -93,6 +107,7 @@ namespace BuildingSpawnPoints.UI
             InitHeader();
 
             Changed();
+            Refresh();
         }
         private void SelectVehicleType(VehicleType type) => SelectedType = type;
         private void Duplicate()
@@ -117,7 +132,12 @@ namespace BuildingSpawnPoints.UI
             position.WheelTip = true;
             position.Init(0, 2, 1, 3);
             position.Value = Point.Position;
-            position.OnValueChanged += (value) => Point.Position.Value = value;
+            position.OnValueChanged += OnPositionChanged;
+        }
+        private void OnPositionChanged(Vector4 value)
+        {
+            Point.Position.Value = value;
+            Refresh();
         }
 
         protected override void OnMouseEnter(UIMouseEventParameter p)
@@ -131,22 +151,50 @@ namespace BuildingSpawnPoints.UI
             OnLeave?.Invoke(this, p);
         }
 
+        private void Refresh()
+        {
+            Groups.Clear();
+
+            Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
+            foreach (var group in EnumExtension.GetEnumValues<VehicleTypeGroup>())
+            {
+                if(((ulong)group & (ulong)Point.VehicleTypes.Value) != 0)
+                {
+                    var laneData = VehicleLaneData.Get(group);
+                    if (PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, false, false, laneData.Distance, out var pathPos))
+                    {
+                        Groups[group] = pathPos;
+                    }
+                }
+            }
+
+            foreach(var item in Vehicle)
+            {
+                var group = item.Type.GetGroup();
+                item.IsCorrect = group == VehicleTypeGroup.None || Groups.ContainsKey(group);
+            }
+
+            Warning.isVisible = Vehicle.Any(i => !i.IsCorrect);
+        }
+
         public void Render(RenderManager.CameraInfo cameraInfo)
         {
             Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
             position.RenderCircle(new OverlayData(cameraInfo), 1.5f, 0f);
-            //position.RenderCircle(new OverlayData(cameraInfo) { Width = 64f });
 
             if (SelectedType == VehicleType.None)
                 return;
 
-            var group = EnumExtension.GetEnumValues<VehicleTypeGroup>().FirstOrDefault(v => ((ulong)v & (ulong)SelectedType) != 0);
+            var group = SelectedType.GetGroup();
             if (group == VehicleTypeGroup.None)
                 return;
 
-            var laneData = VehicleLaneData.Get(group);
-            if (!PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, false, false, laneData.Distance, out var pathPos))
+            if(!Groups.TryGetValue(group, out var pathPos))
+            {
+                var laneData = VehicleLaneData.Get(group);
+                position.RenderCircle(new OverlayData(cameraInfo) { Width = laneData.Distance * 2f });
                 return;
+            }
 
             var segment = pathPos.m_segment.GetSegment();
             var lanes = segment.GetLaneIds().ToArray();

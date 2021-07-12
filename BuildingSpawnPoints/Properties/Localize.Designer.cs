@@ -89,13 +89,13 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Depot (Bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
-        ///- Added Transport station, but it will work only like depot. Stop position set by transport line.
+        ///   Ищет локализованную строку, похожую на - Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
+        ///- Added transport station, but it will work only like depot. Stop position set by transport line.
         ///- Added cargo stations (train, plane, ship). Truck points not implimented yet.
-        ///- Added fishing harbor(boat), shelter(bus), tour building(bus, balloon).
+        ///- Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
         ///- Added copters (police, ambulance, fire, disaster, passenger).
         ///- Added point height.
-        ///- Fixed police car, fire truck, park maintenance and disaster response unsp [остаток строки не уместился]&quot;;.
+        ///- Fixed police car, fire truck, park maintenance an [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_1 {
             get {
@@ -226,6 +226,15 @@ namespace BuildingSpawnPoints {
         internal static string Panel_Title {
             get {
                 return ResourceManager.GetString("Panel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на This point placed too far from road for some type of vehicles, move it closer, otherwise it will not work.
+        /// </summary>
+        internal static string Panel_TooFarPoint {
+            get {
+                return ResourceManager.GetString("Panel_TooFarPoint", resourceCulture);
             }
         }
         

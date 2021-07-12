@@ -2,6 +2,7 @@
 using ModsCommon.UI;
 using ModsCommon.Utilities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using UnityEngine;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class VehicleTypePropertyPanel : EditorItem, IReusable
+    public class VehicleTypePropertyPanel : EditorItem, IReusable, IEnumerable<VehicleItem>
     {
         public event Action<VehicleType> OnDelete;
         public event Action<VehicleType> OnSelect;
@@ -131,6 +132,9 @@ namespace BuildingSpawnPoints.UI
 
         private void EnterItem(VehicleItem item) => OnSelect?.Invoke(item.Type);
         private void LeaveItem(VehicleItem item) => OnSelect?.Invoke(VehicleType.None);
+
+        public IEnumerator<VehicleItem> GetEnumerator() => Items.Values.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
     public class VehicleItem : UIAutoLayoutPanel, IReusable
     {
@@ -144,6 +148,20 @@ namespace BuildingSpawnPoints.UI
         private CustomUIButton Button { get; }
 
         public VehicleType Type { get; private set; }
+
+        private bool _isCorrect;
+        public bool IsCorrect 
+        {
+            get => _isCorrect;
+            set
+            {
+                if(value != _isCorrect)
+                {
+                    _isCorrect = value;
+                    color = _isCorrect ? Color.white : Color.red;
+                }
+            }
+        }
 
         public VehicleItem()
         {
@@ -187,6 +205,7 @@ namespace BuildingSpawnPoints.UI
             OnDelete = null;
             OnEnter = null;
             OnLeave = null;
+            IsCorrect = true;
         }
 
         protected override void OnMouseEnter(UIMouseEventParameter p)

@@ -406,5 +406,7 @@ namespace BuildingSpawnPoints
             vector.z = -vector.z;
             return vector;
         }
+
+        public static VehicleTypeGroup GetGroup(this VehicleType type) => EnumExtension.GetEnumValues<VehicleTypeGroup>().FirstOrDefault(v => ((ulong)v & (ulong)type) != 0);
     }
 }
