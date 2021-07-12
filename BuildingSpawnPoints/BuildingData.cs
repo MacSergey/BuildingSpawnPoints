@@ -211,6 +211,7 @@ namespace BuildingSpawnPoints
         public void GetAbsolute(ref Building data, out Vector3 position, out Vector3 target)
         {
             position = data.m_position + (Vector3)Position.Value.TurnRad(data.m_angle, false);
+            position.y = TerrainManager.instance.SampleDetailHeight(position);
             target = position + Vector3.forward.TurnRad(data.m_angle + Position.Value.w * Mathf.Deg2Rad, false);
         }
         public BuildingSpawnPoint Copy()
