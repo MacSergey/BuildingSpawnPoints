@@ -211,7 +211,7 @@ namespace BuildingSpawnPoints
         public void GetAbsolute(ref Building data, out Vector3 position, out Vector3 target)
         {
             position = data.m_position + (Vector3)Position.Value.TurnRad(data.m_angle, false);
-            position.y = TerrainManager.instance.SampleDetailHeight(position);
+            position.y = Singleton<TerrainManager>.instance.SampleRawHeightWithWater(position, false, 0f) + Position.Value.y;
             target = position + Vector3.forward.TurnRad(data.m_angle + Position.Value.w * Mathf.Deg2Rad, false);
         }
         public BuildingSpawnPoint Copy()
@@ -285,7 +285,7 @@ namespace BuildingSpawnPoints
             {VehicleTypeGroup.Blimp, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Blimp, 64f) },
             {VehicleTypeGroup.Ship, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 64f) },
             {VehicleTypeGroup.Ferry, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, 64f) },
-            {VehicleTypeGroup.Fishing, new VehicleLaneData(ItemClass.Service.Fishing, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, 40f) },
+            {VehicleTypeGroup.Fishing, new VehicleLaneData(ItemClass.Service.Fishing, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 40f) },
             {VehicleTypeGroup.Train, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Train, 32f) },
             {VehicleTypeGroup.Metro, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Metro, 32f) },
             {VehicleTypeGroup.Monorail, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Monorail, 32f) },

@@ -98,7 +98,7 @@ namespace BuildingSpawnPoints
 
             //Industrial
             { typeof(FishFarmAI), VehicleType.Default },
-            { typeof(FishingHarborAI), VehicleType.Default | VehicleType.CargoTruck | VehicleType.FishingBoat },
+            { typeof(FishingHarborAI), VehicleType.Default | VehicleType.CargoTruck },
             { typeof(WarehouseAI), VehicleType.Default | VehicleType.CargoTruck },
 
             { typeof(MainIndustryBuildingAI), VehicleType.Default },
