@@ -23,7 +23,9 @@ namespace BuildingSpawnPoints.UI
         private PointHeaderPanel Header { get; set; }
         private WarningTextProperty Warning { get; set; }
         private VehicleTypePropertyPanel Vehicle { get; set; }
-
+#if DEBUG
+        private Vector3PropertyPanel Absolute { get; set; }
+#endif
         private VehicleType NotAdded => Data.PossibleVehicles & ~Point.VehicleTypes.Value;
         private Dictionary<VehicleTypeGroup, PathUnit.Position> Groups { get; } = new Dictionary<VehicleTypeGroup, PathUnit.Position>();
         private VehicleType SelectedType { get; set; }
@@ -40,7 +42,9 @@ namespace BuildingSpawnPoints.UI
             AddVehicleType();
             AddPointType();
             AddPosition();
-
+#if DEBUG
+            AddAbsolute();
+#endif
             Refresh();
 
             StartLayout();
@@ -59,6 +63,9 @@ namespace BuildingSpawnPoints.UI
             Header = null;
             Warning = null;
             Vehicle = null;
+#if DEBUG
+            Absolute = null;
+#endif
             SelectedType = VehicleType.None;
             Groups.Clear();
         }
@@ -134,6 +141,15 @@ namespace BuildingSpawnPoints.UI
             position.Value = Point.Position;
             position.OnValueChanged += OnPositionChanged;
         }
+#if DEBUG
+        private void AddAbsolute()
+        {
+            Absolute = ComponentPool.Get<Vector3PropertyPanel>(this);
+            Absolute.Text = "Absolute";
+            Absolute.Init(0, 1, 2);
+            Absolute.FieldsWidth = 50f;
+        }
+#endif
         private void OnPositionChanged(Vector4 value)
         {
             Point.Position.Value = value;
@@ -156,6 +172,9 @@ namespace BuildingSpawnPoints.UI
             Groups.Clear();
 
             Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
+#if DEBUG
+            Absolute.Value = position;
+#endif
             foreach (var group in EnumExtension.GetEnumValues<VehicleTypeGroup>())
             {
                 if(((ulong)group & (ulong)Point.VehicleTypes.Value) != 0)
