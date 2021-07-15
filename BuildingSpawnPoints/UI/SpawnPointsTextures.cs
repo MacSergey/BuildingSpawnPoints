@@ -21,6 +21,11 @@ namespace BuildingSpawnPoints.Utilities
         public static string Reset => nameof(Reset);
         public static string ApplyAll => nameof(ApplyAll);
 
+        public static string UUINormal => nameof(UUINormal);
+        public static string UUIHovered => nameof(UUIHovered);
+        public static string UUIPressed => nameof(UUIPressed);
+        //public static string UUIDisabled => nameof(UUIDisabled);
+
         public static string InfoNormal => nameof(InfoNormal);
         public static string InfoPressed => nameof(InfoPressed);
 
@@ -28,6 +33,7 @@ namespace BuildingSpawnPoints.Utilities
         {
             {nameof(HeaderButtons), HeaderButtons},
             {nameof(InfoIcon), InfoIcon},
+            {nameof(UUIButton), UUIButton},
         };
 
         static SpawnPointsTextures()
@@ -38,5 +44,7 @@ namespace BuildingSpawnPoints.Utilities
         private static UITextureAtlas.SpriteInfo[] HeaderButtons(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 25, 25, new RectOffset(4, 4, 4, 4), 2, AddVehicle, AddVehicleGroup, Copy, Paste, Duplicate, Reset, ApplyAll).ToArray();
 
         private static UITextureAtlas.SpriteInfo[] InfoIcon(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 36, 36, InfoNormal, InfoPressed).ToArray();
+
+        private static UITextureAtlas.SpriteInfo[] UUIButton(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 40, 40, UUINormal, UUIHovered, UUIPressed/*, UUIDisabled*/).ToArray();
     }
 }
