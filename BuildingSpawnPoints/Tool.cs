@@ -1,6 +1,8 @@
 ﻿using BuildingSpawnPoints.UI;
+using BuildingSpawnPoints.Utilities;
 using ColossalFramework;
 using ColossalFramework.Math;
+using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
@@ -28,6 +30,12 @@ namespace BuildingSpawnPoints
         private XElement Buffer { get; set; }
         public bool IsBufferEmpty => Buffer == null;
 
+        protected override UITextureAtlas UUIAtlas => SpawnPointsTextures.Atlas;
+        protected override string UUINormalSprite => SpawnPointsTextures.UUINormal;
+        protected override string UUIHoveredSprite => SpawnPointsTextures.UUIHovered;
+        protected override string UUIPressedSprite => SpawnPointsTextures.UUIPressed;
+        protected override string UUIDisabledSprite => string.Empty;
+
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
         {
             yield return CreateToolMode<SelectBuildingMode>();
@@ -38,6 +46,7 @@ namespace BuildingSpawnPoints
         {
             base.InitProcess();
             BuildingSpawnPointsPanel.CreatePanel();
+            RegisterUUI();
         }
 
         public void SetDefaultMode() => SetMode(ToolModeType.Edit);
@@ -120,7 +129,7 @@ namespace BuildingSpawnPoints
     {
         public SpawnPointsShortcut(string name, string labelKey, InputKey key, Action action = null) : base(name, labelKey, key, action) { }
     }
-    public class SpawnPointsToolThreadingExtension : BaseThreadingExtension<SpawnPointsTool> { }
+    public class SpawnPointsToolThreadingExtension : BaseUUIThreadingExtension<SpawnPointsTool> { }
     public class SpawnPointsToolLoadingExtension : BaseToolLoadingExtension<SpawnPointsTool> { }
 
     public class SelectBuildingMode : SpawnPointsToolMode

@@ -186,8 +186,11 @@ namespace BuildingSpawnPoints
         Trucks = CargoTruck | FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck,
 
         [NotItem]
+        Cars = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | Taxi,
+
+        [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Road))]
-        Road = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | Taxi | Trolleybus,
+        Road = Trucks | Cars | Trolleybus,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_PassengerRoad))]
@@ -213,33 +216,21 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.VehicleType_All))]
         All = ulong.MaxValue,
     }
-
-    public enum VehicleTypeGroupA : ulong
+    public enum VehicleTypeGroup : ulong
     {
-        Trucks = VehicleType.Trucks,
-        Trains = VehicleType.Trains,
-        Planes = VehicleType.Planes,
-        Copters = VehicleType.Copters,
-        Ships = VehicleType.Ships,
-    }
-    public enum VehicleTypeGroupB : ulong
-    {
-        Road = VehicleType.Road,
-        Rail = VehicleType.Rail,
-        Air = VehicleType.Air,
-        Water = VehicleType.Water,
-    }
-    public enum VehicleTypeGroupC : ulong
-    {
-        Passenger = VehicleType.Passenger,
-        Service = VehicleType.Service,
-        Cargo = VehicleType.Cargo,
-    }
-    public enum VehicleTypeGroupD : ulong
-    {
-        PassengerRoad = VehicleType.PassengerRoad,
-        PassengerRail = VehicleType.PassengerRail,
-        PassengerAir = VehicleType.PassengerAir,
-        PassengerWater = VehicleType.PassengerWater,
+        None = VehicleType.None,
+        Car = VehicleType.Cars | VehicleType.Trucks,
+        Trolleybus = VehicleType.Trolleybus,
+        Tram = VehicleType.Tram,
+        Plane = VehicleType.Planes,
+        Balloon = VehicleType.PassengerBalloon,
+        Blimp = VehicleType.PassengerBlimp,
+        Ship = VehicleType.Ships,
+        Ferry = VehicleType.PassengerFerry,
+        Fishing = VehicleType.FishingBoat,
+        Train = VehicleType.Trains,
+        Metro = VehicleType.MetroTrain,
+        Monorail = VehicleType.Monorail,
+        CableCar = VehicleType.CableCar,
     }
 }

@@ -59,6 +59,15 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DefineConstants>BETA, DEBUG</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.None.Increment</AssemblyVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
@@ -91,6 +100,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnifiedUILib">
+      <HintPath>..\..\UnifiedUI\UnifiedUILib\bin\Debug\net35\UnifiedUILib.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -125,7 +137,6 @@
     <EmbeddedResource Include="Properties\Localize.it.resx" />
     <EmbeddedResource Include="Properties\Localize.nl.resx" />
     <EmbeddedResource Include="Properties\Localize.pt.resx" />
-    <EmbeddedResource Include="Resources\InfoIcon.tga" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Localize.de.resx" />
@@ -144,6 +155,10 @@
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
     <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
     <EmbeddedResource Include="Resources\HeaderButtons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\InfoIcon.png" />
+    <EmbeddedResource Include="Resources\UUIButton.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\CustomUIShared\CustomUIShared.projitems" Label="Shared" />
@@ -167,7 +182,6 @@
   <Import Project="..\ModsCommon\NetExtension\NetExtension.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\ToolPanelShared\ToolPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\PropertyPanelShared\PropertyPanelShared.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\HeaderShared\HeaderShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ru.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.es.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.de.projitems" Label="Shared" />
@@ -183,6 +197,8 @@
   <Import Project="..\ModsCommon\MultyAtlasButton\MultyAtlasButton.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.it.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\PropertyValueShared\PropertyValueShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\HeaderShared\HeaderShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\UUIRegisterShared\UUIRegisterShared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

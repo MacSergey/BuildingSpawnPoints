@@ -98,7 +98,7 @@ namespace BuildingSpawnPoints
 
             //Industrial
             { typeof(FishFarmAI), VehicleType.Default },
-            { typeof(FishingHarborAI), VehicleType.Default | VehicleType.CargoTruck | VehicleType.FishingBoat },
+            { typeof(FishingHarborAI), VehicleType.Default | VehicleType.CargoTruck },
             { typeof(WarehouseAI), VehicleType.Default | VehicleType.CargoTruck },
 
             { typeof(MainIndustryBuildingAI), VehicleType.Default },
@@ -406,5 +406,7 @@ namespace BuildingSpawnPoints
             vector.z = -vector.z;
             return vector;
         }
+
+        public static VehicleTypeGroup GetGroup(this VehicleType type) => EnumExtension.GetEnumValues<VehicleTypeGroup>().FirstOrDefault(v => ((ulong)v & (ulong)type) != 0);
     }
 }

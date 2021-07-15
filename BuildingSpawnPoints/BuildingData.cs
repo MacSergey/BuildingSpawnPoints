@@ -1,6 +1,7 @@
 ﻿using BuildingSpawnPoints.Utilites;
 using ColossalFramework;
 using ColossalFramework.Math;
+using HarmonyLib;
 using ModsCommon;
 using ModsCommon.Utilities;
 using System;
@@ -54,7 +55,7 @@ namespace BuildingSpawnPoints
                 var index = randomizer.Int32((uint)points.Length);
                 points[index].GetAbsolute(ref data, out position, out target);
 #if DEBUG
-                SingletonMod<Mod>.Logger.Debug($"{type} {vehicleType} on building #{Id}; {index+1} of {points.Length}; {position}");
+                SingletonMod<Mod>.Logger.Debug($"{type} {vehicleType} on building #{Id}; {index + 1} of {points.Length}; {position}");
 #endif
                 return true;
             }
@@ -179,6 +180,16 @@ namespace BuildingSpawnPoints
         public PropertyStructValue<Vector4> Position { get; set; }
 
         public string XmlSection => XmlName;
+        private static AccessTools.FieldRef<WaterSimulation, uint> WaterFrameIndex { get; } = AccessTools.FieldRefAccess<WaterSimulation, uint>(AccessTools.Field(typeof(WaterSimulation), "m_waterFrameIndex"));
+        private static AccessTools.FieldRef<WaterSimulation, WaterSimulation.Cell[][]> WaterBuffers { get; } = AccessTools.FieldRefAccess<WaterSimulation, WaterSimulation.Cell[][]>(AccessTools.Field(typeof(WaterSimulation), "m_waterBuffers"));
+        private static WaterSimulation.Cell[] WaterCells
+        {
+            get
+            {
+                var simulation = TerrainManager.instance.WaterSimulation;
+                return WaterBuffers.Invoke(simulation)[~(WaterFrameIndex.Invoke(simulation) >> 6) & 1];
+            }
+        }
 
         private BuildingSpawnPoint(BuildingData data)
         {
@@ -211,8 +222,45 @@ namespace BuildingSpawnPoints
         public void GetAbsolute(ref Building data, out Vector3 position, out Vector3 target)
         {
             position = data.m_position + (Vector3)Position.Value.TurnRad(data.m_angle, false);
+            position.y = GetHeightWithWater(position) + Position.Value.y;
             target = position + Vector3.forward.TurnRad(data.m_angle + Position.Value.w * Mathf.Deg2Rad, false);
         }
+        private float GetHeight(Vector3 position)
+        {
+            var x = position.x / 16f + 540f;
+            var z = position.z / 16f + 540f;
+            return TerrainManager.instance.SampleFinalHeight(x, z) * 0.015625f;
+        }
+        private float GetHeightWithWater(Vector3 position)
+        {
+            var x = position.x / 16f + 540f;
+            var z = position.z / 16f + 540f;
+
+            var xMin = Mathf.Clamp((int)x, 0, 1080);
+            var xMax = Mathf.Clamp((int)x + 1, 0, 1080);
+            var zMin = Mathf.Clamp((int)z, 0, 1080);
+            var zMax = Mathf.Clamp((int)z + 1, 0, 1080);
+            var xT = x - (int)x;
+            var zT = z - (int)z;
+            var cells = WaterCells;
+
+            var zMinHeight = Mathf.Lerp(GetSurfaceHeight(xMin, zMin, cells), GetSurfaceHeight(xMax, zMin, cells), xT);
+            var zMaxHeight = Mathf.Lerp(GetSurfaceHeight(xMin, zMax, cells), GetSurfaceHeight(xMax, zMax, cells), xT);
+            var height = Mathf.Lerp(zMinHeight, zMaxHeight, zT);
+            return height * 0.015625f;
+
+            static float GetSurfaceHeight(int x, int z, WaterSimulation.Cell[] cells)
+            {
+                var waterHeight = cells[z * 1081 + x].m_height;
+                if (waterHeight == 0f)
+                    return TerrainManager.instance.FinalHeights[z * 1081 + x];
+                if (waterHeight < 64f)
+                    return TerrainManager.instance.RawHeights2[z * 1081 + x] + Mathf.Max(0f, waterHeight);
+                else
+                    return TerrainManager.instance.BlockHeights[z * 1081 + x] + waterHeight;
+            }
+        }
+
         public BuildingSpawnPoint Copy()
         {
             var copy = new BuildingSpawnPoint(Data);
@@ -257,14 +305,40 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.PointType_Unspawn))]
         Unspawn = 2,
 
-        //[Description(nameof(Localize.PointType_Middle))]
-        //Middle = 4,
-
         [NotVisible]
         Both = Spawn | Unspawn,
-
-        //[NotVisible]
-        //All = Both | Middle,
     }
+    public struct VehicleLaneData
+    {
+        public ItemClass.Service Service;
+        public NetInfo.LaneType Lane;
+        public VehicleInfo.VehicleType Type;
+        public float Distance;
 
+        public VehicleLaneData(ItemClass.Service service, NetInfo.LaneType lane, VehicleInfo.VehicleType type, float distance)
+        {
+            Service = service;
+            Lane = lane;
+            Type = type;
+            Distance = distance;
+        }
+        private static Dictionary<VehicleTypeGroup, VehicleLaneData> Dictinary { get; } = new Dictionary<VehicleTypeGroup, VehicleLaneData>()
+        {
+            {VehicleTypeGroup.Car, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle | NetInfo.LaneType.TransportVehicle, VehicleInfo.VehicleType.Car, 32f) },
+            {VehicleTypeGroup.Trolleybus, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Trolleybus, 32f) },
+            {VehicleTypeGroup.Tram, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Tram, 32f) },
+            {VehicleTypeGroup.Plane, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Plane, 16f) },
+            {VehicleTypeGroup.Balloon, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Balloon, 64f) },
+            {VehicleTypeGroup.Blimp, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Blimp, 64f) },
+            {VehicleTypeGroup.Ship, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 64f) },
+            {VehicleTypeGroup.Ferry, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, 64f) },
+            {VehicleTypeGroup.Fishing, new VehicleLaneData(ItemClass.Service.Fishing, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 40f) },
+            {VehicleTypeGroup.Train, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Train, 32f) },
+            {VehicleTypeGroup.Metro, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Metro, 32f) },
+            {VehicleTypeGroup.Monorail, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Monorail, 32f) },
+            {VehicleTypeGroup.CableCar, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.CableCar, 32f) },
+        };
+
+        public static VehicleLaneData Get(VehicleTypeGroup type) => Dictinary[type];
+    }
 }
