@@ -46,6 +46,7 @@ namespace BuildingSpawnPoints
 #endif
         #endregion
         protected override ResourceManager LocalizeManager => Localize.ResourceManager;
+        protected override bool NeedMonoDevelopImpl => true;
 
         private static string METMName => "More Effective Transfer Manager";
         private static ulong METMId => 1680840913ul;
