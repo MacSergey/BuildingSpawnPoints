@@ -129,7 +129,7 @@ namespace BuildingSpawnPoints
     {
         public SpawnPointsShortcut(string name, string labelKey, InputKey key, Action action = null) : base(name, labelKey, key, action) { }
     }
-    public class SpawnPointsToolThreadingExtension : BaseThreadingExtension<SpawnPointsTool> { }
+    public class SpawnPointsToolThreadingExtension : BaseUUIThreadingExtension<SpawnPointsTool> { }
     public class SpawnPointsToolLoadingExtension : BaseToolLoadingExtension<SpawnPointsTool> { }
 
     public class SelectBuildingMode : SpawnPointsToolMode
