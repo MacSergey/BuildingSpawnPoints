@@ -28,6 +28,7 @@ namespace BuildingSpawnPoints
 
         public override List<Version> Versions => new List<Version>()
         {
+            new Version(1,2),
             new Version(1,1),
             new Version(1,0,2),
             new Version(1,0,1),
@@ -46,6 +47,7 @@ namespace BuildingSpawnPoints
 #endif
         #endregion
         protected override ResourceManager LocalizeManager => Localize.ResourceManager;
+        protected override bool NeedMonoDevelopImpl => true;
 
         private static string METMName => "More Effective Transfer Manager";
         private static ulong METMId => 1680840913ul;
