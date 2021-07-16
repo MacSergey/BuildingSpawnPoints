@@ -186,7 +186,7 @@
     <value>Budynek #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>This point placed too far from road for some type of vehicles, move it closer, otherwise it will not work</value>
+    <value>Dla niektórych pojazdów ten punkt jest zbyt daleko od drogi. Przenieś go bliżej, aby zadziałał</value>
   </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
