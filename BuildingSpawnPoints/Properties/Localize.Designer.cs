@@ -104,6 +104,18 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Added a warning if the point is too far from the road. The point should be no further than 32 meters from the closer road, otherwise pathfinder will not be able to find path for vehicle. That vehicle types will red.
+        ///- Added highlighting that show closer road to point. Hover vehicle type to show it.
+        ///- The zero height value is now equal to the height of the terrain under the point, so it fixed points on hills or above the water.
+        ///- Added mod button to UnifiedUI..
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_2 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add all types of vehicles.
         /// </summary>
         internal static string Panel_AddAllVehicle {
