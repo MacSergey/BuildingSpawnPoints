@@ -46,7 +46,6 @@ namespace BuildingSpawnPoints
         {
             base.InitProcess();
             BuildingSpawnPointsPanel.CreatePanel();
-            RegisterUUI();
         }
 
         public void SetDefaultMode() => SetMode(ToolModeType.Edit);
