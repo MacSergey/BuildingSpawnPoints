@@ -21,7 +21,6 @@ namespace BuildingSpawnPoints
         public static SpawnPointsShortcut ActivationShortcut { get; } = new SpawnPointsShortcut(nameof(ActivationShortcut), nameof(CommonLocalize.Settings_ShortcutActivateTool), SavedInputKey.Encode(KeyCode.P, true, false, false));
 
         public override Shortcut Activation => ActivationShortcut;
-        protected override bool ShowToolTip => true;
         protected override IToolMode DefaultMode => ToolModes[ToolModeType.Select];
         public BuildingSpawnPointsPanel Panel => SingletonItem<BuildingSpawnPointsPanel>.Instance;
 
