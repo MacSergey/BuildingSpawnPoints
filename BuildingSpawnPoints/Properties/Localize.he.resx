@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Verander en voeg voertuig startpunten toe</value>
+    <value>Change and add vehicles spawn points</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
     <value>- Resolved conflict with More Effective Transfer Manager mod.
@@ -144,181 +144,181 @@
 - Added warning about missing libraries for Linux users.</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Voeg alle typen voertuigen toe</value>
+    <value>Add all types of vehicles</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Punt toevoegen</value>
+    <value>Add point</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Voertuigtype toevoegen</value>
+    <value>Add vehicle type</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Voertuigtypegroep toevoegen</value>
+    <value>Add vehicle type group</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Toepassen op alle gebouwen van dit type</value>
+    <value>Apply to all buildings of this type</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Kopiëren</value>
+    <value>Copy</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Kopieer punt</value>
+    <value>Duplicate point</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>Geen enkel punt in dit gebouw bevat deze soorten voertuigen:</value>
+    <value>No point in this building contains these types of vehicles:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>Ze zullen in de standaardpositie tevoorschijn komen.</value>
+    <value>They will spawn in default position.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Plakken</value>
+    <value>Paste</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Terug naar standaardwaarde</value>
+    <value>Reset to default</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Gebouw #{0}</value>
+    <value>Building #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>Dit punt is te ver weg geplaatst van een weg voor sommige type voertuigen, plaats het dichterbij, anders zal het niet werken</value>
+    <value>This point placed too far from road for some type of vehicles, move it closer, otherwise it will not work</value>
   </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Startpunt</value>
+    <value>Spawn</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Eindpunt</value>
+    <value>Unspawn</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Positie</value>
+    <value>Position</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Toepassen op alle gebouwen van dit type</value>
+    <value>Apply to all buildings of type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Weet u zeker dat u deze instelling wilt toepassen op alle gebouwen van dit type?</value>
+    <value>Do you really want apply this setting to all buildings of this type?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Gebouw #{0}</value>
+    <value>Building #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Selecteer gebouw</value>
+    <value>Select building</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Luchtvoertuigen</value>
+    <value>Air vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Vrachtvoertuigen</value>
+    <value>Cargo vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Helikopters</value>
+    <value>Copters</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Standaard voertuigen</value>
+    <value>Default vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passagiersvoertuigen</value>
+    <value>Passenger vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passagiersluchtvoertuigen</value>
+    <value>Passenger air vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passagiersspoorvoertuigen</value>
+    <value>Passenger rail vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passagierswegvoertuigen</value>
+    <value>Passenger road vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passagierswatervoertuigen</value>
+    <value>Passenger water vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Vliegtuigen</value>
+    <value>Planes</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Spoorvoertuigen</value>
+    <value>Rail vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Wegvoertuigen</value>
+    <value>Road vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Servicevoertuigen</value>
+    <value>Service vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Schepen</value>
+    <value>Ships</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Treinen</value>
+    <value>Trains</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Vrachtwagens</value>
+    <value>Trucks</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Watervoertuigen</value>
+    <value>Water vehicles</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>Alle</value>
+    <value>All</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulance</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Traumahelikopter</value>
+    <value>Ambulance copter</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Ballon</value>
+    <value>Balloon</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Fiets</value>
+    <value>Bicycle</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Bus</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Kabelbaan</value>
+    <value>Cable car</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Vrachtvliegtuig</value>
+    <value>Cargo plane</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Vrachtschip</value>
+    <value>Cargo ship</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Vrachttrein</value>
+    <value>Cargo train</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Vrachtwagen</value>
+    <value>Cargo truck</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Reddingshelikopter</value>
+    <value>Disaster response copter</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Rampenhulpdienst</value>
+    <value>Disaster response</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Blushelikopter</value>
+    <value>Fire copter</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Brandweerwagen</value>
+    <value>Fire truck</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Vissersboot</value>
+    <value>Fishing boat</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Vuilniswagen</value>
+    <value>Garbage truck</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Lijkwagen</value>
+    <value>Hearse</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Metro</value>
@@ -327,46 +327,46 @@
     <value>Monorail</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Parkonderhoud</value>
+    <value>Park maintenance</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passagierszeppelin</value>
+    <value>Passenger blimp</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passagiershelikopter</value>
+    <value>Passenger copter</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Veerboot</value>
+    <value>Passenger ferry</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passagiersvliegtuig</value>
+    <value>Passenger plane</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passagiersschip</value>
+    <value>Passenger ship</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passagierstrein</value>
+    <value>Passenger train</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Politie</value>
+    <value>Police</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Politiehelikopter</value>
+    <value>Police copter</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Post</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Privévliegtuig</value>
+    <value>Private plane</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Onderhoud aan de weg</value>
+    <value>Road maintenance</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Raket</value>
+    <value>Rocket</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Sneeuwschuiver</value>
+    <value>Snowplow</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
     <value>Taxi</value>
@@ -378,6 +378,6 @@
     <value>Trolleybus</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Veegwagen</value>
+    <value>Vacuum truck</value>
   </data>
 </root>

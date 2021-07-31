@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Verander en voeg voertuig startpunten toe</value>
+    <value>차량의 스폰지점을 변경하거나 추가</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
     <value>- Resolved conflict with More Effective Transfer Manager mod.
@@ -144,240 +144,240 @@
 - Added warning about missing libraries for Linux users.</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Voeg alle typen voertuigen toe</value>
+    <value>모든 유형의 차량 추가</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Punt toevoegen</value>
+    <value>점 추가</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Voertuigtype toevoegen</value>
+    <value>차량 종류 추가</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Voertuigtypegroep toevoegen</value>
+    <value>Add vehicle type group</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Toepassen op alle gebouwen van dit type</value>
+    <value>이 유형의 모든 건물에 적용</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Kopiëren</value>
+    <value>복사</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Kopieer punt</value>
+    <value>점 중복</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>Geen enkel punt in dit gebouw bevat deze soorten voertuigen:</value>
+    <value>이 건물엔 다음 차량들의 스폰 지점이 없습니다:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>Ze zullen in de standaardpositie tevoorschijn komen.</value>
+    <value>이들은 기본 위치에서 스폰됩니다.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Plakken</value>
+    <value>붙여넣기</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Terug naar standaardwaarde</value>
+    <value>기본값으로 초기화</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Gebouw #{0}</value>
+    <value>건물 #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>Dit punt is te ver weg geplaatst van een weg voor sommige type voertuigen, plaats het dichterbij, anders zal het niet werken</value>
+    <value>이 점은 도로와 너무 멀리 떨어져 있습니다. 길과 더 가깝게 움직여야 작동합니다.</value>
   </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Startpunt</value>
+    <value>스폰</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Eindpunt</value>
+    <value>디스폰</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>유형</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Positie</value>
+    <value>위치</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Toepassen op alle gebouwen van dit type</value>
+    <value>유형의 모든 건물에 적용</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Weet u zeker dat u deze instelling wilt toepassen op alle gebouwen van dit type?</value>
+    <value>정말로 이 유형의 모든 건물에 현재 설정을 적용할까요?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Gebouw #{0}</value>
+    <value>건물 #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Selecteer gebouw</value>
+    <value>건물 선택</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Luchtvoertuigen</value>
+    <value>Air vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Vrachtvoertuigen</value>
+    <value>Cargo vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Helikopters</value>
+    <value>Copters</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Standaard voertuigen</value>
+    <value>Default vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passagiersvoertuigen</value>
+    <value>Passenger vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passagiersluchtvoertuigen</value>
+    <value>Passenger air vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passagiersspoorvoertuigen</value>
+    <value>Passenger rail vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passagierswegvoertuigen</value>
+    <value>Passenger road vehicles</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passagierswatervoertuigen</value>
+    <value>Passenger water vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Vliegtuigen</value>
+    <value>Planes</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Spoorvoertuigen</value>
+    <value>Rail vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Wegvoertuigen</value>
+    <value>Road vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Servicevoertuigen</value>
+    <value>Service vehicles</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Schepen</value>
+    <value>Ships</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Treinen</value>
+    <value>Trains</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Vrachtwagens</value>
+    <value>Trucks</value>
   </data>
   <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Watervoertuigen</value>
+    <value>Water vehicles</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>Alle</value>
+    <value>All</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>구급차</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Traumahelikopter</value>
+    <value>구급헬기</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Ballon</value>
+    <value>열기구</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Fiets</value>
+    <value>Bicycle</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>버스</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Kabelbaan</value>
+    <value>케이블카</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Vrachtvliegtuig</value>
+    <value>화물 비행기</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Vrachtschip</value>
+    <value>화물선</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Vrachttrein</value>
+    <value>화물열차</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Vrachtwagen</value>
+    <value>트럭</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Reddingshelikopter</value>
+    <value>재해대응 헬기</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Rampenhulpdienst</value>
+    <value>재해대응차량</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Blushelikopter</value>
+    <value>소방헬기</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Brandweerwagen</value>
+    <value>소방차</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Vissersboot</value>
+    <value>어선</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Vuilniswagen</value>
+    <value>쓰레기 수거차량</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Lijkwagen</value>
+    <value>영구차</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro</value>
+    <value>전철</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>모노레일</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Parkonderhoud</value>
+    <value>공원관리차량</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passagierszeppelin</value>
+    <value>여객 비행선</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passagiershelikopter</value>
+    <value>여객헬기</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Veerboot</value>
+    <value>여객 페리</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passagiersvliegtuig</value>
+    <value>Passenger plane</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passagiersschip</value>
+    <value>Passenger ship</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passagierstrein</value>
+    <value>여객 기차</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Politie</value>
+    <value>경찰차</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Politiehelikopter</value>
+    <value>경찰헬기</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>우편 트럭</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Privévliegtuig</value>
+    <value>Private plane</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Onderhoud aan de weg</value>
+    <value>도로정비차량</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Raket</value>
+    <value>Rocket</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Sneeuwschuiver</value>
+    <value>제설차량</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>택시</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>트램</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>트롤리버스</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Veegwagen</value>
+    <value>탱크로리 트럭</value>
   </data>
 </root>
