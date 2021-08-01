@@ -56,8 +56,8 @@ namespace BuildingSpawnPoints.UI
 
         private void DeleteItem(VehicleItem item)
         {
-            OnDelete?.Invoke(item.Type);
             Items.Remove(item.Type);
+            OnDelete?.Invoke(item.Type);
             ComponentPool.Free(item);
 
             FitItems();

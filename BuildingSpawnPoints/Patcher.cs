@@ -3,32 +3,45 @@ using ColossalFramework;
 using ColossalFramework.Math;
 using ColossalFramework.UI;
 using HarmonyLib;
-using ICities;
 using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Resources;
 using System.Text;
 using UnityEngine;
-using static ColossalFramework.Plugins.PluginManager;
 
 namespace BuildingSpawnPoints
 {
     public static class Patcher
     {
+        public delegate void RemoveSourceDelegate<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data) where TypeAI : VehicleAI;
+        private delegate bool FindParkingSpaceDelegate(BuildingAI instance, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo.VehicleType type, bool isElectric, out Vector3 position, out Vector3 target);
+
+        private static RemoveSourceDelegate<FireTruckAI> FireTruckRemoveSource { get; }
+        private static RemoveSourceDelegate<DisasterResponseVehicleAI> DisasterResponseRemoveSource { get; }
+        private static RemoveSourceDelegate<BalloonAI> BalloonRemoveSource { get; }
+        private static RemoveSourceDelegate<CargoTrainAI> TrainRemoveSource { get; }
+
+        private static FindParkingSpaceDelegate FindParkingSpace { get; } 
+
+        static Patcher()
+        {
+            FireTruckRemoveSource = AccessTools.MethodDelegate<RemoveSourceDelegate<FireTruckAI>>(AccessTools.Method(typeof(FireTruckAI), "RemoveSource"));
+            DisasterResponseRemoveSource = AccessTools.MethodDelegate<RemoveSourceDelegate<DisasterResponseVehicleAI>>(AccessTools.Method(typeof(DisasterResponseVehicleAI), "RemoveSource"));
+            BalloonRemoveSource = AccessTools.MethodDelegate<RemoveSourceDelegate<BalloonAI>>(AccessTools.Method(typeof(BalloonAI), "RemoveSource"));
+            TrainRemoveSource = AccessTools.MethodDelegate<RemoveSourceDelegate<CargoTrainAI>>(AccessTools.Method(typeof(CargoTrainAI), "RemoveSource"));
+
+            FindParkingSpace = AccessTools.MethodDelegate<FindParkingSpaceDelegate>(AccessTools.Method(typeof(BuildingAI), "FindParkingSpace", new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo.VehicleType), typeof(bool), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() }));
+        }
+
         public static IEnumerable<CodeInstruction> ToolControllerAwakeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.ToolControllerAwakeTranspiler<Mod, SpawnPointsTool>(generator, instructions);
 
         public static IEnumerable<CodeInstruction> GameKeyShortcutsEscapeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.GameKeyShortcutsEscapeTranspiler<Mod, SpawnPointsTool>(generator, instructions);
 
-
-        private delegate bool FindParkingSpaceDelegate(BuildingAI instance, ushort buildingID, ref Building data, ref Randomizer randomizer, VehicleInfo.VehicleType type, bool isElectric, out Vector3 position, out Vector3 target);
-        private static FindParkingSpaceDelegate FindParkingSpace { get; } = AccessTools.MethodDelegate<FindParkingSpaceDelegate>(AccessTools.Method(typeof(BuildingAI), "FindParkingSpace", new Type[] { typeof(ushort), typeof(Building).MakeByRefType(), typeof(Randomizer).MakeByRefType(), typeof(VehicleInfo.VehicleType), typeof(bool), typeof(Vector3).MakeByRefType(), typeof(Vector3).MakeByRefType() }));
 
         private static void CalculatePosition(PointType type, BuildingAI instance, ushort buildingId, ref Building data, ref Randomizer randomizer, VehicleInfo info, out Vector3 position, out Vector3 target)
         {
@@ -115,42 +128,48 @@ namespace BuildingSpawnPoints
             position = data.CalculateSidewalkPosition();
         }
 
-        private static CodeInstruction Building_CalculateSidewalkPosition { get; } = new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Building), nameof(Building.CalculateSidewalkPosition), new Type[0]));
-        private static CodeInstruction Building_Position { get; } = new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Building), nameof(Building.m_position)));
+        private static CodeInstruction Building_CalculateSidewalkPosition => new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Building), nameof(Building.CalculateSidewalkPosition), new Type[0]));
+        private static CodeInstruction Building_Position => new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Building), nameof(Building.m_position)));
 
 
         public static IEnumerable<CodeInstruction> Service_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
             { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
             { 2, new StartPathFindInfo(false, 1, Building_CalculateSidewalkPosition)},
-        });
+        }
+        );
 
         public static IEnumerable<CodeInstruction> Bus_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
             { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
-        });
+        }
+        );
         public static IEnumerable<CodeInstruction> Train_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
             { 1, new StartPathFindInfo(true, 2, Building_Position)},
             { 2, new StartPathFindInfo(false, 3, Building_Position)},
             { 3, new StartPathFindInfo(false, 4, Building_Position)},
-        });
+        }
+                );
         public static IEnumerable<CodeInstruction> Plane_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
             { 1, new StartPathFindInfo(true, 0, Building_Position)},
             { 2, new StartPathFindInfo(false, 1, Building_Position)},
             { 3, new StartPathFindInfo(false, 2, Building_Position)},
-        });
+        }
+                );
         public static IEnumerable<CodeInstruction> Blimp_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
             { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
             { 2, new StartPathFindInfo(false, 1, Building_Position)},
-        });
+        }
+                );
         public static IEnumerable<CodeInstruction> Copter_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
             { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
             { 2, new StartPathFindInfo(false, 1, Building_Position)},
-        });
+        }
+                );
 
 
         private static IEnumerable<CodeInstruction> StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original, Dictionary<int, StartPathFindInfo> toPatch)
@@ -172,7 +191,7 @@ namespace BuildingSpawnPoints
                         yield return original.GetLDArg("vehicleData");
                         yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Vehicle), info.IsSource ? nameof(Vehicle.m_sourceBuilding) : nameof(Vehicle.m_targetBuilding)));
 
-                        for (; instruction != null && (instruction.opcode != info.Stop.opcode || instruction.operand != info.Stop.operand); instruction = enumerator.Current)
+                        for (; instruction != null && (instruction.opcode != info.OpCode || instruction.operand != info.Operand); instruction = enumerator.Current)
                         {
                             yield return instruction;
                             enumerator.MoveNext();
@@ -191,13 +210,6 @@ namespace BuildingSpawnPoints
                 yield return instruction;
             }
         }
-
-        public delegate void RemoveSourceDelegate<TypeAI>(TypeAI instance, ushort vehicleID, ref Vehicle data) where TypeAI : VehicleAI;
-
-        private static RemoveSourceDelegate<FireTruckAI> FireTruckRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<FireTruckAI>>(AccessTools.Method(typeof(FireTruckAI), "RemoveSource"));
-        private static RemoveSourceDelegate<DisasterResponseVehicleAI> DisasterResponseRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<DisasterResponseVehicleAI>>(AccessTools.Method(typeof(DisasterResponseVehicleAI), "RemoveSource"));
-        private static RemoveSourceDelegate<BalloonAI> BalloonRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<BalloonAI>>(AccessTools.Method(typeof(BalloonAI), "RemoveSource"));
-        private static RemoveSourceDelegate<CargoTrainAI> TrainRemoveSource { get; } = AccessTools.MethodDelegate<RemoveSourceDelegate<CargoTrainAI>>(AccessTools.Method(typeof(CargoTrainAI), "RemoveSource"));
 
         public static bool FireTruckAI_SetSource_Prefix(FireTruckAI __instance, ushort vehicleID, ref Vehicle data, ushort sourceBuilding)
         {
@@ -288,7 +300,7 @@ namespace BuildingSpawnPoints
                 if (instruction.opcode == OpCodes.Initobj && instruction.operand == typeof(Randomizer))
                 {
                     yield return original.GetLDArg("vehicleID");
-                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Constructor(typeof(Randomizer), new Type[] { typeof(int)}));
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Constructor(typeof(Randomizer), new Type[] { typeof(int) }));
 
                     for (; instruction != null && (instruction.opcode != OpCodes.Stfld || instruction.operand != seed); instruction = enumerator.Current)
                         enumerator.MoveNext();
@@ -322,13 +334,15 @@ namespace BuildingSpawnPoints
         {
             public bool IsSource;
             public int Index;
-            public CodeInstruction Stop;
+            public OpCode OpCode;
+            public object Operand;
 
-            public StartPathFindInfo(bool isSource, int index, CodeInstruction stop)
+            public StartPathFindInfo(bool isSource, int index, CodeInstruction instruction)
             {
                 IsSource = isSource;
                 Index = index;
-                Stop = stop;
+                OpCode = instruction.opcode;
+                Operand = instruction.operand;
             }
         }
     }

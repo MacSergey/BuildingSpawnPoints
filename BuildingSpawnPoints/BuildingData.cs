@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Xml.Linq;
 using UnityEngine;
@@ -180,15 +181,28 @@ namespace BuildingSpawnPoints
         public PropertyStructValue<Vector4> Position { get; set; }
 
         public string XmlSection => XmlName;
-        private static AccessTools.FieldRef<WaterSimulation, uint> WaterFrameIndex { get; } = AccessTools.FieldRefAccess<WaterSimulation, uint>(AccessTools.Field(typeof(WaterSimulation), "m_waterFrameIndex"));
-        private static AccessTools.FieldRef<WaterSimulation, WaterSimulation.Cell[][]> WaterBuffers { get; } = AccessTools.FieldRefAccess<WaterSimulation, WaterSimulation.Cell[][]>(AccessTools.Field(typeof(WaterSimulation), "m_waterBuffers"));
-        private static WaterSimulation.Cell[] WaterCells
+
+        private delegate WaterSimulation.Cell[] WaterSimulationCellDelegate(WaterSimulation waterSimulation);
+        private static WaterSimulationCellDelegate WaterCellsDelegate { get; set; }
+        private static WaterSimulation.Cell[] WaterCells => WaterCellsDelegate.Invoke(TerrainManager.instance.WaterSimulation);
+        static BuildingSpawnPoint()
         {
-            get
-            {
-                var simulation = TerrainManager.instance.WaterSimulation;
-                return WaterBuffers.Invoke(simulation)[~(WaterFrameIndex.Invoke(simulation) >> 6) & 1];
-            }
+            var definition = new DynamicMethod("GetWaterBuffers", typeof(WaterSimulation.Cell[]), new Type[1] { typeof(WaterSimulation) }, true);
+            var generator = definition.GetILGenerator();
+
+            generator.Emit(OpCodes.Ldarg_0);
+            generator.Emit(OpCodes.Ldfld, AccessTools.Field(typeof(WaterSimulation), "m_waterBuffers"));
+            generator.Emit(OpCodes.Ldarg_0);
+            generator.Emit(OpCodes.Ldfld, AccessTools.Field(typeof(WaterSimulation), "m_waterFrameIndex"));
+            generator.Emit(OpCodes.Ldc_I4_6);
+            generator.Emit(OpCodes.Shr_Un);
+            generator.Emit(OpCodes.Not);
+            generator.Emit(OpCodes.Ldc_I4_1);
+            generator.Emit(OpCodes.And);
+            generator.Emit(OpCodes.Conv_U);
+            generator.Emit(OpCodes.Ldelem_Ref);
+            generator.Emit(OpCodes.Ret);
+            WaterCellsDelegate = (WaterSimulationCellDelegate)definition.CreateDelegate(typeof(WaterSimulationCellDelegate));
         }
 
         private BuildingSpawnPoint(BuildingData data)
