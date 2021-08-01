@@ -143,6 +143,9 @@
 - Added mod button to UnifiedUI.
 - Added warning about missing libraries for Linux users.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_2_1" xml:space="preserve">
+    <value>- Added Korean translation.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Dodaj wszystkie typy pojazdów</value>
   </data>
