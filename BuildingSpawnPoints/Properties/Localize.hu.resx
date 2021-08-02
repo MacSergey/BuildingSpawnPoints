@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Change and add vehicles spawn points</value>
+    <value>Járművek kezdőpontjának változtatása és létrehozása</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
     <value>- Resolved conflict with More Effective Transfer Manager mod.
@@ -147,13 +147,13 @@
     <value>- Added Korean translation.</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Összes jármű típus hozzáadása</value>
+    <value>Összes járműtípus hozzáadása</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
     <value>Pont hozzáadása</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Jármű típus hozzáadása</value>
+    <value>Járműtípus hozzáadása</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
     <value>Add vehicle type group</value>
@@ -162,7 +162,7 @@
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Apply to all buildings of this type</value>
+    <value>Alkalmazás az összes ilyen típusú épületre</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Másolás</value>
@@ -171,10 +171,10 @@
     <value>Pont duplikálása</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>No point in this building contains these types of vehicles:</value>
+    <value>Az épület egyetlen pontja sem tartalmaz ilyen típusú járműveket:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>Alapértelmezett pozíción fognak spawnolni.</value>
+    <value>Az alapértelmezett helyen fognak megjelenni.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Beillesztés</value>
@@ -183,40 +183,40 @@
     <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Alapértelmezettbe állítás</value>
+    <value>Visszaállítás alapértelmezettre</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Épület #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>Ez a pont túl messze van helyezve az úttól, helyezze el közelebb az úthoz, másképp nem fog működni</value>
+    <value>Ez a pont túl messze lett elhelyezve az úttól bizonyos típusú járműveknek, vidd közelebb, különben nem fog működni</value>
   </data>
   <data name="PointType_Middle" xml:space="preserve">
     <value>Middle</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Megjelenés</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Unspawn</value>
+    <value>Eltűnés</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>Típus</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Pozíció</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Apply to all buildings of type</value>
+    <value>Alkalmazás az összes azonos típusú épületre</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Do you really want apply this setting to all buildings of this type?</value>
+    <value>Valóban alkalmazni szeretnéd ezt a beállítást minden ilyen típusú épületre?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Building #{0}</value>
+    <value>Épület #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Válasszon ki egy épületet</value>
+    <value>Válassz épületet</value>
   </data>
   <data name="VehicleTypeGroup_Air" xml:space="preserve">
     <value>Air vehicles</value>
@@ -276,19 +276,19 @@
     <value>Mentőautó</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance copter</value>
+    <value>Mentőhelikopter</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balloon</value>
+    <value>Hőlégballon</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicycle</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>Busz</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Cable car</value>
+    <value>Libegő</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
     <value>Teherszállító repülőgép</value>
@@ -303,43 +303,43 @@
     <value>Teherautó</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Disaster response copter</value>
+    <value>Katasztrófaelhárító helikopter</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Disaster response</value>
+    <value>Katasztrófaelhárító</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Fire copter</value>
+    <value>Tűzoltó helikopter</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Fire truck</value>
+    <value>Tűzoltóautó</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fishing boat</value>
+    <value>Halászhajó</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Garbage truck</value>
+    <value>Szemetes autó</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Hearse</value>
+    <value>Halottas kocsi</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro</value>
+    <value>Metró</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Monorail</value>
+    <value>Nyeregvasút</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park maintenance</value>
+    <value>Parkgondozás</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passenger blimp</value>
+    <value>Utasszállító léghajó</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passenger copter</value>
+    <value>Utasszállító helikopter</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passenger ferry</value>
+    <value>Utasszállító komp</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
     <value>Passenger plane</value>
@@ -348,39 +348,39 @@
     <value>Passenger ship</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passenger train</value>
+    <value>Utasszállító vonat</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Police</value>
+    <value>Rendőrség</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Police copter</value>
+    <value>Rendőrségi helikopter</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Post</value>
+    <value>Posta</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Private plane</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Road maintenance</value>
+    <value>Útkarbantartás</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
     <value>Rocket</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Snowplow</value>
+    <value>Hókotró</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
     <value>Taxi</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tram</value>
+    <value>Villamos</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>Trolibusz</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Vacuum truck</value>
+    <value>Szippantós kocsi</value>
   </data>
 </root>
