@@ -126,6 +126,15 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Added Hungarian translation..
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_2_2 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_2_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add all types of vehicles.
         /// </summary>
         internal static string Panel_AddAllVehicle {

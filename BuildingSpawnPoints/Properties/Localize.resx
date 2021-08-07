@@ -146,6 +146,9 @@
   <data name="Mod_WhatsNewMessage1_2_1" xml:space="preserve">
     <value>- Added Korean translation.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_2_2" xml:space="preserve">
+    <value>- Added Hungarian translation.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
   </data>

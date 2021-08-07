@@ -213,13 +213,13 @@ namespace BuildingSpawnPoints
             var building = Tool.Data.Id.GetBuilding();
             foreach (var point in Tool.Data.Points)
             {
-                var color = point.VehicleTypes == VehicleType.None || point.Type == PointType.None ? Colors.Gray : point.Type.Value switch
+                var color = point.VehicleTypes == VehicleType.None || point.Type == PointType.None ? Colors.Gray192 : point.Type.Value switch
                 {
                     PointType.Spawn => Colors.Green,
                     PointType.Unspawn => Colors.Red,
                     //PointType.Middle => Colors.Purple,
                     PointType.Both /*or PointType.All*/ => Colors.Orange,
-                    _ => Colors.Gray,
+                    _ => Colors.Gray192,
                 };
 
                 point.GetAbsolute(ref building, out var position, out var target);
