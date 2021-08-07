@@ -120,32 +120,12 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Modifica e aggiungi punti di generazione dei veicoli</value>
   </data>
-  <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
-    <value>- Resolved conflict with More Effective Transfer Manager mod.
-- Added Dutch, French and Portuguese translations.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
-    <value>- Added Italian translation.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
-- Added transport station, but it will work only like depot. Stop position set by transport line.
-- Added cargo stations (train, plane, ship). Truck points not implimented yet.
-- Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
-- Added copters (police, ambulance, fire, disaster, passenger).
-- Added point height.
-- Fixed police car, fire truck, park maintenance and disaster response unspawn.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
-    <value>- Added a warning if the point is too far from the road. The point should be no further than 32 meters from the closer road, otherwise pathfinder will not be able to find path for vehicle. That vehicle types will red.
-- Added highlighting that show closer road to point. Hover vehicle type to show it.
-- The zero height value is now equal to the height of the terrain under the point, so it fixed points on hills or above the water.
-- Added mod button to UnifiedUI.
-- Added warning about missing libraries for Linux users.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_2_1" xml:space="preserve">
-    <value>- Added Korean translation.</value>
-  </data>
+  
+  
+  
+  
+  
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>
@@ -155,9 +135,7 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Aggiungi tipo di veicolo</value>
   </data>
-  <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Add vehicle type group</value>
-  </data>
+  
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -191,9 +169,7 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Questo punto è posto troppo lontano dalla strada per alcuni tipi di veicoli, spostarlo più vicino, altrimenti non funzionerà</value>
   </data>
-  <data name="PointType_Middle" xml:space="preserve">
-    <value>Middle</value>
-  </data>
+  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Genera</value>
   </data>
@@ -218,60 +194,24 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Seleziona edificio</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>Cargo vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>Copters</value>
-  </data>
-  <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>Default vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passenger vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passenger air vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passenger rail vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passenger road vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passenger water vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>Planes</value>
-  </data>
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Service vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>Ships</value>
-  </data>
-  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>Trains</value>
-  </data>
-  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>Trucks</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
-  </data>
-  <data name="VehicleType_All" xml:space="preserve">
-    <value>All</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulanza</value>
   </data>
@@ -281,9 +221,7 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Mongolfiera</value>
   </data>
-  <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Bicycle</value>
-  </data>
+  
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Autobus</value>
   </data>
@@ -341,12 +279,8 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Traghetto passeggeri</value>
   </data>
-  <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>Passenger plane</value>
-  </data>
-  <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>Passenger ship</value>
-  </data>
+  
+  
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Treno passeggeri</value>
   </data>
@@ -359,15 +293,11 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Posta</value>
   </data>
-  <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>Private plane</value>
-  </data>
+  
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Manutenzione stradale</value>
   </data>
-  <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>Rocket</value>
-  </data>
+  
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Spazzaneve</value>
   </data>

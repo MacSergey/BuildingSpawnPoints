@@ -143,9 +143,8 @@
 - 将 mod 按钮添加到 UnifiedUI 。
 - 添加关于 Linux 用户缺失库的警告。</value>
   </data>
-  <data name="Mod_WhatsNewMessage1_2_1" xml:space="preserve">
-    <value>- Added Korean translation.</value>
-  </data>
+  
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
   </data>

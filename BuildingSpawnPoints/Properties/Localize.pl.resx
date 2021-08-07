@@ -120,32 +120,12 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Zmień i dodaj punkty spawnu pojazdów</value>
   </data>
-  <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
-    <value>- Resolved conflict with More Effective Transfer Manager mod.
-- Added Dutch, French and Portuguese translations.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
-    <value>- Added Italian translation.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
-- Added transport station, but it will work only like depot. Stop position set by transport line.
-- Added cargo stations (train, plane, ship). Truck points not implimented yet.
-- Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
-- Added copters (police, ambulance, fire, disaster, passenger).
-- Added point height.
-- Fixed police car, fire truck, park maintenance and disaster response unspawn.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
-    <value>- Added a warning if the point is too far from the road. The point should be no further than 32 meters from the closer road, otherwise pathfinder will not be able to find path for vehicle. That vehicle types will red.
-- Added highlighting that show closer road to point. Hover vehicle type to show it.
-- The zero height value is now equal to the height of the terrain under the point, so it fixed points on hills or above the water.
-- Added mod button to UnifiedUI.
-- Added warning about missing libraries for Linux users.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_2_1" xml:space="preserve">
-    <value>- Added Korean translation.</value>
-  </data>
+  
+  
+  
+  
+  
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Dodaj wszystkie typy pojazdów</value>
   </data>
@@ -191,9 +171,7 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Dla niektórych pojazdów ten punkt jest zbyt daleko od drogi. Przenieś go bliżej, aby zadziałał</value>
   </data>
-  <data name="PointType_Middle" xml:space="preserve">
-    <value>Middle</value>
-  </data>
+  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Zespawnuj</value>
   </data>
