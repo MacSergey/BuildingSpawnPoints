@@ -11,11 +11,6 @@ namespace BuildingSpawnPoints
 {
     public class LoadingExtension : BaseLoadingExtension<Mod>
     {
-        protected override void OnLoad()
-        {
-            SingletonTool<SpawnPointsTool>.Instance.RegisterUUI();
-            base.OnLoad();
-        }
         protected override void OnUnload()
         {
             base.OnUnload();
