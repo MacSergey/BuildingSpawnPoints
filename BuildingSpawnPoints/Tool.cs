@@ -128,7 +128,7 @@ namespace BuildingSpawnPoints
         public SpawnPointsShortcut(string name, string labelKey, InputKey key, Action action = null) : base(name, labelKey, key, action) { }
     }
     public class SpawnPointsToolThreadingExtension : BaseUUIThreadingExtension<SpawnPointsTool> { }
-    public class SpawnPointsToolLoadingExtension : BaseToolLoadingExtension<SpawnPointsTool> { }
+    public class SpawnPointsToolLoadingExtension : BaseUUIToolLoadingExtension<SpawnPointsTool> { }
 
     public class SelectBuildingMode : SpawnPointsToolMode
     {
