@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Ændre og tilføje køretøjers spawn points</value>
+    <value>Araç oluşma noktası ekleyin veya değiştirin</value>
   </data>
   
   
@@ -127,72 +127,72 @@
   
   
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Tilføj alle typer køretøjer</value>
+    <value>Tüm araç türlerini ekle</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Tilføj point</value>
+    <value>Nokta ekle</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Tilføj køretøjstype</value>
+    <value>Araç türü ekle</value>
   </data>
   
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Anvend på alle bygninger af denne type</value>
+    <value>Bu türdeki tüm binalara uygula</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Kopier</value>
+    <value>Kopyala</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Dupliker punkt</value>
+    <value>Noktayı yinele</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>Intet punkt i denne bygning indeholder disse typer af køretøjer:</value>
+    <value>Bu bina belirtilen türde araç içermemektedir:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>De vil spawn i standard position.</value>
+    <value>Araçlar varsayılan konumda oluşacaklar.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>Indsæt</value>
+    <value>Yapıştır</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
-    <value>{0}min</value>
+    <value>{0}m</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Nulstil til standard</value>
+    <value>Varsayılanlara sıfırla</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Bygning #{0}</value>
+    <value>#{0} numaralı bina</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>Dette punkt er for langt væk fra vejen for nogle typer af køretøjer, flyt punktet tættere på, ellers vil det ikke virke</value>
+    <value>Bu nokta bazı araçlar için çok uzağa konulmuş, yakınlaştırmazsanız çalışmayacaktır</value>
   </data>
   
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawn</value>
+    <value>Başlangıç noktası</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Fjern spawn</value>
+    <value>Yok et</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>Type</value>
+    <value>Tür</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>Placering</value>
+    <value>Konum</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Anvend på alle bygninger af denne type</value>
+    <value>Seçilen türdeki tüm binalara uygula</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Vil du virkelig anvende denne indstilling på alle bygninger af denne type?</value>
+    <value>Gerçekten bu türdeki tüm binalara bunu uygulamak istediğinize emin misiniz?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Bygning #{0}</value>
+    <value>#{0} nolu bina</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Vælg bygning</value>
+    <value>Bina seçiniz</value>
   </data>
   
   
@@ -213,104 +213,104 @@
   
   
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>Ambulans</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Ambulance helikopter</value>
+    <value>Ambulans Helicopter</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Ballon</value>
+    <value>Hava Balonu</value>
   </data>
   
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Bus</value>
+    <value>Otobüs</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Sporvogn</value>
+    <value>Teleferik</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Fragt fly</value>
+    <value>Kargo uçağı</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Fragtskib</value>
+    <value>Yük gemisi</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Gods tog</value>
+    <value>Kargo treni</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Fragt lastbil</value>
+    <value>Yük kamyonu</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Katastrofeberedskabs helikopter</value>
+    <value>Afet müdahale helikopteri</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Katastrofeberedskab</value>
+    <value>Afet müdahale</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Brand helikopter</value>
+    <value>İtfaye helikopteri</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Brandbil</value>
+    <value>İtfaiye aracı</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Fiskebåd</value>
+    <value>Balıkçı teknesi</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Skraldebil</value>
+    <value>Çöp kamyonu</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Rustvogn</value>
+    <value>Cenaze aracı</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
     <value>Metro</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Letbane</value>
+    <value>Monoray</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Park vedligeholdelse</value>
+    <value>Park Hizmetleri</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Passager luftskib</value>
+    <value>Yolcu balonu</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Passager Helikopter</value>
+    <value>Yolcu helikopteri</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Passagerfærge</value>
+    <value>Yolcu feribotu</value>
   </data>
   
   
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Passagertog</value>
+    <value>Yolcu treni</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>Politi</value>
+    <value>Polis</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Politi helikopter</value>
+    <value>Polis helikopteri</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Postbil</value>
+    <value>Posta</value>
   </data>
   
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Vejvedligeholdelse</value>
+    <value>Yol Hizmetleri</value>
   </data>
   
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Sneplov</value>
+    <value>Kar küreme aracı</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
+    <value>Taksi</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Sporvogn</value>
+    <value>Tramvay</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolleybus</value>
+    <value>Troleybüs</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>Fejemaskine</value>
+    <value>Su pompa kamyonu</value>
   </data>
 </root>
