@@ -14,7 +14,7 @@
 [*] Set vehicles types for each point
 [*] Apply settings for all building of type
 [*] MoveIt integration - points data copied when you copy building
-[*] Translation into languages: Chinese, Dutch, Finnish, French, German, Japanese, Polish, Russian, Spanish
+[*] Translation into languages: Chinese, Danish, Dutch, Finnish, French, German, Hungarian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Turkish
 [/list]
 
 [HR][/HR] 
@@ -54,10 +54,12 @@ If you want to help improve existing translations or you want to translate into 
 [*] [url=https://steamcommunity.com/id/Dogg_One]Dogg1[/url] (Finnish translation)
 [*] [url=https://steamcommunity.com/profiles/76561198141193559]krzychu124[/url]
 [*] [url=https://steamcommunity.com/id/mrlojnat/]MrLojnat[/url] (French translation)
+[*] [url=https://steamcommunity.com/profiles/76561198153118551/]PELLQ[/url] (Turkish translation)
 [*] raistlin46 (Italian translation)
 [*] [url=https://steamcommunity.com/profiles/76561198087011973/]ristrettoridder[/url] (Dutch translation)
 [*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
 [*] Svis (French translation)
+[*] Strate (Danish translation)
 [*] [url=https://steamcommunity.com/id/Syvies/]Syvies[/url] (French translation)
 [*] [url=https://steamcommunity.com/id/mrwoozie/]Woozie[/url] (Polish translation)
 [/list]
