@@ -148,6 +148,9 @@
   <data name="Panel_Copy" xml:space="preserve">
     <value>Kopiëren</value>
   </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Kopieer punt</value>
+  </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Kopieer punt</value>
   </data>
@@ -159,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Plakken</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Plak punt (voeg voertuigtypes toe)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Plak punt (vervang voertuigtypes)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>

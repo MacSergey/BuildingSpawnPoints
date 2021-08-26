@@ -121,33 +121,33 @@
     <value>Modifier et ajouter les points d'apparition des véhicules</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_1" xml:space="preserve">
-    <value>- Résolution du conflit avec le mod More Effective Transfer Manager.
-- Ajout des traductions néerlandaises, françaises et portugaises.</value>
+    <value>[FIXED] Résolution du conflit avec le mod More Effective Transfer Manager.
+[TRANSLATION] Ajout des traductions néerlandaises, françaises et portugaises.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_0_2" xml:space="preserve">
-    <value>- Ajout de la traduction italienne.</value>
+    <value>[TRANSLATION] Ajout de la traduction italienne.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Ajout des dépôts (bus, trolleybus, tram, train, hélicoptère, dirigeable, etc).
-- Ajout de la station de transport, mais cela ne fonctionnera que comme un dépôt. Position d'arrêt définie par la ligne de transport.
-- Ajout de stations de fret (train, avion, bateau). les points des camions ne sont pas encore implémentés.
-- Ajout du port de pêche (bateau de pêche), abri (bus d'évacuation), tour building(tour bus, ballon).
-- Ajout des hélicoptères (police, ambulance, incendie, catastrophe, passager).
-- Hauteur du point ajouté.
-- Correction des voitures de police, camions de pompier, entretien du parc et réaction aux désastres n'apparaissant pas.</value>
+    <value>[NEW] Ajout des dépôts (bus, trolleybus, tram, train, hélicoptère, dirigeable, etc).
+[NEW] Ajout de la station de transport, mais cela ne fonctionnera que comme un dépôt. Position d'arrêt définie par la ligne de transport.
+[NEW] Ajout de stations de fret (train, avion, bateau). les points des camions ne sont pas encore implémentés.
+[NEW] Ajout du port de pêche (bateau de pêche), abri (bus d'évacuation), tour building(tour bus, ballon).
+[NEW] Ajout des hélicoptères (police, ambulance, incendie, catastrophe, passager).
+[NEW] Hauteur du point ajouté.
+[FIXED] Correction des voitures de police, camions de pompier, entretien du parc et réaction aux désastres n'apparaissant pas.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
-    <value>- Ajout d'un avertissement si le nœud est trop loin de la route. Le nœud ne devrait pas plus loin que de 32 mètres de la route plus proche, sinon le pathfinder ne pourra pas trouver de chemin pour les véhicules. Ce type de véhicule sera rouge.
-- Ajout d'une mise en évidence qui montre la route la plus proche du nœud. Survolez le type de véhicule pour l'afficher.
-- La valeur de hauteur zéro est maintenant égale à la hauteur du terrain sous le nœud, les points seront donc placés sur les collines ou au-dessus de l'eau.
-- Ajout du bouton du mod à UnifiedUI.
-- Ajout d'un avertissement concernant les bibliothèques manquantes pour les utilisateurs Linux.</value>
+    <value>[NEW] Ajout d'un avertissement si le nœud est trop loin de la route. Le nœud ne devrait pas plus loin que de 32 mètres de la route plus proche, sinon le pathfinder ne pourra pas trouver de chemin pour les véhicules. Ce type de véhicule sera rouge.
+[NEW] Ajout d'une mise en évidence qui montre la route la plus proche du nœud. Survolez le type de véhicule pour l'afficher.
+[UPDATED] La valeur de hauteur zéro est maintenant égale à la hauteur du terrain sous le nœud, les points seront donc placés sur les collines ou au-dessus de l'eau.
+[NEW] Ajout du bouton du mod à UnifiedUI.
+[NEW] Ajout d'un avertissement concernant les bibliothèques manquantes pour les utilisateurs Linux.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_2_1" xml:space="preserve">
-    <value>- Ajout de la traduction coréenne.</value>
+    <value>[TRANSLATION] Ajout de la traduction coréenne.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_2_2" xml:space="preserve">
-    <value>- Ajout de la traduction hongroise.</value>
+    <value>[TRANSLATION] Ajout de la traduction hongroise.</value>
   </data>
   
   <data name="Panel_AddAllVehicle" xml:space="preserve">
@@ -171,6 +171,9 @@
   <data name="Panel_Copy" xml:space="preserve">
     <value>Copier</value>
   </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Copier le point</value>
+  </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Dupliquer le point</value>
   </data>
@@ -182,6 +185,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Coller</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Coller le point (ajouter les types de véhicules)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Coller le point (remplacer les types de véhicules)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
@@ -352,7 +361,7 @@
     <value>Bateaux de passagers</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Trains des passagers</value>
+    <value>Trains de passagers</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
     <value>Police</value>

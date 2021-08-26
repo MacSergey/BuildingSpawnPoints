@@ -136,7 +136,9 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Tilføj køretøjstype</value>
   </data>
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Tilføj køretøjstype</value>
+  </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -145,6 +147,9 @@
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Kopier</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Kopier punkt</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Dupliker punkt</value>
@@ -157,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Indsæt</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Indsæt punkt (tilføj køretøjstyper)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Indsæt punkt (erstat køretøjstyper)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}min</value>
@@ -197,20 +208,34 @@
   </data>
   
   
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>Helikoptere</value>
+  </data>
+  
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>Passagerkøretøjer</value>
+  </data>
   
   
   
   
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>Fly</value>
+  </data>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>Service køretøjer</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Skibe</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>Tog</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>Lastbiler</value>
+  </data>
   
   
   <data name="VehicleType_Ambulance" xml:space="preserve">

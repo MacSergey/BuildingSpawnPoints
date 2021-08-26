@@ -136,7 +136,9 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>차량 종류 추가</value>
   </data>
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>차량 종류 그룹 추가</value>
+  </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -145,6 +147,9 @@
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>복사</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>점 복사</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>점 중복</value>
@@ -157,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>붙여넣기</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>점 붙여넣기 (차량 종류 덧붙이기)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>점 붙여넣기 (차량 종류 덮어쓰기)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
@@ -195,24 +206,60 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>건물 선택</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Air" xml:space="preserve">
+    <value>항공 교통수단</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>화물 차량</value>
+  </data>
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>헬기</value>
+  </data>
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>기본 차량</value>
+  </data>
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>여객 차량</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
+    <value>여객 항공 교통수단</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
+    <value>여객 열차</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
+    <value>여객 차량</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
+    <value>여객 해상 교통수단</value>
+  </data>
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>비행기</value>
+  </data>
+  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
+    <value>열차</value>
+  </data>
+  <data name="VehicleTypeGroup_Road" xml:space="preserve">
+    <value>차량</value>
+  </data>
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>서비스 차량</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>배</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>기차</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>트럭</value>
+  </data>
+  <data name="VehicleTypeGroup_Water" xml:space="preserve">
+    <value>해상 교통수단</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>모두</value>
+  </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>구급차</value>
   </data>
@@ -222,7 +269,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>열기구</value>
   </data>
-  
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>자전거</value>
+  </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>버스</value>
   </data>
@@ -280,8 +329,12 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>여객 페리</value>
   </data>
-  
-  
+  <data name="VehicleType_PassengerPlane" xml:space="preserve">
+    <value>여객기</value>
+  </data>
+  <data name="VehicleType_PassengerShip" xml:space="preserve">
+    <value>여객선</value>
+  </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>여객 기차</value>
   </data>
@@ -294,11 +347,15 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>우편 트럭</value>
   </data>
-  
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>전용기</value>
+  </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>도로정비차량</value>
   </data>
-  
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>로켓</value>
+  </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>제설차량</value>
   </data>

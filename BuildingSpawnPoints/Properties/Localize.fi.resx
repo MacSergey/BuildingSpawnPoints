@@ -148,6 +148,9 @@
   <data name="Panel_Copy" xml:space="preserve">
     <value>Kopioi</value>
   </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Kopioi piste</value>
+  </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Monista piste</value>
   </data>
@@ -159,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Liitä</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Liitä piste (lisää ajoneuvotyyppejä)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Liitä piste (korvaa ajoneuvotyypit)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>

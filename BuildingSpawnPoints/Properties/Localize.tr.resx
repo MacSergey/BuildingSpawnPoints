@@ -136,7 +136,9 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Araç türü ekle</value>
   </data>
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Araç türü grubu ekle</value>
+  </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -145,6 +147,9 @@
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Kopyala</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Noktayı kopyala</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Noktayı yinele</value>
@@ -157,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Yapıştır</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Noktayı yapıştır (araç türlerini değiştir)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Noktayı yapıştır (araç türlerini değiştir)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
@@ -195,24 +206,60 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Bina seçiniz</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Air" xml:space="preserve">
+    <value>Hava taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>Kargo taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>Helikopterler</value>
+  </data>
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>Varsayılan taşıtlar</value>
+  </data>
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>Yolcu araçları</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
+    <value>Yolcu hava taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
+    <value>Yolcu demiryolu taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
+    <value>Yolcu karayolu taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
+    <value>Yolcu su taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>Uçaklar</value>
+  </data>
+  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
+    <value>Raylı taşıtlar</value>
+  </data>
+  <data name="VehicleTypeGroup_Road" xml:space="preserve">
+    <value>Karayolu taşıtları</value>
+  </data>
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>Hizmet araçları</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Gemiler</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>Trenler</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>Kamyonlar</value>
+  </data>
+  <data name="VehicleTypeGroup_Water" xml:space="preserve">
+    <value>Su taşıtları</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulans</value>
   </data>
@@ -222,7 +269,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hava Balonu</value>
   </data>
-  
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>Bisiklet</value>
+  </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Otobüs</value>
   </data>
@@ -280,8 +329,12 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Yolcu feribotu</value>
   </data>
-  
-  
+  <data name="VehicleType_PassengerPlane" xml:space="preserve">
+    <value>Yolcu uçağı</value>
+  </data>
+  <data name="VehicleType_PassengerShip" xml:space="preserve">
+    <value>Yolcu gemisi</value>
+  </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Yolcu treni</value>
   </data>
@@ -294,11 +347,15 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Posta</value>
   </data>
-  
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>Özel uçak</value>
+  </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Yol Hizmetleri</value>
   </data>
-  
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>Roket</value>
+  </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Kar küreme aracı</value>
   </data>
