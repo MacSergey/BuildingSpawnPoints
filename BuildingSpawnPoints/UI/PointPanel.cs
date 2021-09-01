@@ -27,7 +27,7 @@ namespace BuildingSpawnPoints.UI
         private Vector3PropertyPanel Absolute { get; set; }
 #endif
         private VehicleType NotAdded => Data.PossibleVehicles & ~Point.VehicleTypes.Value;
-        private Dictionary<VehicleTypeGroup, PathUnit.Position> Groups { get; } = new Dictionary<VehicleTypeGroup, PathUnit.Position>();
+        private Dictionary<VehicleService, PathUnit.Position> Groups { get; } = new Dictionary<VehicleService, PathUnit.Position>();
         private VehicleType SelectedType { get; set; }
 
         public void Init(BuildingData data, BuildingSpawnPoint point)
@@ -175,7 +175,7 @@ namespace BuildingSpawnPoints.UI
 #if DEBUG
             Absolute.Value = position;
 #endif
-            foreach (var group in EnumExtension.GetEnumValues<VehicleTypeGroup>())
+            foreach (var group in EnumExtension.GetEnumValues<VehicleService>())
             {
                 if(((ulong)group & (ulong)Point.VehicleTypes.Value) != 0)
                 {
@@ -190,7 +190,7 @@ namespace BuildingSpawnPoints.UI
             foreach(var item in Vehicle)
             {
                 var group = item.Type.GetGroup();
-                item.IsCorrect = group == VehicleTypeGroup.None || Groups.ContainsKey(group);
+                item.IsCorrect = group == VehicleService.None || Groups.ContainsKey(group);
             }
 
             Warning.isVisible = Vehicle.Any(i => !i.IsCorrect);
@@ -205,7 +205,7 @@ namespace BuildingSpawnPoints.UI
                 return;
 
             var group = SelectedType.GetGroup();
-            if (group == VehicleTypeGroup.None)
+            if (group == VehicleService.None)
                 return;
 
             if(!Groups.TryGetValue(group, out var pathPos))
@@ -233,6 +233,7 @@ namespace BuildingSpawnPoints.UI
         public event Action OnDuplicate;
 
         private HeaderButtonInfo<SelectVehicleHeaderButton> AddTypeButton { get; set; }
+        private HeaderButtonInfo<SelectVehicleHeaderButton> AddGroupTypeButton { get; set; }
         private HeaderButtonInfo<HeaderButton> AddAllTypesButton { get; set; }
 
         public PointHeaderPanel()
@@ -241,7 +242,11 @@ namespace BuildingSpawnPoints.UI
             AddTypeButton.Button.OnSelect += AddType;
             Content.AddButton(AddTypeButton);
 
-            AddAllTypesButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
+            AddGroupTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
+            AddGroupTypeButton.Button.OnSelect += AddType;
+            Content.AddButton(AddGroupTypeButton);
+
+            AddAllTypesButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddAllVehicles, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
             Content.AddButton(AddAllTypesButton);
 
             Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
@@ -264,8 +269,13 @@ namespace BuildingSpawnPoints.UI
         private void Fill(VehicleType notAdded)
         {
             var types = GetGroup<VehicleType>(notAdded).ToArray();
+            var groups = GetGroup<VehicleGroupType>(notAdded).ToArray();
+
             AddTypeButton.Button.Init(types);
+            AddGroupTypeButton.Button.Init(groups);
+
             AddTypeButton.Enable = types.Length != 0;
+            AddGroupTypeButton.Enable = groups.Length != 0;
             AddAllTypesButton.Enable = types.Length != 0;
         }
 
