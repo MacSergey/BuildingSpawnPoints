@@ -173,7 +173,7 @@ namespace BuildingSpawnPoints
     {
         public static string XmlName => "P";
 
-        public BuildingData Data { get; }
+        public BuildingData Data { get; set; }
         public Action OnChanged { get; set; }
 
         public PropertyULongEnumValue<VehicleType> VehicleTypes { get; }
@@ -275,9 +275,9 @@ namespace BuildingSpawnPoints
             }
         }
 
-        public BuildingSpawnPoint Copy()
+        public BuildingSpawnPoint Copy(BuildingData data = null)
         {
-            var copy = new BuildingSpawnPoint(Data);
+            var copy = new BuildingSpawnPoint(data ?? Data);
 
             copy.VehicleTypes.Value = VehicleTypes;
             copy.Type.Value = Type;

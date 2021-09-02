@@ -18,6 +18,7 @@ namespace BuildingSpawnPoints.Utilities
         public static string AddAllVehicles => nameof(AddAllVehicles);
         public static string Copy => nameof(Copy);
         public static string Paste => nameof(Paste);
+        public static string Append => nameof(Append);
         public static string Duplicate => nameof(Duplicate);
         public static string Reset => nameof(Reset);
         public static string ApplyAll => nameof(ApplyAll);
@@ -42,7 +43,7 @@ namespace BuildingSpawnPoints.Utilities
             Atlas = TextureHelper.CreateAtlas(nameof(BuildingSpawnPoints), Files);
         }
 
-        private static UITextureAtlas.SpriteInfo[] HeaderButtons(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 25, 25, new RectOffset(4, 4, 4, 4), 2, AddVehicle, AddVehicleGroup, AddAllVehicles, Copy, Paste, Duplicate, Reset, ApplyAll).ToArray();
+        private static UITextureAtlas.SpriteInfo[] HeaderButtons(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 25, 25, new RectOffset(4, 4, 4, 4), 2, AddVehicle, AddVehicleGroup, AddAllVehicles, Copy, Paste, Append, Duplicate, Reset, ApplyAll).ToArray();
 
         private static UITextureAtlas.SpriteInfo[] InfoIcon(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 36, 36, InfoNormal, InfoPressed).ToArray();
 

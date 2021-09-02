@@ -173,6 +173,9 @@
   <data name="Panel_Copy" xml:space="preserve">
     <value>Copy</value>
   </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Copy point</value>
+  </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Duplicate point</value>
   </data>
@@ -184,6 +187,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Paste</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Paste point (append vehicle types)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Paste point (replace vehicle types)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>

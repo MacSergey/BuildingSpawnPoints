@@ -207,6 +207,15 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Copy point.
+        /// </summary>
+        internal static string Panel_CopyPoint {
+            get {
+                return ResourceManager.GetString("Panel_CopyPoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Duplicate point.
         /// </summary>
         internal static string Panel_DuplicatePoint {
@@ -239,6 +248,24 @@ namespace BuildingSpawnPoints {
         internal static string Panel_Paste {
             get {
                 return ResourceManager.GetString("Panel_Paste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Paste point (append vehicle types).
+        /// </summary>
+        internal static string Panel_PastePointAppend {
+            get {
+                return ResourceManager.GetString("Panel_PastePointAppend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Paste point (replace vehicle types).
+        /// </summary>
+        internal static string Panel_PastePointReplace {
+            get {
+                return ResourceManager.GetString("Panel_PastePointReplace", resourceCulture);
             }
         }
         

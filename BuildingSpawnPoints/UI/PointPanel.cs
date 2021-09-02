@@ -23,6 +23,8 @@ namespace BuildingSpawnPoints.UI
         private PointHeaderPanel Header { get; set; }
         private WarningTextProperty Warning { get; set; }
         private VehicleTypePropertyPanel Vehicle { get; set; }
+        private PointTypePropertyPanel Type { get; set; }
+        private PointPositionPropertyPanel Position { get; set; }
 #if DEBUG
         private Vector3PropertyPanel Absolute { get; set; }
 #endif
@@ -63,6 +65,8 @@ namespace BuildingSpawnPoints.UI
             Header = null;
             Warning = null;
             Vehicle = null;
+            Type = null;
+            Position = null;
 #if DEBUG
             Absolute = null;
 #endif
@@ -77,6 +81,9 @@ namespace BuildingSpawnPoints.UI
             Header.OnDelete += Delete;
             Header.OnAddType += AddVehicleType;
             Header.OnDuplicate += Duplicate;
+            Header.OnCopy += Copy;
+            Header.OnPaste += Paste;
+            Header.OnAppend += Append;
         }
         private void AddWarning()
         {
@@ -122,24 +129,47 @@ namespace BuildingSpawnPoints.UI
             SingletonItem<BuildingSpawnPointsPanel>.Instance.DuplicatePoint(this);
             Changed();
         }
+
+        public static BuildingSpawnPoint Buffer { get; set; }
+        private void Copy() => Buffer = Point.Copy();
+        private void Paste() => Paste(false);
+        private void Append() => Paste(true);
+        private void Paste(bool append)
+        {
+            if (Buffer != null)
+            {
+                Point.Type.Value = Buffer.Type;
+                Point.VehicleTypes.Value = (append ? Point.VehicleTypes : VehicleType.None) | Buffer.VehicleTypes & Data.PossibleVehicles;
+                Point.Position.Value = Buffer.Position;
+
+                Vehicle.SetItems(Point.VehicleTypes);
+                Type.SelectedObject = Point.Type;
+                Position.Value = Point.Position;
+                InitHeader();
+
+                Changed();
+                Refresh();
+            }
+        }
+
         private void InitHeader() => Header.Init(NotAdded);
 
         private void AddPointType()
         {
-            var type = ComponentPool.Get<PointTypePropertyPanel>(this);
-            type.Text = BuildingSpawnPoints.Localize.Property_PointType;
-            type.Init();
-            type.SelectedObject = Point.Type;
-            type.OnSelectObjectChanged += (value) => Point.Type.Value = value;
+            Type = ComponentPool.Get<PointTypePropertyPanel>(this);
+            Type.Text = BuildingSpawnPoints.Localize.Property_PointType;
+            Type.Init();
+            Type.SelectedObject = Point.Type;
+            Type.OnSelectObjectChanged += (value) => Point.Type.Value = value;
         }
         private void AddPosition()
         {
-            var position = ComponentPool.Get<PointPositionPropertyPanel>(this);
-            position.Text = BuildingSpawnPoints.Localize.Property_Position;
-            position.WheelTip = true;
-            position.Init(0, 2, 1, 3);
-            position.Value = Point.Position;
-            position.OnValueChanged += OnPositionChanged;
+            Position = ComponentPool.Get<PointPositionPropertyPanel>(this);
+            Position.Text = BuildingSpawnPoints.Localize.Property_Position;
+            Position.WheelTip = true;
+            Position.Init(0, 2, 1, 3);
+            Position.Value = Point.Position;
+            Position.OnValueChanged += OnPositionChanged;
         }
 #if DEBUG
         private void AddAbsolute()
@@ -177,7 +207,7 @@ namespace BuildingSpawnPoints.UI
 #endif
             foreach (var group in EnumExtension.GetEnumValues<VehicleService>())
             {
-                if(((ulong)group & (ulong)Point.VehicleTypes.Value) != 0)
+                if (((ulong)group & (ulong)Point.VehicleTypes.Value) != 0)
                 {
                     var laneData = VehicleLaneData.Get(group);
                     if (PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, false, false, laneData.Distance, out var pathPos))
@@ -187,7 +217,7 @@ namespace BuildingSpawnPoints.UI
                 }
             }
 
-            foreach(var item in Vehicle)
+            foreach (var item in Vehicle)
             {
                 var group = item.Type.GetGroup();
                 item.IsCorrect = group == VehicleService.None || Groups.ContainsKey(group);
@@ -208,7 +238,7 @@ namespace BuildingSpawnPoints.UI
             if (group == VehicleService.None)
                 return;
 
-            if(!Groups.TryGetValue(group, out var pathPos))
+            if (!Groups.TryGetValue(group, out var pathPos))
             {
                 var laneData = VehicleLaneData.Get(group);
                 position.RenderCircle(new OverlayData(cameraInfo) { Width = laneData.Distance * 2f });
@@ -231,10 +261,15 @@ namespace BuildingSpawnPoints.UI
     {
         public event Action<VehicleType> OnAddType;
         public event Action OnDuplicate;
+        public event Action OnCopy;
+        public event Action OnPaste;
+        public event Action OnAppend;
 
         private HeaderButtonInfo<SelectVehicleHeaderButton> AddTypeButton { get; set; }
         private HeaderButtonInfo<SelectVehicleHeaderButton> AddGroupTypeButton { get; set; }
         private HeaderButtonInfo<HeaderButton> AddAllTypesButton { get; set; }
+        private HeaderButtonInfo<HeaderButton> PasteButton { get; set; }
+        private HeaderButtonInfo<HeaderButton> AppendButton { get; set; }
 
         public PointHeaderPanel()
         {
@@ -250,6 +285,14 @@ namespace BuildingSpawnPoints.UI
             Content.AddButton(AddAllTypesButton);
 
             Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
+
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Copy, BuildingSpawnPoints.Localize.Panel_CopyPoint, CopyClick));
+
+            PasteButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Paste, BuildingSpawnPoints.Localize.Panel_PastePointReplace, PasteClick);
+            Content.AddButton(PasteButton);
+
+            AppendButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Append, BuildingSpawnPoints.Localize.Panel_PastePointAppend, AppendClick);
+            Content.AddButton(AppendButton);
         }
 
         private void AddType(VehicleType type) => OnAddType?.Invoke(type);
@@ -265,6 +308,8 @@ namespace BuildingSpawnPoints.UI
 
             OnAddType = null;
             OnDuplicate = null;
+            OnCopy = null;
+            OnPaste = null;
         }
         private void Fill(VehicleType notAdded)
         {
@@ -291,6 +336,9 @@ namespace BuildingSpawnPoints.UI
 
         private void DuplicateClick() => OnDuplicate?.Invoke();
         private void AddAllTypes() => AddType(VehicleType.All);
+        private void CopyClick() => OnCopy?.Invoke();
+        private void PasteClick() => OnPaste?.Invoke();
+        private void AppendClick() => OnAppend?.Invoke();
     }
     public class SelectVehicleHeaderButton : BaseHeaderDropDown<VehicleType>
     {
