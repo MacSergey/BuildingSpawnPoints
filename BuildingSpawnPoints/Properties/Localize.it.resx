@@ -136,7 +136,9 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Aggiungi tipo di veicolo</value>
   </data>
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Aggiungi gruppo tipo veicolo</value>
+  </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -145,6 +147,9 @@
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Copia</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Copia punto</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Duplica punto</value>
@@ -157,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Incolla</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Incolla punto (aggiungere tipi di veicolo)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Incolla punto (sostituire tipi di veicolo)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
@@ -197,20 +208,34 @@
   </data>
   
   
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>Elicotteri</value>
+  </data>
+  
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>Veicoli passeggeri</value>
+  </data>
   
   
   
   
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>Aerei</value>
+  </data>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>Veicolo di servizio</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Navi</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>Treni</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>Camion</value>
+  </data>
   
   
   <data name="VehicleType_Ambulance" xml:space="preserve">

@@ -185,13 +185,13 @@ namespace BuildingSpawnPoints
             if (IsHoverBuilding)
             {
                 var building = HoverBuildingId.GetBuilding();
-                BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Red, Colors.Red);
+                BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Yellow, Colors.Yellow);
 
                 var i = 0;
                 while (building.m_subBuilding != 0 && i < BuildingManager.MAX_BUILDING_COUNT)
                 {
                     building = building.m_subBuilding.GetBuilding();
-                    BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Red, Colors.Red);
+                    BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Yellow, Colors.Yellow);
                     i += 1;
                 }
             }

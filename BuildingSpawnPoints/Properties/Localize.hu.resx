@@ -136,7 +136,9 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Járműtípus hozzáadása</value>
   </data>
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Jármű típus csoport hozzáadása</value>
+  </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -145,6 +147,9 @@
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Másolás</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Pont másolása</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Pont duplikálása</value>
@@ -158,6 +163,8 @@
   <data name="Panel_Paste" xml:space="preserve">
     <value>Beillesztés</value>
   </data>
+  
+  
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
@@ -195,24 +202,50 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Válassz épületet</value>
   </data>
+  <data name="VehicleTypeGroup_Air" xml:space="preserve">
+    <value>Légi járművek</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>Szállító járművek</value>
+  </data>
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>Helikopterek</value>
+  </data>
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>Alapértelmezett járművek</value>
+  </data>
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>Utasszállító járművek</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
+    <value>Utasszállító légi járművek</value>
+  </data>
   
   
   
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>Repülők</value>
+  </data>
+  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
+    <value>Vonatok</value>
+  </data>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Hajók</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>Vonatok</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>Teherautók</value>
+  </data>
+  <data name="VehicleTypeGroup_Water" xml:space="preserve">
+    <value>Vízi járművek</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>Összes</value>
+  </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Mentőautó</value>
   </data>
@@ -222,7 +255,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hőlégballon</value>
   </data>
-  
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>Bicikli</value>
+  </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Busz</value>
   </data>
@@ -294,11 +329,15 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Posta</value>
   </data>
-  
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>Privát repülő</value>
+  </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Útkarbantartás</value>
   </data>
-  
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>Rakéta</value>
+  </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Hókotró</value>
   </data>

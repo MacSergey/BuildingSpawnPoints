@@ -136,7 +136,9 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Adicionar tipo de veículo</value>
   </data>
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Adicionar grupo de tipo de veículo</value>
+  </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
@@ -145,6 +147,9 @@
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Copiar</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Copiar ponto</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Duplicar ponto</value>
@@ -157,6 +162,12 @@
   </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Colar</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Colar ponto (junta tipo do veículo)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Colar ponto (substitui tipo do veículo)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
@@ -197,20 +208,36 @@
   </data>
   
   
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>Helicópteros</value>
+  </data>
+  
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>Veículos de passageiros</value>
+  </data>
   
   
   
   
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>Aviões</value>
+  </data>
+  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
+    <value>Veículos ferroviários</value>
+  </data>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>Veículos de serviço</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Barcos</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>Comboios</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>Camiões</value>
+  </data>
   
   
   <data name="VehicleType_Ambulance" xml:space="preserve">

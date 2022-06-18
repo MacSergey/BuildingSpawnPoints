@@ -117,81 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Mod_Description" xml:space="preserve">
-    <value>Změnit nebo přidat spawn point vozidel</value>
-  </data>
-  
-  
-  
-  
-  
-  
-  
-  <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>Přidat všechny typy vozidel</value>
-  </data>
-  <data name="Panel_AddPoint" xml:space="preserve">
-    <value>Přidat bod</value>
-  </data>
-  <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>Přidat typ vozidla</value>
-  </data>
-  
-  
-  <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Použít u všech budov tohoto typu</value>
-  </data>
-  <data name="Panel_Copy" xml:space="preserve">
-    <value>Zkopírovat</value>
-  </data>
-  
-  <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>Duplikovat bod</value>
-  </data>
-  <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>Žádný bod v budově neobsahuje tyto typy vozidel:</value>
-  </data>
-  
-  <data name="Panel_Paste" xml:space="preserve">
-    <value>Vložit</value>
-  </data>
-  
-  
-  
-  <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>Obnovit výchozí nastavení</value>
-  </data>
-  <data name="Panel_Title" xml:space="preserve">
-    <value>Budova #{0}</value>
-  </data>
-  <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>Tento bod leží příliš daleko od silnice pro určité typy vozidel, přesuň ho blíž, jinak nebude fungovat</value>
-  </data>
-  
-  <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawnout</value>
-  </data>
-  <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Despawnout</value>
-  </data>
-  <data name="Property_PointType" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="Property_Position" xml:space="preserve">
-    <value>Pozice</value>
-  </data>
-  <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>Použít u všech budov tohoto typu</value>
-  </data>
-  <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>Opravdu chcete použít toto nastavení pro všechny budovy tohoto typu?</value>
-  </data>
-  <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Budova #{0}</value>
-  </data>
-  <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>Vyberte budovu</value>
-  </data>
   
   
   
@@ -210,99 +135,76 @@
   
   
   
-  <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>Sanitka</value>
-  </data>
-  <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Záchranný vrtulník</value>
-  </data>
-  <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>Balón</value>
-  </data>
-  
-  <data name="VehicleType_Bus" xml:space="preserve">
-    <value>Autobus</value>
-  </data>
-  <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>Lanovka</value>
-  </data>
-  <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>Nákladní letadlo</value>
-  </data>
-  <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>Nákladní loď</value>
-  </data>
-  <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>Nákladní vlak</value>
-  </data>
-  <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>Nákladní vůz</value>
-  </data>
   
   
-  <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Požární helikoptéra</value>
-  </data>
-  <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>Hasičský vůz</value>
-  </data>
-  <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>Rybářská loď</value>
-  </data>
-  <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Popelářské auto</value>
-  </data>
-  <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>Pohřební vůz</value>
-  </data>
-  <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>Metro</value>
-  </data>
-  <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>Jednokolejka</value>
-  </data>
-  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>Údržba parků</value>
-  </data>
-  <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Cestovní vzducholoď</value>
-  </data>
-  <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Cestovní vrtulník</value>
-  </data>
-  <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>Trajekt</value>
-  </data>
   
   
-  <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Cestovní vlak</value>
-  </data>
-  <data name="VehicleType_Police" xml:space="preserve">
-    <value>Policie</value>
-  </data>
-  <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Policejní helikoptéra</value>
-  </data>
-  <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Poštovní vozy</value>
-  </data>
   
-  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>Údržba silnic</value>
-  </data>
   
-  <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>Sněžný pluh</value>
-  </data>
-  <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>Taxi</value>
-  </data>
-  <data name="VehicleType_Tram" xml:space="preserve">
-    <value>Tramvaj</value>
-  </data>
-  <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>Trolejbus</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 </root>
