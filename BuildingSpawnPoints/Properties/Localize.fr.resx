@@ -150,6 +150,7 @@
     <value>[TRANSLATION] Ajout de la traduction hongroise.</value>
   </data>
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
   </data>

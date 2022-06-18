@@ -152,6 +152,9 @@
   <data name="Mod_WhatsNewMessage1_2_3" xml:space="preserve">
     <value>[TRANSLATION] Добавлены переводы на датский и турецкий.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_2_4" xml:space="preserve">
+    <value>[TRANSLATION] Добавлены переводы на чешский и румынский.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Добавить все типы транспортных средств</value>
   </data>
