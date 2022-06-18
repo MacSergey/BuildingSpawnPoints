@@ -100,8 +100,8 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnifiedUILib">
-      <HintPath>..\..\UnifiedUI\UnifiedUILib\bin\Debug\net35\UnifiedUILib.dll</HintPath>
+    <Reference Include="UnifiedUILib, Version=2.2.9.20126, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnifiedUILib.2.2.9\lib\net35\UnifiedUILib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Properties\Localize.cs.resx" />
     <EmbeddedResource Include="Properties\Localize.da.resx" />
     <EmbeddedResource Include="Properties\Localize.hu.resx" />
     <EmbeddedResource Include="Properties\Localize.it.resx" />
@@ -155,6 +156,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Localize.ro.resx" />
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
     <EmbeddedResource Include="Properties\Localize.tr.resx" />
     <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
@@ -207,10 +209,12 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.hu.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.da.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.tr.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.cs.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ro.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_StartDate="2000/1/1" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_StartDate="2000/1/1" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_DetectChanges="False" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">

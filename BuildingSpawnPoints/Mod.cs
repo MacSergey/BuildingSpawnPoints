@@ -26,16 +26,17 @@ namespace BuildingSpawnPoints
         public override string NameRaw => "Building Spawn Points";
         public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;
 
-        public override List<Version> Versions => new List<Version>()
+        public override List<ModVersion> Versions => new List<ModVersion>()
         {
-            new Version(1,2,3),
-            new Version(1,2,2),
-            new Version(1,2,1),
-            new Version(1,2),
-            new Version(1,1),
-            new Version(1,0,2),
-            new Version(1,0,1),
-            new Version(1,0),
+            new ModVersion(new Version(1,2,4), new DateTime(2022, 6, 19)),
+            new ModVersion(new Version(1,2,3), new DateTime(2021, 8, 25)),
+            new ModVersion(new Version(1,2,2), new DateTime(2021, 8, 7)),
+            new ModVersion(new Version(1,2,1), new DateTime(2021, 8, 1)),
+            new ModVersion(new Version(1,2), new DateTime(2021, 7, 16)),
+            new ModVersion(new Version(1,1), new DateTime(2021, 6, 19)),
+            new ModVersion(new Version(1,0,2), new DateTime(2021, 6, 12)),
+            new ModVersion(new Version(1,0,1), new DateTime(2021, 6, 10)),
+            new ModVersion(new Version(1,0), new DateTime(2021, 6, 8)),
         };
 
         protected override ulong StableWorkshopId => 2511258910ul;

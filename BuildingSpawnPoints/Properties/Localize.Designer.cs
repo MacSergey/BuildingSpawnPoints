@@ -70,8 +70,8 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Resolved conflict with More Effective Transfer Manager mod.
-        ///- Added Dutch, French and Portuguese translations..
+        ///   Ищет локализованную строку, похожую на [FIXED] Resolved conflict with More Effective Transfer Manager mod.
+        ///[TRANSLATION] Added Dutch, French and Portuguese translations..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_0_1 {
             get {
@@ -80,7 +80,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Italian translation..
+        ///   Ищет локализованную строку, похожую на [TRANSLATION] Added Italian translation..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_0_2 {
             get {
@@ -89,13 +89,13 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
-        ///- Added transport station, but it will work only like depot. Stop position set by transport line.
-        ///- Added cargo stations (train, plane, ship). Truck points not implimented yet.
-        ///- Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
-        ///- Added copters (police, ambulance, fire, disaster, passenger).
-        ///- Added point height.
-        ///- Fixed police car, fire truck, park maintenance an [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на [NEW] Added depot (bus, trolley, tram, train, copter, blimp, etc). Now posible make custom depots.
+        ///[NEW] Added transport station, but it will work only like depot. Stop position set by transport line.
+        ///[NEW] Added cargo stations (train, plane, ship). Truck points not implimented yet.
+        ///[NEW] Added fishing harbor(fishing boat), shelter(evacuation bus), tour building(tour bus, balloon).
+        ///[NEW] Added copters (police, ambulance, fire, disaster, passenger).
+        ///[NEW] Added point height.
+        ///[FIXED] Fixed police car, f [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_1 {
             get {
@@ -104,11 +104,11 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added a warning if the point is too far from the road. The point should be no further than 32 meters from the closer road, otherwise pathfinder will not be able to find path for vehicle. That vehicle types will red.
-        ///- Added highlighting that show closer road to point. Hover vehicle type to show it.
-        ///- The zero height value is now equal to the height of the terrain under the point, so it fixed points on hills or above the water.
-        ///- Added mod button to UnifiedUI.
-        ///- Added warning about missing libraries fo [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на [NEW] Added a warning if the point is too far from the road. The point should be no further than 32 meters from the closer road, otherwise pathfinder will not be able to find path for vehicle. That vehicle types will red.
+        ///[NEW] Added highlighting that show closer road to point. Hover vehicle type to show it.
+        ///[UPDATED] The zero height value is now equal to the height of the terrain under the point, so it fixed points on hills or above the water.
+        ///[NEW] Added mod button to UnifiedUI.
+        ///[NEW] Added warning ab [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_2 {
             get {
@@ -117,7 +117,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Korean translation..
+        ///   Ищет локализованную строку, похожую на [TRANSLATION] Added Korean translation..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_2_1 {
             get {
@@ -126,7 +126,7 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Hungarian translation..
+        ///   Ищет локализованную строку, похожую на [TRANSLATION] Added Hungarian translation..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_2_2 {
             get {
@@ -135,11 +135,20 @@ namespace BuildingSpawnPoints {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Danish and Turkish translations..
+        ///   Ищет локализованную строку, похожую на [TRANSLATION] Added Danish and Turkish translations..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_2_3 {
             get {
                 return ResourceManager.GetString("Mod_WhatsNewMessage1_2_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на [TRANSLATION] Added Czech and Romanian translations..
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_2_4 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_2_4", resourceCulture);
             }
         }
         
