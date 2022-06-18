@@ -159,23 +159,23 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Trains))]
-        Trains = CargoTrain | PassengerTrain,
+        Trains = CargoTrain | PassengerTrain | MetroTrain | Monorail,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Ships))]
-        Ships = CargoShip | PassengerShip,
+        Ships = CargoShip | PassengerShip | PassengerFerry | FishingBoat,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Air))]
-        Air = Planes | Copters | PassengerBalloon | PassengerBlimp,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_Air))]
+        //Air = Planes | Copters | PassengerBalloon | PassengerBlimp,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Water))]
-        Water = FishingBoat | PassengerFerry | CargoShip | PassengerShip,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_Water))]
+        //Water = FishingBoat | PassengerFerry | CargoShip | PassengerShip,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Rail))]
-        Rail = CargoTrain | PassengerTrain | MetroTrain | Monorail | Tram,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_Rail))]
+        //Rail = CargoTrain | PassengerTrain | MetroTrain | Monorail | Tram,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Cargo))]
@@ -188,25 +188,25 @@ namespace BuildingSpawnPoints
         [NotItem]
         Cars = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | Taxi,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Road))]
-        Road = Trucks | Cars | Trolleybus,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_Road))]
+        //Road = Trucks | Cars | Trolleybus,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_PassengerRoad))]
-        PassengerRoad = Passenger & Road,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_PassengerRoad))]
+        //PassengerRoad = Passenger & Road,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_PassengerAir))]
-        PassengerAir = Passenger & Air,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_PassengerAir))]
+        //PassengerAir = Passenger & Air,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_PassengerWater))]
-        PassengerWater = Passenger & Water,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_PassengerWater))]
+        //PassengerWater = Passenger & Water,
 
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_PassengerRail))]
-        PassengerRail = Passenger & Rail,
+        //[NotItem]
+        //[Description(nameof(Localize.VehicleTypeGroup_PassengerRail))]
+        //PassengerRail = Passenger & Rail,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Default))]
@@ -216,21 +216,31 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.VehicleType_All))]
         All = ulong.MaxValue,
     }
-    public enum VehicleTypeGroup : ulong
+    public enum VehicleService : ulong
     {
         None = VehicleType.None,
         Car = VehicleType.Cars | VehicleType.Trucks,
         Trolleybus = VehicleType.Trolleybus,
         Tram = VehicleType.Tram,
-        Plane = VehicleType.Planes,
+        Plane = VehicleType.Planes & ~VehicleType.PrivatePlane,
         Balloon = VehicleType.PassengerBalloon,
         Blimp = VehicleType.PassengerBlimp,
-        Ship = VehicleType.Ships,
+        Ship = VehicleType.Ships & ~VehicleType.PassengerFerry & ~VehicleType.FishingBoat,
         Ferry = VehicleType.PassengerFerry,
         Fishing = VehicleType.FishingBoat,
-        Train = VehicleType.Trains,
+        Train = VehicleType.Trains & ~VehicleType.MetroTrain & ~VehicleType.Monorail,
         Metro = VehicleType.MetroTrain,
         Monorail = VehicleType.Monorail,
         CableCar = VehicleType.CableCar,
+    }
+    public enum VehicleGroupType : ulong
+    {
+        Planes = VehicleType.Planes,
+        Copters = VehicleType.Copters,
+        Trains = VehicleType.Trains,
+        Ships = VehicleType.Ships,
+        Trucks = VehicleType.Trucks,
+        Passenger = VehicleType.Passenger,
+        Service = VehicleType.Service,
     }
 }
