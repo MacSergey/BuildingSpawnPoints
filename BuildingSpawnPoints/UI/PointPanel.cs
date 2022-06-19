@@ -167,6 +167,28 @@ namespace BuildingSpawnPoints.UI
             Position = ComponentPool.Get<PointPositionPropertyPanel>(this);
             Position.Text = BuildingSpawnPoints.Localize.Property_Position;
             Position.WheelTip = true;
+            Position.UseWheel = true;
+            Position.FieldsWidth = 50f;
+            Position.WheelStep = new Vector4(1f, 1f, 1f, 10f);
+            for (var i = 0; i < Position.Dimension; i += 1)
+            {
+                var field = Position[i];
+
+                if (i == 3)
+                {
+                    field.Format = BuildingSpawnPoints.Localize.Panel_AngleFormat;
+                    field.NumberFormat = "0";
+                    field.CheckMin = true;
+                    field.MinValue = -180;
+                    field.CheckMax = true;
+                    field.MaxValue = 180;
+                    field.CyclicalValue = true;
+                }
+                else
+                {
+                    field.Format = BuildingSpawnPoints.Localize.Panel_PositionFormat;
+                }
+            }
             Position.Init(0, 2, 1, 3);
             Position.Value = Point.Position;
             Position.OnValueChanged += OnPositionChanged;
@@ -176,8 +198,8 @@ namespace BuildingSpawnPoints.UI
         {
             Absolute = ComponentPool.Get<Vector3PropertyPanel>(this);
             Absolute.Text = "Absolute";
-            Absolute.Init(0, 1, 2);
             Absolute.FieldsWidth = 50f;
+            Absolute.Init(0, 1, 2);
         }
 #endif
         private void OnPositionChanged(Vector4 value)
@@ -355,35 +377,8 @@ namespace BuildingSpawnPoints.UI
 
         public class PointTypeSegmented : UIMultySegmented<PointType> { }
     }
-    public class PointPositionPropertyPanel : BaseVectorPropertyPanel<Vector4>
+    public class PointPositionPropertyPanel : Vector4PropertyPanel
     {
-        protected override uint Dimension => 4;
-
-        public PointPositionPropertyPanel()
-        {
-            for (var i = 0; i < Dimension; i += 1)
-            {
-                var field = Fields[i];
-                field.width = 50f;
-
-                if (i == 3)
-                {
-                    field.Format = BuildingSpawnPoints.Localize.Panel_AngleFormat;
-                    field.NumberFormat = "0";
-                    field.UseWheel = true;
-                    field.WheelStep = 10f;
-                    field.WheelTip = true;
-                    field.CheckMin = true;
-                    field.MinValue = -180;
-                    field.CheckMax = true;
-                    field.MaxValue = 180;
-                    field.CyclicalValue = true;
-                }
-                else
-                    field.Format = BuildingSpawnPoints.Localize.Panel_PositionFormat;
-            }
-        }
-
         protected override string GetName(int index) => index switch
         {
             0 => "X",
@@ -392,7 +387,5 @@ namespace BuildingSpawnPoints.UI
             3 => "A",
             _ => "?",
         };
-        protected override float Get(ref Vector4 vector, int index) => vector[index];
-        protected override void Set(ref Vector4 vector, int index, float value) => vector[index] = value;
     }
 }
