@@ -82,8 +82,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="ColossalManaged">
-      <HintPath>..\ModsCommon\FakeDLL\ColossalManaged.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\ColossalManaged.dll</HintPath>
     </Reference>
     <Reference Include="ICities">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll</HintPath>
@@ -127,10 +126,10 @@
     <Compile Include="UI\PointPanel.cs" />
     <Compile Include="UI\SpawnPointsTextures.cs" />
     <Compile Include="Tool.cs" />
-    <Compile Include="UI\VehicleTypeProperty.cs" />
+    <Compile Include="UI\VehicleCategoryProperty.cs" />
     <Compile Include="Utilites\MoveItIntegration.cs" />
     <Compile Include="Utilites\ObjectMap.cs" />
-    <Compile Include="VehicleTypes.cs" />
+    <Compile Include="VehicleCategory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -160,11 +159,27 @@
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
     <EmbeddedResource Include="Properties\Localize.tr.resx" />
     <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
-    <EmbeddedResource Include="Resources\HeaderButtons.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UUIButton\UUIButtonHovered.png" />
+    <EmbeddedResource Include="Resources\UUIButton\UUIButtonNormal.png" />
+    <EmbeddedResource Include="Resources\UUIButton\UUIButtonPressed.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\InfoIcon.png" />
-    <EmbeddedResource Include="Resources\UUIButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\AddAllVehiclesHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\AddVehicleGroupHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\AddVehicleHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\AppendHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\ApplyAllHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\CopyHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\DuplicateHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\PasteHeaderButton.png" />
+    <EmbeddedResource Include="Resources\HeaderButtons\ResetHeaderButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icons\InfoNormal.png" />
+    <EmbeddedResource Include="Resources\Icons\InfoPressed.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\CustomUIShared\CustomUIShared.projitems" Label="Shared" />
@@ -211,6 +226,7 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.tr.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.cs.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ro.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\TriangulatorShared\Triangulator.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

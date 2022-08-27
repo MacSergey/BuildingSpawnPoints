@@ -10,26 +10,26 @@ using UnityEngine;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class VehicleTypePropertyPanel : EditorItem, IReusable, IEnumerable<VehicleItem>
+    public class VehicleCategoryPropertyPanel : EditorItem, IReusable, IEnumerable<VehicleItem>
     {
-        public event Action<VehicleType> OnDelete;
-        public event Action<VehicleType> OnSelect;
+        public event Action<VehicleCategory> OnDelete;
+        public event Action<VehicleCategory> OnSelect;
 
         bool IReusable.InCache { get; set; }
 
-        private Dictionary<VehicleType, VehicleItem> Items { get; } = new Dictionary<VehicleType, VehicleItem>();
+        private Dictionary<VehicleCategory, VehicleItem> Items { get; } = new Dictionary<VehicleCategory, VehicleItem>();
         private float Padding => 5f;
 
         public bool Deletable { get; set; } = true;
 
-        public void AddItems(VehicleType types)
+        public void AddItems(VehicleCategory types)
         {
-            foreach (var type in EnumExtension.GetEnumValues<VehicleType>(t => t.IsItem() && (t & types) != VehicleType.None))
+            foreach (var type in EnumExtension.GetEnumValues<VehicleCategory>(t => t.IsItem() && (t & types) != VehicleCategory.None))
                 AddItem(type);
 
             FitItems();
         }
-        public void SetItems(VehicleType types)
+        public void SetItems(VehicleCategory types)
         {
             ClearItems();
             AddItems(types);
@@ -41,7 +41,7 @@ namespace BuildingSpawnPoints.UI
             OnSelect = null;
             Deletable = true;
         }
-        private void AddItem(VehicleType type)
+        private void AddItem(VehicleCategory type)
         {
             if (!Items.ContainsKey(type))
             {
@@ -70,7 +70,7 @@ namespace BuildingSpawnPoints.UI
             Items.Clear();
         }
 
-        public void AddType(VehicleType type)
+        public void AddType(VehicleCategory type)
         {
             if (!Items.ContainsKey(type))
             {
@@ -131,7 +131,7 @@ namespace BuildingSpawnPoints.UI
         }
 
         private void EnterItem(VehicleItem item) => OnSelect?.Invoke(item.Type);
-        private void LeaveItem(VehicleItem item) => OnSelect?.Invoke(VehicleType.None);
+        private void LeaveItem(VehicleItem item) => OnSelect?.Invoke(VehicleCategory.None);
 
         public IEnumerator<VehicleItem> GetEnumerator() => Items.Values.GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -147,7 +147,7 @@ namespace BuildingSpawnPoints.UI
         private CustomUILabel Label { get; }
         private CustomUIButton Button { get; }
 
-        public VehicleType Type { get; private set; }
+        public VehicleCategory Type { get; private set; }
 
         private bool _isCorrect;
         public bool IsCorrect 
@@ -192,10 +192,10 @@ namespace BuildingSpawnPoints.UI
 
             StartLayout();
         }
-        public void Init(VehicleType type, bool deletable = true)
+        public void Init(VehicleCategory type, bool deletable = true)
         {
             Type = type;
-            Label.text = type.Description<VehicleType, Mod>();
+            Label.text = type.Description<VehicleCategory, Mod>();
             Button.isVisible = deletable;
         }
 

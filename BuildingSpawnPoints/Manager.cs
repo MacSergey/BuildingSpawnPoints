@@ -53,11 +53,18 @@ namespace BuildingSpawnPoints
         }
         public void FromXml(XElement config, ObjectsMap map)
         {
+            var version = GetVersion(config);
+
             foreach (var nodeConfig in config.Elements(BuildingData.XmlName))
             {
-                if (BuildingData.FromXml(nodeConfig, map, out BuildingData data))
+                if (BuildingData.FromXml(version, nodeConfig, map, out BuildingData data))
                     Buffer[data.Id] = data;
             }
+        }
+        private static Version GetVersion(XElement config)
+        {
+            try { return new Version(config.Attribute("V").Value); }
+            catch { return SingletonMod<Mod>.Version; }
         }
     }
 

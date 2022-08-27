@@ -203,14 +203,14 @@ namespace BuildingSpawnPoints.UI
 
         public PanelHeader()
         {
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Copy, BuildingSpawnPoints.Localize.Panel_Copy, OnCopy));
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.CopyHeaderButton, BuildingSpawnPoints.Localize.Panel_Copy, OnCopy));
 
-            PasteButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Paste, BuildingSpawnPoints.Localize.Panel_Paste, OnPaste);
+            PasteButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.PasteHeaderButton, BuildingSpawnPoints.Localize.Panel_Paste, OnPaste);
             Content.AddButton(PasteButton);
 
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.ApplyAll, BuildingSpawnPoints.Localize.Panel_ApplyToAll, OnApplyToAll));
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.ApplyAllHeaderButton, BuildingSpawnPoints.Localize.Panel_ApplyToAll, OnApplyToAll));
 
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Reset, BuildingSpawnPoints.Localize.Panel_ResetToDefault, OnResetToDefault));
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.ResetHeaderButton, BuildingSpawnPoints.Localize.Panel_ResetToDefault, OnResetToDefault));
         }
 
         private void OnCopy() => SingletonTool<SpawnPointsTool>.Instance.Copy();

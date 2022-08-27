@@ -30,9 +30,9 @@ namespace BuildingSpawnPoints
         public bool IsBufferEmpty => Buffer == null;
 
         protected override UITextureAtlas UUIAtlas => SpawnPointsTextures.Atlas;
-        protected override string UUINormalSprite => SpawnPointsTextures.UUINormal;
-        protected override string UUIHoveredSprite => SpawnPointsTextures.UUIHovered;
-        protected override string UUIPressedSprite => SpawnPointsTextures.UUIPressed;
+        protected override string UUINormalSprite => SpawnPointsTextures.UUIButtonNormal;
+        protected override string UUIHoveredSprite => SpawnPointsTextures.UUIButtonHovered;
+        protected override string UUIPressedSprite => SpawnPointsTextures.UUIButtonPressed;
         protected override string UUIDisabledSprite => string.Empty;
 
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
@@ -72,7 +72,7 @@ namespace BuildingSpawnPoints
             if (Buffer == null)
                 return;
 
-            Data.FromXml(Buffer);
+            Data.FromXml(SingletonMod<Mod>.Version, Buffer);
             Panel.RefreshPanel();
         }
         public void ResetToDefault()
@@ -95,6 +95,7 @@ namespace BuildingSpawnPoints
             {
                 var config = Data.ToXml();
                 var info = Data.Id.GetBuilding().Info;
+                var version = SingletonMod<Mod>.Version;
 
                 var buildings = BuildingManager.instance.m_buildings.m_buffer;
                 for (ushort i = 0; i < buildings.Length; i += 1)
@@ -103,7 +104,7 @@ namespace BuildingSpawnPoints
                         continue;
 
                     if (buildings[i].Info == info && buildings[i].m_flags.IsSet(Building.Flags.Created) && SingletonManager<Manager>.Instance[i, Options.Create] is BuildingData data)
-                        data.FromXml(config);
+                        data.FromXml(version, config);
                 }
 
                 return true;
@@ -213,7 +214,7 @@ namespace BuildingSpawnPoints
             var building = Tool.Data.Id.GetBuilding();
             foreach (var point in Tool.Data.Points)
             {
-                var color = point.VehicleTypes == VehicleType.None || point.Type == PointType.None ? Colors.Gray192 : point.Type.Value switch
+                var color = point.Categories == VehicleCategory.None || point.Type == PointType.None ? Colors.Gray192 : point.Type.Value switch
                 {
                     PointType.Spawn => Colors.Green,
                     PointType.Unspawn => Colors.Red,

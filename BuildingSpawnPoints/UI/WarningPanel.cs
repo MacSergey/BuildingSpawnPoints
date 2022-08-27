@@ -13,7 +13,7 @@ namespace BuildingSpawnPoints.UI
         protected override Color32 Color => Colors.Warning;
 
         private CustomUILabel Label { get; }
-        private VehicleTypePropertyPanel Vehicle { get; }
+        private VehicleCategoryPropertyPanel Vehicle { get; }
         private CustomUILabel LabelContinue { get; }
 
         public WarningPanel()
@@ -23,7 +23,7 @@ namespace BuildingSpawnPoints.UI
             Label = AddLabel();
             Label.padding = new RectOffset(5, 5, 5, 0);
 
-            Vehicle = ComponentPool.Get<VehicleTypePropertyPanel>(this);
+            Vehicle = ComponentPool.Get<VehicleCategoryPropertyPanel>(this);
             Vehicle.Deletable = false;
 
             LabelContinue = AddLabel();
@@ -32,21 +32,21 @@ namespace BuildingSpawnPoints.UI
             StartLayout();
         }
 
-        public void Init(VehicleType type)
+        public void Init(VehicleCategory type)
         {
             StopLayout();
 
             Label.text = BuildingSpawnPoints.Localize.Panel_NoPointWarning;
             LabelContinue.text = BuildingSpawnPoints.Localize.Panel_NoPointWarningContinue;
 
-            isVisible = type != VehicleType.None;
+            isVisible = type != VehicleCategory.None;
             Vehicle.SetItems(type);
 
             StartLayout();
 
             base.Init();
         }
-        public override void DeInit() => Vehicle.SetItems(VehicleType.None);
+        public override void DeInit() => Vehicle.SetItems(VehicleCategory.None);
 
         private CustomUILabel AddLabel()
         {

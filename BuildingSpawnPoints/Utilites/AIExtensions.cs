@@ -13,131 +13,132 @@ namespace BuildingSpawnPoints
     public static class AIExtension
     {
         private static bool InvertTraffic => Singleton<SimulationManager>.instance.m_metaData.m_invertTraffic == SimulationMetaData.MetaBool.True;
-        private static Dictionary<Type, VehicleType> VehicleAllow { get; } = new Dictionary<Type, VehicleType>
+        private static Dictionary<Type, VehicleCategory> VehicleAllow { get; } = new Dictionary<Type, VehicleCategory>
         {
             //Service
-            { typeof(AmbulanceAI),VehicleType.Ambulance },
-            { typeof(PoliceCarAI),VehicleType.Police },
-            { typeof(FireTruckAI),VehicleType.FireTruck },
-            { typeof(HearseAI),VehicleType.Hearse },
-            { typeof(CargoTruckAI),VehicleType.CargoTruck },
+            { typeof(AmbulanceAI),VehicleCategory.Ambulance },
+            { typeof(PoliceCarAI),VehicleCategory.Police },
+            { typeof(FireTruckAI),VehicleCategory.FireTruck },
+            { typeof(HearseAI),VehicleCategory.Hearse },
+            { typeof(CargoTruckAI),VehicleCategory.CargoTruck },
 
             //Transport
-            { typeof(BicycleAI),VehicleType.Bicycle },
-            { typeof(TrolleybusAI),VehicleType.Trolleybus },
-            { typeof(BusAI),VehicleType.Bus },
-            { typeof(TaxiAI),VehicleType.Taxi },
-            { typeof(TramAI),VehicleType.Tram },
-            { typeof(PostVanAI),VehicleType.PostTruck },
+            { typeof(BicycleAI),VehicleCategory.Bicycle },
+            { typeof(TrolleybusAI),VehicleCategory.Trolleybus },
+            { typeof(BusAI),VehicleCategory.Bus },
+            { typeof(TaxiAI),VehicleCategory.Taxi },
+            { typeof(TramAI),VehicleCategory.Tram },
+            { typeof(PostVanAI),VehicleCategory.PostTruck },
 
             //Maintenance
-            { typeof(GarbageTruckAI),VehicleType.GarbageTruck },
-            { typeof(MaintenanceTruckAI),VehicleType.RoadTruck },
-            { typeof(ParkMaintenanceVehicleAI),VehicleType.ParkTruck },
-            { typeof(SnowTruckAI),VehicleType.SnowTruck },
-            { typeof(WaterTruckAI),VehicleType.VacuumTruck },
-            { typeof(DisasterResponseVehicleAI),VehicleType.Disaster },
+            { typeof(GarbageTruckAI),VehicleCategory.GarbageTruck },
+            { typeof(MaintenanceTruckAI),VehicleCategory.RoadTruck },
+            { typeof(ParkMaintenanceVehicleAI),VehicleCategory.ParkTruck },
+            { typeof(SnowTruckAI),VehicleCategory.SnowTruck },
+            { typeof(WaterTruckAI),VehicleCategory.VacuumTruck },
+            { typeof(DisasterResponseVehicleAI),VehicleCategory.Disaster },
 
             //Trains
-            { typeof(PassengerTrainAI),VehicleType.PassengerTrain },
-            { typeof(CargoTrainAI),VehicleType.CargoTrain },
-            { typeof(MetroTrainAI),VehicleType.MetroTrain },
+            { typeof(PassengerTrainAI),VehicleCategory.PassengerTrain },
+            { typeof(CargoTrainAI),VehicleCategory.CargoTrain },
+            { typeof(MetroTrainAI),VehicleCategory.MetroTrain },
 
             //Planes
-            { typeof(CargoPlaneAI),VehicleType.CargoPlane },
-            { typeof(PassengerPlaneAI),VehicleType.PassengerPlane },
-            { typeof(PrivatePlaneAI),VehicleType.PrivatePlane },
+            { typeof(CargoPlaneAI),VehicleCategory.CargoPlane },
+            { typeof(PassengerPlaneAI),VehicleCategory.PassengerPlane },
+            { typeof(PrivatePlaneAI),VehicleCategory.PrivatePlane },
 
             //Copters
-            { typeof(AmbulanceCopterAI),VehicleType.AmbulanceCopter },
-            { typeof(DisasterResponseCopterAI),VehicleType.DisasterCopter },
-            { typeof(FireCopterAI),VehicleType.FireCopter },
-            { typeof(PoliceCopterAI),VehicleType.PoliceCopter },
-            { typeof(PassengerHelicopterAI),VehicleType.PassengerCopter },
+            { typeof(AmbulanceCopterAI),VehicleCategory.AmbulanceCopter },
+            { typeof(DisasterResponseCopterAI),VehicleCategory.DisasterCopter },
+            { typeof(FireCopterAI),VehicleCategory.FireCopter },
+            { typeof(PoliceCopterAI),VehicleCategory.PoliceCopter },
+            { typeof(PassengerHelicopterAI),VehicleCategory.PassengerCopter },
 
             //Air
-            { typeof(BalloonAI),VehicleType.PassengerBalloon },
-            { typeof(PassengerBlimpAI),VehicleType.PassengerBlimp },
+            { typeof(BalloonAI),VehicleCategory.PassengerBalloon },
+            { typeof(PassengerBlimpAI),VehicleCategory.PassengerBlimp },
 
             //Ships
-            { typeof(PassengerShipAI),VehicleType.PassengerShip },
-            { typeof(CargoShipAI),VehicleType.CargoShip },
-            { typeof(PassengerFerryAI),VehicleType.PassengerFerry },
-            { typeof(FishingBoatAI),VehicleType.FishingBoat },
+            { typeof(PassengerShipAI),VehicleCategory.PassengerShip },
+            { typeof(CargoShipAI),VehicleCategory.CargoShip },
+            { typeof(PassengerFerryAI),VehicleCategory.PassengerFerry },
+            { typeof(FishingBoatAI),VehicleCategory.FishingBoat },
         };
         private static HashSet<Type> VehicleForbidden { get; } = new HashSet<Type>();
 
-        private static Dictionary<Type, VehicleType> BuildingAllow { get; } = new Dictionary<Type, VehicleType>
+        private static Dictionary<Type, VehicleCategory> BuildingAllow { get; } = new Dictionary<Type, VehicleCategory>
         {
             //Common
-            { typeof(CommonBuildingAI), VehicleType.Default },
+            { typeof(CommonBuildingAI), VehicleCategory.Default },
 
             //PrivateBuilding
-            { typeof(CommercialBuildingAI), VehicleType.Default |VehicleType.CargoTruck },
-            { typeof(IndustrialBuildingAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(IndustrialExtractorAI), VehicleType.Default |VehicleType.CargoTruck },
-            { typeof(OfficeBuildingAI), VehicleType.Default | VehicleType.PostTruck },
-            { typeof(ResidentialBuildingAI), VehicleType.Default | VehicleType.PostTruck },
+            { typeof(CommercialBuildingAI), VehicleCategory.Default |VehicleCategory.CargoTruck },
+            { typeof(IndustrialBuildingAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
+            { typeof(IndustrialExtractorAI), VehicleCategory.Default |VehicleCategory.CargoTruck },
+            { typeof(OfficeBuildingAI), VehicleCategory.Default | VehicleCategory.PostTruck },
+            { typeof(ResidentialBuildingAI), VehicleCategory.Default | VehicleCategory.PostTruck },
 
             //Service
-            { typeof(CemeteryAI), VehicleType.Default },
-            { typeof(ChildcareAI), VehicleType.Default },
-            { typeof(EldercareAI), VehicleType.Default },
-            { typeof(FireStationAI), VehicleType.Default },
-            { typeof(HospitalAI), VehicleType.Default },
-            { typeof(MedicalCenterAI), VehicleType.Default },
-            { typeof(LibraryAI), VehicleType.Default },
-            { typeof(PoliceStationAI), VehicleType.Default },
-            { typeof(SaunaAI), VehicleType.Default },
-            { typeof(SchoolAI), VehicleType.Default },
+            { typeof(CemeteryAI), VehicleCategory.Default },
+            { typeof(ChildcareAI), VehicleCategory.Default },
+            { typeof(EldercareAI), VehicleCategory.Default },
+            { typeof(FireStationAI), VehicleCategory.Default },
+            { typeof(HospitalAI), VehicleCategory.Default },
+            { typeof(MedicalCenterAI), VehicleCategory.Default },
+            { typeof(LibraryAI), VehicleCategory.Default },
+            { typeof(PoliceStationAI), VehicleCategory.Default },
+            { typeof(SaunaAI), VehicleCategory.Default },
+            { typeof(SchoolAI), VehicleCategory.Default },
 
             //Park
-            { typeof(ParkAI), VehicleType.Default },
-            { typeof(ParkBuildingAI), VehicleType.Default | VehicleType.ParkTruck },
-            { typeof(ParkGateAI), VehicleType.Default | VehicleType.ParkTruck },
+            { typeof(ParkAI), VehicleCategory.Default },
+            { typeof(ParkBuildingAI), VehicleCategory.Default | VehicleCategory.ParkTruck },
+            { typeof(ParkGateAI), VehicleCategory.Default | VehicleCategory.ParkTruck },
 
             //Industrial
-            { typeof(FishFarmAI), VehicleType.Default },
-            { typeof(FishingHarborAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(WarehouseAI), VehicleType.Default | VehicleType.CargoTruck },
+            { typeof(FishFarmAI), VehicleCategory.Default },
+            { typeof(FishingHarborAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
+            { typeof(WarehouseAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
 
-            { typeof(MainIndustryBuildingAI), VehicleType.Default },
-            { typeof(AuxiliaryBuildingAI), VehicleType.Default },
-            { typeof(ExtractingFacilityAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(ProcessingFacilityAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(UniqueFactoryAI), VehicleType.Default | VehicleType.CargoTruck },
+            { typeof(MainIndustryBuildingAI), VehicleCategory.Default },
+            { typeof(AuxiliaryBuildingAI), VehicleCategory.Default },
+            { typeof(ExtractingFacilityAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
+            { typeof(ProcessingFacilityAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
+            { typeof(UniqueFactoryAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
 
             //Campus
-            { typeof(MainCampusBuildingAI), VehicleType.Default },
+            { typeof(MainCampusBuildingAI), VehicleCategory.Default },
 
             //Maintenance
-            { typeof(MaintenanceDepotAI), VehicleType.Default | VehicleType.RoadTruck },
-            { typeof(LandfillSiteAI), VehicleType.Default },
-            { typeof(SnowDumpAI), VehicleType.Default | VehicleType.SnowTruck },
-            { typeof(WaterFacilityAI), VehicleType.Default | VehicleType.VacuumTruck },
+            { typeof(MaintenanceDepotAI), VehicleCategory.Default | VehicleCategory.RoadTruck },
+            { typeof(LandfillSiteAI), VehicleCategory.Default | VehicleCategory.Cargo },
+            { typeof(SnowDumpAI), VehicleCategory.Default | VehicleCategory.SnowTruck },
+            { typeof(WaterFacilityAI), VehicleCategory.Default | VehicleCategory.VacuumTruck },
 
             //Transport
-            { typeof(CargoStationAI), VehicleType.Default },
-            { typeof(CargoHarborAI), VehicleType.Default },
-            { typeof(PrivateAirportAI), VehicleType.Default },
-            { typeof(TaxiStandAI), VehicleType.Default & ~VehicleType.Taxi },
-            { typeof(PostOfficeAI), VehicleType.Default },
+            { typeof(CargoStationAI), VehicleCategory.Default },
+            { typeof(CargoHarborAI), VehicleCategory.Default },
+            { typeof(PrivateAirportAI), VehicleCategory.Default },
+            { typeof(TaxiStandAI), VehicleCategory.Default & ~VehicleCategory.Taxi },
+            { typeof(PostOfficeAI), VehicleCategory.Default },
 
             //Depot
-            { typeof(DepotAI), VehicleType.Default },
-            { typeof(CableCarStationAI), VehicleType.Default },
-            { typeof(TransportStationAI), VehicleType.Default },
-            { typeof(HarborAI), VehicleType.Default },
+            { typeof(DepotAI), VehicleCategory.Default },
+            { typeof(CableCarStationAI), VehicleCategory.Default },
+            { typeof(TransportStationAI), VehicleCategory.Default },
+            { typeof(HarborAI), VehicleCategory.Default },
           
             //Disaster
-            { typeof(DisasterResponseBuildingAI), VehicleType.Default | VehicleType.Disaster },
-            { typeof(DoomsdayVaultAI), VehicleType.Default | VehicleType.Disaster | VehicleType.CargoTruck },
-            { typeof(ShelterAI), VehicleType.Default | VehicleType.CargoTruck },
+            { typeof(DisasterResponseBuildingAI), VehicleCategory.Default | VehicleCategory.Disaster },
+            { typeof(DoomsdayVaultAI), VehicleCategory.Default | VehicleCategory.Disaster | VehicleCategory.CargoTruck },
+            { typeof(ShelterAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             
             //Other
-            { typeof(PowerPlantAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(HeatingPlantAI), VehicleType.Default | VehicleType.CargoTruck },
-            { typeof(MonumentAI), VehicleType.Default | VehicleType.PostTruck},
+            { typeof(PowerPlantAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
+            { typeof(HeatingPlantAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
+            { typeof(MonumentAI), VehicleCategory.Default | VehicleCategory.PostTruck},
+            { typeof(ServicePointAI), VehicleCategory.Default | VehicleCategory.CargoTruck | VehicleCategory.PostTruck}
 
 
             //{ typeof(), VehicleType.Default },
@@ -145,11 +146,11 @@ namespace BuildingSpawnPoints
         private static HashSet<Type> BuildingForbidden { get; } = new HashSet<Type>();
 
 
-        public static VehicleType GetVehicleType(this VehicleInfo info) => GetVehicleType(info.m_vehicleAI.GetType(), VehicleAllow, VehicleForbidden);
+        public static VehicleCategory GetVehicleCategory(this VehicleInfo info) => GetVehicleType(info.m_vehicleAI.GetType(), VehicleAllow, VehicleForbidden);
 
-        public static VehicleType GetDefaultVehicleTypes(this BuildingInfo info) => GetVehicleType(info.m_buildingAI.GetType(), BuildingAllow, BuildingForbidden);
+        public static VehicleCategory GetDefaultVehicleTypes(this BuildingInfo info) => GetVehicleType(info.m_buildingAI.GetType(), BuildingAllow, BuildingForbidden);
 
-        public static VehicleType GetNeededVehicleTypes(this BuildingInfo info)
+        public static VehicleCategory GetNeededVehicleTypes(this BuildingInfo info)
         {
             var vehicleTypes = info.GetDefaultVehicleTypes();
 
@@ -158,28 +159,27 @@ namespace BuildingSpawnPoints
                 case DepotAI depot:
                     {
                         if (depot.m_transportInfo is TransportInfo info1)
-                            vehicleTypes |= info1.GetVehicleType() & VehicleType.Passenger;
+                            vehicleTypes |= info1.GetVehicleType() & VehicleCategory.Passenger;
                         if (depot.m_secondaryTransportInfo is TransportInfo info2)
-                            vehicleTypes |= info2.GetVehicleType() & VehicleType.Passenger;
+                            vehicleTypes |= info2.GetVehicleType() & VehicleCategory.Passenger;
                         break;
                     }
 
                 case CargoStationAI cargoStation:
                     {
-                        //type |= VehicleType.CargoTruck | VehicleType.PostTruck;
                         if (cargoStation.m_transportInfo is TransportInfo info1)
-                            vehicleTypes |= info1.GetVehicleType() & VehicleType.Cargo;
+                            vehicleTypes |= info1.GetVehicleType() & VehicleCategory.Cargo;
                         if (cargoStation.m_transportInfo2 is TransportInfo info2)
-                            vehicleTypes |= info2.GetVehicleType() & VehicleType.Cargo;
+                            vehicleTypes |= info2.GetVehicleType() & VehicleCategory.Cargo;
                         break;
                     }
 
                 case TaxiStandAI:
-                    vehicleTypes |= VehicleType.Taxi;
+                    vehicleTypes |= VehicleCategory.Taxi;
                     break;
 
                 case PostOfficeAI:
-                    vehicleTypes |= VehicleType.PostTruck;
+                    vehicleTypes |= VehicleCategory.PostTruck;
                     break;
 
                 case HelicopterDepotAI:
@@ -187,13 +187,13 @@ namespace BuildingSpawnPoints
                     break;
 
                 case FishingHarborAI:
-                    vehicleTypes |= VehicleType.FishingBoat;
+                    vehicleTypes |= VehicleCategory.FishingBoat;
                     break;
 
                 case TourBuildingAI tourBuilding:
                     {
                         if (tourBuilding.m_transportInfo is TransportInfo transportInfo)
-                            vehicleTypes |= transportInfo.GetVehicleType() & VehicleType.Passenger;
+                            vehicleTypes |= transportInfo.GetVehicleType() & VehicleCategory.Passenger;
                         break;
                     }
                 case ShelterAI shelter:
@@ -203,22 +203,22 @@ namespace BuildingSpawnPoints
 
             return vehicleTypes;
         }
-        public static VehicleType GetPossibleVehicleTypes(this BuildingInfo info)
+        public static VehicleCategory GetPossibleVehicleTypes(this BuildingInfo info)
         {
             var vehicleTypes = info.GetNeededVehicleTypes();
 
             if (info.m_buildingAI is not HelicopterDepotAI)
-                vehicleTypes |= VehicleType.AmbulanceCopter | VehicleType.PoliceCopter | VehicleType.DisasterCopter;
+                vehicleTypes |= VehicleCategory.AmbulanceCopter | VehicleCategory.PoliceCopter | VehicleCategory.DisasterCopter;
 
             return vehicleTypes;
         }
 
-        private static VehicleType GetVehicleType(Type type, Dictionary<Type, VehicleType> allow, HashSet<Type> forbidden)
+        private static VehicleCategory GetVehicleType(Type type, Dictionary<Type, VehicleCategory> allow, HashSet<Type> forbidden)
         {
             if (allow.TryGetValue(type, out var vehicleType))
                 return vehicleType;
             else if (forbidden.Contains(type))
-                return VehicleType.None;
+                return VehicleCategory.None;
             else
             {
                 for (var parentType = type.BaseType; parentType != null; parentType = parentType.BaseType)
@@ -231,7 +231,7 @@ namespace BuildingSpawnPoints
                 }
 
                 forbidden.Add(type);
-                return VehicleType.None;
+                return VehicleCategory.None;
             }
         }
 
@@ -245,6 +245,7 @@ namespace BuildingSpawnPoints
             TourBuildingAI tourBuilding => tourBuilding.GetPoints(data),
             FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
             ShelterAI shelter => shelter.GetPoints(data),
+            ServicePointAI servicePoint => servicePoint.GetPoints(data),
             _ => GetCopterPoints(data),
         };
 
@@ -255,15 +256,15 @@ namespace BuildingSpawnPoints
 
             if (cargoStation.m_transportInfo is TransportInfo info1)
             {
-                var vehicleType = info1.GetVehicleType() & VehicleType.Cargo;
-                if (vehicleType != VehicleType.None)
+                var vehicleType = info1.GetVehicleType() & VehicleCategory.Cargo;
+                if (vehicleType != VehicleCategory.None)
                     yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition, cargoStation.m_spawnTarget, vehicleType, invert: cargoStation.m_canInvertTarget && InvertTraffic);
             }
 
             if (cargoStation.m_transportInfo2 is TransportInfo info2)
             {
-                var vehicleType = info2.GetVehicleType() & VehicleType.Cargo;
-                if (vehicleType != VehicleType.None)
+                var vehicleType = info2.GetVehicleType() & VehicleCategory.Cargo;
+                if (vehicleType != VehicleCategory.None)
                     yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition2, cargoStation.m_spawnTarget2, vehicleType, invert: cargoStation.m_canInvertTarget2 && InvertTraffic);
             }
         }
@@ -272,9 +273,9 @@ namespace BuildingSpawnPoints
             if (depot.m_transportInfo is TransportInfo info1)
             {
                 var invert = depot.m_canInvertTarget && InvertTraffic;
-                var vehicleType = info1.GetVehicleType() & VehicleType.Passenger;
+                var vehicleType = info1.GetVehicleType() & VehicleCategory.Passenger;
 
-                if (vehicleType != VehicleType.None)
+                if (vehicleType != VehicleCategory.None)
                 {
                     if (depot.m_spawnPoints != null && depot.m_spawnPoints.Length != 0)
                     {
@@ -288,9 +289,9 @@ namespace BuildingSpawnPoints
             if (depot.m_secondaryTransportInfo is TransportInfo info2)
             {
                 var invert = depot.m_canInvertTarget2 && InvertTraffic;
-                var vehicleType = info2.GetVehicleType() & VehicleType.Passenger;
+                var vehicleType = info2.GetVehicleType() & VehicleCategory.Passenger;
 
-                if (vehicleType != VehicleType.None)
+                if (vehicleType != VehicleCategory.None)
                 {
                     if (depot.m_spawnPoints2 != null && depot.m_spawnPoints2.Length != 0)
                     {
@@ -307,33 +308,38 @@ namespace BuildingSpawnPoints
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this FishingHarborAI fishingHarbor, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatSpawnPosition, fishingHarbor.m_boatSpawnTarget, VehicleType.FishingBoat, PointType.Spawn);
-            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatUnspawnPosition, fishingHarbor.m_boatUnspawnTarget, VehicleType.FishingBoat, PointType.Unspawn);
+            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatSpawnPosition, fishingHarbor.m_boatSpawnTarget, VehicleCategory.FishingBoat, PointType.Spawn);
+            yield return new BuildingSpawnPoint(data, fishingHarbor.m_boatUnspawnPosition, fishingHarbor.m_boatUnspawnTarget, VehicleCategory.FishingBoat, PointType.Unspawn);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this ShelterAI shelter, BuildingData data)
         {
             var invert = shelter.m_canInvertTarget && InvertTraffic;
             yield return new BuildingSpawnPoint(data, shelter.m_spawnPosition, shelter.m_spawnTarget, shelter.m_transportInfo.GetVehicleType(), invert: invert);
         }
+        private static IEnumerable<BuildingSpawnPoint> GetPoints(this ServicePointAI servicePoint, BuildingData data)
+        {
+            foreach(var spawnPoint in servicePoint.m_spawnPoints)
+                yield return new BuildingSpawnPoint(data, spawnPoint.m_position, spawnPoint.m_target, (VehicleCategory)spawnPoint.vehicleCategory);
+        }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this TaxiStandAI taxiStand, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, taxiStand.m_queueStartPos, taxiStand.m_queueEndPos, VehicleType.Taxi, invert: InvertTraffic);
+            yield return new BuildingSpawnPoint(data, taxiStand.m_queueStartPos, taxiStand.m_queueEndPos, VehicleCategory.Taxi, invert: InvertTraffic);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this PostOfficeAI postOffice, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, postOffice.m_truckSpawnPosition, 0f, VehicleType.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
-            yield return new BuildingSpawnPoint(data, postOffice.m_truckUnspawnPosition, 0f, VehicleType.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
+            yield return new BuildingSpawnPoint(data, postOffice.m_truckSpawnPosition, 0f, VehicleCategory.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
+            yield return new BuildingSpawnPoint(data, postOffice.m_truckUnspawnPosition, 0f, VehicleCategory.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this MaintenanceDepotAI maintenanceDepot, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, maintenanceDepot.m_spawnPosition, maintenanceDepot.m_spawnTarget, VehicleType.PostTruck, PointType.Both);
+            yield return new BuildingSpawnPoint(data, maintenanceDepot.m_spawnPosition, maintenanceDepot.m_spawnTarget, VehicleCategory.PostTruck, PointType.Both);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this TourBuildingAI tourBuilding, BuildingData data)
         {
             if (tourBuilding.m_transportInfo is TransportInfo info)
             {
-                var vehicleType = info.GetVehicleType() & VehicleType.Passenger;
-                if (vehicleType != VehicleType.None)
+                var vehicleType = info.GetVehicleType() & VehicleCategory.Passenger;
+                if (vehicleType != VehicleCategory.None)
                     yield return new BuildingSpawnPoint(data, tourBuilding.m_vehicleSpawnPosition, 0f, vehicleType, PointType.Both);
             }
         }
@@ -341,7 +347,7 @@ namespace BuildingSpawnPoints
         {
             var info = data.Id.GetBuilding().Info;
             var vehicleType = info.GetCopterType();
-            if (vehicleType == VehicleType.None)
+            if (vehicleType == VehicleCategory.None)
                 yield break;
 
             foreach (var prop in info.m_props)
@@ -360,46 +366,46 @@ namespace BuildingSpawnPoints
             }
         }
 
-        public static VehicleType GetVehicleType(this TransportInfo info) => info.m_class switch
+        public static VehicleCategory GetVehicleType(this TransportInfo info) => info.m_class switch
         {
-            { m_subService: ItemClass.SubService.PublicTransportBus } => VehicleType.Bus,
-            { m_subService: ItemClass.SubService.PublicTransportTrolleybus } => VehicleType.Trolleybus,
-            { m_subService: ItemClass.SubService.PublicTransportTram } => VehicleType.Tram,
+            { m_subService: ItemClass.SubService.PublicTransportBus } => VehicleCategory.Bus,
+            { m_subService: ItemClass.SubService.PublicTransportTrolleybus } => VehicleCategory.Trolleybus,
+            { m_subService: ItemClass.SubService.PublicTransportTram } => VehicleCategory.Tram,
 
-            { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level3 } => VehicleType.Bus,
-            { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level4 } => VehicleType.PassengerBalloon,
+            { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level3 } => VehicleCategory.Bus,
+            { m_subService: ItemClass.SubService.PublicTransportTours, m_level: ItemClass.Level.Level4 } => VehicleCategory.PassengerBalloon,
 
-            { m_subService: ItemClass.SubService.PublicTransportTrain } => VehicleType.PassengerTrain | VehicleType.CargoTrain,
-            { m_subService: ItemClass.SubService.PublicTransportMetro } => VehicleType.MetroTrain,
-            { m_subService: ItemClass.SubService.PublicTransportMonorail } => VehicleType.Monorail,
+            { m_subService: ItemClass.SubService.PublicTransportTrain } => VehicleCategory.PassengerTrain | VehicleCategory.CargoTrain,
+            { m_subService: ItemClass.SubService.PublicTransportMetro } => VehicleCategory.MetroTrain,
+            { m_subService: ItemClass.SubService.PublicTransportMonorail } => VehicleCategory.Monorail,
 
-            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level1 } => /*VehicleType.PassengerShip |*/ VehicleType.CargoShip,
-            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level2 } => VehicleType.PassengerFerry,
+            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level1 } => /*VehicleType.PassengerShip |*/ VehicleCategory.CargoShip,
+            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level2 } => VehicleCategory.PassengerFerry,
 
-            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level1 } => VehicleType.CargoPlane,
-            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level2 } => VehicleType.PassengerBlimp,
-            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level3 } => VehicleType.PassengerCopter,
+            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level1 } => VehicleCategory.CargoPlane,
+            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level2 } => VehicleCategory.PassengerBlimp,
+            { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level3 } => VehicleCategory.PassengerCopter,
 
-            { m_subService: ItemClass.SubService.PublicTransportCableCar } => VehicleType.CableCar,
-            { m_service: ItemClass.Service.Disaster, m_level: ItemClass.Level.Level4 } => VehicleType.Bus,
+            { m_subService: ItemClass.SubService.PublicTransportCableCar } => VehicleCategory.CableCar,
+            { m_service: ItemClass.Service.Disaster, m_level: ItemClass.Level.Level4 } => VehicleCategory.Bus,
 
-            _ => VehicleType.None,
+            _ => VehicleCategory.None,
         };
-        public static VehicleType GetCopterType(this BuildingInfo info) => info.m_class.m_service switch
+        public static VehicleCategory GetCopterType(this BuildingInfo info) => info.m_class.m_service switch
         {
-            ItemClass.Service.PoliceDepartment => VehicleType.PoliceCopter,
-            ItemClass.Service.FireDepartment => VehicleType.FireCopter,
-            ItemClass.Service.Disaster => VehicleType.DisasterCopter,
-            ItemClass.Service.HealthCare => VehicleType.AmbulanceCopter,
-            _ => VehicleType.None,
+            ItemClass.Service.PoliceDepartment => VehicleCategory.PoliceCopter,
+            ItemClass.Service.FireDepartment => VehicleCategory.FireCopter,
+            ItemClass.Service.Disaster => VehicleCategory.DisasterCopter,
+            ItemClass.Service.HealthCare => VehicleCategory.AmbulanceCopter,
+            _ => VehicleCategory.None,
         };
 
         public static ref Building GetBuilding(this ushort id) => ref Singleton<BuildingManager>.instance.m_buildings.m_buffer[id];
         public static ref Vehicle GetVehicle(this ushort id) => ref Singleton<VehicleManager>.instance.m_vehicles.m_buffer[id];
 
-        public static VehicleType GetDefaultVehicles(this ref Building building) => building.Info.GetDefaultVehicleTypes();
-        public static VehicleType GetNeededVehicles(this ref Building building) => building.Info.GetNeededVehicleTypes();
-        public static VehicleType GetPossibleVehicles(this ref Building building) => building.Info.GetPossibleVehicleTypes();
+        public static VehicleCategory GetDefaultVehicles(this ref Building building) => building.Info.GetDefaultVehicleTypes();
+        public static VehicleCategory GetNeededVehicles(this ref Building building) => building.Info.GetNeededVehicleTypes();
+        public static VehicleCategory GetPossibleVehicles(this ref Building building) => building.Info.GetPossibleVehicleTypes();
 
         public static Vector3 FixZ(this Vector3 vector)
         {
@@ -407,6 +413,6 @@ namespace BuildingSpawnPoints
             return vector;
         }
 
-        public static VehicleService GetGroup(this VehicleType type) => EnumExtension.GetEnumValues<VehicleService>().FirstOrDefault(v => ((ulong)v & (ulong)type) != 0);
+        public static VehicleService GetGroup(this VehicleCategory type) => EnumExtension.GetEnumValues<VehicleService>().FirstOrDefault(v => ((ulong)v & (ulong)type) != 0);
     }
 }
