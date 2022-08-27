@@ -19,7 +19,6 @@ namespace BuildingSpawnPoints
     {
         public static string XmlName => "B";
 
-        //private static Randomizer Randomizer = new Randomizer(DateTime.Now.Ticks);
         public ushort Id { get; }
         private List<BuildingSpawnPoint> SpawnPoints { get; } = new List<BuildingSpawnPoint>();
         public IEnumerable<BuildingSpawnPoint> Points => SpawnPoints;
