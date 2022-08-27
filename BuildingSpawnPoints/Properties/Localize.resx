@@ -155,6 +155,9 @@
   <data name="Mod_WhatsNewMessage1_2_4" xml:space="preserve">
     <value>[TRANSLATION] Added Czech and Romanian translations.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] Added Plazas &amp; Promenades DLC support.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
   </data>
