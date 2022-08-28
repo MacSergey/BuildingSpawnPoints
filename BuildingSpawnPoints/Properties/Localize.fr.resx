@@ -149,8 +149,12 @@
   <data name="Mod_WhatsNewMessage1_2_2" xml:space="preserve">
     <value>[TRANSLATION] Ajout de la traduction hongroise.</value>
   </data>
-  
-  
+  <data name="Mod_WhatsNewMessage1_2_3" xml:space="preserve">
+    <value>[TRANSLATION] Ajout des traductions danoise et turque.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_2_4" xml:space="preserve">
+    <value>[TRANSLATION] Ajout des traductions tchèque et roumaine.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
   </data>
