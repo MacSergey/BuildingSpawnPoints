@@ -295,25 +295,25 @@ namespace BuildingSpawnPoints.UI
 
         public PointHeaderPanel()
         {
-            AddTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicle, BuildingSpawnPoints.Localize.Panel_AddVehicle);
+            AddTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleHeaderButton, BuildingSpawnPoints.Localize.Panel_AddVehicle);
             AddTypeButton.Button.OnSelect += AddType;
             Content.AddButton(AddTypeButton);
 
-            AddGroupTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroup, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
+            AddGroupTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroupHeaderButton, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
             AddGroupTypeButton.Button.OnSelect += AddType;
             Content.AddButton(AddGroupTypeButton);
 
-            AddAllTypesButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddAllVehicles, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
+            AddAllTypesButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddAllVehiclesHeaderButton, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
             Content.AddButton(AddAllTypesButton);
 
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Duplicate, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.DuplicateHeaderButton, BuildingSpawnPoints.Localize.Panel_DuplicatePoint, DuplicateClick));
 
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Copy, BuildingSpawnPoints.Localize.Panel_CopyPoint, CopyClick));
+            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.CopyHeaderButton, BuildingSpawnPoints.Localize.Panel_CopyPoint, CopyClick));
 
-            PasteButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Paste, BuildingSpawnPoints.Localize.Panel_PastePointReplace, PasteClick);
+            PasteButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.PasteHeaderButton, BuildingSpawnPoints.Localize.Panel_PastePointReplace, PasteClick);
             Content.AddButton(PasteButton);
 
-            AppendButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.Append, BuildingSpawnPoints.Localize.Panel_PastePointAppend, AppendClick);
+            AppendButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AppendHeaderButton, BuildingSpawnPoints.Localize.Panel_PastePointAppend, AppendClick);
             Content.AddButton(AppendButton);
         }
 

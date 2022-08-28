@@ -30,9 +30,9 @@ namespace BuildingSpawnPoints
         public bool IsBufferEmpty => Buffer == null;
 
         protected override UITextureAtlas UUIAtlas => SpawnPointsTextures.Atlas;
-        protected override string UUINormalSprite => SpawnPointsTextures.UUINormal;
-        protected override string UUIHoveredSprite => SpawnPointsTextures.UUIHovered;
-        protected override string UUIPressedSprite => SpawnPointsTextures.UUIPressed;
+        protected override string UUINormalSprite => SpawnPointsTextures.UUIButtonNormal;
+        protected override string UUIHoveredSprite => SpawnPointsTextures.UUIButtonHovered;
+        protected override string UUIPressedSprite => SpawnPointsTextures.UUIButtonPressed;
         protected override string UUIDisabledSprite => string.Empty;
 
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
