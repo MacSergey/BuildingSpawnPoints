@@ -93,13 +93,13 @@ namespace BuildingSpawnPoints
             button.zOrder = routesButton.zOrder + 1;
             button.eventTooltipEnter += (_, _) => button.tooltip = $"{SingletonMod<Mod>.Instance.NameRaw} ({SingletonTool<SpawnPointsTool>.Activation})";
 
-            button.BgAtlas = TextureHelper.InGameAtlas;
+            button.atlasBackground = TextureHelper.InGameAtlas;
             button.normalBgSprite = "InfoIconBaseNormal";
             button.pressedBgSprite = "InfoIconBasePressed";
             button.hoveredBgSprite = "InfoIconBaseHovered";
             button.disabledBgSprite = "InfoIconBaseDisabled";
 
-            button.FgAtlas = SpawnPointsTextures.Atlas;
+            button.atlasForeground = SpawnPointsTextures.Atlas;
             button.normalFgSprite = SpawnPointsTextures.InfoNormal;
             button.pressedFgSprite = SpawnPointsTextures.InfoPressed;
 
