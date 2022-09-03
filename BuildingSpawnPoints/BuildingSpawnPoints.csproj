@@ -110,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Patcher.cs" />
-    <Compile Include="UI\VehicleTypeProperty.cs" />
     <Compile Include="UI\WarningPanel.cs" />
     <Compile Include="Utilites\AIExtensions.cs" />
     <Compile Include="BuildingData.cs" />
@@ -230,7 +229,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_StartDate="2000/1/1" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_StartDate="2000/1/1" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_DetectChanges="False" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
