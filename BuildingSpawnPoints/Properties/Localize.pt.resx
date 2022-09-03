@@ -207,26 +207,42 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selecione o edifício</value>
   </data>
-  
-  
+  <data name="VehicleTypeGroup_Air" xml:space="preserve">
+    <value>Veículos aéreos</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>Veículos de carga</value>
+  </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
     <value>Helicópteros</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>Veículos padrão</value>
+  </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
     <value>Veículos de passageiros</value>
   </data>
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
+    <value>Veículos aéreos de passageiros</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
+    <value>Veículos ferroviários de passageiros</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
+    <value>Veículos rodoviários de passageiros</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
+    <value>Veículos aquáticos de passageiros</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Aviões</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Veículos ferroviários</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Road" xml:space="preserve">
+    <value>Veículos rodoviários</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Veículos de serviço</value>
   </data>
@@ -239,8 +255,12 @@
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camiões</value>
   </data>
-  
-  
+  <data name="VehicleTypeGroup_Water" xml:space="preserve">
+    <value>Veículos aquáticos</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>Todos</value>
+  </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulância</value>
   </data>
@@ -250,7 +270,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Balão de ar quente</value>
   </data>
-  
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>Bicicleta</value>
+  </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Autocarro</value>
   </data>
@@ -308,8 +330,12 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Ferry</value>
   </data>
-  
-  
+  <data name="VehicleType_PassengerPlane" xml:space="preserve">
+    <value>Avião de passageiros</value>
+  </data>
+  <data name="VehicleType_PassengerShip" xml:space="preserve">
+    <value>Navio de passageiros</value>
+  </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Comboio de passageiros</value>
   </data>
@@ -322,11 +348,15 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Correios</value>
   </data>
-  
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>Avião privado</value>
+  </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Manutenção de parques</value>
   </data>
-  
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>Foguetão</value>
+  </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Limpa-neve</value>
   </data>

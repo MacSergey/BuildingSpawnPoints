@@ -28,7 +28,7 @@ namespace BuildingSpawnPoints
 
         public override List<ModVersion> Versions => new List<ModVersion>()
         {
-            new ModVersion(new Version(1,3), new DateTime(2022, 8, 27)),
+            new ModVersion(new Version(1,3), new DateTime(2022, 9, 14)),
             new ModVersion(new Version(1,2,4), new DateTime(2022, 6, 19)),
             new ModVersion(new Version(1,2,3), new DateTime(2021, 8, 25)),
             new ModVersion(new Version(1,2,2), new DateTime(2021, 8, 7)),
@@ -39,7 +39,7 @@ namespace BuildingSpawnPoints
             new ModVersion(new Version(1,0,1), new DateTime(2021, 6, 10)),
             new ModVersion(new Version(1,0), new DateTime(2021, 6, 8)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 15, 0, 4);
+        protected override Version RequiredGameVersion => new Version(1, 15, 0, 5);
 
         protected override ulong StableWorkshopId => 2511258910ul;
         protected override ulong BetaWorkshopId => 2504315382ul;

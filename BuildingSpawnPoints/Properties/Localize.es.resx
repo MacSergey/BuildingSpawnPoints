@@ -127,7 +127,9 @@
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_2_4" xml:space="preserve">
+    <value>[TRANSLATION] Añadidas traducciones al checo y rumano.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>

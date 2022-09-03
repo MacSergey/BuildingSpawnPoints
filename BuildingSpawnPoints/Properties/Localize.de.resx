@@ -129,7 +129,9 @@
   <data name="Mod_WhatsNewMessage1_2_3" xml:space="preserve">
     <value>[TRANSLATION] Dänische und türkische Übersetzungen hinzugefügt.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_2_4" xml:space="preserve">
+    <value>[TRANSLATION] Tschechische und rumänische Übersetzungen hinzugefügt.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>
