@@ -1,173 +1,59 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2FB06E50-A869-450B-BE38-32529A8D960B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BuildingSpawnPoints</RootNamespace>
-    <AssemblyName>BuildingSpawnPoints</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>net35</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</ManagedDLLPath>
+    <ExternalDLLPath>$(SolutionDir)/libs</ExternalDLLPath>
+    <AssemblySearchPaths>
+      $(AssemblySearchPaths);
+      $(ManagedDLLPath);
+      $(ExternalDLLPath)
+    </AssemblySearchPaths>
+    <Configurations>Beta Debug;Beta Release;Stable Debug;Stable Release</Configurations>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
+    <Version>1.2.4.3</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Beta Release' OR '$(Configuration)' == 'Beta Debug'">
+    <Version>1.2.0.99</Version>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stable Release|AnyCPU'">
-    <OutputPath>bin\Stable Release\</OutputPath>
-    <LangVersion>9.0</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DefineConstants>
-    </DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants />
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stable Debug|AnyCPU'">
-    <OutputPath>bin\Stable Debug\</OutputPath>
-    <LangVersion>9.0</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
     <Optimize>false</Optimize>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <DefineConstants>DEBUG</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Beta Release|AnyCPU'">
-    <OutputPath>bin\Beta Release\</OutputPath>
-    <LangVersion>9.0</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <DefineConstants>BETA</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Beta Debug|AnyCPU'">
-    <OutputPath>bin\Beta Debug\</OutputPath>
-    <LangVersion>9.0</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
     <Optimize>false</Optimize>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <DefineConstants>BETA, DEBUG</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <AssemblyVersionSettings>None.None.None.Increment</AssemblyVersionSettings>
-    <UpdatePackageVersion>False</UpdatePackageVersion>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CitiesHarmony.API, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CitiesHarmony.API.2.0.0\lib\net35\CitiesHarmony.API.dll</HintPath>
-    </Reference>
-    <Reference Include="CitiesHarmony.Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CitiesHarmony.Harmony.2.0.4\lib\net35\CitiesHarmony.Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ColossalManaged">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\ColossalManaged.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ICities">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MoveItIntegration">
-      <HintPath>..\..\CS-MoveIt\MoveItIntegration\bin\Debug\MoveItIntegration.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnifiedUILib, Version=2.2.9.20126, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnifiedUILib.2.2.9\lib\net35\UnifiedUILib.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Patcher.cs" />
-    <Compile Include="UI\VehicleTypeProperty.cs" />
-    <Compile Include="UI\WarningPanel.cs" />
-    <Compile Include="Utilites\AIExtensions.cs" />
-    <Compile Include="BuildingData.cs" />
-    <Compile Include="DataExtensions.cs" />
-    <Compile Include="Manager.cs" />
-    <Compile Include="Mod.cs" />
-    <Compile Include="UI\Panel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Localize.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Localize.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs" />
-    <Compile Include="UI\PointPanel.cs" />
-    <Compile Include="UI\SpawnPointsTextures.cs" />
-    <Compile Include="Tool.cs" />
-    <Compile Include="Utilites\MoveItIntegration.cs" />
-    <Compile Include="Utilites\ObjectMap.cs" />
-    <Compile Include="VehicleTypes.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <EmbeddedResource Include="Properties\Localize.cs.resx" />
-    <EmbeddedResource Include="Properties\Localize.da.resx" />
-    <EmbeddedResource Include="Properties\Localize.hu.resx" />
-    <EmbeddedResource Include="Properties\Localize.it.resx" />
-    <EmbeddedResource Include="Properties\Localize.ko.resx" />
-    <EmbeddedResource Include="Properties\Localize.nl.resx" />
-    <EmbeddedResource Include="Properties\Localize.pt.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Localize.de.resx" />
-    <EmbeddedResource Include="Properties\Localize.es.resx" />
-    <EmbeddedResource Include="Properties\Localize.fi.resx" />
-    <EmbeddedResource Include="Properties\Localize.fr.resx" />
-    <EmbeddedResource Include="Properties\Localize.ja.resx" />
-    <EmbeddedResource Include="Properties\Localize.pl.resx" />
-    <EmbeddedResource Include="Properties\Localize.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Localize.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>BuildingSpawnPoints</CustomToolNamespace>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Localize.ro.resx" />
-    <EmbeddedResource Include="Properties\Localize.ru.resx" />
-    <EmbeddedResource Include="Properties\Localize.tr.resx" />
-    <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
-  </ItemGroup>
-  <ItemGroup />
+    
   <ItemGroup>
     <EmbeddedResource Include="Resources\UUIButton\UUIButtonHovered.png" />
     <EmbeddedResource Include="Resources\UUIButton\UUIButtonNormal.png" />
     <EmbeddedResource Include="Resources\UUIButton\UUIButtonPressed.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\HeaderButtons\AddAllVehiclesHeaderButton.png" />
     <EmbeddedResource Include="Resources\HeaderButtons\AddVehicleGroupHeaderButton.png" />
     <EmbeddedResource Include="Resources\HeaderButtons\AddVehicleHeaderButton.png" />
@@ -177,11 +63,47 @@
     <EmbeddedResource Include="Resources\HeaderButtons\DuplicateHeaderButton.png" />
     <EmbeddedResource Include="Resources\HeaderButtons\PasteHeaderButton.png" />
     <EmbeddedResource Include="Resources\HeaderButtons\ResetHeaderButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\InfoNormal.png" />
     <EmbeddedResource Include="Resources\Icons\InfoPressed.png" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CitiesHarmony.API" Version="2.1.0" />
+    <PackageReference Include="UnifiedUILib" Version="2.2.12" />
+    <Reference Include="Assembly-CSharp">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ColossalManaged">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ICities">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MoveItIntegration" />
+    <Reference Update="System.Xml.Linq">
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Localize.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Localize.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Localize.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localize.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>BuildingSpawnPoints</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <Import Project="..\ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\DependencyShared\DependencyShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.projitems" Label="Shared" />
@@ -226,42 +148,54 @@
   <Import Project="..\ModsCommon\LocalizeShared\cs\LocalizeShared.cs.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\ro\LocalizeShared.ro.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\TriangulatorShared\Triangulator.projitems" Label="Shared" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_ConfigurationName="Beta Debug" BuildVersion_StartDate="2000/1/1" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
-    </VisualStudio>
-  </ProjectExtensions>
+  
+
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2511258910</WorkshopId>
     <Type>Stable</Type>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)' == 'Beta Release' OR '$(Configuration)' == 'Beta Debug'">
     <WorkshopId>2504315382</WorkshopId>
     <Type>Beta</Type>
   </PropertyGroup>
+
   <PropertyGroup>
-    <LocalDir>$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(ProjectName)$(Type)</LocalDir>
+    <LocalDir>$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(MSBuildProjectName)$(Type)</LocalDir>
     <WorkshopDir>C:\Program Files (x86)\Steam\steamapps\workshop\content\255710\$(WorkshopId)</WorkshopDir>
   </PropertyGroup>
-  <Target Name="AfterBuild">
+
+
+  <Target Name="PdbToMdb" AfterTargets="Build">
+    <!--<Message Text="Convert pdb to mdb" Importance="high" />
+
+    <PropertyGroup>
+      <UnityPath>$(MSBuildExtensionsPath64)\..\Unity\</UnityPath>
+      <UnityPath Condition="! Exists ('$(UnityPath)')">..\Unity\</UnityPath>
+      <MonoDir>$(UnityPath)Editor\Data\MonoBleedingEdge\</MonoDir>
+    </PropertyGroup>
+
+    <Exec Command='"$(MonoDir)bin\mono.exe" "$(MonoDir)lib\mono\4.5\pdb2mdb.exe" "$(TargetPath)"' />-->
     <ItemGroup>
       <FilesToDelete Include="$(OutDir)*.pdb" />
-      <FilesToDelete Include="$(OutDir)Assembly-CSharp-firstpass.dll" />
-      <FilesToDelete Include="$(OutDir)ICSharpCode.SharpZipLib.dll" />
-      <FilesToDelete Include="$(OutDir)PopsApiWrapper.dll" />
     </ItemGroup>
-    <Message Text="AfterBuild event $(LocalDir) $(WorkshopDir)" Importance="high" />
     <Delete Files="@(FilesToDelete)" />
+  </Target>
+
+  <Target Name="DeployToLocal" AfterTargets="PdbToMdb">
+    <Message Text="Deploy to local $(LocalDir)" Importance="high" />
     <RemoveDir Directories="$(LocalDir)" />
     <ItemGroup>
       <FilesToCopy Include="$(OutDir)\**\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(LocalDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
-  <Target Name="AfterBuildRelease" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Beta Release'">
+
+  <Target Name="DeployToWorkshop" AfterTargets="PdbToMdb" Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Beta Release'">
+    <Message Text="Deploy to workshop $(WorkshopDir)" Importance="high" />
     <RemoveDir Directories="$(WorkshopDir)" />
     <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(WorkshopDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Copy SourceFiles="$(ProjectDir)..\Workshop\PreviewImage$(Type).png" DestinationFiles="$(WorkshopDir)\PreviewImage.png" />
   </Target>
+  
 </Project>

@@ -32,7 +32,7 @@ namespace BuildingSpawnPoints.Utilites
 
         public ushort Building
         {
-            get => (Id & BuildingType) == 0 ? 0 : (ushort)(Id & DataMask);
+            get => (Id & BuildingType) == 0 ? (ushort)0 : (ushort)(Id & DataMask);
             set => Id = BuildingType | value;
         }
 
