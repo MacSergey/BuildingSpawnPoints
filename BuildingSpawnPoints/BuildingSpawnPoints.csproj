@@ -203,28 +203,28 @@
   <Import Project="..\ModsCommon\NetExtension\NetExtension.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\ToolPanelShared\ToolPanelShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\PropertyPanelShared\PropertyPanelShared.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ru.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.es.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.de.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.fi.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ja.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.zh-CN.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.pl.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\ru\LocalizeShared.ru.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\es\LocalizeShared.es.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\de\LocalizeShared.de.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\fi\LocalizeShared.fi.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\ja\LocalizeShared.ja.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\zh-CN\LocalizeShared.zh-CN.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\pl\LocalizeShared.pl.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\HarmonyReportShared\HarmonyReportShared.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.fr.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.nl.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.pt.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\fr\LocalizeShared.fr.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\nl\LocalizeShared.nl.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\pt\LocalizeShared.pt.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\ColorsShared\ColorsShared.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.it.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\it\LocalizeShared.it.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\PropertyValueShared\PropertyValueShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\HeaderShared\HeaderShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\UUIRegisterShared\UUIRegisterShared.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ko.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.hu.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.da.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.tr.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.cs.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ro.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\ko\LocalizeShared.ko.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\hu\LocalizeShared.hu.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\da\LocalizeShared.da.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\tr\LocalizeShared.tr.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\cs\LocalizeShared.cs.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\ro\LocalizeShared.ro.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\TriangulatorShared\Triangulator.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
