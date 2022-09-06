@@ -155,7 +155,7 @@ namespace BuildingSpawnPoints {
         /// <summary>
         ///   Ищет локализованную строку, похожую на [UPDATED] Added Plazas &amp; Promenades DLC support..
         /// </summary>
-        internal static string Mod_WhatsNewMessage1_3 {
+        public static string Mod_WhatsNewMessage1_3 {
             get {
                 return ResourceManager.GetString("Mod_WhatsNewMessage1_3", resourceCulture);
             }
