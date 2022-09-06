@@ -83,7 +83,7 @@
       <Private>false</Private>
     </Reference>
     <Reference Include="MoveItIntegration" />
-    <Reference Update="System.Xml.Linq">
+    <Reference Include="System.Xml.Linq">
       <Private>true</Private>
     </Reference>
   </ItemGroup>
