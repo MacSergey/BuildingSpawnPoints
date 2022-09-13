@@ -43,6 +43,7 @@ namespace BuildingSpawnPoints
 
         protected override ulong StableWorkshopId => 2511258910ul;
         protected override ulong BetaWorkshopId => 2504315382ul;
+        public override string CrowdinUrl => "https://crowdin.com/translate/macsergey-other-mods/106";
 
         protected override string IdRaw => nameof(BuildingSpawnPoints);
 
