@@ -34,7 +34,7 @@ namespace BuildingSpawnPoints.Utilites
                 return;
 
             if (SingletonManager<Manager>.Instance[targetInstanceID.Building, Options.Create] is BuildingData data)
-                data.FromXml(config);
+                data.FromXml(SingletonMod<Mod>.Version, config);
         }
 
         public override string Encode64(object record) => record == null ? null : EncodeUtil.BinaryEncode64(record?.ToString());

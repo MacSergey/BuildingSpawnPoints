@@ -19,19 +19,18 @@ namespace BuildingSpawnPoints
     {
         public static string XmlName => "B";
 
-        //private static Randomizer Randomizer = new Randomizer(DateTime.Now.Ticks);
         public ushort Id { get; }
         private List<BuildingSpawnPoint> SpawnPoints { get; } = new List<BuildingSpawnPoint>();
         public IEnumerable<BuildingSpawnPoint> Points => SpawnPoints;
 
-        public VehicleType DefaultVehicles => Id.GetBuilding().GetDefaultVehicles();
-        public VehicleType NeededVehicles => Id.GetBuilding().GetNeededVehicles();
-        public VehicleType PossibleVehicles => Id.GetBuilding().GetPossibleVehicles();
+        public VehicleCategory DefaultVehicles => Id.GetBuilding().GetDefaultVehicles();
+        public VehicleCategory NeededVehicles => Id.GetBuilding().GetNeededVehicles();
+        public VehicleCategory PossibleVehicles => Id.GetBuilding().GetPossibleVehicles();
 
-        public VehicleType LostVehicles => SpawnPoints.Aggregate(NeededVehicles, (v, p) => v & ~p.VehicleTypes.Value);
-        public VehicleType NotAddedVehicles => SpawnPoints.Aggregate(PossibleVehicles, (v, p) => v & ~p.VehicleTypes.Value);
+        public VehicleCategory LostVehicles => SpawnPoints.Aggregate(NeededVehicles, (v, p) => v & ~p.Categories.Value);
+        public VehicleCategory NotAddedVehicles => SpawnPoints.Aggregate(PossibleVehicles, (v, p) => v & ~p.Categories.Value);
 
-        public bool IsCorrect => LostVehicles == VehicleType.None;
+        public bool IsCorrect => LostVehicles == VehicleCategory.None;
 
         public string XmlSection => XmlName;
 
@@ -45,8 +44,8 @@ namespace BuildingSpawnPoints
 
         public bool GetPosition(PointType type, ref Building data, VehicleInfo vehicle, ref Randomizer randomizer, out Vector3 position, out Vector3 target)
         {
-            var vehicleType = vehicle.GetVehicleType();
-            var points = SpawnPoints.Where(p => (p.Type & type) != PointType.None && (p.VehicleTypes & vehicleType) != VehicleType.None).ToArray();
+            var category = vehicle.GetVehicleCategory();
+            var points = SpawnPoints.Where(p => (p.Type & type) != PointType.None && (p.Categories & category) != VehicleCategory.None).ToArray();
 
             if (points.Length != 0)
             {
@@ -56,7 +55,7 @@ namespace BuildingSpawnPoints
                 var index = randomizer.Int32((uint)points.Length);
                 points[index].GetAbsolute(ref data, out position, out target);
 #if DEBUG
-                SingletonMod<Mod>.Logger.Debug($"{type} {vehicleType} on building #{Id}; {index + 1} of {points.Length}; {position}");
+                SingletonMod<Mod>.Logger.Debug($"{type} {category} on building #{Id}; {index + 1} of {points.Length}; {position}");
 #endif
                 return true;
             }
@@ -75,7 +74,7 @@ namespace BuildingSpawnPoints
         }
         public BuildingSpawnPoint AddPoint()
         {
-            var spawnPoint = new BuildingSpawnPoint(this, Vector3.zero, vehicleType: VehicleType.None);
+            var spawnPoint = new BuildingSpawnPoint(this, Vector3.zero, vehicleType: VehicleCategory.None);
             AddPoint(spawnPoint);
             return spawnPoint;
         }
@@ -136,17 +135,17 @@ namespace BuildingSpawnPoints
             return config;
         }
 
-        public void FromXml(XElement config)
+        public void FromXml(Version version, XElement config)
         {
             SpawnPoints.Clear();
 
             foreach (var pointConfig in config.Elements(BuildingSpawnPoint.XmlName))
             {
-                if (BuildingSpawnPoint.FromXml(pointConfig, this, out var point))
+                if (BuildingSpawnPoint.FromXml(version, pointConfig, this, out var point))
                     AddPoint(point);
             }
         }
-        public static bool FromXml(XElement config, ObjectsMap map, out BuildingData data)
+        public static bool FromXml(Version version, XElement config, ObjectsMap map, out BuildingData data)
         {
             var id = config.GetAttrValue(nameof(Id), (ushort)0);
 
@@ -158,7 +157,7 @@ namespace BuildingSpawnPoints
                 try
                 {
                     data = new BuildingData(id, false);
-                    data.FromXml(config);
+                    data.FromXml(version, config);
 
                     return true;
                 }
@@ -176,7 +175,7 @@ namespace BuildingSpawnPoints
         public BuildingData Data { get; set; }
         public Action OnChanged { get; set; }
 
-        public PropertyULongEnumValue<VehicleType> VehicleTypes { get; }
+        public PropertyULongEnumValue<VehicleCategory> Categories { get; }
         public PropertyEnumValue<PointType> Type { get; }
         public PropertyStructValue<Vector4> Position { get; set; }
 
@@ -209,26 +208,26 @@ namespace BuildingSpawnPoints
         {
             Data = data;
 
-            VehicleTypes = new PropertyULongEnumValue<VehicleType>("V", Changed, Data.DefaultVehicles);
+            Categories = new PropertyULongEnumValue<VehicleCategory>("V", Changed, Data.DefaultVehicles);
             Type = new PropertyEnumValue<PointType>("T", Changed, PointType.Both);
             Position = new PropertyVector4Value(Changed, Vector4.zero, labelY: "H", labelW: "A");
         }
-        public BuildingSpawnPoint(BuildingData data, Vector3 position, float angle = 0f, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both) : this(data)
+        public BuildingSpawnPoint(BuildingData data, Vector3 position, float angle = 0f, VehicleCategory vehicleType = VehicleCategory.Default, PointType type = PointType.Both) : this(data)
         {
             Init(position.FixZ(), angle, vehicleType, type);
         }
-        public BuildingSpawnPoint(BuildingData data, Vector3 position, Vector3 target, VehicleType vehicleType = VehicleType.Default, PointType type = PointType.Both, bool invert = false) : this(data)
+        public BuildingSpawnPoint(BuildingData data, Vector3 position, Vector3 target, VehicleCategory vehicleType = VehicleCategory.Default, PointType type = PointType.Both, bool invert = false) : this(data)
         {
             position = position.FixZ();
             target = target.FixZ();
             Init(position, (invert ? position - target : target - position).AbsoluteAngle(), vehicleType, type);
         }
 
-        private void Init(Vector4 position, float angle, VehicleType vehicleType, PointType type)
+        private void Init(Vector4 position, float angle, VehicleCategory vehicleType, PointType type)
         {
             position.w = angle;
             Position.Value = position;
-            VehicleTypes.Value = vehicleType;
+            Categories.Value = vehicleType;
             Type.Value = type;
         }
         private void Changed() => OnChanged?.Invoke();
@@ -279,7 +278,7 @@ namespace BuildingSpawnPoints
         {
             var copy = new BuildingSpawnPoint(data ?? Data);
 
-            copy.VehicleTypes.Value = VehicleTypes;
+            copy.Categories.Value = Categories;
             copy.Type.Value = Type;
             copy.Position.Value = Position;
 
@@ -291,18 +290,21 @@ namespace BuildingSpawnPoints
             var config = new XElement(XmlSection);
 
             Type.ToXml(config);
-            VehicleTypes.ToXml(config);
+            Categories.ToXml(config);
             Position.ToXml(config);
 
             return config;
         }
-        public static bool FromXml(XElement config, BuildingData data, out BuildingSpawnPoint point)
+        public static bool FromXml(Version version, XElement config, BuildingData data, out BuildingSpawnPoint point)
         {
             point = new BuildingSpawnPoint(data);
 
             point.Type.FromXml(config);
-            point.VehicleTypes.FromXml(config);
+            point.Categories.FromXml(config);
             point.Position.FromXml(config);
+
+            if (version < new Version("1.3"))
+                point.Categories.Value = point.Categories.Value.GetNew();
 
             return true;
         }
@@ -327,30 +329,32 @@ namespace BuildingSpawnPoints
         public ItemClass.Service Service;
         public NetInfo.LaneType Lane;
         public VehicleInfo.VehicleType Type;
+        public VehicleInfo.VehicleCategory VehicleCategory;
         public float Distance;
 
-        public VehicleLaneData(ItemClass.Service service, NetInfo.LaneType lane, VehicleInfo.VehicleType type, float distance)
+        public VehicleLaneData(ItemClass.Service service, NetInfo.LaneType lane, VehicleInfo.VehicleType type, VehicleInfo.VehicleCategory vehicleCategory, float distance)
         {
             Service = service;
             Lane = lane;
             Type = type;
+            VehicleCategory = vehicleCategory;
             Distance = distance;
         }
         private static Dictionary<VehicleService, VehicleLaneData> Dictinary { get; } = new Dictionary<VehicleService, VehicleLaneData>()
         {
-            {VehicleService.Car, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle | NetInfo.LaneType.TransportVehicle, VehicleInfo.VehicleType.Car, 32f) },
-            {VehicleService.Trolleybus, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Trolleybus, 32f) },
-            {VehicleService.Tram, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Tram, 32f) },
-            {VehicleService.Plane, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Plane, 16f) },
-            {VehicleService.Balloon, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Balloon, 64f) },
-            {VehicleService.Blimp, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Blimp, 64f) },
-            {VehicleService.Ship, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 64f) },
-            {VehicleService.Ferry, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, 64f) },
-            {VehicleService.Fishing, new VehicleLaneData(ItemClass.Service.Fishing, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, 40f) },
-            {VehicleService.Train, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Train, 32f) },
-            {VehicleService.Metro, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Metro, 32f) },
-            {VehicleService.Monorail, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Monorail, 32f) },
-            {VehicleService.CableCar, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.CableCar, 32f) },
+            {VehicleService.Car, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle | NetInfo.LaneType.TransportVehicle, VehicleInfo.VehicleType.Car, VehicleInfo.VehicleCategory.RoadTransport, 32f) },
+            {VehicleService.Trolleybus, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Trolleybus, VehicleInfo.VehicleCategory.Trolleybus, 32f) },
+            {VehicleService.Tram, new VehicleLaneData(ItemClass.Service.Road, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Tram, VehicleInfo.VehicleCategory.Tram, 32f) },
+            {VehicleService.Plane, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Plane, VehicleInfo.VehicleCategory.Planes, 16f) },
+            {VehicleService.Balloon, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Balloon, VehicleInfo.VehicleCategory.PassengerBalloon, 64f) },
+            {VehicleService.Blimp, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Blimp, VehicleInfo.VehicleCategory.PassengerBlimp, 64f) },
+            {VehicleService.Ship, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, VehicleInfo.VehicleCategory.Ships, 64f) },
+            {VehicleService.Ferry, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ferry, VehicleInfo.VehicleCategory.PassengerFerry, 64f) },
+            {VehicleService.Fishing, new VehicleLaneData(ItemClass.Service.Fishing, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Ship, VehicleInfo.VehicleCategory.FishingBoat, 40f) },
+            {VehicleService.Train, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Train, VehicleInfo.VehicleCategory.Trains, 32f) },
+            {VehicleService.Metro, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Metro, VehicleInfo.VehicleCategory.MetroTrain, 32f) },
+            {VehicleService.Monorail, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.Monorail, VehicleInfo.VehicleCategory.Monorail, 32f) },
+            {VehicleService.CableCar, new VehicleLaneData(ItemClass.Service.PublicTransport, NetInfo.LaneType.Vehicle, VehicleInfo.VehicleType.CableCar, VehicleInfo.VehicleCategory.CableCar, 32f) },
         };
 
         public static VehicleLaneData Get(VehicleService type) => Dictinary[type];
