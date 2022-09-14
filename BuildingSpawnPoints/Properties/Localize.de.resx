@@ -132,6 +132,7 @@
   <data name="Mod_WhatsNewMessage1_2_4" xml:space="preserve">
     <value>[TRANSLATION] Tschechische und rumänische Übersetzungen hinzugefügt.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>
