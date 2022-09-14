@@ -128,7 +128,9 @@
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] Added Plazas &amp; Promenades DLC support.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>全タイプの車両を追加</value>
   </data>
