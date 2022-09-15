@@ -253,9 +253,9 @@ namespace BuildingSpawnPoints
 
             if ((oldValue & 1ul) != 0) newCategory |= VehicleCategory.Ambulance;
             if ((oldValue & (1ul << 1)) != 0) newCategory |= VehicleCategory.Hearse;
-            if ((oldValue & (1ul << 2)) != 0) newCategory |= VehicleCategory.Police;
-            if ((oldValue & (1ul << 3)) != 0) newCategory |= VehicleCategory.Disaster;
-            if ((oldValue & (1ul << 4)) != 0) newCategory |= VehicleCategory.Bus;
+            if ((oldValue & (1ul << 2)) != 0) newCategory |= VehicleCategory.Bus;
+            if ((oldValue & (1ul << 3)) != 0) newCategory |= VehicleCategory.Police;
+            if ((oldValue & (1ul << 4)) != 0) newCategory |= VehicleCategory.Disaster;
             if ((oldValue & (1ul << 5)) != 0) newCategory |= VehicleCategory.Trolleybus;
             if ((oldValue & (1ul << 6)) != 0) newCategory |= VehicleCategory.Taxi;
             if ((oldValue & (1ul << 7)) != 0) newCategory |= VehicleCategory.Bicycle;
