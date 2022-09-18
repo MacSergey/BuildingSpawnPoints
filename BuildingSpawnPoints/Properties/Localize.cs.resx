@@ -128,7 +128,9 @@
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] Přidána podpora Plazas &amp; Promenades DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Přidat všechny typy vozidel</value>
   </data>
@@ -138,28 +140,42 @@
   <data name="Panel_AddVehicle" xml:space="preserve">
     <value>Přidat typ vozidla</value>
   </data>
-  
-  
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>Přidat typ vozidla</value>
+  </data>
+  <data name="Panel_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
     <value>Použít u všech budov tohoto typu</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
     <value>Zkopírovat</value>
   </data>
-  
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>Kopírovat bod</value>
+  </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
     <value>Duplikovat bod</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
     <value>Žádný bod v budově neobsahuje tyto typy vozidel:</value>
   </data>
-  
+  <data name="Panel_NoPointWarningContinue" xml:space="preserve">
+    <value>Objeví se ve výchozí pozici.</value>
+  </data>
   <data name="Panel_Paste" xml:space="preserve">
     <value>Vložit</value>
   </data>
-  
-  
-  
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>Vložit bod (připojit typy vozidel)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>Vložit bod (nahradit typy vozidel)</value>
+  </data>
+  <data name="Panel_PositionFormat" xml:space="preserve">
+    <value>{0}m</value>
+  </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
     <value>Obnovit výchozí nastavení</value>
   </data>
@@ -194,34 +210,72 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Vyberte budovu</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_Air" xml:space="preserve">
+    <value>Letecká vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>Nákladní vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>Vrtulníky</value>
+  </data>
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>Výchozí vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
+    <value>Osobní vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
+    <value>Osobní vzdušná vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
+    <value>Osobní kolejová vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
+    <value>Osobní silniční vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
+    <value>Osobní vodní vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>Letadla</value>
+  </data>
+  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
+    <value>Kolejová vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Road" xml:space="preserve">
+    <value>Silniční vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>Servisní vozidla</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>Lodě</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>Vlaky</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>Nákladní vozy</value>
+  </data>
+  <data name="VehicleTypeGroup_Water" xml:space="preserve">
+    <value>Vodní vozidla</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>Vše</value>
+  </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Sanitka</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>Záchranný vrtulník</value>
+    <value>Zdravotnický vrtulník</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Balón</value>
   </data>
-  
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>Jízdní kola</value>
+  </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Autobus</value>
   </data>
@@ -240,8 +294,12 @@
   <data name="VehicleType_CargoTruck" xml:space="preserve">
     <value>Nákladní vůz</value>
   </data>
-  
-  
+  <data name="VehicleType_DisasterCopter" xml:space="preserve">
+    <value>Vrtulník odezvy na katastrofu</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>Odezva na katastrofu</value>
+  </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
     <value>Požární helikoptéra</value>
   </data>
@@ -275,8 +333,12 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Trajekt</value>
   </data>
-  
-  
+  <data name="VehicleType_PassengerPlane" xml:space="preserve">
+    <value>Dopravní letadlo</value>
+  </data>
+  <data name="VehicleType_PassengerShip" xml:space="preserve">
+    <value>Loď pro pasažéry</value>
+  </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Cestovní vlak</value>
   </data>
@@ -289,11 +351,15 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Poštovní vozy</value>
   </data>
-  
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>Soukromé letadlo</value>
+  </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Údržba silnic</value>
   </data>
-  
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>Raketa</value>
+  </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Sněžný pluh</value>
   </data>
@@ -306,5 +372,7 @@
   <data name="VehicleType_Trolleybus" xml:space="preserve">
     <value>Trolejbus</value>
   </data>
-  
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>Vysávací vůz</value>
+  </data>
 </root>

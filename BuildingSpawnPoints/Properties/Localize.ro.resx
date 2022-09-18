@@ -128,7 +128,9 @@
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] Adăugat suportul pentru Plazas &amp; Promenades DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adăugați toate tipurile de vehicule</value>
   </data>
