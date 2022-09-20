@@ -141,16 +141,16 @@
     <value>Přidat typ vozidla</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>Přidat typ vozidla</value>
+    <value>Přidat skupinu vozidel</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>Použít u všech budov tohoto typu</value>
+    <value>Použít na všechny budovy tohoto typu</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>Zkopírovat</value>
+    <value>Kopírovat</value>
   </data>
   <data name="Panel_CopyPoint" xml:space="preserve">
     <value>Kopírovat bod</value>
@@ -159,7 +159,7 @@
     <value>Duplikovat bod</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>Žádný bod v budově neobsahuje tyto typy vozidel:</value>
+    <value>Žádný bod v této budově neobsahuje tyto typy vozidel:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
     <value>Objeví se ve výchozí pozici.</value>
@@ -185,12 +185,14 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Tento bod leží příliš daleko od silnice pro určité typy vozidel, přesuň ho blíž, jinak nebude fungovat</value>
   </data>
-  
+  <data name="PointType_Middle" xml:space="preserve">
+    <value>Prostředek</value>
+  </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>Spawnout</value>
+    <value>Spawn</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>Despawnout</value>
+    <value>Despawn</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Typ</value>
@@ -226,16 +228,16 @@
     <value>Osobní vozidla</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Osobní vzdušná vozidla</value>
+    <value>Vzdušná vozidla pro pasažéry</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Osobní kolejová vozidla</value>
+    <value>Kolejová vozidla pro pasažéry</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
     <value>Osobní silniční vozidla</value>
   </data>
   <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Osobní vodní vozidla</value>
+    <value>Vodní vozidla pro pasažéry</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Letadla</value>
@@ -274,7 +276,7 @@
     <value>Balón</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>Jízdní kola</value>
+    <value>Jízdní kolo</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Autobus</value>
@@ -295,13 +297,13 @@
     <value>Nákladní vůz</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Vrtulník odezvy na katastrofu</value>
+    <value>Vrtulník krizového štábu</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>Odezva na katastrofu</value>
+    <value>Krizový štáb</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>Požární helikoptéra</value>
+    <value>Požární vrtulník</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
     <value>Hasičský vůz</value>
@@ -310,7 +312,7 @@
     <value>Rybářská loď</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>Popelářské auto</value>
+    <value>Popelářský vůz</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
     <value>Pohřební vůz</value>
@@ -325,10 +327,10 @@
     <value>Údržba parků</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>Cestovní vzducholoď</value>
+    <value>Vzducholoď</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>Cestovní vrtulník</value>
+    <value>Vrtulník pro cestující</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Trajekt</value>
@@ -340,16 +342,16 @@
     <value>Loď pro pasažéry</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>Cestovní vlak</value>
+    <value>Vlak pro přepravu cestujících</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
     <value>Policie</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>Policejní helikoptéra</value>
+    <value>Policejní vrtulník</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>Poštovní vozy</value>
+    <value>Poštovní vůz</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
     <value>Soukromé letadlo</value>
