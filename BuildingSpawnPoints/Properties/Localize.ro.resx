@@ -180,7 +180,7 @@
     <value>Resetare la valori implicite</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>Clădire #{0}</value>
+    <value>Clădirea #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Acest punct a fost plasat prea departe din stradă pentru câteva tipuri de vehicule, plasați-l mai aproape, dacă nu el nu o să funcționeze</value>
@@ -205,7 +205,7 @@
     <value>Sigur doriți să aplicați această setare pentru toate clădirile din acest tip?</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>Clădire #{0}</value>
+    <value>Clădirea #{0}</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selectați clădirea</value>
@@ -295,7 +295,7 @@
     <value>Camioane de marfă</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>Elicopter de urgență</value>
+    <value>Elicopter de urgențe</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
     <value>Vehicule de urgență</value>

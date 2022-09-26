@@ -149,7 +149,9 @@
     <value>[TRANSLATION] 增加丹麦语和土耳其语翻译。</value>
   </data>
   
-  
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
   </data>
