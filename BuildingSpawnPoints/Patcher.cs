@@ -234,7 +234,7 @@ namespace BuildingSpawnPoints
             {
                 data.Unspawn(vehicleID);
 
-                var building = sourceBuilding.GetBuilding();
+                ref var building = ref sourceBuilding.GetBuilding();
                 var randomizer = new Randomizer(vehicleID);
                 building.Info.m_buildingAI.CalculateSpawnPosition(sourceBuilding, ref building, ref randomizer, __instance.m_info, out var position, out _);
 
@@ -243,8 +243,8 @@ namespace BuildingSpawnPoints
                 data.m_targetPos1 = data.m_targetPos0;
                 data.m_targetPos2 = data.m_targetPos0;
                 data.m_targetPos3 = data.m_targetPos0;
-                Singleton<BuildingManager>.instance.m_buildings.m_buffer[sourceBuilding].AddOwnVehicle(vehicleID, ref data);
-                if ((sourceBuilding.GetBuilding().m_flags & Building.Flags.IncomingOutgoing) != 0)
+                building.AddOwnVehicle(vehicleID, ref data);
+                if ((building.m_flags & Building.Flags.IncomingOutgoing) != 0)
                 {
                     if ((data.m_flags & Vehicle.Flags.TransferToTarget) != 0)
                         data.m_flags |= Vehicle.Flags.Importing;
@@ -266,7 +266,7 @@ namespace BuildingSpawnPoints
             {
                 data.Unspawn(vehicleID);
 
-                var building = sourceBuilding.GetBuilding();
+                ref var building = ref sourceBuilding.GetBuilding();
                 var randomizer = new Randomizer(vehicleID);
                 building.Info.m_buildingAI.CalculateSpawnPosition(sourceBuilding, ref building, ref randomizer, instance.m_info, out var position, out var target);
                 var rotation = Quaternion.identity;

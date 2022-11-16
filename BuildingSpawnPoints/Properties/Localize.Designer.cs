@@ -19,7 +19,7 @@ namespace BuildingSpawnPoints {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Localize {
@@ -158,6 +158,16 @@ namespace BuildingSpawnPoints {
         public static string Mod_WhatsNewMessage1_3 {
             get {
                 return ResourceManager.GetString("Mod_WhatsNewMessage1_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на [FIXED] police car spawn point.
+        ///[FIXED] Infinity fire trucks and disaster response trucks..
+        /// </summary>
+        public static string Mod_WhatsNewMessage1_3_1 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_3_1", resourceCulture);
             }
         }
         
