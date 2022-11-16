@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mod_Description" xml:space="preserve">
     <value>更改和添加车辆生成点</value>
@@ -151,6 +151,10 @@
   
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] 警车生成点。
+[FIXED] 无限消防车和救灾车。</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
