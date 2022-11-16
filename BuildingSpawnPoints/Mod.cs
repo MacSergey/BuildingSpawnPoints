@@ -39,7 +39,7 @@ namespace BuildingSpawnPoints
             new ModVersion(new Version(1,0,1), new DateTime(2021, 6, 10)),
             new ModVersion(new Version(1,0), new DateTime(2021, 6, 8)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 15, 0, 7);
+        protected override Version RequiredGameVersion => new Version(1, 15, 1, 4);
 
         protected override ulong StableWorkshopId => 2511258910ul;
         protected override ulong BetaWorkshopId => 2504315382ul;
