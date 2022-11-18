@@ -1,8 +1,4 @@
 files:
   - source: /BuildingSpawnPoints/Properties/Localize.resx
-    translation: /BuildingSpawnPoints/Properties/Localize.%two_letters_code%.resx
+    translation: /BuildingSpawnPoints/Properties/Localize.%locale%.resx
     update_option: update_as_unapproved
-    languages_mapping:
-      two_letters_code:
-        "zh-CN": "zh-CN"
-        "en-GB": "en-GB"
