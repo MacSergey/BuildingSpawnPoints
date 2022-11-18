@@ -128,8 +128,13 @@
   
   
   
-  
-  
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] Aggiunto il supporto DLC Plazas &amp; Promenades.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] Punto di rigenerazione dell'auto della polizia.
+[FIXED] Camion dei pompieri e camion di pronto intervento infiniti.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>
@@ -209,24 +214,42 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Seleziona edificio</value>
   </data>
-  
-  
+  <data name="VehicleTypeGroup_Air" xml:space="preserve">
+    <value>Veicoli aerei</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>Veicoli da carico</value>
+  </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
     <value>Elicotteri</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>Veicoli predefiniti</value>
+  </data>
   <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
     <value>Veicoli passeggeri</value>
   </data>
-  
-  
-  
-  
+  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
+    <value>Veicoli aerei dei passeggeri</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
+    <value>Veicoli ferroviari dei passeggeri</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
+    <value>Veicoli stradali dei passeggeri</value>
+  </data>
+  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
+    <value>Veicoli acquatici per passeggeri</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Aerei</value>
   </data>
-  
-  
+  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
+    <value>Veicoli ferroviari</value>
+  </data>
+  <data name="VehicleTypeGroup_Road" xml:space="preserve">
+    <value>Veicoli stradali</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Veicolo di servizio</value>
   </data>
@@ -239,8 +262,12 @@
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camion</value>
   </data>
-  
-  
+  <data name="VehicleTypeGroup_Water" xml:space="preserve">
+    <value>Veicoli acquatici</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>Tutto</value>
+  </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulanza</value>
   </data>
@@ -250,7 +277,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Mongolfiera</value>
   </data>
-  
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>Bicicletta</value>
+  </data>
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Autobus</value>
   </data>
@@ -308,8 +337,12 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Traghetto passeggeri</value>
   </data>
-  
-  
+  <data name="VehicleType_PassengerPlane" xml:space="preserve">
+    <value>Aereo passeggeri</value>
+  </data>
+  <data name="VehicleType_PassengerShip" xml:space="preserve">
+    <value>Nave Passeggeri</value>
+  </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Treno passeggeri</value>
   </data>
@@ -322,11 +355,15 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Posta</value>
   </data>
-  
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>Aereo privato</value>
+  </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Manutenzione stradale</value>
   </data>
-  
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>Razzo</value>
+  </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Spazzaneve</value>
   </data>

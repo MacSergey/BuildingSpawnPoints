@@ -131,7 +131,10 @@
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Plazas &amp; Promenades DLC를 지원합니다.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] 경찰차 생성 위치를 수정했습니다.
+[FIXED] 소방차 및 재난대응 차량의 무한 생성이 수정되었습니다.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>모든 유형의 차량 추가</value>
   </data>

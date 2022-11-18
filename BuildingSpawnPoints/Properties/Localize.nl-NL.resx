@@ -131,7 +131,10 @@
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Ondersteuning toegevoegd voor Plazas &amp; Promenades DLC.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] Punt van verschijning van politiewagens.
+[FIXED] Oneindig veel brandweer- en rampenbestrijdingswagens.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Voeg alle typen voertuigen toe</value>
   </data>
