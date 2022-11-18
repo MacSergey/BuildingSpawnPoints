@@ -54,7 +54,7 @@ namespace BuildingSpawnPoints
         public override bool IsBeta => false;
 #endif
         #endregion
-        protected override ResourceManager LocalizeManager => Localize.ResourceManager;
+        protected override LocalizeManager LocalizeManager => Localize.LocaleManager;
         protected override bool NeedMonoDevelopImpl => true;
 
         private static string METMName => "More Effective Transfer Manager";
