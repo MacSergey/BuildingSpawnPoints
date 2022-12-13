@@ -139,6 +139,9 @@
     <value>[FIXED] Spawnpunkt der Polizeifahrzeuge.
 [FIXED] Unendliche Feuerwehr- und Katastrophenschutzfahrzeuge.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Unterstützung der Geld-Transporter aus dem Financial Districts DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>
@@ -280,6 +283,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Heißluftballone</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Geld-Transporter</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Fahrräder</value>

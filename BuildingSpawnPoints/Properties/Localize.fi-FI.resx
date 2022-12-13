@@ -130,6 +130,7 @@
   
   
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Lisää kaikki ajoneuvotyypit</value>
   </data>
@@ -272,6 +273,7 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Kuumailmapallot</value>
   </data>
+  
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Polkupyörät</value>
   </data>

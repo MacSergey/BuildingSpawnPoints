@@ -135,6 +135,9 @@
     <value>[FIXED] Punto di rigenerazione dell'auto della polizia.
 [FIXED] Camion dei pompieri e camion di pronto intervento infiniti.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Aggiunto il supporto dei camion PortaValori bancari di Financial Districts DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>
@@ -230,10 +233,10 @@
     <value>Veicoli passeggeri</value>
   </data>
   <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Veicoli aerei dei passeggeri</value>
+    <value>Velivoli passeggeri</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Veicoli ferroviari dei passeggeri</value>
+    <value>Treni passeggeri</value>
   </data>
   <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
     <value>Veicoli stradali dei passeggeri</value>
@@ -276,6 +279,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Mongolfiera</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Camion PortaValori bancari</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicicletta</value>

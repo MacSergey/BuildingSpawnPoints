@@ -130,6 +130,7 @@
   
   
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Összes járműtípus hozzáadása</value>
   </data>
@@ -258,6 +259,7 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hőlégballon</value>
   </data>
+  
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicikli</value>
   </data>

@@ -130,6 +130,7 @@
   
   
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Tilføj alle typer køretøjer</value>
   </data>
@@ -250,6 +251,7 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Ballon</value>
   </data>
+  
   
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Bus</value>

@@ -135,6 +135,9 @@
     <value>[FIXED] Spawn bod policejního vozu
 [FIXED] Nekonečné hasicí vozy a vozy reakce na katastrofy.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Přidána podpora bankovních vozidel z Financial Districts DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Přidat všechny typy vozidel</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Balón</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Bankovní nákladní auto</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Jízdní kolo</value>

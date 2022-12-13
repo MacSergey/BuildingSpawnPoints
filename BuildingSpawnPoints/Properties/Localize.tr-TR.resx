@@ -128,6 +128,9 @@
   
   
   
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[UPDATED] Plazalar ve Gezinti Yerleri DLC Desteği Eklendi.</value>
+  </data>
   
   
   <data name="Panel_AddAllVehicle" xml:space="preserve">
@@ -272,6 +275,7 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hava Balonu</value>
   </data>
+  
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bisiklet</value>
   </data>

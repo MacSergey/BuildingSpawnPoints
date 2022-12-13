@@ -131,7 +131,13 @@
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Dodano wsparcie DLC Place &amp; Promenady.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] Punkt spawnowania policji.
+[FIXED] Nieskończone wozy strażackie i pojazdy reagowania kryzysowego.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Dodanie wsparcie dla ciężarówek bankowych z DLC Dzielnice Finansowe.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Dodaj wszystkie typy pojazdów</value>
   </data>
@@ -273,6 +279,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Balon</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Ciężarówka bankowa</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Rower</value>

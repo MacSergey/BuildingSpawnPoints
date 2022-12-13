@@ -162,6 +162,9 @@
     <value>[FIXED] Point d'apparition des voitures de police
 [FIXED] Quantité infinie de camions de pompiers et de réponse aux catastrophes.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Prise en charge des camions de banque du DLC Financial Districts.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Montgolfière</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Camion de banque</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Vélo</value>

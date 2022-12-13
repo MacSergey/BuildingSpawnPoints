@@ -137,6 +137,9 @@
     <value>[FIXED] Punto de aparición de los vehículos policiacos.
 [FIXED] Infinitos camiones de bomberos y vehículos contra desastres.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Se ha añadido soporte para furgón blindado del DLC "Distritos Financieros".</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Globo aerostático</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Furgón Blindado</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicicleta</value>

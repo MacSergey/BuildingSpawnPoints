@@ -131,7 +131,13 @@
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[ATUALIZAÇÃO] Adicionado suporte ao DLC Plazas &amp; Promenades.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[CORRIGIDO] Spawn point de carro da polícia.
+[CORRIGIDO] Camões de bombeiros de resposta a desastres infinitos.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NOVO] Adicionado suporte a camiões de banco da DLC de Distritos Financeiros.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adicionar todos os tipos de veículo</value>
   </data>
@@ -273,6 +279,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Balão de ar quente</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Camião bancário</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicicleta</value>

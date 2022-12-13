@@ -135,6 +135,7 @@
     <value>[FIXED] Punctul de spawn al mașinii de poliție.
 [FIXED] Camioane de pompieri și camioane de urgență dezastre infinite.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adăugați toate tipurile de vehicule</value>
   </data>
@@ -276,6 +277,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Balon cu aer cald</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Camion bancar</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicicletă</value>

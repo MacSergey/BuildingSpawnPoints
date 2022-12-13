@@ -135,6 +135,9 @@
     <value>[FIXED] Police car spawn point.
 [FIXED] Infinity fire trucks and disaster response trucks.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Added support of bank trucks from Financial Districts DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>全タイプの車両を追加</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>熱気球</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>現金輸送車</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>自転車</value>

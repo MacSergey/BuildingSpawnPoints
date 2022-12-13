@@ -135,6 +135,9 @@
     <value>[FIXED] Punt van verschijning van politiewagens.
 [FIXED] Oneindig veel brandweer- en rampenbestrijdingswagens.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[NEW] Ondersteuning toegevoegd voor geldauto's uit Financial Districts DLC.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Voeg alle typen voertuigen toe</value>
   </data>
@@ -276,6 +279,9 @@
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Ballon</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Geldauto</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Fiets</value>
