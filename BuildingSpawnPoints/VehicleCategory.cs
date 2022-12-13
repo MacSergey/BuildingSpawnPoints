@@ -68,6 +68,9 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.VehicleType_VacuumTruck))]
         VacuumTruck = VehicleInfo.VehicleCategory.VacuumTruck,
 
+        [Description(nameof(Localize.VehicleType_BankTruck))]
+        BankTruck = VehicleInfo.VehicleCategory.BankTruck,
+
 
 
         [Description(nameof(Localize.VehicleType_PassengerPlane))]
@@ -147,7 +150,7 @@ namespace BuildingSpawnPoints
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Service))]
-        Service = FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck | Ambulance | Disaster | Hearse | ParkTruck | Police | PostTruck,
+        Service = FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck | Ambulance | Disaster | Hearse | ParkTruck | Police | PostTruck | BankTruck,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Planes))]
@@ -186,7 +189,7 @@ namespace BuildingSpawnPoints
         Trucks = CargoTruck | FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck,
 
         [NotItem]
-        Cars = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | Taxi,
+        Cars = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | BankTruck | Taxi,
 
         //[NotItem]
         //[Description(nameof(Localize.VehicleTypeGroup_Road))]

@@ -37,6 +37,7 @@ namespace BuildingSpawnPoints
             { typeof(SnowTruckAI),VehicleCategory.SnowTruck },
             { typeof(WaterTruckAI),VehicleCategory.VacuumTruck },
             { typeof(DisasterResponseVehicleAI),VehicleCategory.Disaster },
+            { typeof(BankVanAI),VehicleCategory.BankTruck },
 
             //Trains
             { typeof(PassengerTrainAI),VehicleCategory.PassengerTrain },
@@ -73,7 +74,7 @@ namespace BuildingSpawnPoints
             { typeof(CommonBuildingAI), VehicleCategory.Default },
 
             //PrivateBuilding
-            { typeof(CommercialBuildingAI), VehicleCategory.Default |VehicleCategory.CargoTruck },
+            { typeof(CommercialBuildingAI), VehicleCategory.Default |VehicleCategory.CargoTruck | VehicleCategory.BankTruck },
             { typeof(IndustrialBuildingAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             { typeof(IndustrialExtractorAI), VehicleCategory.Default |VehicleCategory.CargoTruck },
             { typeof(OfficeBuildingAI), VehicleCategory.Default | VehicleCategory.PostTruck },
@@ -122,6 +123,7 @@ namespace BuildingSpawnPoints
             { typeof(PrivateAirportAI), VehicleCategory.Default },
             { typeof(TaxiStandAI), VehicleCategory.Default & ~VehicleCategory.Taxi },
             { typeof(PostOfficeAI), VehicleCategory.Default },
+            { typeof(BankOfficeAI), VehicleCategory.Default },
 
             //Depot
             { typeof(DepotAI), VehicleCategory.Default },
@@ -138,7 +140,7 @@ namespace BuildingSpawnPoints
             { typeof(PowerPlantAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             { typeof(HeatingPlantAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             { typeof(MonumentAI), VehicleCategory.Default | VehicleCategory.PostTruck},
-            { typeof(ServicePointAI), VehicleCategory.Default | VehicleCategory.CargoTruck | VehicleCategory.PostTruck}
+            { typeof(ServicePointAI), VehicleCategory.Default | VehicleCategory.CargoTruck | VehicleCategory.PostTruck | VehicleCategory.BankTruck}
 
 
             //{ typeof(), VehicleType.Default },
@@ -180,6 +182,10 @@ namespace BuildingSpawnPoints
 
                 case PostOfficeAI:
                     vehicleTypes |= VehicleCategory.PostTruck;
+                    break;
+
+                case BankOfficeAI:
+                    vehicleTypes |= VehicleCategory.BankTruck;
                     break;
 
                 case HelicopterDepotAI:
@@ -241,6 +247,7 @@ namespace BuildingSpawnPoints
             DepotAI depot => depot.GetPoints(data),
             TaxiStandAI taxiStand => taxiStand.GetPoints(data),
             PostOfficeAI postOffice => postOffice.GetPoints(data),
+            BankOfficeAI bankOffice => bankOffice.GetPoints(data),
             MaintenanceDepotAI maintenanceDepot => maintenanceDepot.GetPoints(data),
             TourBuildingAI tourBuilding => tourBuilding.GetPoints(data),
             FishingHarborAI fishingHarbor => fishingHarbor.GetPoints(data),
@@ -330,9 +337,14 @@ namespace BuildingSpawnPoints
             yield return new BuildingSpawnPoint(data, postOffice.m_truckSpawnPosition, 0f, VehicleCategory.PostTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
             yield return new BuildingSpawnPoint(data, postOffice.m_truckUnspawnPosition, 0f, VehicleCategory.PostTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
         }
+        private static IEnumerable<BuildingSpawnPoint> GetPoints(this BankOfficeAI bankOffice, BuildingData data)
+        {
+            yield return new BuildingSpawnPoint(data, bankOffice.m_truckSpawnPosition, 0f, VehicleCategory.BankTruck, InvertTraffic ? PointType.Unspawn : PointType.Spawn);
+            yield return new BuildingSpawnPoint(data, bankOffice.m_truckUnspawnPosition, 0f, VehicleCategory.BankTruck, InvertTraffic ? PointType.Spawn : PointType.Unspawn);
+        }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this MaintenanceDepotAI maintenanceDepot, BuildingData data)
         {
-            yield return new BuildingSpawnPoint(data, maintenanceDepot.m_spawnPosition, maintenanceDepot.m_spawnTarget, VehicleCategory.PostTruck, PointType.Both);
+            yield return new BuildingSpawnPoint(data, maintenanceDepot.m_spawnPosition, maintenanceDepot.m_spawnTarget, VehicleCategory.RoadTruck, PointType.Both);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this TourBuildingAI tourBuilding, BuildingData data)
         {

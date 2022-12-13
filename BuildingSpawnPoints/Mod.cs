@@ -28,6 +28,7 @@ namespace BuildingSpawnPoints
 
         public override List<ModVersion> Versions => new List<ModVersion>()
         {
+            new ModVersion(new Version(1,3,2), new DateTime(2022, 12, 13)),
             new ModVersion(new Version(1,3,1), new DateTime(2022, 11, 16)),
             new ModVersion(new Version(1,3), new DateTime(2022, 9, 14)),
             new ModVersion(new Version(1,2,4), new DateTime(2022, 6, 19)),
@@ -40,7 +41,7 @@ namespace BuildingSpawnPoints
             new ModVersion(new Version(1,0,1), new DateTime(2021, 6, 10)),
             new ModVersion(new Version(1,0), new DateTime(2021, 6, 8)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 15, 1, 4);
+        protected override Version RequiredGameVersion => new Version(1, 16, 0, 3);
 
         protected override ulong StableWorkshopId => 2511258910ul;
         protected override ulong BetaWorkshopId => 2504315382ul;
@@ -120,6 +121,9 @@ namespace BuildingSpawnPoints
 
             success &= Patch_CalculateSpawnPosition(typeof(PostOfficeAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(PostOfficeAI), parameters);
+
+            success &= Patch_CalculateSpawnPosition(typeof(BankOfficeAI), parameters);
+            success &= Patch_CalculateUnspawnPosition(typeof(BankOfficeAI), parameters);
 
             success &= Patch_CalculateSpawnPosition(typeof(TaxiStandAI), parameters);
             success &= Patch_CalculateUnspawnPosition(typeof(TaxiStandAI), parameters);

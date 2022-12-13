@@ -61,6 +61,11 @@ namespace BuildingSpawnPoints
 		public static string Mod_WhatsNewMessage1_3_1 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_1", Culture);
 
 		/// <summary>
+		/// [NEW] Added support of bank trucks from Financial Districts DLC.
+		/// </summary>
+		public static string Mod_WhatsNewMessage1_3_2 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_2", Culture);
+
+		/// <summary>
 		/// Add all types of vehicles
 		/// </summary>
 		public static string Panel_AddAllVehicle => LocaleManager.GetString("Panel_AddAllVehicle", Culture);
@@ -299,6 +304,11 @@ namespace BuildingSpawnPoints
 		/// Balloon
 		/// </summary>
 		public static string VehicleType_Balloon => LocaleManager.GetString("VehicleType_Balloon", Culture);
+
+		/// <summary>
+		/// Bank truck
+		/// </summary>
+		public static string VehicleType_BankTruck => LocaleManager.GetString("VehicleType_BankTruck", Culture);
 
 		/// <summary>
 		/// Bicycle
