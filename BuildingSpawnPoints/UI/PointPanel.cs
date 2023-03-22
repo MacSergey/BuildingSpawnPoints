@@ -232,7 +232,7 @@ namespace BuildingSpawnPoints.UI
                 if (((ulong)group & (ulong)Point.Categories.Value) != 0)
                 {
                     var laneData = VehicleLaneData.Get(group);
-                    if (PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, laneData.VehicleCategory, false, false, laneData.Distance, out var pathPos))
+                    if (PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, laneData.VehicleCategory, false, false, laneData.Distance, false, out var pathPos))
                     {
                         Groups[group] = pathPos;
                     }
