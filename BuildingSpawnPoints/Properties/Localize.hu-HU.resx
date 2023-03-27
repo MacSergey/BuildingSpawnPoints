@@ -188,21 +188,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Eltűnés</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Típus</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Pozíció</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Alkalmazás az összes azonos típusú épületre</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Valóban alkalmazni szeretnéd ezt a beállítást minden ilyen típusú épületre?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Épület #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Válassz épületet</value>
   </data>
@@ -218,18 +227,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Alapértelmezett járművek</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Utasszállító járművek</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Utasszállító légi járművek</value>
-  </data>
-  
-  
   
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Repülők</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Vonatok</value>
   </data>

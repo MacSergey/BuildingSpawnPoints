@@ -201,11 +201,23 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>No generar</value>
   </data>
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Seguir nivel del terreno</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Tipo</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Posición</value>
+  </data>
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Etiquetas de vehículo coloridas en el panel</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>Marcador de puntos 3D</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Añadir punto</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Aplicar a todos los edificios del tipo</value>
@@ -213,8 +225,23 @@
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>¿Realmente quieres aplicar esta configuración a todos los edificios de este tipo?</value>
   </data>
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>ESTABLECER CORRECTO</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Arrastre el punto para cambiar su posición</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Punto vacío</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Edificio #{0}</value>
+  </data>
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>ESTABLECER INCORRECTO</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Mantén presionado {0} para cambiar la altura</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Seleccionar edificio</value>
@@ -231,23 +258,14 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Vehículos predeterminados</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Vehículos de pasajeros</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Vehículos aéreos de pasajeros</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Vehículos férreos de pasajeros</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Vehículos particulares</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Vehículos acuáticos de pasajeros</value>
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Vehículos de emergencia</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Aviones</value>
+  </data>
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Transporte público</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Trenes</value>

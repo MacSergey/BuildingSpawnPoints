@@ -199,21 +199,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Usuń</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Typ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Pozycja</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Zastosuj do wszystkich budynków tego typu</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Czy na pewno chcesz zastosować ustawienia do wszystkich budynków tego typu?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Budynek #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Wybierz budynek</value>
   </data>
@@ -229,24 +238,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Domyślne pojazdy</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Pojazdy pasażerskie</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Powietrzne pojazdy pasażerskie</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Pasażerskie pojazdy szynowe</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Pasażerskie pojazdy drogowe</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Pasażerskie pojazdy wodne</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Samoloty</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Pojazdy szynowe</value>
   </data>

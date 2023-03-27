@@ -153,8 +153,8 @@
     <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
-    <value>[FIXED] 警车生成点。
-[FIXED] 无限消防车和救灾车。</value>
+    <value>[FIXED] 修复了警车生成点的问题。
+[FIXED] 修复了无限消防车和救灾车的问题。</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] 增加了对金融区DLC运钞车的支持。</value>
@@ -222,11 +222,23 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>消失</value>
   </data>
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>强制跟随地面高度</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>类型</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>位置</value>
+  </data>
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>面板上显示彩色载具标签</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3D 点标记</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>添加生成点</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>适用于所有此类型的建筑</value>
@@ -234,8 +246,23 @@
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>确定将本设置应用于所有此类型的建筑物吗？</value>
   </data>
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>设置不正确</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>拖动生成点来改变其位置</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>空生成点</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>建筑 #{0}</value>
+  </data>
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>设置不正确</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>按住 {0} 以更改高度</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>选择建筑</value>
@@ -252,23 +279,14 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>默认载具</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>客用载具</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>客用空中载具</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>客用铁道载具</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>客用道路载具</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>客用水上载具</value>
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>应急服务载具</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>飞机</value>
+  </data>
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>公共交通</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>铁道载具</value>

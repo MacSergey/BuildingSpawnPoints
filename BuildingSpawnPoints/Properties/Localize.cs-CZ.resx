@@ -201,21 +201,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Despawn</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Typ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Pozice</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Použít u všech budov tohoto typu</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Opravdu chcete použít toto nastavení pro všechny budovy tohoto typu?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Budova #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Vyberte budovu</value>
   </data>
@@ -231,24 +240,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Výchozí vozidla</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Osobní vozidla</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Vzdušná vozidla pro pasažéry</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Kolejová vozidla pro pasažéry</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Osobní silniční vozidla</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Vodní vozidla pro pasažéry</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Letadla</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Kolejová vozidla</value>
   </data>

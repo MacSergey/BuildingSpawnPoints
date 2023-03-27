@@ -226,11 +226,23 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Исчезновение</value>
   </data>
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Следовать уровню земли</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Тип</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Позиция</value>
+  </data>
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Цветные теги транспортных средств</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3D маркер точки</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Добавить точку</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Применить ко всем зданиям</value>
@@ -238,8 +250,23 @@
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Вы действительно хотите применить эти настройки ко всем зданиям этого типа?</value>
   </data>
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>ЗАДАНЫ КОРРЕКТНО</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Перетащите точку для изменения её позиции</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Пустая точка</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Здание #{0}</value>
+  </data>
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>ЗАДАНЫ НЕКОРРЕКТНО</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Удерживайте {0} для изменения высоты</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Выберите здание</value>
@@ -256,23 +283,14 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Транспортные средства по умолчанию</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Пассажирские транспортные средства</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Пассажирские воздушные транспортные средства</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Пассажирские рельсовые транспортные средства</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Пассажирские дорожные транспортные средства</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Пассажирские водные транспортные средства</value>
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Экстренные службы</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Самолеты</value>
+  </data>
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Общественный транспорт</value>
   </data>
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Рельсовые транспортные средства</value>
@@ -281,7 +299,7 @@
     <value>Дорожные транспортные средства</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Обслуживающие транспортные средства</value>
+    <value>Обслуживающий транспорт</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>Корабли</value>

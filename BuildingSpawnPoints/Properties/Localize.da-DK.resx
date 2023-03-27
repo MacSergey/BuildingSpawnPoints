@@ -192,21 +192,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Fjern spawn</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Placering</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Anvend på alle bygninger af denne type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Vil du virkelig anvende denne indstilling på alle bygninger af denne type?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Bygning #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Vælg bygning</value>
   </data>
@@ -216,16 +225,11 @@
     <value>Helikoptere</value>
   </data>
   
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passagerkøretøjer</value>
-  </data>
-  
-  
-  
   
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Fly</value>
   </data>
+  
   
   
   <data name="VehicleTypeGroup_Service" xml:space="preserve">

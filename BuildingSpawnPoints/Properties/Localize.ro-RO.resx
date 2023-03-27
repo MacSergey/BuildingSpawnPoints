@@ -197,21 +197,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Despawn</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tip</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Poziție</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Aplicați la toate clădirile din tipul</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Sigur doriți să aplicați această setare pentru toate clădirile din acest tip?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Clădirea #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selectați clădirea</value>
   </data>
@@ -227,24 +236,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Vehicule implicite</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Vehicule de transport persoane</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Avioane de transport persoane</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Trenuri de transport persoane</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Mașini de transport persoane</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Ambarcațiuni de transport persoane</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Avioane</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Trenuri</value>
   </data>

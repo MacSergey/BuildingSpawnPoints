@@ -194,21 +194,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Yok et</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tür</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Konum</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Seçilen türdeki tüm binalara uygula</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Gerçekten bu türdeki tüm binalara bunu uygulamak istediğinize emin misiniz?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>#{0} nolu bina</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Bina seçiniz</value>
   </data>
@@ -224,24 +233,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Varsayılan taşıtlar</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Yolcu araçları</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Yolcu hava taşıtları</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Yolcu demiryolu taşıtları</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Yolcu karayolu taşıtları</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Yolcu su taşıtları</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Uçaklar</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Raylı taşıtlar</value>
   </data>

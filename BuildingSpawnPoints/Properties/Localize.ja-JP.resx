@@ -201,21 +201,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>帰還</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>スポーンのタイプ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>ポジション</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>同じタイプの建物を一括で適用</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>選択しているタイプの建物に、現在の設定を一括で適用してよろしいですか？</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>建物 #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>編集したい建物を選択</value>
   </data>
@@ -231,24 +240,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>デフォルトの車両</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>乗用車両</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>旅客飛行機</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>旅客鉄道</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>乗用車</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>旅客船舶</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>飛行機</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>鉄道車両</value>
   </data>

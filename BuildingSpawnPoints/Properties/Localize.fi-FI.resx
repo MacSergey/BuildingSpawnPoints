@@ -192,21 +192,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Sisäänkäynti</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tyyppi</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Sijainti</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Käytä kaikissa samanlaisissa rakennuksissa</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Haluatko varmasti asettaa nämä asetukset kaikkiin tämäntyyppisiin rakennuksiin?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Rakennus #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Valitse rakennus</value>
   </data>
@@ -222,24 +231,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Oletusarvoiset ajoneuvot</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Matkustaja-ajoneuvot</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Matkustajailma-alukset</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Matkustajaraideliikenne</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Matkustajaliikenne</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Matkustajavesiliikenne</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Lentokoneet</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Raideliikenne</value>
   </data>

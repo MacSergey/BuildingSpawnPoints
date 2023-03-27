@@ -199,21 +199,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Eindpunt</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Positie</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Toepassen op alle gebouwen van dit type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Weet u zeker dat u deze instelling wilt toepassen op alle gebouwen van dit type?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Gebouw #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selecteer gebouw</value>
   </data>
@@ -229,24 +238,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Standaard voertuigen</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Passagiersvoertuigen</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Passagiersluchtvoertuigen</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Passagiersspoorvoertuigen</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Passagierswegvoertuigen</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Passagierswatervoertuigen</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Vliegtuigen</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Spoorvoertuigen</value>
   </data>

@@ -197,21 +197,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>디스폰</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>유형</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>위치</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>유형의 모든 건물에 적용</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>정말로 이 유형의 모든 건물에 현재 설정을 적용할까요?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>건물 #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>건물 선택</value>
   </data>
@@ -227,24 +236,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>기본 차량</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>여객 차량</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>여객 항공 교통수단</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>여객 열차</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>여객 차량</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>여객 해상 교통수단</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>비행기</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>열차</value>
   </data>

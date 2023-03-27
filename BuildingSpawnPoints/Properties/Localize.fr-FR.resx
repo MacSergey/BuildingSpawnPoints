@@ -228,21 +228,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Disparition</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Appliquer à tous les bâtiments de ce type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Voulez-vous vraiment appliquer ce paramètre à tous les bâtiments de ce type ?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Bâtiment #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Sélectionner un bâtiment</value>
   </data>
@@ -258,24 +267,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Véhicules par défaut</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Véhicules de passagers</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Véhicules aériens de passagers</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Véhicules ferroviaires de passagers</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Véhicules routiers de passagers</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Véhicules maritimes de passagers</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Avions</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Véhicules ferroviaires</value>
   </data>

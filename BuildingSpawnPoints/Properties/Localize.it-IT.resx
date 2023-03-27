@@ -199,21 +199,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Degenera</value>
   </data>
+  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tipo</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Posizione</value>
   </data>
+  
+  
+  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Applica a tutti gli edifici di questo tipo</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Vuoi davvero applicare questa impostazione a tutti gli edifici di questo tipo?</value>
   </data>
+  
+  
+  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Edificio #{0}</value>
   </data>
+  
+  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Seleziona edificio</value>
   </data>
@@ -229,24 +238,11 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Veicoli predefiniti</value>
   </data>
-  <data name="VehicleTypeGroup_Passenger" xml:space="preserve">
-    <value>Veicoli passeggeri</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerAir" xml:space="preserve">
-    <value>Velivoli passeggeri</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRail" xml:space="preserve">
-    <value>Treni passeggeri</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerRoad" xml:space="preserve">
-    <value>Veicoli stradali dei passeggeri</value>
-  </data>
-  <data name="VehicleTypeGroup_PassengerWater" xml:space="preserve">
-    <value>Veicoli acquatici per passeggeri</value>
-  </data>
+  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Aerei</value>
   </data>
+  
   <data name="VehicleTypeGroup_Rail" xml:space="preserve">
     <value>Veicoli ferroviari</value>
   </data>
