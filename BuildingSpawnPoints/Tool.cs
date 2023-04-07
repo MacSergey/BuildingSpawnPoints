@@ -186,13 +186,13 @@ namespace BuildingSpawnPoints
             if (IsHoverBuilding)
             {
                 var building = HoverBuildingId.GetBuilding();
-                BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Yellow, Colors.Yellow);
+                BuildingTool.RenderOverlay(cameraInfo, ref building, CommonColors.Yellow, CommonColors.Yellow);
 
                 var i = 0;
                 while (building.m_subBuilding != 0 && i < BuildingManager.MAX_BUILDING_COUNT)
                 {
                     building = building.m_subBuilding.GetBuilding();
-                    BuildingTool.RenderOverlay(cameraInfo, ref building, Colors.Yellow, Colors.Yellow);
+                    BuildingTool.RenderOverlay(cameraInfo, ref building, CommonColors.Yellow, CommonColors.Yellow);
                     i += 1;
                 }
             }
@@ -214,13 +214,13 @@ namespace BuildingSpawnPoints
             var building = Tool.Data.Id.GetBuilding();
             foreach (var point in Tool.Data.Points)
             {
-                var color = point.Categories == VehicleCategory.None || point.Type == PointType.None ? Colors.Gray192 : point.Type.Value switch
+                var color = point.Categories == VehicleCategory.None || point.Type == PointType.None ? CommonColors.Gray192 : point.Type.Value switch
                 {
-                    PointType.Spawn => Colors.Green,
-                    PointType.Unspawn => Colors.Red,
+                    PointType.Spawn => CommonColors.Green,
+                    PointType.Unspawn => CommonColors.Red,
                     //PointType.Middle => Colors.Purple,
-                    PointType.Both /*or PointType.All*/ => Colors.Orange,
-                    _ => Colors.Gray192,
+                    PointType.Both /*or PointType.All*/ => CommonColors.Orange,
+                    _ => CommonColors.Gray192,
                 };
 
                 point.GetAbsolute(ref building, out var position, out var target);

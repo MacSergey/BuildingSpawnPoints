@@ -10,7 +10,7 @@ namespace BuildingSpawnPoints.UI
 {
     public class WarningPanel : PropertyGroupPanel
     {
-        protected override Color32 Color => Colors.Warning;
+        //protected override Color32 Color => Colors.Warning;
 
         private CustomUILabel Label { get; }
         private VehicleCategoryPropertyPanel Vehicle { get; }
@@ -21,13 +21,13 @@ namespace BuildingSpawnPoints.UI
             StopLayout();
 
             Label = AddLabel();
-            Label.padding = new RectOffset(5, 5, 5, 0);
+            Label.Padding = new RectOffset(5, 5, 5, 0);
 
             Vehicle = ComponentPool.Get<VehicleCategoryPropertyPanel>(this);
             Vehicle.Deletable = false;
 
             LabelContinue = AddLabel();
-            LabelContinue.padding = new RectOffset(5, 5, 0, 5);
+            LabelContinue.Padding = new RectOffset(5, 5, 0, 5);
 
             StartLayout();
         }
@@ -52,8 +52,8 @@ namespace BuildingSpawnPoints.UI
         {
             var label = AddUIComponent<CustomUILabel>();
             label.textScale = 0.8f;
-            label.autoHeight = true;
-            label.wordWrap = true;
+            label.AutoSize = AutoSize.Height;
+            label.WordWrap = true;
             return label;
         }
     }

@@ -3,19 +3,17 @@ using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
+using static ModsCommon.UI.ComponentStyle;
 
 namespace BuildingSpawnPoints.UI
 {
     public class BuildingSpawnPointsPanel : ToolPanel<Mod, SpawnPointsTool, BuildingSpawnPointsPanel>
     {
         private PanelHeader Header { get; set; }
-        private AdvancedScrollablePanel ContentPanel { get; set; }
-        private AddPointButton AddButton { get; set; }
+        private CustomUIScrollablePanel ContentPanel { get; set; }
+        private CustomUIButton AddButton { get; set; }
         private WarningPanel Warning { get; set; }
 
         public BuildingData Data { get; private set; }
@@ -26,47 +24,56 @@ namespace BuildingSpawnPoints.UI
         {
             base.Awake();
 
-            atlas = TextureHelper.InGameAtlas;
-            backgroundSprite = "MenuPanel2";
             name = nameof(BuildingSpawnPointsPanel);
+            Atlas = CommonTextures.Atlas;
+            BackgroundSprite = CommonTextures.PanelBig;
+            BgColors = PanelColor;
 
-            CreateHeader();
-            CreateContent();
-            CreateSizeChanger();
 
-            minimumSize = GetSize(300f, 200f);
+            Header = AddUIComponent<PanelHeader>();
+            Header.name = nameof(Header);
+            Header.Target = this;
+            Header.BackgroundSprite = "ButtonWhite";
+            Header.BgColors = new Color32(36, 40, 40, 255);
+            Header.Init(HeaderHeight);
+
+
+            ContentPanel = AddUIComponent<CustomUIScrollablePanel>();
+            ContentPanel.name = nameof(ContentPanel);
+            ContentPanel.ScrollOrientation = UIOrientation.Vertical;
+            ContentPanel.Padding = new RectOffset(10, 10, 10, 10);
+            ContentPanel.Atlas = TextureHelper.InGameAtlas;
+
+            ContentPanel.AutoChildrenVertically = AutoLayoutChildren.None;
+            ContentPanel.AutoChildrenHorizontally = AutoLayoutChildren.Fill;
+            ContentPanel.AutoLayoutSpace = 10;
+            ContentPanel.AutoLayout = AutoLayout.Vertical;
+
+            ContentPanel.ScrollbarSize = 12f;
+            ContentPanel.Scrollbar.DefaultStyle();
+
+
+            var sizeChanger = AddUIComponent<SizeChanger>();
+            Ignore(sizeChanger, true);
+
+
+            minimumSize = GetSize(400f, 200f);
+
+            AutoChildrenHorizontally = AutoLayoutChildren.Fill;
+            AutoLayout = AutoLayout.Vertical;
         }
         public override void Start()
         {
             base.Start();
             SetDefaulSize();
         }
-        private void CreateHeader()
-        {
-            Header = AddUIComponent<PanelHeader>();
-            Header.relativePosition = new Vector2(0, 0);
-            Header.Target = parent;
-            Header.Init(HeaderHeight);
-        }
-        private void CreateContent()
-        {
-            ContentPanel = AddUIComponent<AdvancedScrollablePanel>();
-            ContentPanel.relativePosition = new Vector2(0, HeaderHeight);
-            ContentPanel.Content.autoLayoutPadding = new RectOffset(10, 10, 10, 10);
-            ContentPanel.atlas = TextureHelper.InGameAtlas;
-            ContentPanel.backgroundSprite = "UnlockingItemBackground";
-            ContentPanel.name = nameof(ContentPanel);
-        }
-        private void CreateSizeChanger() => AddUIComponent<SizeChanger>();
 
         protected override void OnSizeChanged()
         {
             base.OnSizeChanged();
 
-            if (Header != null)
-                Header.width = width;
-            if (ContentPanel != null)
-                ContentPanel.size = size - new Vector2(0, Header.height);
+            Header.width = width;
+            ContentPanel.size = size - new Vector2(0, Header.height);
 
             MakePixelPerfect();
         }
@@ -88,46 +95,52 @@ namespace BuildingSpawnPoints.UI
         {
             ResetPanel();
 
-            ContentPanel.Content.StopLayout();
+            ContentPanel.PauseLayout(() =>
+            {
+                RefreshHeader();
+                AddWarning();
+                RefreshWarning();
+                AddAddButton();
 
-            RefreshHeader();
-            AddWarning();
-            RefreshWarning();
-            AddAddButton();
-
-            foreach (var point in Data.Points)
-                AddPointPanel(point);
-
-            ContentPanel.Content.StartLayout();
+                foreach (var point in Data.Points)
+                    AddPointPanel(point);
+            });
         }
         private void ResetPanel()
         {
-            ContentPanel.Content.StopLayout();
+            ContentPanel.PauseLayout(() =>
+            {
+                HoverPointPanel = null;
 
-            HoverPointPanel = null;
-
-            foreach (var component in ContentPanel.Content.components.ToArray())
-                ComponentPool.Free(component);
-
-            ContentPanel.Content.StartLayout();
+                foreach (var component in ContentPanel.components.ToArray())
+                {
+                    if (component != ContentPanel.Scrollbar)
+                        ComponentPool.Free(component);
+                }
+            });
         }
 
         private void AddWarning()
         {
-            Warning = ComponentPool.Get<WarningPanel>(ContentPanel.Content);
+            Warning = ComponentPool.Get<WarningPanel>(ContentPanel);
             Warning.Init();
         }
         private void AddAddButton()
         {
-            AddButton = ComponentPool.Get<AddPointButton>(ContentPanel.Content);
-            AddButton.Text = BuildingSpawnPoints.Localize.Panel_AddPoint;
-            AddButton.Init();
-            AddButton.OnButtonClick += AddPoint;
+            AddButton = ComponentPool.Get<CustomUIButton>(ContentPanel);
+            AddButton.name = nameof(AddButton);
+            AddButton.text = BuildingSpawnPoints.Localize.Panel_AddPoint;
+            AddButton.SetDefaultStyle();
+            AddButton.height = 30;
+            AddButton.TextHorizontalAlignment = UIHorizontalAlignment.Center;
+            AddButton.TextPadding.top = 5;
+            AddButton.eventClick += (_, _) => AddPoint();
         }
         private void AddPointPanel(BuildingSpawnPoint point)
         {
-            var pointPanel = ComponentPool.Get<PointPanel>(ContentPanel.Content);
+            var pointPanel = ComponentPool.Get<PointPanel>(ContentPanel);
             pointPanel.Init(Data, point);
+            pointPanel.PanelStyle = UIStyle.Default.PropertyPanel;
             pointPanel.OnEnter += PointMouseEnter;
             pointPanel.OnLeave += PointMouseLeave;
             pointPanel.OnChanged += RefreshWarning;
@@ -148,7 +161,7 @@ namespace BuildingSpawnPoints.UI
             var newPoint = Data.AddPoint();
             AddPointPanel(newPoint);
 
-            ContentPanel.Content.ScrollToBottom();
+            ContentPanel.ScrollToEnd();
         }
 
         public void DeletePoint(PointPanel pointPanel)
@@ -165,7 +178,7 @@ namespace BuildingSpawnPoints.UI
             var copyPoint = Data.DuplicatePoint(pointPanel.Point);
             AddPointPanel(copyPoint);
 
-            ContentPanel.Content.ScrollToBottom();
+            ContentPanel.ScrollToEnd();
         }
 
         private void PointMouseEnter(PointPanel rulePanel, UIMouseEventParameter eventParam) => HoverPointPanel = rulePanel;
@@ -185,23 +198,13 @@ namespace BuildingSpawnPoints.UI
             if (HoverPointPanel is PointPanel pointPanel)
                 pointPanel.Render(cameraInfo);
         }
-
-        private class AddPointButton : ButtonPanel
-        {
-            public AddPointButton()
-            {
-                Button.textScale = 1f;
-            }
-            protected override void SetSize() => Button.size = size;
-        }
     }
 
     public class PanelHeader : HeaderMoveablePanel<PanelHeaderContent>
     {
         private HeaderButtonInfo<HeaderButton> PasteButton { get; set; }
-        protected override float DefaultHeight => 40f;
 
-        public PanelHeader()
+        protected override void FillContent()
         {
             Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.CopyHeaderButton, BuildingSpawnPoints.Localize.Panel_Copy, OnCopy));
 

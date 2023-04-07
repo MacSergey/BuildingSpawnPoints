@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class VehicleCategoryPropertyPanel : EditorItem, IReusable, IEnumerable<VehicleItem>
+    public class VehicleCategoryPropertyPanel : BaseEditorPanel, IReusable
     {
         public event Action<VehicleCategory> OnDelete;
         public event Action<VehicleCategory> OnSelect;
@@ -18,9 +18,16 @@ namespace BuildingSpawnPoints.UI
         bool IReusable.InCache { get; set; }
 
         private Dictionary<VehicleCategory, VehicleItem> Items { get; } = new Dictionary<VehicleCategory, VehicleItem>();
-        private float Padding => 5f;
+        public IEnumerable<VehicleItem> Values => Items.Values;
 
         public bool Deletable { get; set; } = true;
+
+        public VehicleCategoryPropertyPanel() : base() 
+        {
+            AutoLayout = AutoLayout.Disabled;
+            Padding = new RectOffset(10, 10, 5, 5);
+            AutoLayoutSpace = 5;
+        }
 
         public void AddItems(VehicleCategory types)
         {
@@ -70,14 +77,6 @@ namespace BuildingSpawnPoints.UI
             Items.Clear();
         }
 
-        public void AddType(VehicleCategory type)
-        {
-            if (!Items.ContainsKey(type))
-            {
-                AddItem(type);
-                FitItems();
-            }
-        }
         private void FitItems()
         {
             var items = Items.Values.OrderBy(i => i.width).ToList();
@@ -87,25 +86,25 @@ namespace BuildingSpawnPoints.UI
             {
                 if (prev == null)
                 {
-                    items[i].relativePosition = new Vector2(Padding, Padding);
+                    items[i].relativePosition = new Vector2(Padding.left, Padding.top);
                     prev = items[i];
                     items.RemoveAt(i);
                 }
                 else
                 {
                     var j = i;
-                    while (j >= 0 && prev.relativePosition.x + prev.width + items[j].width + Padding * 2 > width)
+                    while (j >= 0 && prev.relativePosition.x + prev.width + items[j].width + Padding.horizontal > width)
                         j -= 1;
 
                     if(j >= 0)
                     {
-                        items[j].relativePosition = prev.relativePosition + new Vector3(prev.width + Padding, 0f);
+                        items[j].relativePosition = prev.relativePosition + new Vector3(prev.width + AutoLayoutSpace, 0f);
                         prev = items[j];
                         items.RemoveAt(j);
                     }
                     else
                     {
-                        items[i].relativePosition = new Vector2(Padding, prev.relativePosition.y + prev.height + Padding);
+                        items[i].relativePosition = new Vector2(Padding.left, prev.relativePosition.y + prev.height + AutoLayoutSpace);
                         prev = items[i];
                         items.RemoveAt(i);
                     }
@@ -113,7 +112,7 @@ namespace BuildingSpawnPoints.UI
             }
 
             if (prev != null)
-                height = prev.relativePosition.y + prev.height + Padding;
+                height = prev.relativePosition.y + prev.height + Padding.vertical;
             else
                 height = 0f;
         }
@@ -126,17 +125,16 @@ namespace BuildingSpawnPoints.UI
         protected override void OnVisibilityChanged()
         {
             base.OnVisibilityChanged();
-            if (isVisible)
+            if (isVisibleSelf)
                 FitItems();
         }
 
         private void EnterItem(VehicleItem item) => OnSelect?.Invoke(item.Type);
         private void LeaveItem(VehicleItem item) => OnSelect?.Invoke(VehicleCategory.None);
 
-        public IEnumerator<VehicleItem> GetEnumerator() => Items.Values.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        public override void SetStyle(ControlStyle style) { }
     }
-    public class VehicleItem : UIAutoLayoutPanel, IReusable
+    public class VehicleItem : CustomUIPanel, IReusable
     {
         public event Action<VehicleItem> OnDelete;
         public event Action<VehicleItem> OnEnter;
@@ -144,21 +142,21 @@ namespace BuildingSpawnPoints.UI
 
         bool IReusable.InCache { get; set; }
 
-        private CustomUILabel Label { get; }
-        private CustomUIButton Button { get; }
+        private CustomUILabel Label { get; set; }
+        private CustomUIButton Button { get; set; }
 
         public VehicleCategory Type { get; private set; }
 
-        private bool _isCorrect;
+        private bool isCorrect;
         public bool IsCorrect 
         {
-            get => _isCorrect;
+            get => isCorrect;
             set
             {
-                if(value != _isCorrect)
+                if(value != isCorrect)
                 {
-                    _isCorrect = value;
-                    color = _isCorrect ? Color.white : Color.red;
+                    isCorrect = value;
+                    BgColors = isCorrect ? UIStyle.PropertyNormal : ComponentStyle.ErrorFocusedColor;
                 }
             }
         }
@@ -166,31 +164,31 @@ namespace BuildingSpawnPoints.UI
         public VehicleItem()
         {
             height = 20f;
-            autoLayoutDirection = LayoutDirection.Horizontal;
-            autoFitChildrenHorizontally = true;
 
-            atlas = CommonTextures.Atlas;
-            backgroundSprite = CommonTextures.FieldNormal;
+            PauseLayout(() =>
+            {
+                AutoLayout = AutoLayout.Horizontal;
+                AutoChildrenHorizontally = AutoLayoutChildren.Fit;
 
-            StopLayout();
+                Atlas = CommonTextures.Atlas;
+                BackgroundSprite = CommonTextures.PanelBig;
+                BgColors = UIStyle.PropertyNormal;
 
-            Label = AddUIComponent<CustomUILabel>();
-            Label.autoSize = true;
-            Label.wordWrap = false;
-            Label.textScale = 0.8f;
-            Label.verticalAlignment = UIVerticalAlignment.Middle;
-            Label.padding = new RectOffset(4, 4, 4, 0);
+                Label = AddUIComponent<CustomUILabel>();
+                Label.autoSize = true;
+                Label.WordWrap = false;
+                Label.textScale = 0.8f;
+                Label.VerticalAlignment = UIVerticalAlignment.Middle;
+                Label.Padding = new RectOffset(4, 4, 4, 0);
 
-            Button = AddUIComponent<CustomUIButton>();
-            Button.size = new Vector2(16f, 20f);
-            Button.text = "×";
-            Button.textScale = 1.2f;
-            Button.textPadding = new RectOffset(0, 4, 0, 0);
-            Button.textColor = new Color32(204, 204, 204, 255);
-            Button.pressedColor = new Color32(224, 224, 224, 255);
-            Button.eventClick += (_, _) => OnDelete?.Invoke(this);
-
-            StartLayout();
+                Button = AddUIComponent<CustomUIButton>();
+                Button.size = new Vector2(16f, 20f);
+                Button.text = "×";
+                Button.textScale = 1.2f;
+                Button.TextPadding = new RectOffset(0, 4, 0, 0);
+                Button.TextColors = Color.white;
+                Button.eventClick += (_, _) => OnDelete?.Invoke(this);
+            });
         }
         public void Init(VehicleCategory type, bool deletable = true)
         {

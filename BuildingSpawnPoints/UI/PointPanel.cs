@@ -37,19 +37,19 @@ namespace BuildingSpawnPoints.UI
             Data = data;
             Point = point;
 
-            StopLayout();
-
-            AddHeader();
-            AddWarning();
-            AddVehicleType();
-            AddPointType();
-            AddPosition();
+            PauseLayout(() =>
+            {
+                AddHeader();
+                AddWarning();
+                AddVehicleType();
+                AddPointType();
+                AddPosition();
 #if DEBUG
-            AddAbsolute();
+                if (Settings.ShowDebugProperties)
+                    AddAbsolute();
 #endif
-            Refresh();
-
-            StartLayout();
+                Refresh();
+            });
 
             base.Init();
         }
@@ -95,6 +95,7 @@ namespace BuildingSpawnPoints.UI
         {
             Vehicle = ComponentPool.Get<VehicleCategoryPropertyPanel>(this);
             Vehicle.AddItems(Point.Categories);
+            Vehicle.SetStyle(UIStyle.Default);
             Vehicle.OnDelete += DeleteVehicleType;
             Vehicle.OnSelect += SelectVehicleType;
         }
@@ -157,15 +158,16 @@ namespace BuildingSpawnPoints.UI
         private void AddPointType()
         {
             Type = ComponentPool.Get<PointTypePropertyPanel>(this);
-            Type.Text = BuildingSpawnPoints.Localize.Property_PointType;
+            Type.Label = BuildingSpawnPoints.Localize.Property_PointType;
             Type.Init();
+            Type.SetStyle(UIStyle.Default);
             Type.SelectedObject = Point.Type;
             Type.OnSelectObjectChanged += (value) => Point.Type.Value = value;
         }
         private void AddPosition()
         {
             Position = ComponentPool.Get<PointPositionPropertyPanel>(this);
-            Position.Text = BuildingSpawnPoints.Localize.Property_Position;
+            Position.Label = BuildingSpawnPoints.Localize.Property_Position;
             Position.WheelTip = true;
             Position.UseWheel = true;
             Position.FieldsWidth = 50f;
@@ -190,6 +192,7 @@ namespace BuildingSpawnPoints.UI
                 }
             }
             Position.Init(0, 2, 1, 3);
+            Position.SetStyle(UIStyle.Default);
             Position.Value = Point.Position;
             Position.OnValueChanged += OnPositionChanged;
         }
@@ -197,9 +200,10 @@ namespace BuildingSpawnPoints.UI
         private void AddAbsolute()
         {
             Absolute = ComponentPool.Get<Vector3PropertyPanel>(this);
-            Absolute.Text = "Absolute";
+            Absolute.Label = "Absolute";
             Absolute.FieldsWidth = 50f;
             Absolute.Init(0, 1, 2);
+            Absolute.SetStyle(UIStyle.Default);
         }
 #endif
         private void OnPositionChanged(Vector4 value)
@@ -225,7 +229,8 @@ namespace BuildingSpawnPoints.UI
 
             Point.GetAbsolute(ref Data.Id.GetBuilding(), out var position, out _);
 #if DEBUG
-            Absolute.Value = position;
+            if (Absolute != null)
+                Absolute.Value = position;
 #endif
             foreach (var group in EnumExtension.GetEnumValues<VehicleService>())
             {
@@ -239,13 +244,13 @@ namespace BuildingSpawnPoints.UI
                 }
             }
 
-            foreach (var item in Vehicle)
+            foreach (var item in Vehicle.Values)
             {
                 var group = item.Type.GetGroup();
                 item.IsCorrect = group == VehicleService.None || Groups.ContainsKey(group);
             }
 
-            Warning.isVisible = Vehicle.Any(i => !i.IsCorrect);
+            Warning.isVisible = Vehicle.Values.Any(i => !i.IsCorrect);
         }
 
         public void Render(RenderManager.CameraInfo cameraInfo)
@@ -293,14 +298,19 @@ namespace BuildingSpawnPoints.UI
         private HeaderButtonInfo<HeaderButton> PasteButton { get; set; }
         private HeaderButtonInfo<HeaderButton> AppendButton { get; set; }
 
-        public PointHeaderPanel()
+        public PointHeaderPanel() : base()
+        {
+            Padding = new RectOffset(5, 10, 0, 0);
+        }
+
+        protected override void FillContent()
         {
             AddTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleHeaderButton, BuildingSpawnPoints.Localize.Panel_AddVehicle);
-            AddTypeButton.Button.OnSelect += AddType;
+            AddTypeButton.Button.OnSelectObject += AddType;
             Content.AddButton(AddTypeButton);
 
             AddGroupTypeButton = new HeaderButtonInfo<SelectVehicleHeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddVehicleGroupHeaderButton, BuildingSpawnPoints.Localize.Panel_AddVehicleGroup);
-            AddGroupTypeButton.Button.OnSelect += AddType;
+            AddGroupTypeButton.Button.OnSelectObject += AddType;
             Content.AddButton(AddGroupTypeButton);
 
             AddAllTypesButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.AddAllVehiclesHeaderButton, BuildingSpawnPoints.Localize.Panel_AddAllVehicle, AddAllTypes);
@@ -362,18 +372,79 @@ namespace BuildingSpawnPoints.UI
         private void PasteClick() => OnPaste?.Invoke();
         private void AppendClick() => OnAppend?.Invoke();
     }
-    public class SelectVehicleHeaderButton : BaseHeaderDropDown<VehicleCategory>
+
+    public class SelectVehicleHeaderButton : ObjectDropDown<VehicleCategory, SelectVehicleHeaderButton.CategoryEntity, SelectVehicleHeaderButton.CategoryPopup>, IHeaderButton
     {
-        public SelectVehicleHeaderButton()
+        protected override Func<VehicleCategory, bool> Selector => null;
+        protected override Func<VehicleCategory, VehicleCategory, int> Sorter => null;
+
+
+        protected override IEnumerable<VehicleCategory> Objects => ObjectList;
+        protected List<VehicleCategory> ObjectList { get; } = new List<VehicleCategory>();
+
+        public SelectVehicleHeaderButton() : base()
         {
-            MinListWidth = 100f;
+            BgAtlas = CommonTextures.Atlas;
+            BgSprites = new SpriteSet(string.Empty, CommonTextures.HeaderHover, CommonTextures.HeaderHover, CommonTextures.HeaderHover, string.Empty);
         }
-        protected override string GetItemLabel(VehicleCategory item) => item.Description<VehicleCategory, Mod>();
+
+        public void SetSize(int buttonSize, int iconSize)
+        {
+            size = new Vector2(buttonSize, buttonSize);
+            minimumSize = size;
+            TextPadding = new RectOffset(iconSize + 5, 5, 5, 0);
+        }
+        public void SetIcon(UITextureAtlas atlas, string sprite)
+        {
+            FgAtlas = atlas ?? TextureHelper.InGameAtlas;
+            FgSprites = sprite;
+        }
+        public void Init(VehicleCategory[] categories)
+        {
+            ObjectList.Clear();
+            ObjectList.AddRange(categories);
+        }
+        protected override void InitPopup()
+        {
+            Popup.MaximumSize = new Vector2(0, 700f);
+            Popup.AutoWidth = true;
+            base.InitPopup();
+        }
+
+        protected override void SetPopupStyle()
+        {
+            Popup.PopupDefaultStyle(20f);
+            Popup.PopupStyle = UIStyle.Default.DropDown;
+        }
+
+        public class CategoryPopup : ObjectPopup<VehicleCategory, CategoryEntity>
+        {
+            protected override void SetEntityStyle(CategoryEntity entity)
+            {
+                entity.TextHorizontalAlignment = UIHorizontalAlignment.Left;
+                entity.TextPadding = new RectOffset(8, 8, 3, 0);
+                entity.textScale = 0.8f;
+                entity.EntityStyle = UIStyle.Default.DropDown;
+            }
+        }
+        public class CategoryEntity : PopupEntity<VehicleCategory>
+        {
+            public override void SetObject(int index, VehicleCategory value, bool selected)
+            {
+                base.SetObject(index, value, selected);
+                text = value.Description<VehicleCategory, Mod>();
+            }
+        }
     }
     public class PointTypePropertyPanel : EnumMultyPropertyPanel<PointType, PointTypePropertyPanel.PointTypeSegmented>
     {
         protected override bool IsEqual(PointType first, PointType second) => first == second;
         protected override string GetDescription(PointType value) => value.Description<PointType, Mod>();
+
+        public override void SetStyle(ControlStyle style)
+        {
+            Selector.SegmentedStyle = style.Segmented;
+        }
 
         public class PointTypeSegmented : UIMultySegmented<PointType> { }
     }
