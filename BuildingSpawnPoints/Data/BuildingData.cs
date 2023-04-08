@@ -42,20 +42,26 @@ namespace BuildingSpawnPoints
                 ResetToDefault();
         }
 
+        private static List<BuildingSpawnPoint> TempPoints { get; } = new List<BuildingSpawnPoint>();
         public bool GetPosition(PointType type, ref Building data, VehicleInfo vehicle, ref Randomizer randomizer, out Vector3 position, out Vector3 target)
         {
-            var category = vehicle.GetVehicleCategory();
-            var points = SpawnPoints.Where(p => (p.Type & type) != PointType.None && (p.Categories & category) != VehicleCategory.None).ToArray();
+            var category = (VehicleCategory)vehicle.m_vehicleAI.vehicleCategory;
+            TempPoints.Clear();
+            foreach (var point in SpawnPoints)
+            {
+                if ((point.Type & type) != PointType.None && (point.Categories & category) != VehicleCategory.None)
+                    TempPoints.Add(point);
+            }
 
-            if (points.Length != 0)
+            if (TempPoints.Count != 0)
             {
 #if DEBUG
                 var vehicleId = randomizer.seed;
 #endif
-                var index = randomizer.Int32((uint)points.Length);
-                points[index].GetAbsolute(ref data, out position, out target);
+                var index = randomizer.Int32((uint)TempPoints.Count);
+                TempPoints[index].GetAbsolute(ref data, out position, out target);
 #if DEBUG
-                SingletonMod<Mod>.Logger.Debug($"{type} {category} on building #{Id}; {index + 1} of {points.Length}; {position}");
+                SingletonMod<Mod>.Logger.Debug($"{type} {category} on building #{Id}; {index + 1} of {TempPoints.Count}; {position}");
 #endif
                 return true;
             }
