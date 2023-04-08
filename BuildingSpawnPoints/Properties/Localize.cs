@@ -171,6 +171,11 @@ namespace BuildingSpawnPoints
 		public static string PointType_Unspawn => LocaleManager.GetString("PointType_Unspawn", Culture);
 
 		/// <summary>
+		/// Follow ground level
+		/// </summary>
+		public static string Property_FollowGround => LocaleManager.GetString("Property_FollowGround", Culture);
+
+		/// <summary>
 		/// Type
 		/// </summary>
 		public static string Property_PointType => LocaleManager.GetString("Property_PointType", Culture);
@@ -179,6 +184,21 @@ namespace BuildingSpawnPoints
 		/// Position
 		/// </summary>
 		public static string Property_Position => LocaleManager.GetString("Property_Position", Culture);
+
+		/// <summary>
+		/// Colorful vehicle tags on panel
+		/// </summary>
+		public static string Settings_ColorTags => LocaleManager.GetString("Settings_ColorTags", Culture);
+
+		/// <summary>
+		/// 3D point marker
+		/// </summary>
+		public static string Settings_Marker3D => LocaleManager.GetString("Settings_Marker3D", Culture);
+
+		/// <summary>
+		/// Add point
+		/// </summary>
+		public static string Settings_ShortcutAddNewPoint => LocaleManager.GetString("Settings_ShortcutAddNewPoint", Culture);
 
 		/// <summary>
 		/// Apply to all buildings of type
@@ -191,9 +211,34 @@ namespace BuildingSpawnPoints
 		public static string Tool_ApplyToAllMessage => LocaleManager.GetString("Tool_ApplyToAllMessage", Culture);
 
 		/// <summary>
+		/// SET CORRECT
+		/// </summary>
+		public static string Tool_InfoCorrect => LocaleManager.GetString("Tool_InfoCorrect", Culture);
+
+		/// <summary>
+		/// Drag point to change its position
+		/// </summary>
+		public static string Tool_InfoDragPoint => LocaleManager.GetString("Tool_InfoDragPoint", Culture);
+
+		/// <summary>
+		/// Empty point
+		/// </summary>
+		public static string Tool_InfoEmptyPoint => LocaleManager.GetString("Tool_InfoEmptyPoint", Culture);
+
+		/// <summary>
 		/// Building #{0}
 		/// </summary>
 		public static string Tool_InfoHoverBuilding => LocaleManager.GetString("Tool_InfoHoverBuilding", Culture);
+
+		/// <summary>
+		/// SET INCORRECT
+		/// </summary>
+		public static string Tool_InfoIncorrect => LocaleManager.GetString("Tool_InfoIncorrect", Culture);
+
+		/// <summary>
+		/// Hold {0} to change height
+		/// </summary>
+		public static string Tool_InfoPointHeight => LocaleManager.GetString("Tool_InfoPointHeight", Culture);
 
 		/// <summary>
 		/// Select building
@@ -221,34 +266,19 @@ namespace BuildingSpawnPoints
 		public static string VehicleTypeGroup_Default => LocaleManager.GetString("VehicleTypeGroup_Default", Culture);
 
 		/// <summary>
-		/// Passenger vehicles
+		/// Emergency vehicles
 		/// </summary>
-		public static string VehicleTypeGroup_Passenger => LocaleManager.GetString("VehicleTypeGroup_Passenger", Culture);
-
-		/// <summary>
-		/// Passenger air vehicles
-		/// </summary>
-		public static string VehicleTypeGroup_PassengerAir => LocaleManager.GetString("VehicleTypeGroup_PassengerAir", Culture);
-
-		/// <summary>
-		/// Passenger rail vehicles
-		/// </summary>
-		public static string VehicleTypeGroup_PassengerRail => LocaleManager.GetString("VehicleTypeGroup_PassengerRail", Culture);
-
-		/// <summary>
-		/// Passenger road vehicles
-		/// </summary>
-		public static string VehicleTypeGroup_PassengerRoad => LocaleManager.GetString("VehicleTypeGroup_PassengerRoad", Culture);
-
-		/// <summary>
-		/// Passenger water vehicles
-		/// </summary>
-		public static string VehicleTypeGroup_PassengerWater => LocaleManager.GetString("VehicleTypeGroup_PassengerWater", Culture);
+		public static string VehicleTypeGroup_Emergency => LocaleManager.GetString("VehicleTypeGroup_Emergency", Culture);
 
 		/// <summary>
 		/// Planes
 		/// </summary>
 		public static string VehicleTypeGroup_Planes => LocaleManager.GetString("VehicleTypeGroup_Planes", Culture);
+
+		/// <summary>
+		/// Public transport
+		/// </summary>
+		public static string VehicleTypeGroup_Public => LocaleManager.GetString("VehicleTypeGroup_Public", Culture);
 
 		/// <summary>
 		/// Rail vehicles
@@ -261,7 +291,7 @@ namespace BuildingSpawnPoints
 		public static string VehicleTypeGroup_Road => LocaleManager.GetString("VehicleTypeGroup_Road", Culture);
 
 		/// <summary>
-		/// Service vehicles
+		/// Service
 		/// </summary>
 		public static string VehicleTypeGroup_Service => LocaleManager.GetString("VehicleTypeGroup_Service", Culture);
 

@@ -10,39 +10,39 @@ namespace BuildingSpawnPoints.UI
 {
     public class WarningPanel : PropertyGroupPanel
     {
-        //protected override Color32 Color => Colors.Warning;
+        private CustomUILabel Label { get; set; }
+        private VehicleCategoryPropertyPanel Vehicle { get; set; }
+        private CustomUILabel LabelContinue { get; set; }
 
-        private CustomUILabel Label { get; }
-        private VehicleCategoryPropertyPanel Vehicle { get; }
-        private CustomUILabel LabelContinue { get; }
-
-        public WarningPanel()
+        public WarningPanel() : base()
         {
-            StopLayout();
+            atlas = CommonTextures.Atlas;
+            backgroundSprite = CommonTextures.PanelLarge;
+            bgColors = ComponentStyle.WarningColor;
 
-            Label = AddLabel();
-            Label.Padding = new RectOffset(5, 5, 5, 0);
+            PauseLayout(() =>
+            {
+                Label = AddLabel();
+                Label.Padding = new RectOffset(10, 10, 10, 0);
 
-            Vehicle = ComponentPool.Get<VehicleCategoryPropertyPanel>(this);
-            Vehicle.Deletable = false;
+                Vehicle = ComponentPool.Get<VehicleCategoryPropertyPanel>(this);
+                Vehicle.Deletable = false;
 
-            LabelContinue = AddLabel();
-            LabelContinue.Padding = new RectOffset(5, 5, 0, 5);
-
-            StartLayout();
+                LabelContinue = AddLabel();
+                LabelContinue.Padding = new RectOffset(10, 10, 0, 5);
+            });
         }
 
         public void Init(VehicleCategory type)
         {
-            StopLayout();
+            PauseLayout(() =>
+            {
+                Label.text = BuildingSpawnPoints.Localize.Panel_NoPointWarning;
+                LabelContinue.text = BuildingSpawnPoints.Localize.Panel_NoPointWarningContinue;
 
-            Label.text = BuildingSpawnPoints.Localize.Panel_NoPointWarning;
-            LabelContinue.text = BuildingSpawnPoints.Localize.Panel_NoPointWarningContinue;
-
-            isVisible = type != VehicleCategory.None;
-            Vehicle.SetItems(type);
-
-            StartLayout();
+                isVisible = type != VehicleCategory.None;
+                Vehicle.SetItems(type);
+            });
 
             base.Init();
         }

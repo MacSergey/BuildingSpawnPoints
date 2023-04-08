@@ -113,7 +113,7 @@ namespace BuildingSpawnPoints
 
             //Maintenance
             { typeof(MaintenanceDepotAI), VehicleCategory.Default | VehicleCategory.RoadTruck },
-            { typeof(LandfillSiteAI), VehicleCategory.Default | VehicleCategory.Cargo },
+            { typeof(LandfillSiteAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             { typeof(SnowDumpAI), VehicleCategory.Default | VehicleCategory.SnowTruck },
             { typeof(WaterFacilityAI), VehicleCategory.Default | VehicleCategory.VacuumTruck },
 
@@ -161,18 +161,18 @@ namespace BuildingSpawnPoints
                 case DepotAI depot:
                     {
                         if (depot.m_transportInfo is TransportInfo info1)
-                            vehicleTypes |= info1.GetVehicleType() & VehicleCategory.Passenger;
+                            vehicleTypes |= info1.GetVehicleType() & VehicleFunction.Public.GetCategory();
                         if (depot.m_secondaryTransportInfo is TransportInfo info2)
-                            vehicleTypes |= info2.GetVehicleType() & VehicleCategory.Passenger;
+                            vehicleTypes |= info2.GetVehicleType() & VehicleFunction.Public.GetCategory();
                         break;
                     }
 
                 case CargoStationAI cargoStation:
                     {
                         if (cargoStation.m_transportInfo is TransportInfo info1)
-                            vehicleTypes |= info1.GetVehicleType() & VehicleCategory.Cargo;
+                            vehicleTypes |= info1.GetVehicleType() & VehicleFunction.Cargo.GetCategory();
                         if (cargoStation.m_transportInfo2 is TransportInfo info2)
-                            vehicleTypes |= info2.GetVehicleType() & VehicleCategory.Cargo;
+                            vehicleTypes |= info2.GetVehicleType() & VehicleFunction.Cargo.GetCategory();
                         break;
                     }
 
@@ -199,7 +199,7 @@ namespace BuildingSpawnPoints
                 case TourBuildingAI tourBuilding:
                     {
                         if (tourBuilding.m_transportInfo is TransportInfo transportInfo)
-                            vehicleTypes |= transportInfo.GetVehicleType() & VehicleCategory.Passenger;
+                            vehicleTypes |= transportInfo.GetVehicleType() & VehicleFunction.Public.GetCategory();
                         break;
                     }
                 case ShelterAI shelter:
@@ -263,14 +263,14 @@ namespace BuildingSpawnPoints
 
             if (cargoStation.m_transportInfo is TransportInfo info1)
             {
-                var vehicleType = info1.GetVehicleType() & VehicleCategory.Cargo;
+                var vehicleType = info1.GetVehicleType() & VehicleFunction.Cargo.GetCategory();
                 if (vehicleType != VehicleCategory.None)
                     yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition, cargoStation.m_spawnTarget, vehicleType, invert: cargoStation.m_canInvertTarget && InvertTraffic);
             }
 
             if (cargoStation.m_transportInfo2 is TransportInfo info2)
             {
-                var vehicleType = info2.GetVehicleType() & VehicleCategory.Cargo;
+                var vehicleType = info2.GetVehicleType() & VehicleFunction.Cargo.GetCategory();
                 if (vehicleType != VehicleCategory.None)
                     yield return new BuildingSpawnPoint(data, cargoStation.m_spawnPosition2, cargoStation.m_spawnTarget2, vehicleType, invert: cargoStation.m_canInvertTarget2 && InvertTraffic);
             }
@@ -280,7 +280,7 @@ namespace BuildingSpawnPoints
             if (depot.m_transportInfo is TransportInfo info1)
             {
                 var invert = depot.m_canInvertTarget && InvertTraffic;
-                var vehicleType = info1.GetVehicleType() & VehicleCategory.Passenger;
+                var vehicleType = info1.GetVehicleType() & VehicleFunction.Public.GetCategory();
 
                 if (vehicleType != VehicleCategory.None)
                 {
@@ -296,7 +296,7 @@ namespace BuildingSpawnPoints
             if (depot.m_secondaryTransportInfo is TransportInfo info2)
             {
                 var invert = depot.m_canInvertTarget2 && InvertTraffic;
-                var vehicleType = info2.GetVehicleType() & VehicleCategory.Passenger;
+                var vehicleType = info2.GetVehicleType() & VehicleFunction.Public.GetCategory();
 
                 if (vehicleType != VehicleCategory.None)
                 {
@@ -325,7 +325,7 @@ namespace BuildingSpawnPoints
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this ServicePointAI servicePoint, BuildingData data)
         {
-            foreach(var spawnPoint in servicePoint.m_spawnPoints)
+            foreach (var spawnPoint in servicePoint.m_spawnPoints)
                 yield return new BuildingSpawnPoint(data, spawnPoint.m_position, spawnPoint.m_target, (VehicleCategory)spawnPoint.vehicleCategory);
         }
         private static IEnumerable<BuildingSpawnPoint> GetPoints(this TaxiStandAI taxiStand, BuildingData data)
@@ -350,7 +350,7 @@ namespace BuildingSpawnPoints
         {
             if (tourBuilding.m_transportInfo is TransportInfo info)
             {
-                var vehicleType = info.GetVehicleType() & VehicleCategory.Passenger;
+                var vehicleType = info.GetVehicleType() & VehicleFunction.Public.GetCategory();
                 if (vehicleType != VehicleCategory.None)
                     yield return new BuildingSpawnPoint(data, tourBuilding.m_vehicleSpawnPosition, 0f, vehicleType, PointType.Both);
             }
@@ -425,6 +425,9 @@ namespace BuildingSpawnPoints
             return vector;
         }
 
-        public static VehicleService GetGroup(this VehicleCategory type) => EnumExtension.GetEnumValues<VehicleService>().FirstOrDefault(v => ((ulong)v & (ulong)type) != 0);
+        public static VehicleService GetService(this VehicleCategory category) => category.GetAttr<ServiceAttribute, VehicleCategory>()?.Service ?? VehicleService.None;
+        public static VehicleFunction GetFunction(this VehicleCategory category) => category.GetAttr<FunctionAttribute, VehicleCategory>()?.Function ?? VehicleFunction.None;
+        public static VehicleCategory GetCategory(this VehicleService service) => service.GetAttr<CategoryAttribute, VehicleService>()?.Category ?? VehicleCategory.None;
+        public static VehicleCategory GetCategory(this VehicleFunction function) => function.GetAttr<CategoryAttribute, VehicleFunction>()?.Category ?? VehicleCategory.None;
     }
 }

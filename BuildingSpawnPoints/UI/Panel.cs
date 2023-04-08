@@ -3,6 +3,7 @@ using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static ModsCommon.UI.ComponentStyle;
@@ -18,7 +19,9 @@ namespace BuildingSpawnPoints.UI
 
         public BuildingData Data { get; private set; }
 
+        private Dictionary<BuildingSpawnPoint, PointPanel> PointPanels { get; } = new Dictionary<BuildingSpawnPoint, PointPanel>();
         private PointPanel HoverPointPanel { get; set; }
+        public BuildingSpawnPoint HoverPoint => HoverPointPanel?.Point;
 
         public override void Awake()
         {
@@ -27,7 +30,7 @@ namespace BuildingSpawnPoints.UI
             name = nameof(BuildingSpawnPointsPanel);
             Atlas = CommonTextures.Atlas;
             BackgroundSprite = CommonTextures.PanelBig;
-            BgColors = PanelColor;
+            BgColors = DarkPrimaryColor10;
 
 
             Header = AddUIComponent<PanelHeader>();
@@ -36,6 +39,13 @@ namespace BuildingSpawnPoints.UI
             Header.BackgroundSprite = "ButtonWhite";
             Header.BgColors = new Color32(36, 40, 40, 255);
             Header.Init(HeaderHeight);
+
+
+            Warning = AddUIComponent<WarningPanel>();
+            Warning.Init();
+            SetItemMargin(Warning, new RectOffset(10, 10, 10, 10));
+            Warning.eventVisibilityChanged += WarningVisibilityChanged;
+            Warning.eventSizeChanged += WarningSizeChanged;
 
 
             ContentPanel = AddUIComponent<CustomUIScrollablePanel>();
@@ -53,15 +63,28 @@ namespace BuildingSpawnPoints.UI
             ContentPanel.Scrollbar.DefaultStyle();
 
 
+            AddButton = AddUIComponent<CustomUIButton>();
+            AddButton.name = nameof(AddButton);
+            AddButton.text = BuildingSpawnPoints.Localize.Panel_AddPoint;
+            AddButton.tooltip = SpawnPointsTool.AddPointShortcut;
+            AddButton.SetDefaultStyle();
+            AddButton.height = 30;
+            AddButton.TextHorizontalAlignment = UIHorizontalAlignment.Center;
+            AddButton.TextPadding.top = 5;
+            AddButton.eventClick += (_, _) => AddPoint();
+            SetItemMargin(AddButton, new RectOffset(10, 10, 10, 10));
+
+
             var sizeChanger = AddUIComponent<SizeChanger>();
             Ignore(sizeChanger, true);
 
 
-            minimumSize = GetSize(400f, 200f);
+            minimumSize = GetSize(400f, 300f);
 
             AutoChildrenHorizontally = AutoLayoutChildren.Fill;
             AutoLayout = AutoLayout.Vertical;
         }
+
         public override void Start()
         {
             base.Start();
@@ -71,16 +94,17 @@ namespace BuildingSpawnPoints.UI
         protected override void OnSizeChanged()
         {
             base.OnSizeChanged();
-
             Header.width = width;
-            ContentPanel.size = size - new Vector2(0, Header.height);
-
+            SetContentSize();
             MakePixelPerfect();
         }
+        private void WarningVisibilityChanged(UIComponent component, bool value) => SetContentSize();
+        private void WarningSizeChanged(UIComponent component, Vector2 value) => SetContentSize();
+        private void SetContentSize() => ContentPanel.height = height - Header.height - (Warning.isVisibleSelf ? 10f + Warning.height + 10f : 0f) - 10f - AddButton.height - 10f;
         private void SetDefaulSize()
         {
             SingletonMod<Mod>.Logger.Debug($"Set default panel size");
-            size = GetSize(400f, 400f);
+            size = GetSize(400f, 600f);
         }
         private Vector2 GetSize(float width, float height) => new Vector2(width, Header.height + height);
 
@@ -93,14 +117,12 @@ namespace BuildingSpawnPoints.UI
         }
         private void SetPanel()
         {
+            RefreshWarning();
             ResetPanel();
 
             ContentPanel.PauseLayout(() =>
             {
                 RefreshHeader();
-                AddWarning();
-                RefreshWarning();
-                AddAddButton();
 
                 foreach (var point in Data.Points)
                     AddPointPanel(point);
@@ -117,24 +139,9 @@ namespace BuildingSpawnPoints.UI
                     if (component != ContentPanel.Scrollbar)
                         ComponentPool.Free(component);
                 }
-            });
-        }
 
-        private void AddWarning()
-        {
-            Warning = ComponentPool.Get<WarningPanel>(ContentPanel);
-            Warning.Init();
-        }
-        private void AddAddButton()
-        {
-            AddButton = ComponentPool.Get<CustomUIButton>(ContentPanel);
-            AddButton.name = nameof(AddButton);
-            AddButton.text = BuildingSpawnPoints.Localize.Panel_AddPoint;
-            AddButton.SetDefaultStyle();
-            AddButton.height = 30;
-            AddButton.TextHorizontalAlignment = UIHorizontalAlignment.Center;
-            AddButton.TextPadding.top = 5;
-            AddButton.eventClick += (_, _) => AddPoint();
+                PointPanels.Clear();
+            });
         }
         private void AddPointPanel(BuildingSpawnPoint point)
         {
@@ -145,7 +152,7 @@ namespace BuildingSpawnPoints.UI
             pointPanel.OnLeave += PointMouseLeave;
             pointPanel.OnChanged += RefreshWarning;
 
-            AddButton.zOrder = -1;
+            PointPanels[point] = pointPanel;
         }
 
         public override void RefreshPanel() => SetPanel();
@@ -156,7 +163,7 @@ namespace BuildingSpawnPoints.UI
         }
         private void RefreshWarning() => Warning.Init(Data.LostVehicles);
 
-        private void AddPoint()
+        public void AddPoint()
         {
             var newPoint = Data.AddPoint();
             AddPointPanel(newPoint);
@@ -164,21 +171,33 @@ namespace BuildingSpawnPoints.UI
             ContentPanel.ScrollToEnd();
         }
 
-        public void DeletePoint(PointPanel pointPanel)
+        public void DeletePoint(BuildingSpawnPoint point)
         {
-            Data.DeletePoint(pointPanel.Point);
+            Data.DeletePoint(point);
 
-            if (HoverPointPanel == pointPanel)
-                HoverPointPanel = null;
+            if (PointPanels.TryGetValue(point, out var pointPanel))
+            {
+                if (HoverPointPanel == pointPanel)
+                    HoverPointPanel = null;
 
-            ComponentPool.Free(pointPanel);
+                ComponentPool.Free(pointPanel);
+                PointPanels.Remove(point);
+            }
         }
-        public void DuplicatePoint(PointPanel pointPanel)
+        public void DuplicatePoint(BuildingSpawnPoint point)
         {
-            var copyPoint = Data.DuplicatePoint(pointPanel.Point);
+            var copyPoint = Data.DuplicatePoint(point);
             AddPointPanel(copyPoint);
 
             ContentPanel.ScrollToEnd();
+        }
+        public void SelectPoint(BuildingSpawnPoint point)
+        {
+            if (PointPanels.TryGetValue(point, out var pointPanel))
+            {
+                pointPanel.Refresh();
+                ContentPanel.ScrollIntoView(pointPanel);
+            }
         }
 
         private void PointMouseEnter(PointPanel rulePanel, UIMouseEventParameter eventParam) => HoverPointPanel = rulePanel;
@@ -192,40 +211,15 @@ namespace BuildingSpawnPoints.UI
             if (eventParam.source == rulePanel || !pointRect.Contains(mouse) || !contentRect.Contains(mouse))
                 HoverPointPanel = null;
         }
-
         public void Render(RenderManager.CameraInfo cameraInfo)
         {
             if (HoverPointPanel is PointPanel pointPanel)
-                pointPanel.Render(cameraInfo);
+                pointPanel.Point.Render(cameraInfo, true, pointPanel.HoveredVehicleType);
         }
-    }
-
-    public class PanelHeader : HeaderMoveablePanel<PanelHeaderContent>
-    {
-        private HeaderButtonInfo<HeaderButton> PasteButton { get; set; }
-
-        protected override void FillContent()
+        public void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.CopyHeaderButton, BuildingSpawnPoints.Localize.Panel_Copy, OnCopy));
-
-            PasteButton = new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.PasteHeaderButton, BuildingSpawnPoints.Localize.Panel_Paste, OnPaste);
-            Content.AddButton(PasteButton);
-
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.ApplyAllHeaderButton, BuildingSpawnPoints.Localize.Panel_ApplyToAll, OnApplyToAll));
-
-            Content.AddButton(new HeaderButtonInfo<HeaderButton>(HeaderButtonState.Main, SpawnPointsTextures.Atlas, SpawnPointsTextures.ResetHeaderButton, BuildingSpawnPoints.Localize.Panel_ResetToDefault, OnResetToDefault));
+            if (HoverPointPanel is PointPanel pointPanel)
+                pointPanel.Point.RenderGeometry(cameraInfo, true);
         }
-
-        private void OnCopy() => SingletonTool<SpawnPointsTool>.Instance.Copy();
-        private void OnPaste() => SingletonTool<SpawnPointsTool>.Instance.Paste();
-        private void OnApplyToAll() => SingletonTool<SpawnPointsTool>.Instance.ApplyToAll();
-        private void OnResetToDefault() => SingletonTool<SpawnPointsTool>.Instance.ResetToDefault();
-
-        public override void Refresh()
-        {
-            PasteButton.Enable = !SingletonTool<SpawnPointsTool>.Instance.IsBufferEmpty;
-            base.Refresh();
-        }
-        public void Init(float height) => base.Init(height);
     }
 }

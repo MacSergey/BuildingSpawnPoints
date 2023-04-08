@@ -7,10 +7,10 @@ namespace BuildingSpawnPoints.UI
 {
     public static class UIStyle
     {
-        public static Color32 PropertyPanel => new Color32(132, 152, 90, 255);
-        public static Color32 PropertyNormal => DarkPrimaryColor20;
-        public static Color32 PropertyHovered => DarkPrimaryColor30;
-        public static Color32 PropertyPressed => DarkPrimaryColor35;
+        public static Color32 PropertyPanel => DarkPrimaryColor20;
+        public static Color32 PropertyNormal => DarkPrimaryColor45;
+        public static Color32 PropertyHovered => DarkPrimaryColor55;
+        public static Color32 PropertyPressed => DarkPrimaryColor60;
         public static Color32 PropertyFocused => NormalBlue;
 
         public static Color32 PopupBackground => DarkPrimaryColor15;
@@ -87,6 +87,26 @@ namespace BuildingSpawnPoints.UI
 
                 EntityColors = new ColorSet(default, PopupEntityHovered, PopupEntityPressed, default, default),
                 EntitySelColors = PopupEntitySelected,
+            },
+            Toggle = new ToggleStyle()
+            {
+                BgAtlas = Atlas,
+                MarkAtlas = Atlas,
+
+                OnBgSprites = ToggleBackgroundSmall,
+                OffBgSprites = new SpriteSet(ToggleBackgroundSmall, ToggleBackgroundSmall, ToggleBackgroundSmall, ToggleBackgroundSmall, ToggleBorderSmall),
+
+                OnMarkSprites = ToggleCircle,
+                OffMarkSprites = ToggleCircle,
+
+                OnBgColors = new ColorSet(PropertyFocused, PropertyFocused, PropertyFocused, PropertyFocused, PropertyNormal),
+                OffBgColors = new ColorSet(PropertyNormal, PropertyHovered, PropertyHovered, PropertyNormal, PropertyNormal),
+
+                OnMarkColors = new ColorSet(Color.white, Color.white, Color.white, Color.white, PropertyPanel),
+                OffMarkColors = new ColorSet(Color.white, Color.white, Color.white, Color.white, PropertyNormal),
+
+                OnTextColors = new ColorSet(Color.white, Color.white, Color.white, Color.white, PropertyPanel),
+                OffTextColors = new ColorSet(Color.white, Color.white, Color.white, Color.white, Color.black),
             },
             Label = new LabelStyle()
             {
