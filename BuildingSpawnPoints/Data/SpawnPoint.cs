@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -52,10 +53,10 @@ namespace BuildingSpawnPoints
         private delegate WaterSimulation.Cell[] WaterSimulationCellDelegate(WaterSimulation waterSimulation);
         private static WaterSimulationCellDelegate WaterCellsDelegate { get; set; }
         private static WaterSimulation.Cell[] WaterCells => WaterCellsDelegate.Invoke(TerrainManager.instance.WaterSimulation);
-        private static Mesh Mesh { get; }
-        private static Material Material { get; }
-        private static MaterialPropertyBlock MaterialProperty { get; }
-        private static int ID_Color { get; }
+        private static Mesh Mesh { get; set; }
+        private static Material Material { get; set; }
+        private static MaterialPropertyBlock MaterialProperty { get; set; }
+        private static int ID_Color { get; set; }
         private static int Layer { get; set; } = 9;
         static BuildingSpawnPoint()
         {
@@ -75,70 +76,107 @@ namespace BuildingSpawnPoints
             generator.Emit(OpCodes.Ldelem_Ref);
             generator.Emit(OpCodes.Ret);
             WaterCellsDelegate = (WaterSimulationCellDelegate)definition.CreateDelegate(typeof(WaterSimulationCellDelegate));
-
-
-
-            var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            var sphereMesh = sphere.GetComponent<MeshFilter>().sharedMesh;
-            var sphereVertices = sphereMesh.vertices;
-            var sphereTriangles = sphereMesh.triangles;
-            var sphereNormals = sphereMesh.normals;
-            GameObject.Destroy(sphere);
-
-            for (var i = 0; i < sphereVertices.Length; i += 1)
+        }
+        public static void CreateMarker()
+        {
+            try
             {
-                sphereVertices[i] = sphereVertices[i] * 2f;
-                var distance = sphereVertices[i].XZ().magnitude;
-                if (distance <= 1.75f)
-                    distance = 0.25f;
-                else
+                SingletonMod<Mod>.Logger.Debug("Start creating marker");
+
+                var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                var sphereMesh = sphere.GetComponent<MeshFilter>().sharedMesh;
+                var sphereVertices = sphereMesh.vertices;
+                var sphereTriangles = sphereMesh.triangles;
+                var sphereNormals = sphereMesh.normals;
+                GameObject.Destroy(sphere);
+
+                for (var i = 0; i < sphereVertices.Length; i += 1)
                 {
-                    distance -= 1.75f;
-                    distance = Mathf.Sqrt(0.0625f - distance * distance);
+                    sphereVertices[i] = sphereVertices[i] * 2f;
+                    var distance = sphereVertices[i].XZ().magnitude;
+                    if (distance <= 1.75f)
+                        distance = 0.25f;
+                    else
+                    {
+                        distance -= 1.75f;
+                        distance = Mathf.Sqrt(0.0625f - distance * distance);
+                    }
+                    sphereVertices[i].y = Mathf.Clamp(sphereVertices[i].y, -distance, distance);
                 }
-                sphereVertices[i].y = Mathf.Clamp(sphereVertices[i].y, -distance, distance);
+
+                var capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+                var capsuleMesh = capsule.GetComponent<MeshFilter>().sharedMesh;
+                var capsuleVertices = capsuleMesh.vertices;
+                var capsuleTriangles = capsuleMesh.triangles;
+                var capsuleNormals = capsuleMesh.normals;
+                GameObject.Destroy(capsule);
+
+                for (var i = 0; i < capsuleVertices.Length; i += 1)
+                {
+                    capsuleVertices[i].y += capsuleVertices[i].y > 0 ? 1f : -1f;
+                    capsuleVertices[i] = new Vector3(capsuleVertices[i].y * 0.4f + 1.4f, -capsuleVertices[i].x * 0.4f, capsuleVertices[i].z * 0.4f);
+                    capsuleNormals[i] = new Vector3(capsuleNormals[i].y, -capsuleNormals[i].x, capsuleNormals[i].z);
+                }
+
+                var vertices = new Vector3[sphereVertices.Length + capsuleVertices.Length];
+                Array.Copy(sphereVertices, 0, vertices, 0, sphereVertices.Length);
+                Array.Copy(capsuleVertices, 0, vertices, sphereVertices.Length, capsuleVertices.Length);
+
+                var triangles = new int[sphereTriangles.Length + capsuleTriangles.Length];
+                Array.Copy(sphereTriangles, 0, triangles, 0, sphereTriangles.Length);
+                for (var i = 0; i < capsuleTriangles.Length; i += 1)
+                    triangles[i + sphereTriangles.Length] = capsuleTriangles[i] + sphereVertices.Length;
+
+                var normals = new Vector3[sphereNormals.Length + capsuleNormals.Length];
+                Array.Copy(sphereNormals, 0, normals, 0, sphereNormals.Length);
+                Array.Copy(capsuleNormals, 0, normals, sphereNormals.Length, capsuleNormals.Length);
+
+
+                Mesh = new Mesh()
+                {
+                    vertices = vertices,
+                    triangles = triangles,
+                    normals = normals,
+                };
+                Mesh.RecalculateNormals();
+                Mesh.RecalculateTangents();
+
+                Material = new Material(Shader.Find("Custom/Props/Prop/Default"));
+                MaterialProperty = new MaterialPropertyBlock();
+                ID_Color = Shader.PropertyToID("_Color");
+
+                SingletonMod<Mod>.Logger.Debug("Marker created");
             }
-
-            var capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            var capsuleMesh = capsule.GetComponent<MeshFilter>().sharedMesh;
-            var capsuleVertices = capsuleMesh.vertices;
-            var capsuleTriangles = capsuleMesh.triangles;
-            var capsuleNormals = capsuleMesh.normals;
-            GameObject.Destroy(capsule);
-
-            for (var i = 0; i < capsuleVertices.Length; i += 1)
+            catch (Exception error)
             {
-                capsuleVertices[i].y += capsuleVertices[i].y > 0 ? 1f : -1f;
-                capsuleVertices[i] = new Vector3(capsuleVertices[i].y * 0.4f + 1.4f, -capsuleVertices[i].x * 0.4f, capsuleVertices[i].z * 0.4f);
-                capsuleNormals[i] = new Vector3(capsuleNormals[i].y, -capsuleNormals[i].x, capsuleNormals[i].z);
+                SingletonMod<Mod>.Logger.Error("Can't create marker", error);
             }
-
-            var vertices = new Vector3[sphereVertices.Length + capsuleVertices.Length];
-            Array.Copy(sphereVertices, 0, vertices, 0, sphereVertices.Length);
-            Array.Copy(capsuleVertices, 0, vertices, sphereVertices.Length, capsuleVertices.Length);
-
-            var triangles = new int[sphereTriangles.Length + capsuleTriangles.Length];
-            Array.Copy(sphereTriangles, 0, triangles, 0, sphereTriangles.Length);
-            for (var i = 0; i < capsuleTriangles.Length; i += 1)
-                triangles[i + sphereTriangles.Length] = capsuleTriangles[i] + sphereVertices.Length;
-
-            var normals = new Vector3[sphereNormals.Length + capsuleNormals.Length];
-            Array.Copy(sphereNormals, 0, normals, 0, sphereNormals.Length);
-            Array.Copy(capsuleNormals, 0, normals, sphereNormals.Length, capsuleNormals.Length);
-
-
-            Mesh = new Mesh()
+        }
+        public static void DestroyMarker()
+        {
+            try
             {
-                vertices = vertices,
-                triangles = triangles,
-                normals = normals,
-            };
-            Mesh.RecalculateNormals();
-            Mesh.RecalculateTangents();
+                SingletonMod<Mod>.Logger.Debug("Start destroying marker");
 
-            Material = new Material(Shader.Find("Custom/Props/Prop/Default"));
-            MaterialProperty = new MaterialPropertyBlock();
-            ID_Color = Shader.PropertyToID("_Color");
+                if (Mesh != null)
+                {
+                    GameObject.Destroy(Mesh);
+                    Mesh = null;
+                }
+
+                if (Material != null)
+                {
+                    GameObject.Destroy(Material);
+                    Material = null;
+                }
+
+                MaterialProperty = null;
+                SingletonMod<Mod>.Logger.Debug("Marker destroyed");
+            }
+            catch (Exception error)
+            {
+                SingletonMod<Mod>.Logger.Error("Can't destroy marker", error);
+            }
         }
 
         private BuildingSpawnPoint(BuildingData data)
