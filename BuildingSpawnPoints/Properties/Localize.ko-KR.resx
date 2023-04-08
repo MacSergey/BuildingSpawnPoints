@@ -136,6 +136,7 @@
 [FIXED] 소방차 및 재난대응 차량의 무한 생성이 수정되었습니다.</value>
   </data>
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>모든 유형의 차량 추가</value>
   </data>
@@ -190,7 +191,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>이 점은 도로와 너무 멀리 떨어져 있습니다. 길과 더 가깝게 움직여야 작동합니다.</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>스폰</value>
   </data>
@@ -224,9 +224,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>건물 선택</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>항공 교통수단</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>화물 차량</value>
   </data>
@@ -241,12 +238,6 @@
     <value>비행기</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>열차</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>차량</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>서비스 차량</value>
   </data>
@@ -258,9 +249,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>트럭</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>해상 교통수단</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>모두</value>

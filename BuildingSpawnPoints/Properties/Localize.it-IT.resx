@@ -138,6 +138,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Aggiunto il supporto dei camion PortaValori bancari di Financial Districts DLC.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>
@@ -192,7 +193,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Questo punto è posto troppo lontano dalla strada per alcuni tipi di veicoli, spostarlo più vicino, altrimenti non funzionerà</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Genera</value>
   </data>
@@ -226,9 +226,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Seleziona edificio</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Veicoli aerei</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Veicoli da carico</value>
   </data>
@@ -243,12 +240,6 @@
     <value>Aerei</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Veicoli ferroviari</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Veicoli stradali</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Veicolo di servizio</value>
   </data>
@@ -260,9 +251,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camion</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Veicoli acquatici</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Tutto</value>

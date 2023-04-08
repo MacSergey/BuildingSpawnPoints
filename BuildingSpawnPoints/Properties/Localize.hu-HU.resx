@@ -131,6 +131,7 @@
   
   
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Összes járműtípus hozzáadása</value>
   </data>
@@ -181,7 +182,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Ez a pont túl messze lett elhelyezve az úttól bizonyos típusú járműveknek, vidd közelebb, különben nem fog működni</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Megjelenés</value>
   </data>
@@ -215,9 +215,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Válassz épületet</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Légi járművek</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Szállító járművek</value>
   </data>
@@ -232,10 +229,6 @@
     <value>Repülők</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Vonatok</value>
-  </data>
-  
   
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>Hajók</value>
@@ -245,9 +238,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Teherautók</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Vízi járművek</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Összes</value>

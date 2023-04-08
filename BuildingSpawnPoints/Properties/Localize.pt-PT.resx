@@ -138,6 +138,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NOVO] Adicionado suporte a camiões de banco da DLC de Distritos Financeiros.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adicionar todos os tipos de veículo</value>
   </data>
@@ -192,7 +193,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Este ponto ficou muito longe da estrada para algum tipo de veículo, mova-o para perto, caso contrário não funcionará</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Invocar</value>
   </data>
@@ -226,9 +226,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selecione o edifício</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Veículos aéreos</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Veículos de carga</value>
   </data>
@@ -243,12 +240,6 @@
     <value>Aviões</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Veículos ferroviários</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Veículos rodoviários</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Veículos de serviço</value>
   </data>
@@ -260,9 +251,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camiões</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Veículos aquáticos</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Todos</value>

@@ -138,6 +138,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Přidána podpora bankovních vozidel z Financial Districts DLC.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Přidat všechny typy vozidel</value>
   </data>
@@ -192,9 +193,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Tento bod leží příliš daleko od silnice pro určité typy vozidel, přesuň ho blíž, jinak nebude fungovat</value>
   </data>
-  <data name="PointType_Middle" xml:space="preserve">
-    <value>Prostředek</value>
-  </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Spawn</value>
   </data>
@@ -228,9 +226,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Vyberte budovu</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Letecká vozidla</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Nákladní vozidla</value>
   </data>
@@ -245,12 +240,6 @@
     <value>Letadla</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Kolejová vozidla</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Silniční vozidla</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Servisní vozidla</value>
   </data>
@@ -262,9 +251,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Nákladní vozy</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Vodní vozidla</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Vše</value>

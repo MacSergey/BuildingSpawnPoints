@@ -138,6 +138,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Ondersteuning toegevoegd voor geldauto's uit Financial Districts DLC.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Voeg alle typen voertuigen toe</value>
   </data>
@@ -192,7 +193,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Dit punt is te ver weg geplaatst van een weg voor sommige type voertuigen, plaats het dichterbij, anders zal het niet werken</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Startpunt</value>
   </data>
@@ -226,9 +226,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selecteer gebouw</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Luchtvoertuigen</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Vrachtvoertuigen</value>
   </data>
@@ -243,12 +240,6 @@
     <value>Vliegtuigen</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Spoorvoertuigen</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Wegvoertuigen</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Servicevoertuigen</value>
   </data>
@@ -260,9 +251,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Vrachtwagens</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Watervoertuigen</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Alle</value>

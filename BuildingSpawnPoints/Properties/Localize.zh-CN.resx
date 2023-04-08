@@ -159,6 +159,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] 增加了对金融区DLC运钞车的支持。</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
   </data>
@@ -213,9 +214,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>此点对某些类型的车辆来说距离道路太远。请向道路移近，否则它将无法工作</value>
   </data>
-  <data name="PointType_Middle" xml:space="preserve">
-    <value>中间</value>
-  </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>生成</value>
   </data>
@@ -267,9 +265,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>选择建筑</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>空中载具</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>货运载具</value>
   </data>
@@ -288,12 +283,6 @@
   <data name="VehicleTypeGroup_Public" xml:space="preserve">
     <value>公共交通</value>
   </data>
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>铁道载具</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>道路载具</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>维护用载具</value>
   </data>
@@ -305,9 +294,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>货车</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>水上载具</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>全部</value>

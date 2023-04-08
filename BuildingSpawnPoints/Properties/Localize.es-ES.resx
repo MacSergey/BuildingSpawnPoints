@@ -140,6 +140,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Se ha añadido soporte para furgón blindado del DLC "Distritos Financieros".</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>
@@ -194,7 +195,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Este punto está demasiado lejos de la carretera para algunos tipos de vehículos, muévelo más cerca, de lo contrario no funcionará</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Generar</value>
   </data>
@@ -226,7 +226,7 @@
     <value>¿Realmente quieres aplicar esta configuración a todos los edificios de este tipo?</value>
   </data>
   <data name="Tool_InfoCorrect" xml:space="preserve">
-    <value>ESTABLECER CORRECTO</value>
+    <value>EN FUNCIONAMIENTO</value>
   </data>
   <data name="Tool_InfoDragPoint" xml:space="preserve">
     <value>Arrastre el punto para cambiar su posición</value>
@@ -238,16 +238,13 @@
     <value>Edificio #{0}</value>
   </data>
   <data name="Tool_InfoIncorrect" xml:space="preserve">
-    <value>ESTABLECER INCORRECTO</value>
+    <value>NO EN FUNCIONAMIENTO</value>
   </data>
   <data name="Tool_InfoPointHeight" xml:space="preserve">
     <value>Mantén presionado {0} para cambiar la altura</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Seleccionar edificio</value>
-  </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Vehículos aéreos</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Vehículos de carga</value>
@@ -267,12 +264,6 @@
   <data name="VehicleTypeGroup_Public" xml:space="preserve">
     <value>Transporte público</value>
   </data>
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Trenes</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Vehículos particulares</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Vehículos de servicio</value>
   </data>
@@ -284,9 +275,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camiones</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Vehículos acuáticos</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Todos</value>

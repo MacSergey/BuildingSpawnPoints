@@ -136,6 +136,7 @@
 [FIXED] Camioane de pompieri și camioane de urgență dezastre infinite.</value>
   </data>
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adăugați toate tipurile de vehicule</value>
   </data>
@@ -190,7 +191,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Acest punct a fost plasat prea departe din stradă pentru câteva tipuri de vehicule, plasați-l mai aproape, dacă nu el nu o să funcționeze</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Spawn</value>
   </data>
@@ -224,9 +224,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selectați clădirea</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Vehicule aeriene</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Vehicule de marfă</value>
   </data>
@@ -241,12 +238,6 @@
     <value>Avioane</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Trenuri</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Mașini</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Vehicule utilitare</value>
   </data>
@@ -258,9 +249,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camioane</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Ambarcațiuni</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Toate</value>

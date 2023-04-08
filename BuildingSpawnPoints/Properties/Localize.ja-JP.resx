@@ -138,6 +138,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Added support of bank trucks from Financial Districts DLC.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>全タイプの車両を追加</value>
   </data>
@@ -194,42 +195,56 @@
     <value>このポイントは道路から遠すぎて、車両がスポーン出来ません。
 道路の近くまで、ポイントを移動させてください。</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>出現</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>帰還</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>地表の高さに追従</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>スポーンのタイプ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>ポジション</value>
   </data>
-  
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>パネルにカラフルな車両タグ</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3Dポイントのマーカー</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>ポイントの追加</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>同じタイプの建物を一括で適用</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>選択しているタイプの建物に、現在の設定を一括で適用してよろしいですか？</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>正常に設定</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>ポイントをドラッグして位置を変更</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>空のポイント</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>建物 #{0}</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>不正な設定</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>{0} で高さを変更</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>編集したい建物を選択</value>
-  </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>航空車両</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>貨物車両</value>
@@ -240,19 +255,17 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>デフォルトの車両</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>緊急車両</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>飛行機</value>
   </data>
-  
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>鉄道車両</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>道路車両</value>
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>公共交通</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>サービス車両</value>
+    <value>サービス</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>船舶</value>
@@ -262,9 +275,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>トラック</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>水上車両</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>すべて</value>

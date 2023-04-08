@@ -142,6 +142,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Unterstützung der Geld-Transporter aus dem Financial Districts DLC.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>
@@ -196,7 +197,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Dieser Punkt ist für bestimmte Fahrzeuge zu weit von der Straße entfernt. Verschiebe ihn näher an die Straße, sonst wird er nicht funktionieren.</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Startpunkt</value>
   </data>
@@ -230,9 +230,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Gebäude auswählen</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Luftfahrzeuge</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Frachtfahrzeuge</value>
   </data>
@@ -247,12 +244,6 @@
     <value>Flugzeuge</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Schienenfahrzeuge</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Straßenfahrzeuge</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Dienstfahrzeuge</value>
   </data>
@@ -264,9 +255,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Lastwagen</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Wasserfahrzeuge</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Alle</value>

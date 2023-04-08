@@ -165,6 +165,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Добавлена поддержка инкасаторских фургонов из Financial Districts DLC.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Добавлена возможность перетаскивать точки с помощью курсора.
+[NEW] Добавлен 3D маркер, что позволяет видеть реальную высоту точек.
+[UPDATED] Новый стиль интерфейса.
+[NEW] Теги транспортных средств имеют различные цвета в зависимости от их типа.
+[NEW] Добавлена горячая кнопка для добавления точки.
+[FIXED] Добавлена возможность задавать точку для грузовиков для рыбного рынка.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Добавить все типы транспортных средств</value>
   </data>
@@ -217,9 +225,8 @@
     <value>Здание #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>Эта точка расположена слишком далеко от дорог для некоторых типов транспортных средств, пододвиньте ее ближе иначе на не будет работать</value>
+    <value>Эта точка расположена слишком далеко от дорог для некоторых типов транспортных средств, пододвиньте ее ближе иначе она не будет функционировать</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Появление</value>
   </data>
@@ -271,9 +278,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Выберите здание</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Воздушные транспортные средства</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Грузовые транспортные средства</value>
   </data>
@@ -292,12 +296,6 @@
   <data name="VehicleTypeGroup_Public" xml:space="preserve">
     <value>Общественный транспорт</value>
   </data>
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Рельсовые транспортные средства</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Дорожные транспортные средства</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Обслуживающий транспорт</value>
   </data>
@@ -309,9 +307,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Грузовики</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Водные транспортные средства</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Все</value>

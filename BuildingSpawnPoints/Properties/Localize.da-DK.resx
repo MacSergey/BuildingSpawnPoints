@@ -131,6 +131,7 @@
   
   
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Tilføj alle typer køretøjer</value>
   </data>
@@ -185,7 +186,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Dette punkt er for langt væk fra vejen for nogle typer af køretøjer, flyt punktet tættere på, ellers vil det ikke virke</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Spawn</value>
   </data>
@@ -220,7 +220,6 @@
     <value>Vælg bygning</value>
   </data>
   
-  
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
     <value>Helikoptere</value>
   </data>
@@ -229,8 +228,6 @@
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Fly</value>
   </data>
-  
-  
   
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Service køretøjer</value>
@@ -244,7 +241,6 @@
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Lastbiler</value>
   </data>
-  
   
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulance</value>

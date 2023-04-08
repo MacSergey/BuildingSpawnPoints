@@ -165,6 +165,7 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Prise en charge des camions de banque du DLC Financial Districts.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
   </data>
@@ -219,44 +220,56 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Ce point est placé trop loin de la route pour certains types de véhicules, rapprochez-le, sinon il ne fonctionnera pas</value>
   </data>
-  <data name="PointType_Middle" xml:space="preserve">
-    <value>Milieu</value>
-  </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Apparition</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Disparition</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Suivre le niveau du sol</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
   </data>
-  
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Étiquettes de véhicules colorées dans l'interface</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>Marqueur de points en 3D</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Ajouter un point</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Appliquer à tous les bâtiments de ce type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Voulez-vous vraiment appliquer ce paramètre à tous les bâtiments de ce type ?</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>APPLICATION CORRECTE</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Faites glisser le point pour modifier sa position</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Point vide</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Bâtiment #{0}</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>APPLICATION INCORRECTE</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Maintenez {0} pour modifier la hauteur</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Sélectionner un bâtiment</value>
-  </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Véhicules aériens</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Véhicules cargo</value>
@@ -267,16 +280,14 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Véhicules par défaut</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Véhicules d'urgence</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Avions</value>
   </data>
-  
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Véhicules ferroviaires</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Véhicules routiers</value>
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Transports en commun</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Véhicules de service</value>
@@ -289,9 +300,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Camions</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Véhicules maritimes</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Tout</value>

@@ -133,6 +133,7 @@
   </data>
   
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Tüm araç türlerini ekle</value>
   </data>
@@ -187,7 +188,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>Bu nokta bazı araçlar için çok uzağa konulmuş, yakınlaştırmazsanız çalışmayacaktır</value>
   </data>
-  
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Başlangıç noktası</value>
   </data>
@@ -221,9 +221,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Bina seçiniz</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Hava taşıtları</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Kargo taşıtları</value>
   </data>
@@ -238,12 +235,6 @@
     <value>Uçaklar</value>
   </data>
   
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Raylı taşıtlar</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Karayolu taşıtları</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Hizmet araçları</value>
   </data>
@@ -255,9 +246,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Kamyonlar</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Su taşıtları</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>Tümü</value>
