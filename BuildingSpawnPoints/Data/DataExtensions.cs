@@ -15,6 +15,11 @@ namespace BuildingSpawnPoints
         {
             base.OnUnload();
             SingletonManager<Manager>.Destroy();
+            BuildingSpawnPoint.DestroyMarker();
+        }
+        protected override void OnPreLoaded()
+        {
+            BuildingSpawnPoint.CreateMarker();
         }
     }
     public class SerializableDataExtension : BaseSerializableDataExtension<SerializableDataExtension, Mod>

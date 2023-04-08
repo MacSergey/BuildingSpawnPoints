@@ -1,12 +1,8 @@
-﻿using ColossalFramework;
-using ColossalFramework.Math;
-using ModsCommon.Utilities;
+﻿using ModsCommon.Utilities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+using static BuildingSpawnPoints.VehicleCategory;
+
 
 namespace BuildingSpawnPoints
 {
@@ -18,198 +14,205 @@ namespace BuildingSpawnPoints
 
 
         [Description(nameof(Localize.VehicleType_Ambulance))]
+        [Function(VehicleFunction.Emergency)]
+        [Service(VehicleService.Car)]
         Ambulance = VehicleInfo.VehicleCategory.Ambulance,
 
         [Description(nameof(Localize.VehicleType_Hearse))]
+        [Function(VehicleFunction.Emergency)]
+        [Service(VehicleService.Car)]
         Hearse = VehicleInfo.VehicleCategory.Hearse,
 
         [Description(nameof(Localize.VehicleType_Police))]
+        [Function(VehicleFunction.Emergency)]
+        [Service(VehicleService.Car)]
         Police = VehicleInfo.VehicleCategory.Police,
 
         [Description(nameof(Localize.VehicleType_DisasterResponse))]
+        [Function(VehicleFunction.Emergency)]
+        [Service(VehicleService.Car)]
         Disaster = VehicleInfo.VehicleCategory.Disaster,
 
 
         [Description(nameof(Localize.VehicleType_Bus))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Car)]
         Bus = VehicleInfo.VehicleCategory.Bus,
 
         [Description(nameof(Localize.VehicleType_Trolleybus))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Trolleybus)]
         Trolleybus = VehicleInfo.VehicleCategory.Trolleybus,
 
         [Description(nameof(Localize.VehicleType_Taxi))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Car)]
         Taxi = VehicleInfo.VehicleCategory.Taxi,
 
         [Description(nameof(Localize.VehicleType_Bicycle))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Bicycle)]
         Bicycle = VehicleInfo.VehicleCategory.Bicycle,
 
 
 
         [Description(nameof(Localize.VehicleType_CargoTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         CargoTruck = VehicleInfo.VehicleCategory.CargoTruck,
 
         [Description(nameof(Localize.VehicleType_FireTruck))]
+        [Function(VehicleFunction.Emergency)]
+        [Service(VehicleService.Car)]
         FireTruck = VehicleInfo.VehicleCategory.FireTruck,
 
         [Description(nameof(Localize.VehicleType_PostTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         PostTruck = VehicleInfo.VehicleCategory.PostTruck,
 
         [Description(nameof(Localize.VehicleType_GarbageTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         GarbageTruck = VehicleInfo.VehicleCategory.GarbageTruck,
 
         [Description(nameof(Localize.VehicleType_RoadMaintenanceTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         RoadTruck = VehicleInfo.VehicleCategory.MaintenanceTruck,
 
         [Description(nameof(Localize.VehicleType_ParkMaintenanceTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         ParkTruck = VehicleInfo.VehicleCategory.ParkTruck,
 
         [Description(nameof(Localize.VehicleType_SnowTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         SnowTruck = VehicleInfo.VehicleCategory.SnowTruck,
 
         [Description(nameof(Localize.VehicleType_VacuumTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         VacuumTruck = VehicleInfo.VehicleCategory.VacuumTruck,
 
         [Description(nameof(Localize.VehicleType_BankTruck))]
+        [Function(VehicleFunction.Trucks)]
+        [Service(VehicleService.Car)]
         BankTruck = VehicleInfo.VehicleCategory.BankTruck,
 
 
 
         [Description(nameof(Localize.VehicleType_PassengerPlane))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Plane)]
         PassengerPlane = VehicleInfo.VehicleCategory.PassengerPlane,
 
         [Description(nameof(Localize.VehicleType_CargoPlane))]
+        [Function(VehicleFunction.Planes)]
+        [Service(VehicleService.Plane)]
         CargoPlane = VehicleInfo.VehicleCategory.CargoPlane,
 
         [Description(nameof(Localize.VehicleType_PrivatePlane))]
+        [Function(VehicleFunction.Planes)]
+        [Service(VehicleService.Plane)]
         PrivatePlane = VehicleInfo.VehicleCategory.PrivatePlane,
 
         [Description(nameof(Localize.VehicleType_PassengerCopter))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Copters)]
         PassengerCopter = VehicleInfo.VehicleCategory.PassengerCopter,
 
         [Description(nameof(Localize.VehicleType_AmbulanceCopter))]
+        [Function(VehicleFunction.Copters)]
+        [Service(VehicleService.Copters)]
         AmbulanceCopter = VehicleInfo.VehicleCategory.AmbulanceCopter,
 
         [Description(nameof(Localize.VehicleType_FireCopter))]
+        [Function(VehicleFunction.Copters)]
+        [Service(VehicleService.Copters)]
         FireCopter = VehicleInfo.VehicleCategory.FireCopter,
 
         [Description(nameof(Localize.VehicleType_PoliceCopter))]
+        [Function(VehicleFunction.Copters)]
+        [Service(VehicleService.Copters)]
         PoliceCopter = VehicleInfo.VehicleCategory.PoliceCopter,
 
         [Description(nameof(Localize.VehicleType_DisasterCopter))]
+        [Function(VehicleFunction.Copters)]
+        [Service(VehicleService.Copters)]
         DisasterCopter = VehicleInfo.VehicleCategory.DisasterCopter,
 
         [Description(nameof(Localize.VehicleType_Balloon))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Balloon)]
         PassengerBalloon = VehicleInfo.VehicleCategory.PassengerBalloon,
 
         [Description(nameof(Localize.VehicleType_PassengerBlimp))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Blimp)]
         PassengerBlimp = VehicleInfo.VehicleCategory.PassengerBlimp,
 
 
 
         [Description(nameof(Localize.VehicleType_PassengerShip))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Ship)]
         PassengerShip = VehicleInfo.VehicleCategory.PassengerShip,
 
         [Description(nameof(Localize.VehicleType_CargoShip))]
+        [Function(VehicleFunction.Ships)]
+        [Service(VehicleService.Ship)]
         CargoShip = VehicleInfo.VehicleCategory.CargoShip,
 
         [Description(nameof(Localize.VehicleType_PassengerFerry))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Ferry)]
         PassengerFerry = VehicleInfo.VehicleCategory.PassengerFerry,
 
         [Description(nameof(Localize.VehicleType_FishingBoat))]
+        [Function(VehicleFunction.Ships)]
+        [Service(VehicleService.Fishing)]
         FishingBoat = VehicleInfo.VehicleCategory.FishingBoat,
 
 
 
         [Description(nameof(Localize.VehicleType_PassengerTrain))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Train)]
         PassengerTrain = VehicleInfo.VehicleCategory.PassengerTrain,
 
         [Description(nameof(Localize.VehicleType_CargoTrain))]
+        [Function(VehicleFunction.Trains)]
+        [Service(VehicleService.Train)]
         CargoTrain = VehicleInfo.VehicleCategory.CargoTrain,
 
         [Description(nameof(Localize.VehicleType_MetroTrain))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Metro)]
         MetroTrain = VehicleInfo.VehicleCategory.MetroTrain,
 
         [Description(nameof(Localize.VehicleType_Monorail))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Monorail)]
         Monorail = VehicleInfo.VehicleCategory.Monorail,
 
         [Description(nameof(Localize.VehicleType_Tram))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.Train)]
         Tram = VehicleInfo.VehicleCategory.Tram,
 
 
 
         [Description(nameof(Localize.VehicleType_Rocket))]
+        [Function(VehicleFunction.Planes)]
+        [Service(VehicleService.Plane)]
         Rocket = VehicleInfo.VehicleCategory.Rocket,
 
         [Description(nameof(Localize.VehicleType_CableCar))]
+        [Function(VehicleFunction.Public)]
+        [Service(VehicleService.CableCar)]
         CableCar = VehicleInfo.VehicleCategory.CableCar,
-
-
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Passenger))]
-        Passenger = Bus | Taxi | Trolleybus | Bicycle | PassengerPlane | PassengerCopter | PassengerBlimp | PassengerFerry | PassengerShip | PassengerTrain | MetroTrain | Monorail | Tram | PassengerBalloon,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Service))]
-        Service = FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck | Ambulance | Disaster | Hearse | ParkTruck | Police | PostTruck | BankTruck,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Planes))]
-        Planes = CargoPlane | PassengerPlane | PrivatePlane,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Copters))]
-        Copters = PassengerCopter | AmbulanceCopter | DisasterCopter | FireCopter | PoliceCopter,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Trains))]
-        Trains = CargoTrain | PassengerTrain | MetroTrain | Monorail,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Ships))]
-        Ships = CargoShip | PassengerShip | PassengerFerry | FishingBoat,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_Air))]
-        //Air = Planes | Copters | PassengerBalloon | PassengerBlimp,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_Water))]
-        //Water = FishingBoat | PassengerFerry | CargoShip | PassengerShip,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_Rail))]
-        //Rail = CargoTrain | PassengerTrain | MetroTrain | Monorail | Tram,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Cargo))]
-        Cargo = CargoTruck | CargoPlane | CargoShip | CargoTrain,
-
-        [NotItem]
-        [Description(nameof(Localize.VehicleTypeGroup_Trucks))]
-        Trucks = CargoTruck | FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck,
-
-        [NotItem]
-        Cars = Trucks | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | BankTruck | Taxi,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_Road))]
-        //Road = Trucks | Cars | Trolleybus,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_PassengerRoad))]
-        //PassengerRoad = Passenger & Road,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_PassengerAir))]
-        //PassengerAir = Passenger & Air,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_PassengerWater))]
-        //PassengerWater = Passenger & Water,
-
-        //[NotItem]
-        //[Description(nameof(Localize.VehicleTypeGroup_PassengerRail))]
-        //PassengerRail = Passenger & Rail,
 
         [NotItem]
         [Description(nameof(Localize.VehicleTypeGroup_Default))]
@@ -219,33 +222,127 @@ namespace BuildingSpawnPoints
         [Description(nameof(Localize.VehicleType_All))]
         All = ulong.MaxValue,
     }
+
+    [Flags]
     public enum VehicleService : ulong
     {
-        None = VehicleCategory.None,
-        Car = VehicleCategory.Cars | VehicleCategory.Trucks,
-        Trolleybus = VehicleCategory.Trolleybus,
-        Tram = VehicleCategory.Tram,
-        Plane = VehicleCategory.Planes & ~VehicleCategory.PrivatePlane,
-        Balloon = VehicleCategory.PassengerBalloon,
-        Blimp = VehicleCategory.PassengerBlimp,
-        Ship = VehicleCategory.Ships & ~VehicleCategory.PassengerFerry & ~VehicleCategory.FishingBoat,
-        Ferry = VehicleCategory.PassengerFerry,
-        Fishing = VehicleCategory.FishingBoat,
-        Train = VehicleCategory.Trains & ~VehicleCategory.MetroTrain & ~VehicleCategory.Monorail,
-        Metro = VehicleCategory.MetroTrain,
-        Monorail = VehicleCategory.Monorail,
-        CableCar = VehicleCategory.CableCar,
+        [NotItem]
+        None = 0,
+
+        [Category(VehicleCategory.Bicycle)]
+        Bicycle = 1 << 0,
+
+        [Category(CargoTruck | FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck | Ambulance | Bus | Disaster | Hearse | ParkTruck | Police | PostTruck | BankTruck | Taxi)]
+        Car = 1 << 1,
+
+        [Category(VehicleCategory.Trolleybus)]
+        Trolleybus = 1 << 2,
+
+        [Category(VehicleCategory.Tram)]
+        Tram = 1 << 3,
+
+        [Category(CargoPlane | PassengerPlane)]
+        Plane = 1 << 4,
+
+        [Category(PassengerCopter | AmbulanceCopter | DisasterCopter | FireCopter | PoliceCopter)]
+        Copters = 1 << 5,
+
+        [Category(PassengerBalloon)]
+        Balloon = 1 << 6,
+
+        [Category(PassengerBlimp)]
+        Blimp = 1 << 7,
+
+        [Category(CargoShip | PassengerShip)]
+        Ship = 1 << 8,
+
+        [Category(PassengerFerry)]
+        Ferry = 1 << 9,
+
+        [Category(FishingBoat)]
+        Fishing = 1 << 10,
+
+        [Category(CargoTrain | PassengerTrain)]
+        Train = 1 << 11,
+
+        [Category(MetroTrain)]
+        Metro = 1 << 12,
+
+        [Category(VehicleCategory.Monorail)]
+        Monorail = 1 << 13,
+
+        [Category(VehicleCategory.CableCar)]
+        CableCar = 1 << 14,
     }
-    public enum VehicleGroupType : ulong
+
+    [Flags]
+    public enum VehicleFunction : ulong
     {
-        Planes = VehicleCategory.Planes,
-        Copters = VehicleCategory.Copters,
-        Trains = VehicleCategory.Trains,
-        Ships = VehicleCategory.Ships,
-        Trucks = VehicleCategory.Trucks,
-        Passenger = VehicleCategory.Passenger,
-        Service = VehicleCategory.Service,
+        [NotItem]
+        None = 0,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Planes))]
+        [Category(PassengerPlane | CargoPlane | PrivatePlane)]
+        Planes = 1 << 0,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Copters))]
+        [Category(PassengerCopter | AmbulanceCopter | DisasterCopter | FireCopter | PoliceCopter)]
+        Copters = 1 << 1,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Trains))]
+        [Category(CargoTrain | PassengerTrain | MetroTrain | Monorail)]
+        Trains = 1 << 2,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Ships))]
+        [Category(CargoShip | PassengerShip | PassengerFerry | FishingBoat)]
+        Ships = 1 << 3,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Trucks))]
+        [Category(CargoTruck | FireTruck | SnowTruck | VacuumTruck | GarbageTruck | RoadTruck | ParkTruck | PostTruck | BankTruck)]
+        Trucks = 1 << 4,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Public))]
+        [Category(Bus | Taxi | Trolleybus | Bicycle | PassengerPlane | PassengerCopter | PassengerBlimp | PassengerFerry | PassengerShip | PassengerTrain | MetroTrain | Monorail | Tram | PassengerBalloon)]
+        Public = 1 << 5,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Emergency))]
+        [Category(Ambulance | Disaster | Hearse | Police | FireTruck)]
+        Emergency = 1 << 6,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Cargo))]
+        [Category(CargoTruck | CargoPlane | CargoShip | CargoTrain)]
+        Cargo = 1 << 7,
+
+        [Description(nameof(Localize.VehicleTypeGroup_Service))]
+        [Category(PostTruck | GarbageTruck | RoadTruck | ParkTruck | SnowTruck | VacuumTruck | BankTruck)]
+        Service = 1 << 8,
     }
+
+    public class CategoryAttribute : Attribute
+    {
+        public VehicleCategory Category { get; set; }
+        public CategoryAttribute(VehicleCategory category)
+        {
+            Category = category;
+        }
+    }
+    public class FunctionAttribute : Attribute
+    {
+        public VehicleFunction Function { get; set; }
+        public FunctionAttribute(VehicleFunction function)
+        {
+            Function = function;
+        }
+    }
+    public class ServiceAttribute : Attribute
+    {
+        public VehicleService Service { get; set; }
+        public ServiceAttribute(VehicleService service)
+        {
+            Service = service;
+        }
+    }
+
 
     public static class VehicleCategoryUtility
     {

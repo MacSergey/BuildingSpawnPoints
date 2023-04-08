@@ -26,7 +26,7 @@ namespace BuildingSpawnPoints
         private static RemoveSourceDelegate<BalloonAI> BalloonRemoveSource { get; }
         private static RemoveSourceDelegate<CargoTrainAI> TrainRemoveSource { get; }
 
-        private static FindParkingSpaceDelegate FindParkingSpace { get; } 
+        private static FindParkingSpaceDelegate FindParkingSpace { get; }
 
         static Patcher()
         {
@@ -87,21 +87,17 @@ namespace BuildingSpawnPoints
             var routesButton = __instance.Find<UIMultiStateButton>("ShowHideRoutesButton");
             routesButton.relativePosition -= new Vector3(36f, 0f);
 
-            var button = routesButton.parent.AddUIComponent<MultyAtlasUIButton>();
+            var button = routesButton.parent.AddUIComponent<CustomUIButton>();
             button.relativePosition = routesButton.relativePosition + new Vector3(36f, 0f);
             button.size = new Vector2(32f, 32f);
             button.zOrder = routesButton.zOrder + 1;
             button.eventTooltipEnter += (_, _) => button.tooltip = $"{SingletonMod<Mod>.Instance.NameRaw} ({SingletonTool<SpawnPointsTool>.Activation})";
 
-            button.atlasBackground = TextureHelper.InGameAtlas;
-            button.normalBgSprite = "InfoIconBaseNormal";
-            button.pressedBgSprite = "InfoIconBasePressed";
-            button.hoveredBgSprite = "InfoIconBaseHovered";
-            button.disabledBgSprite = "InfoIconBaseDisabled";
+            button.BgAtlas = TextureHelper.InGameAtlas;
+            button.BgSprites = new SpriteSet("InfoIconBaseNormal", "InfoIconBaseHovered", "InfoIconBasePressed", "InfoIconBaseNormal", "InfoIconBaseDisabled");
 
-            button.atlasForeground = SpawnPointsTextures.Atlas;
-            button.normalFgSprite = SpawnPointsTextures.InfoNormal;
-            button.pressedFgSprite = SpawnPointsTextures.InfoPressed;
+            button.FgAtlas = SpawnPointsTextures.Atlas;
+            button.FgSprites = new SpriteSet(SpawnPointsTextures.InfoNormal, SpawnPointsTextures.InfoNormal, SpawnPointsTextures.InfoPressed, SpawnPointsTextures.InfoNormal, SpawnPointsTextures.InfoNormal);
 
             button.eventClicked += (_, _) =>
             {

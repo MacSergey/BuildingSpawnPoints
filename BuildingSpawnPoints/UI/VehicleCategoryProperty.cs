@@ -7,24 +7,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using static ModsCommon.UI.ComponentStyle;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class VehicleCategoryPropertyPanel : EditorItem, IReusable, IEnumerable<VehicleItem>
+    public class VehicleCategoryPropertyPanel : BaseEditorPanel, IReusable
     {
         public event Action<VehicleCategory> OnDelete;
-        public event Action<VehicleCategory> OnSelect;
+        public event Action<VehicleCategory> OnHover;
 
         bool IReusable.InCache { get; set; }
 
         private Dictionary<VehicleCategory, VehicleItem> Items { get; } = new Dictionary<VehicleCategory, VehicleItem>();
-        private float Padding => 5f;
+        public IEnumerable<VehicleItem> Values => Items.Values;
 
         public bool Deletable { get; set; } = true;
 
+        public VehicleCategoryPropertyPanel() : base()
+        {
+            AutoLayout = AutoLayout.Disabled;
+            Padding = new RectOffset(10, 10, 7, 7);
+            AutoLayoutSpace = 5;
+        }
+
         public void AddItems(VehicleCategory types)
         {
-            foreach (var type in EnumExtension.GetEnumValues<VehicleCategory>(t => t.IsItem() && (t & types) != VehicleCategory.None))
+            foreach (var type in types.GetEnumValues().IsItem())
                 AddItem(type);
 
             FitItems();
@@ -38,7 +46,7 @@ namespace BuildingSpawnPoints.UI
         {
             ClearItems();
             OnDelete = null;
-            OnSelect = null;
+            OnHover = null;
             Deletable = true;
         }
         private void AddItem(VehicleCategory type)
@@ -70,42 +78,34 @@ namespace BuildingSpawnPoints.UI
             Items.Clear();
         }
 
-        public void AddType(VehicleCategory type)
-        {
-            if (!Items.ContainsKey(type))
-            {
-                AddItem(type);
-                FitItems();
-            }
-        }
         private void FitItems()
         {
             var items = Items.Values.OrderBy(i => i.width).ToList();
             var prev = default(VehicleItem);
 
-            for(var i = items.Count - 1; i >= 0; i -= 1 )
+            for (var i = items.Count - 1; i >= 0; i -= 1)
             {
                 if (prev == null)
                 {
-                    items[i].relativePosition = new Vector2(Padding, Padding);
+                    items[i].relativePosition = new Vector2(Padding.left, Padding.top);
                     prev = items[i];
                     items.RemoveAt(i);
                 }
                 else
                 {
                     var j = i;
-                    while (j >= 0 && prev.relativePosition.x + prev.width + items[j].width + Padding * 2 > width)
+                    while (j >= 0 && prev.relativePosition.x + prev.width + items[j].width + Padding.horizontal > width)
                         j -= 1;
 
-                    if(j >= 0)
+                    if (j >= 0)
                     {
-                        items[j].relativePosition = prev.relativePosition + new Vector3(prev.width + Padding, 0f);
+                        items[j].relativePosition = prev.relativePosition + new Vector3(prev.width + AutoLayoutSpace, 0f);
                         prev = items[j];
                         items.RemoveAt(j);
                     }
                     else
                     {
-                        items[i].relativePosition = new Vector2(Padding, prev.relativePosition.y + prev.height + Padding);
+                        items[i].relativePosition = new Vector2(Padding.left, prev.relativePosition.y + prev.height + AutoLayoutSpace);
                         prev = items[i];
                         items.RemoveAt(i);
                     }
@@ -113,7 +113,7 @@ namespace BuildingSpawnPoints.UI
             }
 
             if (prev != null)
-                height = prev.relativePosition.y + prev.height + Padding;
+                height = prev.relativePosition.y + prev.height + Padding.vertical;
             else
                 height = 0f;
         }
@@ -126,17 +126,16 @@ namespace BuildingSpawnPoints.UI
         protected override void OnVisibilityChanged()
         {
             base.OnVisibilityChanged();
-            if (isVisible)
+            if (isVisibleSelf)
                 FitItems();
         }
 
-        private void EnterItem(VehicleItem item) => OnSelect?.Invoke(item.Type);
-        private void LeaveItem(VehicleItem item) => OnSelect?.Invoke(VehicleCategory.None);
+        private void EnterItem(VehicleItem item) => OnHover?.Invoke(item.Type);
+        private void LeaveItem(VehicleItem item) => OnHover?.Invoke(VehicleCategory.None);
 
-        public IEnumerator<VehicleItem> GetEnumerator() => Items.Values.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        public override void SetStyle(ControlStyle style) { }
     }
-    public class VehicleItem : UIAutoLayoutPanel, IReusable
+    public class VehicleItem : CustomUIPanel, IReusable
     {
         public event Action<VehicleItem> OnDelete;
         public event Action<VehicleItem> OnEnter;
@@ -144,21 +143,35 @@ namespace BuildingSpawnPoints.UI
 
         bool IReusable.InCache { get; set; }
 
-        private CustomUILabel Label { get; }
-        private CustomUIButton Button { get; }
+        private CustomUILabel Label { get; set; }
+        private CustomUIButton Button { get; set; }
 
         public VehicleCategory Type { get; private set; }
 
-        private bool _isCorrect;
-        public bool IsCorrect 
+        private bool isCorrect;
+        public bool IsCorrect
         {
-            get => _isCorrect;
+            get => isCorrect;
             set
             {
-                if(value != _isCorrect)
+                if (value != isCorrect)
                 {
-                    _isCorrect = value;
-                    color = _isCorrect ? Color.white : Color.red;
+                    isCorrect = value;
+                    SetColor();
+                }
+            }
+        }
+
+        private bool isAllCorrect;
+        public bool IsAllCorrect
+        {
+            get => isAllCorrect;
+            set
+            {
+                if (value != isAllCorrect)
+                {
+                    isAllCorrect = value;
+                    SetColor();
                 }
             }
         }
@@ -166,37 +179,85 @@ namespace BuildingSpawnPoints.UI
         public VehicleItem()
         {
             height = 20f;
-            autoLayoutDirection = LayoutDirection.Horizontal;
-            autoFitChildrenHorizontally = true;
 
-            atlas = CommonTextures.Atlas;
-            backgroundSprite = CommonTextures.FieldNormal;
+            PauseLayout(() =>
+            {
+                AutoLayout = AutoLayout.Horizontal;
+                AutoChildrenHorizontally = AutoLayoutChildren.Fit;
 
-            StopLayout();
+                Atlas = CommonTextures.Atlas;
+                BackgroundSprite = CommonTextures.PanelLarge;
+                BgColors = UIStyle.PropertyNormal;
 
-            Label = AddUIComponent<CustomUILabel>();
-            Label.autoSize = true;
-            Label.wordWrap = false;
-            Label.textScale = 0.8f;
-            Label.verticalAlignment = UIVerticalAlignment.Middle;
-            Label.padding = new RectOffset(4, 4, 4, 0);
+                Label = AddUIComponent<CustomUILabel>();
+                Label.autoSize = true;
+                Label.WordWrap = false;
+                Label.textScale = 0.8f;
+                Label.VerticalAlignment = UIVerticalAlignment.Middle;
+                Label.Padding = new RectOffset(7, 4, 4, 0);
 
-            Button = AddUIComponent<CustomUIButton>();
-            Button.size = new Vector2(16f, 20f);
-            Button.text = "×";
-            Button.textScale = 1.2f;
-            Button.textPadding = new RectOffset(0, 4, 0, 0);
-            Button.textColor = new Color32(204, 204, 204, 255);
-            Button.pressedColor = new Color32(224, 224, 224, 255);
-            Button.eventClick += (_, _) => OnDelete?.Invoke(this);
-
-            StartLayout();
+                Button = AddUIComponent<CustomUIButton>();
+                Button.size = new Vector2(16f, 20f);
+                Button.text = "×";
+                Button.textScale = 1.2f;
+                Button.TextPadding = new RectOffset(0, 4, 0, 0);
+                Button.eventClick += (_, _) => OnDelete?.Invoke(this);
+            });
         }
         public void Init(VehicleCategory type, bool deletable = true)
         {
             Type = type;
             Label.text = type.Description<VehicleCategory, Mod>();
             Button.isVisible = deletable;
+            SetColor();
+        }
+        private void SetColor()
+        {
+            if (!IsCorrect)
+            {
+                BgColors = CommonColors.GetOverlayColor(CommonColors.Overlay.Red, 255);
+                ForegroundSprite = string.Empty;
+            }
+            else if (!Settings.ColorTags)
+            {
+                BgColors = UIStyle.PropertyNormal;
+                ForegroundSprite = string.Empty;
+            }
+            else if (!IsAllCorrect)
+            {
+                BgColors = DarkPrimaryColor20;
+                ForegroundSprite = CommonTextures.BorderLarge;
+                FgColors = GetColor();
+            }
+            else
+            {
+                BgColors = GetColor();
+                ForegroundSprite = string.Empty;
+            }
+
+            if (Color.white.GetContrast(NormalBgColor) >= 4.5)
+            {
+                Label.textColor = Color.white;
+                Button.TextColors = new ColorSet(Color.white, DarkPrimaryColor90, DarkPrimaryColor80, Color.white, Color.white);
+            }
+            else
+            {
+                Label.textColor = DarkPrimaryColor15;
+                Button.TextColors = new ColorSet(DarkPrimaryColor15, DarkPrimaryColor25, DarkPrimaryColor30, DarkPrimaryColor15, DarkPrimaryColor15);
+            }
+
+            Color32 GetColor() => Type.GetFunction() switch
+            {
+                VehicleFunction.Planes => CommonColors.GetOverlayColor(CommonColors.Overlay.SkyBlue, 255),
+                VehicleFunction.Copters => CommonColors.GetOverlayColor(CommonColors.Overlay.Purple, 255),
+                VehicleFunction.Trains => CommonColors.GetOverlayColor(CommonColors.Overlay.Lime, 255),
+                VehicleFunction.Ships => CommonColors.GetOverlayColor(CommonColors.Overlay.Blue, 255),
+                VehicleFunction.Trucks or VehicleFunction.Cargo => CommonColors.GetOverlayColor(CommonColors.Overlay.Yellow, 255),
+                VehicleFunction.Public => CommonColors.GetOverlayColor(CommonColors.Overlay.Green, 255),
+                VehicleFunction.Emergency => CommonColors.GetOverlayColor(CommonColors.Overlay.Orange, 255),
+                VehicleFunction.Service => CommonColors.GetOverlayColor(CommonColors.Overlay.Turquoise, 255),
+                _ => UIStyle.PropertyNormal,
+            };
         }
 
         void IReusable.DeInit()
@@ -205,7 +266,8 @@ namespace BuildingSpawnPoints.UI
             OnDelete = null;
             OnEnter = null;
             OnLeave = null;
-            IsCorrect = true;
+            isCorrect = true;
+            isAllCorrect = true;
         }
 
         protected override void OnMouseEnter(UIMouseEventParameter p)
