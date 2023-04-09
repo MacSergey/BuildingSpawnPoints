@@ -48,8 +48,8 @@ namespace BuildingSpawnPoints
                     }
                     else if (length + name.Length <= 50)
                     {
-                        list = $"{list}, {name}";
-                        length += name.Length + 2;
+                        list = $"{list}  |  {name}";
+                        length += name.Length + 3;
                     }
                     else
                     {

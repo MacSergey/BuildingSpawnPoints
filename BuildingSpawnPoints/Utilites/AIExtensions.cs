@@ -13,60 +13,6 @@ namespace BuildingSpawnPoints
     public static class AIExtension
     {
         private static bool InvertTraffic => Singleton<SimulationManager>.instance.m_metaData.m_invertTraffic == SimulationMetaData.MetaBool.True;
-        private static Dictionary<Type, VehicleCategory> VehicleAllow { get; } = new Dictionary<Type, VehicleCategory>
-        {
-            //Service
-            { typeof(AmbulanceAI),VehicleCategory.Ambulance },
-            { typeof(PoliceCarAI),VehicleCategory.Police },
-            { typeof(FireTruckAI),VehicleCategory.FireTruck },
-            { typeof(HearseAI),VehicleCategory.Hearse },
-            { typeof(CargoTruckAI),VehicleCategory.CargoTruck },
-
-            //Transport
-            { typeof(BicycleAI),VehicleCategory.Bicycle },
-            { typeof(TrolleybusAI),VehicleCategory.Trolleybus },
-            { typeof(BusAI),VehicleCategory.Bus },
-            { typeof(TaxiAI),VehicleCategory.Taxi },
-            { typeof(TramAI),VehicleCategory.Tram },
-            { typeof(PostVanAI),VehicleCategory.PostTruck },
-
-            //Maintenance
-            { typeof(GarbageTruckAI),VehicleCategory.GarbageTruck },
-            { typeof(MaintenanceTruckAI),VehicleCategory.RoadTruck },
-            { typeof(ParkMaintenanceVehicleAI),VehicleCategory.ParkTruck },
-            { typeof(SnowTruckAI),VehicleCategory.SnowTruck },
-            { typeof(WaterTruckAI),VehicleCategory.VacuumTruck },
-            { typeof(DisasterResponseVehicleAI),VehicleCategory.Disaster },
-            { typeof(BankVanAI),VehicleCategory.BankTruck },
-
-            //Trains
-            { typeof(PassengerTrainAI),VehicleCategory.PassengerTrain },
-            { typeof(CargoTrainAI),VehicleCategory.CargoTrain },
-            { typeof(MetroTrainAI),VehicleCategory.MetroTrain },
-
-            //Planes
-            { typeof(CargoPlaneAI),VehicleCategory.CargoPlane },
-            { typeof(PassengerPlaneAI),VehicleCategory.PassengerPlane },
-            { typeof(PrivatePlaneAI),VehicleCategory.PrivatePlane },
-
-            //Copters
-            { typeof(AmbulanceCopterAI),VehicleCategory.AmbulanceCopter },
-            { typeof(DisasterResponseCopterAI),VehicleCategory.DisasterCopter },
-            { typeof(FireCopterAI),VehicleCategory.FireCopter },
-            { typeof(PoliceCopterAI),VehicleCategory.PoliceCopter },
-            { typeof(PassengerHelicopterAI),VehicleCategory.PassengerCopter },
-
-            //Air
-            { typeof(BalloonAI),VehicleCategory.PassengerBalloon },
-            { typeof(PassengerBlimpAI),VehicleCategory.PassengerBlimp },
-
-            //Ships
-            { typeof(PassengerShipAI),VehicleCategory.PassengerShip },
-            { typeof(CargoShipAI),VehicleCategory.CargoShip },
-            { typeof(PassengerFerryAI),VehicleCategory.PassengerFerry },
-            { typeof(FishingBoatAI),VehicleCategory.FishingBoat },
-        };
-        private static HashSet<Type> VehicleForbidden { get; } = new HashSet<Type>();
 
         private static Dictionary<Type, VehicleCategory> BuildingAllow { get; } = new Dictionary<Type, VehicleCategory>
         {
@@ -140,15 +86,13 @@ namespace BuildingSpawnPoints
             { typeof(PowerPlantAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             { typeof(HeatingPlantAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
             { typeof(MonumentAI), VehicleCategory.Default | VehicleCategory.PostTruck},
-            { typeof(ServicePointAI), VehicleCategory.Default | VehicleCategory.CargoTruck | VehicleCategory.PostTruck | VehicleCategory.BankTruck}
+            { typeof(ServicePointAI), VehicleCategory.Default | VehicleCategory.CargoTruck | VehicleCategory.PostTruck | VehicleCategory.BankTruck},
+            { typeof(MarketAI), VehicleCategory.Default | VehicleCategory.CargoTruck },
 
 
             //{ typeof(), VehicleType.Default },
         };
         private static HashSet<Type> BuildingForbidden { get; } = new HashSet<Type>();
-
-
-        public static VehicleCategory GetVehicleCategory(this VehicleInfo info) => GetVehicleType(info.m_vehicleAI.GetType(), VehicleAllow, VehicleForbidden);
 
         public static VehicleCategory GetDefaultVehicleTypes(this BuildingInfo info) => GetVehicleType(info.m_buildingAI.GetType(), BuildingAllow, BuildingForbidden);
 
@@ -391,7 +335,7 @@ namespace BuildingSpawnPoints
             { m_subService: ItemClass.SubService.PublicTransportMetro } => VehicleCategory.MetroTrain,
             { m_subService: ItemClass.SubService.PublicTransportMonorail } => VehicleCategory.Monorail,
 
-            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level1 } => /*VehicleType.PassengerShip |*/ VehicleCategory.CargoShip,
+            { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level1 } => VehicleCategory.CargoShip,
             { m_subService: ItemClass.SubService.PublicTransportShip, m_level: ItemClass.Level.Level2 } => VehicleCategory.PassengerFerry,
 
             { m_subService: ItemClass.SubService.PublicTransportPlane, m_level: ItemClass.Level.Level1 } => VehicleCategory.CargoPlane,

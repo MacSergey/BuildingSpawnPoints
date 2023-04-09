@@ -13,7 +13,7 @@ namespace BuildingSpawnPoints.UI
 {
     public class VehicleCategoryPropertyPanel : BaseEditorPanel, IReusable
     {
-        public event Action<VehicleCategory> OnDelete;
+        public event Action<VehicleCategory> OnRemove;
         public event Action<VehicleCategory> OnHover;
 
         bool IReusable.InCache { get; set; }
@@ -45,7 +45,7 @@ namespace BuildingSpawnPoints.UI
         void IReusable.DeInit()
         {
             ClearItems();
-            OnDelete = null;
+            OnRemove = null;
             OnHover = null;
             Deletable = true;
         }
@@ -53,19 +53,19 @@ namespace BuildingSpawnPoints.UI
         {
             if (!Items.ContainsKey(type))
             {
-                var item = ComponentPool.Get<VehicleItem>(this);
+                var item = ComponentPool.Get<VehicleItem>(this, type.ToString());
                 item.Init(type, Deletable);
-                item.OnDelete += DeleteItem;
+                item.OnRemove += RemoveItem;
                 item.OnEnter += EnterItem;
                 item.OnLeave += LeaveItem;
                 Items.Add(type, item);
             }
         }
 
-        private void DeleteItem(VehicleItem item)
+        private void RemoveItem(VehicleItem item)
         {
             Items.Remove(item.Type);
-            OnDelete?.Invoke(item.Type);
+            OnRemove?.Invoke(item.Type);
             ComponentPool.Free(item);
 
             FitItems();
@@ -137,14 +137,14 @@ namespace BuildingSpawnPoints.UI
     }
     public class VehicleItem : CustomUIPanel, IReusable
     {
-        public event Action<VehicleItem> OnDelete;
+        public event Action<VehicleItem> OnRemove;
         public event Action<VehicleItem> OnEnter;
         public event Action<VehicleItem> OnLeave;
 
         bool IReusable.InCache { get; set; }
 
         private CustomUILabel Label { get; set; }
-        private CustomUIButton Button { get; set; }
+        private CustomUIButton Remove { get; set; }
 
         public VehicleCategory Type { get; private set; }
 
@@ -190,25 +190,27 @@ namespace BuildingSpawnPoints.UI
                 BgColors = UIStyle.PropertyNormal;
 
                 Label = AddUIComponent<CustomUILabel>();
+                Label.name = nameof(Label);
                 Label.autoSize = true;
                 Label.WordWrap = false;
                 Label.textScale = 0.8f;
                 Label.VerticalAlignment = UIVerticalAlignment.Middle;
                 Label.Padding = new RectOffset(7, 4, 4, 0);
 
-                Button = AddUIComponent<CustomUIButton>();
-                Button.size = new Vector2(16f, 20f);
-                Button.text = "×";
-                Button.textScale = 1.2f;
-                Button.TextPadding = new RectOffset(0, 4, 0, 0);
-                Button.eventClick += (_, _) => OnDelete?.Invoke(this);
+                Remove = AddUIComponent<CustomUIButton>();
+                Remove.name = nameof(Remove);
+                Remove.size = new Vector2(16f, 20f);
+                Remove.text = "×";
+                Remove.textScale = 1.2f;
+                Remove.TextPadding = new RectOffset(0, 4, 0, 0);
+                Remove.eventClick += (_, _) => OnRemove?.Invoke(this);
             });
         }
         public void Init(VehicleCategory type, bool deletable = true)
         {
             Type = type;
             Label.text = type.Description<VehicleCategory, Mod>();
-            Button.isVisible = deletable;
+            Remove.isVisible = deletable;
             SetColor();
         }
         private void SetColor()
@@ -238,12 +240,12 @@ namespace BuildingSpawnPoints.UI
             if (Color.white.GetContrast(NormalBgColor) >= 4.5)
             {
                 Label.textColor = Color.white;
-                Button.TextColors = new ColorSet(Color.white, DarkPrimaryColor90, DarkPrimaryColor80, Color.white, Color.white);
+                Remove.TextColors = new ColorSet(Color.white, DarkPrimaryColor90, DarkPrimaryColor80, Color.white, Color.white);
             }
             else
             {
                 Label.textColor = DarkPrimaryColor15;
-                Button.TextColors = new ColorSet(DarkPrimaryColor15, DarkPrimaryColor25, DarkPrimaryColor30, DarkPrimaryColor15, DarkPrimaryColor15);
+                Remove.TextColors = new ColorSet(DarkPrimaryColor15, DarkPrimaryColor25, DarkPrimaryColor30, DarkPrimaryColor15, DarkPrimaryColor15);
             }
 
             Color32 GetColor() => Type.GetFunction() switch
@@ -263,7 +265,7 @@ namespace BuildingSpawnPoints.UI
         void IReusable.DeInit()
         {
             Label.text = string.Empty;
-            OnDelete = null;
+            OnRemove = null;
             OnEnter = null;
             OnLeave = null;
             isCorrect = true;

@@ -19,13 +19,13 @@ namespace BuildingSpawnPoints
         public Action OnChanged { get; set; }
 
         public PropertyULongEnumValue<VehicleCategory> Categories { get; }
-        public IEnumerable<VehicleCategory> SelectedCategories => Categories.Value.GetEnumValues();
+        public IEnumerable<VehicleCategory> SelectedCategories => Categories.Value.GetEnumValues().IsItem();
         public IEnumerable<VehicleCategory> MissedCategories
         {
             get
             {
                 var missed = Data.PossibleVehicles & ~Categories.Value;
-                return missed.GetEnumValues();
+                return missed.GetEnumValues().IsItem();
             }
         }
 
