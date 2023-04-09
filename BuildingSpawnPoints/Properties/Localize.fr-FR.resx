@@ -165,7 +165,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Prise en charge des camions de banque du DLC Financial Districts.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Ajout de la possibilité de faire glisser les points à l'aide de la souris.
+[NEW] Ajout d'un marqueur 3D qui permet de voir la hauteur réelle du point.
+[UPDATED] Nouveau style d'interface.
+[NEW] Les étiquettes des véhicules ont des couleurs différentes selon le type de véhicule.
+[NEW] Ajout d'un raccourci pour ajouter un nouveau point.
+[FIXED] Ajout de la possibilité de définir le point des camions de marchandises sur le marché aux poissons.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
   </data>

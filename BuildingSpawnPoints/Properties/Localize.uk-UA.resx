@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Mod_Description" xml:space="preserve">
-    <value>車両のスポーンポイント（出現・帰還の位置）を変更・追加できます</value>
-  </data>
   
   
   
@@ -128,276 +125,268 @@
   
   
   
-  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
-    <value>[UPDATED] Added Plazas &amp; Promenades DLC support.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
-    <value>[FIXED] Police car spawn point.
-[FIXED] Infinity fire trucks and disaster response trucks.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[NEW] Added support of bank trucks from Financial Districts DLC.</value>
-  </data>
+  
+  
+  
+  
   <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
-    <value>[NEW] Added the ability to drag points with mouse.
-[NEW] Added 3D marker that allow to see actual height of point.
-[UPDATED] New UI style.
-[NEW] Vehicle tags have different colors depends on vehicle type.
-[NEW] Added shortcut to add new point.
-[FIXED] Added the ability to set cargo truck point to fish market.</value>
+    <value>[NEW] Додано можливість перетягування точок мишкою.
+[NEW] Додано 3D-маркер, що дозволяє бачити фактичну висоту точок.
+[UPDATED] Новий стиль інтерфейсу.
+[NEW] Мітки ТЗ мають різні кольори, залежить від типу автомобіля.
+[NEW] Додано ярлик для додавання нової точки.
+[FIXED] Додано можливість встановити вантажну точку для рибного ринку.</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>全タイプの車両を追加</value>
+    <value>Додати всі типи транспортних засобів</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>ポイントの追加</value>
+    <value>Додати точку</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>車両のタイプを追加</value>
+    <value>Додати тип транспорту</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>車両のグループを追加</value>
+    <value>Додати групу транспортних засобів</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>同じタイプの建物を一括で適用</value>
+    <value>Застосувати до всіх будівель цього типу</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>コピー</value>
+    <value>Копіювати</value>
   </data>
   <data name="Panel_CopyPoint" xml:space="preserve">
-    <value>ポイントのコピー</value>
+    <value>Копіювати точку</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>ポイントを複製</value>
+    <value>Дублювати точку</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>有効なポイントの設定が建物内にありません。
-もしくは下記で指定された、車両のタイプが含まれていません。</value>
+    <value>Жодної точки для цих транспортних засобів у будівлі:</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>未設定・不適切な場合は、デフォルトの設定が適用されます。</value>
+    <value>Вони з'являтимуться в позиції за замовчуванням.</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>貼り付け</value>
+    <value>Вставити</value>
   </data>
   <data name="Panel_PastePointAppend" xml:space="preserve">
-    <value>ポイントの貼り付け(車両タイプを追加)</value>
+    <value>Вставити точку (додати типи транспортних засобів)</value>
   </data>
   <data name="Panel_PastePointReplace" xml:space="preserve">
-    <value>ポイント貼り付け(車両タイプを置換)</value>
+    <value>Вставити точку (замінити типи транспортних засобів)</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
-    <value>{0}m</value>
+    <value>{0}м</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>デフォルトに戻す</value>
+    <value>Відновити налаштування за замовчуванням</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>建物 #{0} を選択中</value>
+    <value>Будівля #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>このポイントは道路から遠すぎて、車両がスポーン出来ません。
-道路の近くまで、ポイントを移動させてください。</value>
+    <value>Ця точка розташована занадто далеко від дороги для якогось типу транспорту, перемістіть її ближче, інакше вона не буде працювати</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>出現</value>
+    <value>Поява</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>帰還</value>
+    <value>Зникнення</value>
   </data>
   <data name="Property_FollowGround" xml:space="preserve">
-    <value>地表の高さに追従</value>
+    <value>Дотримуватись рівня землі</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>スポーンのタイプ</value>
+    <value>Тип</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>ポジション</value>
+    <value>Розташування</value>
   </data>
   <data name="Settings_ColorTags" xml:space="preserve">
-    <value>パネルにカラフルな車両タグ</value>
+    <value>Кольорові мітки транспортних засобів</value>
   </data>
   <data name="Settings_Marker3D" xml:space="preserve">
-    <value>3Dポイントのマーカー</value>
+    <value>3D маркер точки</value>
   </data>
   <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
-    <value>ポイントの追加</value>
+    <value>Додати точку</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>同じタイプの建物を一括で適用</value>
+    <value>Застосувати до всіх будівель типу</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>選択しているタイプの建物に、現在の設定を一括で適用してよろしいですか？</value>
+    <value>Ви дійсно хочете застосувати цей параметр до всіх будівель цього типу?</value>
   </data>
   <data name="Tool_InfoCorrect" xml:space="preserve">
-    <value>正常に設定</value>
+    <value>ВСТАНОВЛЕНО КОРЕКТНО</value>
   </data>
   <data name="Tool_InfoDragPoint" xml:space="preserve">
-    <value>ポイントをドラッグして位置を変更</value>
+    <value>Перетягніть точку, щоб змінити її позицію</value>
   </data>
   <data name="Tool_InfoEmptyPoint" xml:space="preserve">
-    <value>空のポイント</value>
+    <value>Порожня точка</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>建物 #{0}</value>
+    <value>Будівля #{0}</value>
   </data>
   <data name="Tool_InfoIncorrect" xml:space="preserve">
-    <value>不正な設定</value>
+    <value>ВСТАНОВЛЕНО НЕКОРЕКТНО</value>
   </data>
   <data name="Tool_InfoPointHeight" xml:space="preserve">
-    <value>{0} で高さを変更</value>
+    <value>Утримуйте {0}, щоб змінити висоту</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>編集したい建物を選択</value>
+    <value>Виберіть будівлю</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>貨物車両</value>
+    <value>Вантажні автомобілі</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>ヘリコプター</value>
+    <value>Гелікоптери</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>デフォルトの車両</value>
+    <value>Автомобілі за замовчуванням</value>
   </data>
   <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
-    <value>緊急車両</value>
+    <value>Екстрені служби</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>飛行機</value>
+    <value>Літаки</value>
   </data>
   <data name="VehicleTypeGroup_Public" xml:space="preserve">
-    <value>公共交通</value>
+    <value>Громадський транспорт</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>サービス</value>
+    <value>Обслуговування</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
-    <value>船舶</value>
+    <value>Кораблі</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>鉄道</value>
+    <value>Потяги</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>トラック</value>
+    <value>Вантажівки</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>すべて</value>
+    <value>Всі</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>救急車</value>
+    <value>Швидка Допомога</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>救急ヘリ</value>
+    <value>Гелікоптер швидкої допомоги</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>熱気球</value>
+    <value>Повітряна куля</value>
   </data>
   <data name="VehicleType_BankTruck" xml:space="preserve">
-    <value>現金輸送車</value>
+    <value>Інкасаторська вантажівка</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>自転車</value>
+    <value>Велосипед</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>バス</value>
+    <value>Автобус</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>ケーブルカー</value>
+    <value>Канатна дорога</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>貨物飛行機</value>
+    <value>Вантажний літак</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>貨物船</value>
+    <value>Вантажний корабель</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>貨物列車</value>
+    <value>Вантажний потяг</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>貨物トラック</value>
+    <value>Вантажівка</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>災害救助ヘリ</value>
+    <value>Гелікоптер служби порятунку</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>災害救援車両</value>
+    <value>Служба порятунку</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>消防ヘリ</value>
+    <value>Пожежний гелікоптер</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
-    <value>消防車</value>
+    <value>Пожежна машина</value>
   </data>
   <data name="VehicleType_FishingBoat" xml:space="preserve">
-    <value>漁船</value>
+    <value>Рибальський човен</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>ゴミ収集車</value>
+    <value>Сміттєвоз</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>霊柩車</value>
+    <value>Катафалк</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>地下鉄</value>
+    <value>Метро</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>モノレール</value>
+    <value>Монорельс</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>パーク整備車両</value>
+    <value>Обслуговування парку</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>飛行船</value>
+    <value>Пасажирський дирижабль</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>旅客ヘリ</value>
+    <value>Пасажирський гелікоптер</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>フェリー</value>
+    <value>Паром</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>旅客飛行機</value>
+    <value>Пасажирський літак</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>旅客船</value>
+    <value>Пасажирський корабель</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>旅客列車</value>
+    <value>Пасажирський потяг</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>パトカー</value>
+    <value>Поліція</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>警察ヘリ</value>
+    <value>Поліцейський гелікоптер</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>郵便車両</value>
+    <value>Пошта</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>軽飛行機</value>
+    <value>Приватний літак</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>道路整備車両</value>
+    <value>Дорожня служба</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>ロケット</value>
+    <value>Ракета</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
-    <value>除雪車</value>
+    <value>Снігоочисна машина</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>タクシー</value>
+    <value>Таксі</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>トラム</value>
+    <value>Трамвай</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>トロリーバス</value>
+    <value>Тролейбус</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>バキュームカー</value>
+    <value>Вакуумна вантажівка</value>
   </data>
 </root>

@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Mod_Description" xml:space="preserve">
-    <value>車両のスポーンポイント（出現・帰還の位置）を変更・追加できます</value>
-  </data>
   
   
   
@@ -128,205 +125,197 @@
   
   
   
-  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
-    <value>[UPDATED] Added Plazas &amp; Promenades DLC support.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
-    <value>[FIXED] Police car spawn point.
-[FIXED] Infinity fire trucks and disaster response trucks.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[NEW] Added support of bank trucks from Financial Districts DLC.</value>
-  </data>
+  
+  
+  
+  
   <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
-    <value>[NEW] Added the ability to drag points with mouse.
-[NEW] Added 3D marker that allow to see actual height of point.
-[UPDATED] New UI style.
-[NEW] Vehicle tags have different colors depends on vehicle type.
-[NEW] Added shortcut to add new point.
-[FIXED] Added the ability to set cargo truck point to fish market.</value>
+    <value>[新功能] 新增用滑鼠拖曳點的功能。
+[新功能] 新增可以查看點的實際高度的3D標記。
+[更新] 新的UI風格。
+[新功能] 車輛標籤根據車輛類型有不同的顏色。
+[新功能] 新增添加新點的快捷鍵。
+[修復] 新增將貨車點設置為魚市場的功能。</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
-    <value>全タイプの車両を追加</value>
+    <value>新增所有載具類型</value>
   </data>
   <data name="Panel_AddPoint" xml:space="preserve">
-    <value>ポイントの追加</value>
+    <value>新增點</value>
   </data>
   <data name="Panel_AddVehicle" xml:space="preserve">
-    <value>車両のタイプを追加</value>
+    <value>新增載具類型</value>
   </data>
   <data name="Panel_AddVehicleGroup" xml:space="preserve">
-    <value>車両のグループを追加</value>
+    <value>新增載具類型組</value>
   </data>
   <data name="Panel_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Panel_ApplyToAll" xml:space="preserve">
-    <value>同じタイプの建物を一括で適用</value>
+    <value>應用於全部同類建築</value>
   </data>
   <data name="Panel_Copy" xml:space="preserve">
-    <value>コピー</value>
+    <value>複製</value>
   </data>
   <data name="Panel_CopyPoint" xml:space="preserve">
-    <value>ポイントのコピー</value>
+    <value>複製點</value>
   </data>
   <data name="Panel_DuplicatePoint" xml:space="preserve">
-    <value>ポイントを複製</value>
+    <value>完全複製點</value>
   </data>
   <data name="Panel_NoPointWarning" xml:space="preserve">
-    <value>有効なポイントの設定が建物内にありません。
-もしくは下記で指定された、車両のタイプが含まれていません。</value>
+    <value>此建築沒有任何包含以下類別載具的點：</value>
   </data>
   <data name="Panel_NoPointWarningContinue" xml:space="preserve">
-    <value>未設定・不適切な場合は、デフォルトの設定が適用されます。</value>
+    <value>載具將在預設位置生成</value>
   </data>
   <data name="Panel_Paste" xml:space="preserve">
-    <value>貼り付け</value>
+    <value>複製</value>
   </data>
   <data name="Panel_PastePointAppend" xml:space="preserve">
-    <value>ポイントの貼り付け(車両タイプを追加)</value>
+    <value>複製點（新增載具類型）</value>
   </data>
   <data name="Panel_PastePointReplace" xml:space="preserve">
-    <value>ポイント貼り付け(車両タイプを置換)</value>
+    <value>複製點（替換載具類型）</value>
   </data>
   <data name="Panel_PositionFormat" xml:space="preserve">
-    <value>{0}m</value>
+    <value>{0}公尺</value>
   </data>
   <data name="Panel_ResetToDefault" xml:space="preserve">
-    <value>デフォルトに戻す</value>
+    <value>重置為預設值</value>
   </data>
   <data name="Panel_Title" xml:space="preserve">
-    <value>建物 #{0} を選択中</value>
+    <value>建築 #{0}</value>
   </data>
   <data name="Panel_TooFarPoint" xml:space="preserve">
-    <value>このポイントは道路から遠すぎて、車両がスポーン出来ません。
-道路の近くまで、ポイントを移動させてください。</value>
+    <value>對某些類型的載具來說，此點距離道路過遠。請靠近道路，否則它將無法工作</value>
   </data>
   <data name="PointType_Spawn" xml:space="preserve">
-    <value>出現</value>
+    <value>生成</value>
   </data>
   <data name="PointType_Unspawn" xml:space="preserve">
-    <value>帰還</value>
+    <value>消失</value>
   </data>
   <data name="Property_FollowGround" xml:space="preserve">
-    <value>地表の高さに追従</value>
+    <value>跟隨地面</value>
   </data>
   <data name="Property_PointType" xml:space="preserve">
-    <value>スポーンのタイプ</value>
+    <value>類型</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
-    <value>ポジション</value>
+    <value>位置</value>
   </data>
   <data name="Settings_ColorTags" xml:space="preserve">
-    <value>パネルにカラフルな車両タグ</value>
+    <value>為面板的載具上色</value>
   </data>
   <data name="Settings_Marker3D" xml:space="preserve">
-    <value>3Dポイントのマーカー</value>
+    <value>使用立體顯示</value>
   </data>
   <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
-    <value>ポイントの追加</value>
+    <value>新增點</value>
   </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
-    <value>同じタイプの建物を一括で適用</value>
+    <value>適用於所有同類型的建築</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
-    <value>選択しているタイプの建物に、現在の設定を一括で適用してよろしいですか？</value>
+    <value>確定將本設置應用於所有同類型的建築嗎？</value>
   </data>
   <data name="Tool_InfoCorrect" xml:space="preserve">
-    <value>正常に設定</value>
+    <value>設置正確</value>
   </data>
   <data name="Tool_InfoDragPoint" xml:space="preserve">
-    <value>ポイントをドラッグして位置を変更</value>
+    <value>拖曳標記以移動</value>
   </data>
   <data name="Tool_InfoEmptyPoint" xml:space="preserve">
-    <value>空のポイント</value>
+    <value>空生成點</value>
   </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
-    <value>建物 #{0}</value>
+    <value>建築 #{0}</value>
   </data>
   <data name="Tool_InfoIncorrect" xml:space="preserve">
-    <value>不正な設定</value>
+    <value>設置錯誤</value>
   </data>
   <data name="Tool_InfoPointHeight" xml:space="preserve">
-    <value>{0} で高さを変更</value>
+    <value>按下 {0} 以變更高度</value>
   </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
-    <value>編集したい建物を選択</value>
+    <value>選擇建築</value>
   </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
-    <value>貨物車両</value>
+    <value>貨運載具</value>
   </data>
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
-    <value>ヘリコプター</value>
+    <value>直升機</value>
   </data>
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
-    <value>デフォルトの車両</value>
+    <value>預設載具</value>
   </data>
   <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
-    <value>緊急車両</value>
+    <value>應急服務載具</value>
   </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
-    <value>飛行機</value>
+    <value>飛機</value>
   </data>
   <data name="VehicleTypeGroup_Public" xml:space="preserve">
-    <value>公共交通</value>
+    <value>大眾運輸工具</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>サービス</value>
+    <value>維護用載具</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>船舶</value>
   </data>
   <data name="VehicleTypeGroup_Trains" xml:space="preserve">
-    <value>鉄道</value>
+    <value>火車</value>
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
-    <value>トラック</value>
+    <value>貨車</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
-    <value>すべて</value>
+    <value>全部</value>
   </data>
   <data name="VehicleType_Ambulance" xml:space="preserve">
-    <value>救急車</value>
+    <value>救護車</value>
   </data>
   <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
-    <value>救急ヘリ</value>
+    <value>救護直升機</value>
   </data>
   <data name="VehicleType_Balloon" xml:space="preserve">
-    <value>熱気球</value>
+    <value>熱氣球</value>
   </data>
   <data name="VehicleType_BankTruck" xml:space="preserve">
-    <value>現金輸送車</value>
+    <value>運鈔車</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
-    <value>自転車</value>
+    <value>自行車</value>
   </data>
   <data name="VehicleType_Bus" xml:space="preserve">
-    <value>バス</value>
+    <value>公車</value>
   </data>
   <data name="VehicleType_CableCar" xml:space="preserve">
-    <value>ケーブルカー</value>
+    <value>纜車</value>
   </data>
   <data name="VehicleType_CargoPlane" xml:space="preserve">
-    <value>貨物飛行機</value>
+    <value>貨機</value>
   </data>
   <data name="VehicleType_CargoShip" xml:space="preserve">
-    <value>貨物船</value>
+    <value>貨船</value>
   </data>
   <data name="VehicleType_CargoTrain" xml:space="preserve">
-    <value>貨物列車</value>
+    <value>貨運列車</value>
   </data>
   <data name="VehicleType_CargoTruck" xml:space="preserve">
-    <value>貨物トラック</value>
+    <value>貨運卡車</value>
   </data>
   <data name="VehicleType_DisasterCopter" xml:space="preserve">
-    <value>災害救助ヘリ</value>
+    <value>災難反應直升機</value>
   </data>
   <data name="VehicleType_DisasterResponse" xml:space="preserve">
-    <value>災害救援車両</value>
+    <value>應急回應</value>
   </data>
   <data name="VehicleType_FireCopter" xml:space="preserve">
-    <value>消防ヘリ</value>
+    <value>消防直升機</value>
   </data>
   <data name="VehicleType_FireTruck" xml:space="preserve">
     <value>消防車</value>
@@ -335,69 +324,69 @@
     <value>漁船</value>
   </data>
   <data name="VehicleType_GarbageTruck" xml:space="preserve">
-    <value>ゴミ収集車</value>
+    <value>垃圾車</value>
   </data>
   <data name="VehicleType_Hearse" xml:space="preserve">
-    <value>霊柩車</value>
+    <value>靈車</value>
   </data>
   <data name="VehicleType_MetroTrain" xml:space="preserve">
-    <value>地下鉄</value>
+    <value>地鐵列車</value>
   </data>
   <data name="VehicleType_Monorail" xml:space="preserve">
-    <value>モノレール</value>
+    <value>單軌列車</value>
   </data>
   <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
-    <value>パーク整備車両</value>
+    <value>公園維護</value>
   </data>
   <data name="VehicleType_PassengerBlimp" xml:space="preserve">
-    <value>飛行船</value>
+    <value>載客飛艇</value>
   </data>
   <data name="VehicleType_PassengerCopter" xml:space="preserve">
-    <value>旅客ヘリ</value>
+    <value>載客直升機</value>
   </data>
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
-    <value>フェリー</value>
+    <value>載客輪渡</value>
   </data>
   <data name="VehicleType_PassengerPlane" xml:space="preserve">
-    <value>旅客飛行機</value>
+    <value>載客飛機</value>
   </data>
   <data name="VehicleType_PassengerShip" xml:space="preserve">
-    <value>旅客船</value>
+    <value>郵輪</value>
   </data>
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
-    <value>旅客列車</value>
+    <value>載客列車</value>
   </data>
   <data name="VehicleType_Police" xml:space="preserve">
-    <value>パトカー</value>
+    <value>警車</value>
   </data>
   <data name="VehicleType_PoliceCopter" xml:space="preserve">
-    <value>警察ヘリ</value>
+    <value>警用直升機</value>
   </data>
   <data name="VehicleType_PostTruck" xml:space="preserve">
-    <value>郵便車両</value>
+    <value>郵政服務車輛</value>
   </data>
   <data name="VehicleType_PrivatePlane" xml:space="preserve">
-    <value>軽飛行機</value>
+    <value>私人飛機</value>
   </data>
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
-    <value>道路整備車両</value>
+    <value>道路維護車</value>
   </data>
   <data name="VehicleType_Rocket" xml:space="preserve">
-    <value>ロケット</value>
+    <value>火箭</value>
   </data>
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>除雪車</value>
   </data>
   <data name="VehicleType_Taxi" xml:space="preserve">
-    <value>タクシー</value>
+    <value>計程車</value>
   </data>
   <data name="VehicleType_Tram" xml:space="preserve">
-    <value>トラム</value>
+    <value>路面電車</value>
   </data>
   <data name="VehicleType_Trolleybus" xml:space="preserve">
-    <value>トロリーバス</value>
+    <value>無軌電車</value>
   </data>
   <data name="VehicleType_VacuumTruck" xml:space="preserve">
-    <value>バキュームカー</value>
+    <value>真空吸水車</value>
   </data>
 </root>

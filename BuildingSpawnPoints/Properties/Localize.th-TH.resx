@@ -129,89 +129,264 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] เพิ่ม ความสามารถในการลากจุดด้วยเมาส์
+[NEW] เพิ่ม เครื่องหมาย 3 มิติ ช่วยให้เห็นความสูงที่แท้จริงของจุด
+[UPDATED] UI หน้าการตั้งค่ารูปแบบใหม่
+[NEW] สีของแท็กยานพาหนะ แตกต่างกันไปตามประเภทของยานพาหนะ
+[NEW] เพิ่ม คำสั่งลัดในการเพิ่มจุดใหม่
+[FIXED] เพิ่ม ความสามารถในการกำหนดจุดสำหรับรถบรรทุกสินค้าของตลาดปลา</value>
+  </data>
+  <data name="Panel_AddAllVehicle" xml:space="preserve">
+    <value>เพิ่มยานพาหนะทุกประเภท</value>
+  </data>
+  <data name="Panel_AddPoint" xml:space="preserve">
+    <value>เพิ่มจุด</value>
+  </data>
+  <data name="Panel_AddVehicle" xml:space="preserve">
+    <value>เพิ่มประเภทยานพาหนะ</value>
+  </data>
+  <data name="Panel_AddVehicleGroup" xml:space="preserve">
+    <value>เพิ่มกลุ่มประเภทยานพาหนะ</value>
+  </data>
+  <data name="Panel_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
+  <data name="Panel_ApplyToAll" xml:space="preserve">
+    <value>ปรับใช้กับอาคารประเภทนี้ทั้งหมด</value>
+  </data>
+  <data name="Panel_Copy" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="Panel_CopyPoint" xml:space="preserve">
+    <value>คัดลอก จุด</value>
+  </data>
+  <data name="Panel_DuplicatePoint" xml:space="preserve">
+    <value>ทำสำเนาจุด</value>
+  </data>
+  <data name="Panel_NoPointWarning" xml:space="preserve">
+    <value>อาคารนี้ยังขาดจุดที่ประกอบไปด้วยยานพาหนะประเภทต่อไปนี้：</value>
+  </data>
+  <data name="Panel_NoPointWarningContinue" xml:space="preserve">
+    <value>ยานพาหนะจะเกิดในตำแหน่งตามค่าเริ่มต้น</value>
+  </data>
+  <data name="Panel_Paste" xml:space="preserve">
+    <value>วาง</value>
+  </data>
+  <data name="Panel_PastePointAppend" xml:space="preserve">
+    <value>วางจุด (เพิ่มประเภทของยานพาหนะ)</value>
+  </data>
+  <data name="Panel_PastePointReplace" xml:space="preserve">
+    <value>วางจุด (แทนที่ประเภทของยานพาหนะ)</value>
+  </data>
+  <data name="Panel_PositionFormat" xml:space="preserve">
+    <value>{0}ม.</value>
+  </data>
+  <data name="Panel_ResetToDefault" xml:space="preserve">
+    <value>รีเซ็ตเป็นค่าเริ่มต้น</value>
+  </data>
+  <data name="Panel_Title" xml:space="preserve">
+    <value>อาคาร #{0}</value>
+  </data>
+  <data name="Panel_TooFarPoint" xml:space="preserve">
+    <value>จุดนี้สำหรับยานพาหนะบางประเภทแล้วถือว่าอยู่ห่างถนนมากเกินไป ขยับเข้ามาใกล้อีกนิด ไม่อย่างนั้นมันอาจจะไม่ทำงาน</value>
+  </data>
+  <data name="PointType_Spawn" xml:space="preserve">
+    <value>เกิด</value>
+  </data>
+  <data name="PointType_Unspawn" xml:space="preserve">
+    <value>เก็บ</value>
+  </data>
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>ตามระดับของพื้น</value>
+  </data>
+  <data name="Property_PointType" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="Property_Position" xml:space="preserve">
+    <value>ตำแหน่ง</value>
+  </data>
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>แท็กยานพาหนะหลากสีบนแผงแสดงผล</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>เครื่องหมายจุดแบบ 3 มิติ</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>เพิ่มจุด</value>
+  </data>
+  <data name="Tool_ApplyToAllCaption" xml:space="preserve">
+    <value>ปรับใช้กับอาคารประเภทนี้ทั้งหมด</value>
+  </data>
+  <data name="Tool_ApplyToAllMessage" xml:space="preserve">
+    <value>คุณต้องการใช้การตั้งค่านี้กับอาคารประเภทนี้ทั้งหมดหรือไม่?</value>
+  </data>
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>ตั้งค่าสำเร็จ</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>ลากจุดเพื่อเปลี่ยนตำแหน่ง</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>จุด ว่างเปล่า</value>
+  </data>
+  <data name="Tool_InfoHoverBuilding" xml:space="preserve">
+    <value>อาคาร #{0}</value>
+  </data>
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>ตั้งค่าไม่สำเร็จ</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>กด {0} ค้างไว้ เพื่อเปลี่ยนระดับความสูง</value>
+  </data>
+  <data name="Tool_InfoSelectBuilding" xml:space="preserve">
+    <value>เลือกอาคาร</value>
+  </data>
+  <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
+    <value>ยานพาหนะขนส่งสินค้า</value>
+  </data>
+  <data name="VehicleTypeGroup_Copters" xml:space="preserve">
+    <value>เฮลิคอปเตอร์</value>
+  </data>
+  <data name="VehicleTypeGroup_Default" xml:space="preserve">
+    <value>ยานพาหนะเริ่มต้น</value>
+  </data>
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>ยานพาหนะบริการฉุกเฉิน</value>
+  </data>
+  <data name="VehicleTypeGroup_Planes" xml:space="preserve">
+    <value>เครื่องบิน</value>
+  </data>
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>ขนส่งสาธารณะ</value>
+  </data>
+  <data name="VehicleTypeGroup_Service" xml:space="preserve">
+    <value>บริการ</value>
+  </data>
+  <data name="VehicleTypeGroup_Ships" xml:space="preserve">
+    <value>เรือ</value>
+  </data>
+  <data name="VehicleTypeGroup_Trains" xml:space="preserve">
+    <value>รถไฟ</value>
+  </data>
+  <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
+    <value>รถบรรทุก</value>
+  </data>
+  <data name="VehicleType_All" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="VehicleType_Ambulance" xml:space="preserve">
+    <value>รถพยาบาล</value>
+  </data>
+  <data name="VehicleType_AmbulanceCopter" xml:space="preserve">
+    <value>เฮลิคอปเตอร์พยาบาล</value>
+  </data>
+  <data name="VehicleType_Balloon" xml:space="preserve">
+    <value>บอลลูน</value>
+  </data>
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>รถธนาคาร</value>
+  </data>
+  <data name="VehicleType_Bicycle" xml:space="preserve">
+    <value>จักรยาน</value>
+  </data>
+  <data name="VehicleType_Bus" xml:space="preserve">
+    <value>รถบัส</value>
+  </data>
+  <data name="VehicleType_CableCar" xml:space="preserve">
+    <value>รถราง</value>
+  </data>
+  <data name="VehicleType_CargoPlane" xml:space="preserve">
+    <value>เครื่องบินขนส่งสินค้า</value>
+  </data>
+  <data name="VehicleType_CargoShip" xml:space="preserve">
+    <value>เรือขนส่งสินค้า</value>
+  </data>
+  <data name="VehicleType_CargoTrain" xml:space="preserve">
+    <value>รถไฟขนส่งสินค้า</value>
+  </data>
+  <data name="VehicleType_CargoTruck" xml:space="preserve">
+    <value>รถบรรทุกสินค้า</value>
+  </data>
+  <data name="VehicleType_DisasterCopter" xml:space="preserve">
+    <value>เฮลิคอปเตอร์รับมือภัยพิบัติ</value>
+  </data>
+  <data name="VehicleType_DisasterResponse" xml:space="preserve">
+    <value>หน่วยรับมือภัยพิบัติ</value>
+  </data>
+  <data name="VehicleType_FireCopter" xml:space="preserve">
+    <value>เฮลิคอปเตอร์ดับเพลิง</value>
+  </data>
+  <data name="VehicleType_FireTruck" xml:space="preserve">
+    <value>รถดับเพลิง</value>
+  </data>
+  <data name="VehicleType_FishingBoat" xml:space="preserve">
+    <value>เรือประมง</value>
+  </data>
+  <data name="VehicleType_GarbageTruck" xml:space="preserve">
+    <value>รถบรรทุกขยะ</value>
+  </data>
+  <data name="VehicleType_Hearse" xml:space="preserve">
+    <value>รถบรรทุกศพ</value>
+  </data>
+  <data name="VehicleType_MetroTrain" xml:space="preserve">
+    <value>รถไฟฟ้า</value>
+  </data>
+  <data name="VehicleType_Monorail" xml:space="preserve">
+    <value>รถไฟรางเดี่ยว</value>
+  </data>
+  <data name="VehicleType_ParkMaintenanceTruck" xml:space="preserve">
+    <value>หน่วยบำรุงรักษาสวนสาธารณะ</value>
+  </data>
+  <data name="VehicleType_PassengerBlimp" xml:space="preserve">
+    <value>เรือเหาะโดยสาร</value>
+  </data>
+  <data name="VehicleType_PassengerCopter" xml:space="preserve">
+    <value>เฮลิคอปเตอร์โดยสาร</value>
+  </data>
+  <data name="VehicleType_PassengerFerry" xml:space="preserve">
+    <value>เรือโดยสารข้ามฟาก</value>
+  </data>
+  <data name="VehicleType_PassengerPlane" xml:space="preserve">
+    <value>เครื่องบินโดยสาร</value>
+  </data>
+  <data name="VehicleType_PassengerShip" xml:space="preserve">
+    <value>เรือโดยสาร</value>
+  </data>
+  <data name="VehicleType_PassengerTrain" xml:space="preserve">
+    <value>รถไฟโดยสาร</value>
+  </data>
+  <data name="VehicleType_Police" xml:space="preserve">
+    <value>ตำรวจ</value>
+  </data>
+  <data name="VehicleType_PoliceCopter" xml:space="preserve">
+    <value>เฮลิคอปเตอร์ตำรวจ</value>
+  </data>
+  <data name="VehicleType_PostTruck" xml:space="preserve">
+    <value>ไปรษณีย์</value>
+  </data>
+  <data name="VehicleType_PrivatePlane" xml:space="preserve">
+    <value>เครื่องบินส่วนตัว</value>
+  </data>
+  <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
+    <value>หน่วยซ่อมแซมถนน</value>
+  </data>
+  <data name="VehicleType_Rocket" xml:space="preserve">
+    <value>จรวด</value>
+  </data>
+  <data name="VehicleType_SnowTruck" xml:space="preserve">
+    <value>รถกวาดหิมะ</value>
+  </data>
+  <data name="VehicleType_Taxi" xml:space="preserve">
+    <value>แท็กซี่</value>
+  </data>
+  <data name="VehicleType_Tram" xml:space="preserve">
+    <value>รถราง</value>
+  </data>
+  <data name="VehicleType_Trolleybus" xml:space="preserve">
+    <value>รถโดยสารประจำทางไฟฟ้า</value>
+  </data>
+  <data name="VehicleType_VacuumTruck" xml:space="preserve">
+    <value>รถสูบน้ำ</value>
+  </data>
 </root>

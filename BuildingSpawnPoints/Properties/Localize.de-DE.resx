@@ -142,7 +142,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Unterstützung der Geld-Transporter aus dem Financial Districts DLC.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Die Möglichkeit, Punkte mit der Maus zu ziehen, wurde hinzugefügt.
+[NEW] 3D Marker hinzugefügt, mit dem die tatsächliche Punkthöhe angezeigt werden kann.
+[UPDATED] Neue Benutzeroberfläche
+[NEW] Fahrzeug-Tags haben unterschiedliche Farben abhängig vom Fahrzeugtyp.
+[NEW] Verknüpfung hinzugefügt, um einen neuen Punkt hinzuzufügen.
+[FIXED] Möglichkeit hinzugefügt, einen LKW-Punkt auf den Fischmarkt zu setzen.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>
@@ -203,30 +210,48 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Zielpunkt</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Bodenhöhe folgen</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Typ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Position</value>
   </data>
-  
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Bunte Fahrzeug-Tags auf der Benutzeroberfläche</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3D-Punkt-Marker</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Punkt hinzufügen</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Auf alle Gebäude dieses Typs anwenden</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Möchtest du diese Einstellung wirklich auf alle Gebäude dieser Art anwenden?</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>KORREKT EINGESTELLT</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Ziehe den Punkt, um seine Position zu ändern</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Leerer Punkt</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Gebäude #{0}</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>FALSCH EINGESTELLT</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Halte {0} gedrückt, um die Höhe zu ändern</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Gebäude auswählen</value>
   </data>
@@ -239,11 +264,15 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Standardfahrzeuge</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Notruffahrzeuge</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Flugzeuge</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Öffentliche Verkehrsmittel</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Dienstfahrzeuge</value>
   </data>

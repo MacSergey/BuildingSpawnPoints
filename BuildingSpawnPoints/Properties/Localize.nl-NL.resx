@@ -138,7 +138,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Ondersteuning toegevoegd voor geldauto's uit Financial Districts DLC.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Mogelijkheid toegevoegd om punten te verslepen met de muis.
+[NEW] 3D markering toegevoegd om de werkelijke punthoogte te tonen.
+[UPDATED] Nieuwe gebruikersinterface.
+[NEW] Voertuigtags hebben verschillende kleuren afhankelijk van het voertuigtype.
+[NEW] Snelkoppeling toegevoegd om een nieuw punt toe te voegen.
+[FIXED] Mogelijkheid toegevoegd om een vrachtwagenpunt toe te voegen aan de vismarkt.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Voeg alle typen voertuigen toe</value>
   </data>
@@ -199,30 +206,48 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Eindpunt</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Volg het grondniveau</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Positie</value>
   </data>
-  
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Kleurrijke voertuiglabels op de gebruikersinterface</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3D puntmarkering</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Punt toevoegen</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Toepassen op alle gebouwen van dit type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Weet u zeker dat u deze instelling wilt toepassen op alle gebouwen van dit type?</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>CORRECT INGESTELD</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Versleep het punt om zijn positie te wijzigen</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Leeg punt</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Gebouw #{0}</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>VERKEERD INGESTELD</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Houd {0} ingedrukt om de hoogte te veranderen</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selecteer gebouw</value>
   </data>
@@ -235,11 +260,15 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Standaard voertuigen</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Hulpverleningsvoertuigen</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Vliegtuigen</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Openbaar vervoer</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Servicevoertuigen</value>
   </data>

@@ -199,7 +199,9 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Usuń</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Podążaj za poziomem ziemi</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Typ</value>
   </data>
@@ -208,21 +210,33 @@
   </data>
   
   
-  
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Dodaj punkt</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Zastosuj do wszystkich budynków tego typu</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Czy na pewno chcesz zastosować ustawienia do wszystkich budynków tego typu?</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>USTAW PRAWIDŁOWY</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Przeciągnij punkt aby zmienić jego pozycję</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Pusty punkt</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Budynek #{0}</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>USTAW NIEPRAWIDŁOWY</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Przytrzymaj {0}, aby zmienić wysokość</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Wybierz budynek</value>
   </data>
@@ -235,11 +249,15 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Domyślne pojazdy</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Pojazdy ratownicze</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Samoloty</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Transport publiczny</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Pojazdy serwisowe</value>
   </data>

@@ -159,7 +159,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] 增加了对金融区DLC运钞车的支持。</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] 新增了用鼠标拖动生成点的功能。
+[NEW] 新增了立体的标记功能，以方便查看生成点的实际高度。
+[UPDATED] 更新了新的界面样式。
+[NEW] 现在不同类型的载具拥有不同颜色的标签。
+[NEW] 新增了添加生成点的快捷键。
+[FIXED] 新增了为鱼市场添加货车生成点的功能。</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
   </data>

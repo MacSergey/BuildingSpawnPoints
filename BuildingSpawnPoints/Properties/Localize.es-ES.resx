@@ -140,7 +140,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Se ha añadido soporte para furgón blindado del DLC "Distritos Financieros".</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Habilidad de arrastrar puntos con el ratón.
+[NEW] Marcador 3D que permite ver la altura real del punto.
+[UPDATED] Estilo de interfaz de usuario.
+[NEW] Las etiquetas de vehículos tienen diferentes colores dependen del tipo de vehículo.
+[NEW] Acceso directo para agregar un nuevo punto.
+[FIXED] Añadida la capacidad de fijar el punto del camión de carga para el mercado del pescado.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>
