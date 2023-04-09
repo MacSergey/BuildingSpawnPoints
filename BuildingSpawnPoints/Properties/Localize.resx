@@ -165,6 +165,14 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Added support of bank trucks from Financial Districts DLC.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Added the ability to drag points with mouse.
+[NEW] Added 3D marker that allow to see actual height of point.
+[UPDATED] New UI style.
+[NEW] Vehicle tags have different colors depends on vehicle type.
+[NEW] Added shortcut to add new point.
+[FIXED] Added the ability to set cargo truck point to fish market.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
   </data>
@@ -219,9 +227,6 @@
   <data name="Panel_TooFarPoint" xml:space="preserve">
     <value>This point placed too far from road for some type of vehicles, move it closer, otherwise it will not work</value>
   </data>
-  <data name="PointType_Middle" xml:space="preserve">
-    <value>Middle</value>
-  </data>
   <data name="PointType_Spawn" xml:space="preserve">
     <value>Spawn</value>
   </data>
@@ -273,9 +278,6 @@
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Select building</value>
   </data>
-  <data name="VehicleTypeGroup_Air" xml:space="preserve">
-    <value>Air vehicles</value>
-  </data>
   <data name="VehicleTypeGroup_Cargo" xml:space="preserve">
     <value>Cargo vehicles</value>
   </data>
@@ -294,12 +296,6 @@
   <data name="VehicleTypeGroup_Public" xml:space="preserve">
     <value>Public transport</value>
   </data>
-  <data name="VehicleTypeGroup_Rail" xml:space="preserve">
-    <value>Rail vehicles</value>
-  </data>
-  <data name="VehicleTypeGroup_Road" xml:space="preserve">
-    <value>Road vehicles</value>
-  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Service</value>
   </data>
@@ -311,9 +307,6 @@
   </data>
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Trucks</value>
-  </data>
-  <data name="VehicleTypeGroup_Water" xml:space="preserve">
-    <value>Water vehicles</value>
   </data>
   <data name="VehicleType_All" xml:space="preserve">
     <value>All</value>

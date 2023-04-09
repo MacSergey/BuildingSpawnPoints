@@ -1,20 +1,10 @@
-﻿using BuildingSpawnPoints.Utilities;
-using ColossalFramework;
-using ColossalFramework.Math;
-using ColossalFramework.UI;
-using HarmonyLib;
+﻿using ColossalFramework.Math;
 using ICities;
 using ModsCommon;
-using ModsCommon.UI;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Resources;
-using System.Text;
 using UnityEngine;
 using static ColossalFramework.Plugins.PluginManager;
 
@@ -28,6 +18,7 @@ namespace BuildingSpawnPoints
 
         public override List<ModVersion> Versions => new List<ModVersion>()
         {
+            new ModVersion(new Version(1,4), new DateTime(2023, 4, 9)),
             new ModVersion(new Version(1,3,2), new DateTime(2022, 12, 13)),
             new ModVersion(new Version(1,3,1), new DateTime(2022, 11, 16)),
             new ModVersion(new Version(1,3), new DateTime(2022, 9, 14)),
