@@ -67,6 +67,7 @@
 	  <EmbeddedResource Remove="Properties\Localize.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.ro-RO.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.ru-RU.resx" />
+	  <EmbeddedResource Remove="Properties\Localize.th-TH.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.tr-TR.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.zh-CN.resx" />
 	</ItemGroup>
