@@ -148,7 +148,10 @@
 [NEW] Acceso directo para agregar un nuevo punto.
 [FIXED] Añadida la capacidad de fijar el punto del camión de carga para el mercado del pescado.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Se ha añadido el soporte para el DLC de Hotels&amp;Retreats.
+[TRANSLATION] Se han añadido traducciones al chino tradicional, tailandés y ucraniano.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>

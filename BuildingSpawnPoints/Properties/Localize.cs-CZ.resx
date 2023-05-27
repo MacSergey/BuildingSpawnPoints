@@ -200,30 +200,48 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Despawn</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Sledovat terén</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Typ</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Pozice</value>
   </data>
-  
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Barevné značky vozidel na panelu</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3D značka bodu</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Přidat bod</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Použít u všech budov tohoto typu</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Opravdu chcete použít toto nastavení pro všechny budovy tohoto typu?</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>NASTAVIT PRAVDIVÉ</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Přetáhněte bod pro změnu jeho pozice</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Prázdný bod</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Budova #{0}</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>NASTAVIT NEPRAVDIVÉ</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Podrž {0} pro změnu výšky</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Vyberte budovu</value>
   </data>
@@ -236,11 +254,15 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Výchozí vozidla</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Záchranářská vozidla</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Letadla</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Veřejná doprava</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Servisní vozidla</value>
   </data>

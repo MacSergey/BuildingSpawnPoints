@@ -173,7 +173,10 @@
 [NEW] Ajout d'un raccourci pour ajouter un nouveau point.
 [FIXED] Ajout de la possibilité de définir le point des camions de marchandises sur le marché aux poissons.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Ajout de la prise en charge du DLC Hotels&amp;Retreats.
+[TRANSLATION] Ajout des traductions chinoises traditionnelles, thaïlandaises et ukrainiennes.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Ajouter tous les types de véhicules</value>
   </data>

@@ -150,7 +150,10 @@
 [NEW] Verknüpfung hinzugefügt, um einen neuen Punkt hinzuzufügen.
 [FIXED] Möglichkeit hinzugefügt, einen LKW-Punkt auf den Fischmarkt zu setzen.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Hotels&amp;Retreats DLC-Unterstützung hinzugefügt.
+[TRANSLATION] Chinesische traditionelle, thailändische und ukrainische Übersetzungen hinzugefügt.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>

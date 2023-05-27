@@ -167,7 +167,10 @@
 [NEW] 新增了添加生成点的快捷键。
 [FIXED] 新增了为鱼市场添加货车生成点的功能。</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] 新增了对 Hotels &amp; Retreats DLC 更新的支持。
+[TRANSLATION] 新增了繁体中文、泰语和乌克兰语翻译。</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
   </data>

@@ -146,7 +146,10 @@
 [NEW] Aggiunta una scorciatoia per aggiungere un nuovo punto.
 [FIXED] Aggiunta la possibilità di impostare il punto del camion merci sul mercato del pesce.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Aggiunto il supporto DLC Hotels&amp;Retreats.
+[TRANSLATION] Aggiunte traduzioni in Cinese tradizionale, Tailandese e Ucraino.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>

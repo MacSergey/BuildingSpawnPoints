@@ -137,7 +137,10 @@
 [NEW] เพิ่ม คำสั่งลัดในการเพิ่มจุดใหม่
 [FIXED] เพิ่ม ความสามารถในการกำหนดจุดสำหรับรถบรรทุกสินค้าของตลาดปลา</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] เพิ่มการรองรับ DLC Hotels&amp;Retreats
+[TRANSLATION] แปลภาษาจีนตัวเต็ม ภาษาไทย ภาษายูเครน เพิ่มเติม</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>เพิ่มยานพาหนะทุกประเภท</value>
   </data>

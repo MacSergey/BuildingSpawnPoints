@@ -138,8 +138,18 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Dodanie wsparcie dla ciężarówek bankowych z DLC Dzielnice Finansowe.</value>
   </data>
-  
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Dodano możliwość przeciągania punktów myszą.
+[NEW] Dodano znacznik 3D, który pozwala zobaczyć rzeczywistą wysokość punktu.
+[UPDATED] Nowy styl UI.
+[NEW] Znaczniki pojazdów mają różne kolory w zależności od typu pojazdu.
+[NEW] Dodano skrót, aby dodać nowy punkt.
+[FIXED] Dodano możliwość ustawiania punktu samochodów ciężarowych na rynku rybnym.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Dodano wsparcie dla DLC Hotele i Schroniska
+[TRANSLATION] Dodano tłumaczenia chińskie tradycyjne, tajskie i ukraińskie.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Dodaj wszystkie typy pojazdów</value>
   </data>
@@ -209,8 +219,12 @@
   <data name="Property_Position" xml:space="preserve">
     <value>Pozycja</value>
   </data>
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Kolorowe etykiety pojazdów w panelu</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>Znacznik punktu 3D</value>
+  </data>
   <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
     <value>Dodaj punkt</value>
   </data>
