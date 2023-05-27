@@ -13,11 +13,11 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AssemblyVersion>1.4.0.85</AssemblyVersion>
+		<AssemblyVersion>1.4.0.89</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
-		<AssemblyVersion>1.4.0.1</AssemblyVersion>
+		<AssemblyVersion>1.4.1</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stable Release|AnyCPU'">
@@ -69,7 +69,10 @@
 	  <EmbeddedResource Remove="Properties\Localize.ru-RU.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.th-TH.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.tr-TR.resx" />
+	  <EmbeddedResource Remove="Properties\Localize.uk-UA.resx" />
+	  <EmbeddedResource Remove="Properties\Localize.vi-VN.resx" />
 	  <EmbeddedResource Remove="Properties\Localize.zh-CN.resx" />
+	  <EmbeddedResource Remove="Properties\Localize.zh-TW.resx" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -146,10 +149,19 @@
 	  <None Include="Properties\Localize.ru-RU.resx">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
+    <None Include="Properties\Localize.th-TH.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
 	  <None Include="Properties\Localize.tr-TR.resx">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
+	  <None Include="Properties\Localize.uk-UA.resx">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Include="Properties\Localize.zh-CN.resx">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Properties\Localize.zh-TW.resx">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
@@ -227,6 +239,9 @@
 	<Import Project="..\ModsCommon\LocalizeShared\ro-RO\LocalizeShared.ro-RO.projitems" Label="Shared" />
 	<Import Project="..\ModsCommon\LocalizeShared\ru-RU\LocalizeShared.ru-RU.projitems" Label="Shared" />
 	<Import Project="..\ModsCommon\LocalizeShared\tr-TR\LocalizeShared.tr-TR.projitems" Label="Shared" />
+	<Import Project="..\ModsCommon\LocalizeShared\zh-TW\LocalizeShared.zh-TW.projitems" Label="Shared" />
+	<Import Project="..\ModsCommon\LocalizeShared\uk-UA\LocalizeShared.uk-UA.projitems" Label="Shared" />
+	<Import Project="..\ModsCommon\LocalizeShared\th-TH\LocalizeShared.th-TH.projitems" Label="Shared" />
 
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">

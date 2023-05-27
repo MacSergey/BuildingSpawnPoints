@@ -173,6 +173,10 @@
 [NEW] Added shortcut to add new point.
 [FIXED] Added the ability to set cargo truck point to fish market.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Added Hotels&amp;Retreats DLC support.
+[TRANSLATION] Added Chinese traditional, Thai and Ukrainian translations.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
   </data>

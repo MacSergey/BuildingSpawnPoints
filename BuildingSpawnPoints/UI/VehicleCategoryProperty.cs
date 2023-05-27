@@ -17,6 +17,7 @@ namespace BuildingSpawnPoints.UI
         public event Action<VehicleCategory> OnHover;
 
         bool IReusable.InCache { get; set; }
+        Transform IReusable.CachedTransform { get => m_CachedTransform; set => m_CachedTransform = value; }
 
         private Dictionary<VehicleCategory, VehicleItem> Items { get; } = new Dictionary<VehicleCategory, VehicleItem>();
         public IEnumerable<VehicleItem> Values => Items.Values;
@@ -142,6 +143,7 @@ namespace BuildingSpawnPoints.UI
         public event Action<VehicleItem> OnLeave;
 
         bool IReusable.InCache { get; set; }
+        Transform IReusable.CachedTransform { get => m_CachedTransform; set => m_CachedTransform = value; }
 
         private CustomUILabel Label { get; set; }
         private CustomUIButton Remove { get; set; }

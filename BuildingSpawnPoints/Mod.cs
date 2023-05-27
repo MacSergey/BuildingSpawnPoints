@@ -18,6 +18,7 @@ namespace BuildingSpawnPoints
 
         public override List<ModVersion> Versions => new List<ModVersion>()
         {
+            new ModVersion(new Version(1,4,1), new DateTime(2023, 5, 27)),
             new ModVersion(new Version(1,4), new DateTime(2023, 4, 9)),
             new ModVersion(new Version(1,3,2), new DateTime(2022, 12, 13)),
             new ModVersion(new Version(1,3,1), new DateTime(2022, 11, 16)),

@@ -258,7 +258,7 @@ namespace BuildingSpawnPoints.UI
             Warning.isVisible = !isCorrect;
         }
     }
-    public class PointHeaderPanel : BaseDeletableHeaderPanel<PanelHeaderContent>
+    public class PointHeaderPanel : BaseDeletableHeaderPanel<BaseHeaderContent>
     {
         public event Action<VehicleCategory> OnAddType;
         public event Action OnDuplicate;

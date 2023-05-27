@@ -71,6 +71,11 @@ namespace BuildingSpawnPoints
 		public static string Mod_WhatsNewMessage1_4 => LocaleManager.GetString("Mod_WhatsNewMessage1_4", Culture);
 
 		/// <summary>
+		/// [UPDATED] Added Hotels&Retreats DLC support.
+		/// </summary>
+		public static string Mod_WhatsNewMessage1_4_1 => LocaleManager.GetString("Mod_WhatsNewMessage1_4_1", Culture);
+
+		/// <summary>
 		/// Add all types of vehicles
 		/// </summary>
 		public static string Panel_AddAllVehicle => LocaleManager.GetString("Panel_AddAllVehicle", Culture);

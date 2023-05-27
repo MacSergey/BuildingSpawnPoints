@@ -5,7 +5,7 @@ using static ModsCommon.UI.ComponentStyle;
 
 namespace BuildingSpawnPoints.UI
 {
-    public class PanelHeader : HeaderMoveablePanel<PanelHeaderContent>
+    public class PanelHeader : HeaderMoveablePanel<BaseHeaderContent>
     {
         private HeaderButtonInfo<HeaderButton> PasteButton { get; set; }
 
