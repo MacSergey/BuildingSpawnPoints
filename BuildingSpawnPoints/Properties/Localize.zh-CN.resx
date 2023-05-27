@@ -167,6 +167,7 @@
 [NEW] 新增了添加生成点的快捷键。
 [FIXED] 新增了为鱼市场添加货车生成点的功能。</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>添加所有车辆类型</value>
   </data>

@@ -137,6 +137,7 @@
 [新功能] 新增添加新點的快捷鍵。
 [修復] 新增將貨車點設置為魚市場的功能。</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>新增所有載具類型</value>
   </data>

@@ -137,6 +137,7 @@
 [NEW] เพิ่ม คำสั่งลัดในการเพิ่มจุดใหม่
 [FIXED] เพิ่ม ความสามารถในการกำหนดจุดสำหรับรถบรรทุกสินค้าของตลาดปลา</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>เพิ่มยานพาหนะทุกประเภท</value>
   </data>

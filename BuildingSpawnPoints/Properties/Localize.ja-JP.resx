@@ -146,6 +146,7 @@
 [NEW] Added shortcut to add new point.
 [FIXED] Added the ability to set cargo truck point to fish market.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>全タイプの車両を追加</value>
   </data>

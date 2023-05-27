@@ -150,6 +150,7 @@
 [NEW] Verknüpfung hinzugefügt, um einen neuen Punkt hinzuzufügen.
 [FIXED] Möglichkeit hinzugefügt, einen LKW-Punkt auf den Fischmarkt zu setzen.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Alle Fahrzeugtypen hinzufügen</value>
   </data>

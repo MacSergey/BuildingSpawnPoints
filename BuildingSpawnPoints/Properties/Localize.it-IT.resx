@@ -146,6 +146,7 @@
 [NEW] Aggiunta una scorciatoia per aggiungere un nuovo punto.
 [FIXED] Aggiunta la possibilità di impostare il punto del camion merci sul mercato del pesce.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>

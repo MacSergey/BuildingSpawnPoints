@@ -148,6 +148,7 @@
 [NEW] Acceso directo para agregar un nuevo punto.
 [FIXED] Añadida la capacidad de fijar el punto del camión de carga para el mercado del pescado.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Añadir todos los tipos de vehículos</value>
   </data>

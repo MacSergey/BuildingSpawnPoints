@@ -146,6 +146,7 @@
 [NEW] Snelkoppeling toegevoegd om een nieuw punt toe te voegen.
 [FIXED] Mogelijkheid toegevoegd om een vrachtwagenpunt toe te voegen aan de vismarkt.</value>
   </data>
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Voeg alle typen voertuigen toe</value>
   </data>

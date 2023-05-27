@@ -139,6 +139,7 @@
     <value>[NEW] Přidána podpora bankovních vozidel z Financial Districts DLC.</value>
   </data>
   
+  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Přidat všechny typy vozidel</value>
   </data>
