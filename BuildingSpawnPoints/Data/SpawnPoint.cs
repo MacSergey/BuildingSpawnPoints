@@ -260,7 +260,7 @@ namespace BuildingSpawnPoints
                     return true;
 
                 GetAbsolute(ref Data.Id.GetBuilding(), out var absPos, out _);
-                PathManager.FindPathPosition(absPos, laneData.Service, laneData.Lane, laneData.Type, laneData.VehicleCategory, false, false, laneData.Distance, false, out pathPos);
+                PathManager.FindPathPosition(absPos, laneData.Service, laneData.Lane, laneData.Type, laneData.VehicleCategory, false, false, laneData.Distance, false, false, out pathPos);
                 Services[service] = pathPos;
             }
 
@@ -352,7 +352,7 @@ namespace BuildingSpawnPoints
                 var service = type.GetService();
                 if (service != VehicleService.None && VehicleLaneData.TryGet(service, out var laneData))
                 {
-                    if (PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, laneData.VehicleCategory, false, false, laneData.Distance, false, out var pathPos))
+                    if (PathManager.FindPathPosition(position, laneData.Service, laneData.Lane, laneData.Type, laneData.VehicleCategory, false, false, laneData.Distance, false, false, out var pathPos))
                     {
                         position.RenderCircle(new OverlayData(cameraInfo) { Width = laneData.Distance * 2f, Color = CommonColors.Blue });
                     }
