@@ -298,7 +298,7 @@
     <value>Balon</value>
   </data>
   <data name="VehicleType_BankTruck" xml:space="preserve">
-    <value>Ciężarówka bankowa</value>
+    <value>Bankowóz</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Rower</value>
