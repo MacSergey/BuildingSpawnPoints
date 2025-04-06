@@ -229,7 +229,9 @@
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Repülők</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Tömegközlekedés</value>
+  </data>
   
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>Hajók</value>

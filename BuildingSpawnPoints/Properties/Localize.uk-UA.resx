@@ -137,7 +137,10 @@
 [NEW] Додано ярлик для додавання нової точки.
 [FIXED] Додано можливість встановити вантажну точку для рибного ринку.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Додано підтримку DLC Hotels &amp; Retreats.
+[TRANSLATION] Додано традиційну китайську, тайську та українську локалізації.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Додати всі типи транспортних засобів</value>
   </data>
