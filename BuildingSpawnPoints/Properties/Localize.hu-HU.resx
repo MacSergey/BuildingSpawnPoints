@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -120,19 +120,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Járművek kezdőpontjának változtatása és létrehozása</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Összes járműtípus hozzáadása</value>
   </data>
@@ -169,8 +156,6 @@
   <data name="Panel_Paste" xml:space="preserve">
     <value>Beillesztés</value>
   </data>
-  
-  
   <data name="Panel_PositionFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
@@ -189,30 +174,21 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Eltűnés</value>
   </data>
-  
   <data name="Property_PointType" xml:space="preserve">
     <value>Típus</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Pozíció</value>
   </data>
-  
-  
-  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Alkalmazás az összes azonos típusú épületre</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Valóban alkalmazni szeretnéd ezt a beállítást minden ilyen típusú épületre?</value>
   </data>
-  
-  
-  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Épület #{0}</value>
   </data>
-  
-  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Válassz épületet</value>
   </data>
@@ -225,12 +201,9 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Alapértelmezett járművek</value>
   </data>
-  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Repülők</value>
   </data>
-  
-  
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>Hajók</value>
   </data>
@@ -252,7 +225,6 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hőlégballon</value>
   </data>
-  
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bicikli</value>
   </data>
@@ -313,8 +285,6 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Utasszállító komp</value>
   </data>
-  
-  
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Utasszállító vonat</value>
   </data>

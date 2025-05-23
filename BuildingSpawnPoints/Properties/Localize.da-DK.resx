@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -120,19 +120,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Ændre og tilføje køretøjers spawn points</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Tilføj alle typer køretøjer</value>
   </data>
@@ -193,43 +180,30 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Fjern spawn</value>
   </data>
-  
   <data name="Property_PointType" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Placering</value>
   </data>
-  
-  
-  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Anvend på alle bygninger af denne type</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Vil du virkelig anvende denne indstilling på alle bygninger af denne type?</value>
   </data>
-  
-  
-  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Bygning #{0}</value>
   </data>
-  
-  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Vælg bygning</value>
   </data>
-  
   <data name="VehicleTypeGroup_Copters" xml:space="preserve">
     <value>Helikoptere</value>
   </data>
-  
-  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Fly</value>
   </data>
-  
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Service køretøjer</value>
   </data>
@@ -242,7 +216,6 @@
   <data name="VehicleTypeGroup_Trucks" xml:space="preserve">
     <value>Lastbiler</value>
   </data>
-  
   <data name="VehicleType_Ambulance" xml:space="preserve">
     <value>Ambulance</value>
   </data>
@@ -252,8 +225,6 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Ballon</value>
   </data>
-  
-  
   <data name="VehicleType_Bus" xml:space="preserve">
     <value>Bus</value>
   </data>
@@ -311,8 +282,6 @@
   <data name="VehicleType_PassengerFerry" xml:space="preserve">
     <value>Passagerfærge</value>
   </data>
-  
-  
   <data name="VehicleType_PassengerTrain" xml:space="preserve">
     <value>Passagertog</value>
   </data>
@@ -325,11 +294,9 @@
   <data name="VehicleType_PostTruck" xml:space="preserve">
     <value>Postbil</value>
   </data>
-  
   <data name="VehicleType_RoadMaintenanceTruck" xml:space="preserve">
     <value>Vejvedligeholdelse</value>
   </data>
-  
   <data name="VehicleType_SnowTruck" xml:space="preserve">
     <value>Sneplov</value>
   </data>
