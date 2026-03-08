@@ -120,14 +120,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Schimbați și adaugați punctele de spawn al vehiculelor</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Adăugat suportul pentru Plazas &amp; Promenades DLC.</value>
   </data>
@@ -135,9 +127,6 @@
     <value>[FIXED] Punctul de spawn al mașinii de poliție.
 [FIXED] Camioane de pompieri și camioane de urgență dezastre infinite.</value>
   </data>
-  
-  
-  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adăugați toate tipurile de vehicule</value>
   </data>
@@ -198,30 +187,21 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Despawn</value>
   </data>
-  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tip</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Poziție</value>
   </data>
-  
-  
-  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Aplicați la toate clădirile din tipul</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Sigur doriți să aplicați această setare pentru toate clădirile din acest tip?</value>
   </data>
-  
-  
-  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Clădirea #{0}</value>
   </data>
-  
-  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selectați clădirea</value>
   </data>
@@ -234,11 +214,9 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Vehicule implicite</value>
   </data>
-  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Avioane</value>
   </data>
-  
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Vehicule utilitare</value>
   </data>

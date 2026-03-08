@@ -120,19 +120,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Muuta ja lisää sisään- ja uloskäyntejä</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Lisää kaikki ajoneuvotyypit</value>
   </data>
@@ -193,30 +180,21 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Sisäänkäynti</value>
   </data>
-  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tyyppi</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Sijainti</value>
   </data>
-  
-  
-  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Käytä kaikissa samanlaisissa rakennuksissa</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Haluatko varmasti asettaa nämä asetukset kaikkiin tämäntyyppisiin rakennuksiin?</value>
   </data>
-  
-  
-  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Rakennus #{0}</value>
   </data>
-  
-  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Valitse rakennus</value>
   </data>
@@ -229,11 +207,9 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Oletusarvoiset ajoneuvot</value>
   </data>
-  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Lentokoneet</value>
   </data>
-  
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Huoltoajoneuvot</value>
   </data>
@@ -258,7 +234,6 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Kuumailmapallot</value>
   </data>
-  
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Polkupyörät</value>
   </data>
