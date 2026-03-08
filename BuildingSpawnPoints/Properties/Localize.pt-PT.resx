@@ -120,14 +120,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Alterar e adicionar pontos de spawn de veículos</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[ATUALIZAÇÃO] Adicionado suporte ao DLC Plazas &amp; Promenades.</value>
   </data>
@@ -138,8 +130,6 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NOVO] Adicionado suporte a camiões de banco da DLC de Distritos Financeiros.</value>
   </data>
-  
-  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adicionar todos os tipos de veículo</value>
   </data>
@@ -200,30 +190,21 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Destino</value>
   </data>
-  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tipo</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Posição</value>
   </data>
-  
-  
-  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Aplicar a todos os edifícios deste tipo</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Deseja realmente aplicar esta configuração a todos os edifícios deste tipo?</value>
   </data>
-  
-  
-  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>Edifício #{0}</value>
   </data>
-  
-  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Selecione o edifício</value>
   </data>
@@ -236,11 +217,9 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Veículos padrão</value>
   </data>
-  
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Aviões</value>
   </data>
-  
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Veículos de serviço</value>
   </data>
