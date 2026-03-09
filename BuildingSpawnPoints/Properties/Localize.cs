@@ -91,6 +91,11 @@ namespace BuildingSpawnPoints
 		public static string Mod_WhatsNewMessage1_4_4 => LocaleManager.GetString("Mod_WhatsNewMessage1_4_4", Culture);
 
 		/// <summary>
+		/// [UPDATED] Updated required game version to 1.21.1-f5
+		/// </summary>
+		public static string Mod_WhatsNewMessage1_4_5 => LocaleManager.GetString("Mod_WhatsNewMessage1_4_5", Culture);
+
+		/// <summary>
 		/// Add all types of vehicles
 		/// </summary>
 		public static string Panel_AddAllVehicle => LocaleManager.GetString("Panel_AddAllVehicle", Culture);

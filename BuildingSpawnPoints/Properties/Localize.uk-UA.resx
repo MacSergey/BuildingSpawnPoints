@@ -125,6 +125,9 @@
 [NEW] Додано ярлик для додавання нової точки.
 [FIXED] Додано можливість встановити вантажну точку для рибного ринку.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
+    <value />
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Додати всі типи транспортних засобів</value>
   </data>

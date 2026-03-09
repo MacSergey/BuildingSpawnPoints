@@ -127,6 +127,9 @@
     <value>[FIXED] Punctul de spawn al mașinii de poliție.
 [FIXED] Camioane de pompieri și camioane de urgență dezastre infinite.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
+    <value />
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Adăugați toate tipurile de vehicule</value>
   </data>

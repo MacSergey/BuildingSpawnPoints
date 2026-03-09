@@ -112,63 +112,94 @@ namespace BuildingSpawnPoints
             };
         }
 
-        private static void GetStartPathFindPosition(PointType type, ushort buildingId, ref Building data, ushort vehicleId, ref Vehicle vehicle, out Vector3 position)
+        private static void GetStartPathFindSidewalkPosition(PointType type, ushort buildingId, ref Building data, ushort vehicleId, ref Vehicle vehicle, out Vector3 position)
+        {
+            if (GetStartPathFindPosition(type, buildingId, ref data, vehicleId, ref vehicle, out position))
+                return;
+
+            position = data.CalculateSidewalkPosition();
+        }
+        private static void GetStartPathFindAccessPosition(PointType type, ushort buildingId, ref Building data, float xOffset, float zOffset, ushort vehicleId, ref Vehicle vehicle, out Vector3 position)
+        {
+            if (GetStartPathFindPosition(type, buildingId, ref data, vehicleId, ref vehicle, out position))
+                return;
+
+            position = data.CalculateAccessPosition(xOffset, zOffset);
+        }
+        private static bool GetStartPathFindPosition(PointType type, ushort buildingId, ref Building data, ushort vehicleId, ref Vehicle vehicle, out Vector3 position)
         {
             if (SingletonManager<Manager>.Instance[buildingId] is BuildingData buildingData)
             {
                 var randomizer = new Randomizer(vehicleId);
                 if (buildingData.GetPosition(type, ref data, vehicle.Info, ref randomizer, out position, out _))
-                    return;
+                    return true;
             }
 
-            position = data.CalculateSidewalkPosition();
+            position = default;
+            return false;
         }
 
         private static CodeInstruction Building_CalculateSidewalkPosition => new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Building), nameof(Building.CalculateSidewalkPosition), new Type[0]));
+        private static CodeInstruction Building_CalculateAccessPosition => new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Building), nameof(Building.CalculateAccessPosition), new Type[] {typeof(float), typeof(float)}));
         private static CodeInstruction Building_Position => new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Building), nameof(Building.m_position)));
 
 
-        public static IEnumerable<CodeInstruction> Service_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
+        public static IEnumerable<CodeInstruction> Service_StartPathFind_SidewalkPosition_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
-            { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
-            { 2, new StartPathFindInfo(false, 1, Building_CalculateSidewalkPosition)},
+            { 1, StartPathFindInfo.GetSource(0, Building_CalculateSidewalkPosition)},
+            { 2, StartPathFindInfo.GetTarget(1, Building_CalculateSidewalkPosition)},
+        },
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindSidewalkPosition))
+        );
+
+        public static IEnumerable<CodeInstruction> Service_StartPathFind_AccessPosition_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
+        {
+            { 1, StartPathFindInfo.GetSource(0, Building_CalculateAccessPosition)},
+            { 2, StartPathFindInfo.GetTarget(1, Building_CalculateAccessPosition)},
         }
+        ,
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindAccessPosition))
         );
 
         public static IEnumerable<CodeInstruction> Bus_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
-            { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
-        }
+            { 1, StartPathFindInfo.GetSource(0, Building_CalculateSidewalkPosition)},
+        },
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindSidewalkPosition))
         );
         public static IEnumerable<CodeInstruction> Train_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
-            { 1, new StartPathFindInfo(true, 2, Building_Position)},
-            { 2, new StartPathFindInfo(false, 3, Building_Position)},
-            { 3, new StartPathFindInfo(false, 4, Building_Position)},
-        }
-                );
+            { 1, StartPathFindInfo.GetSource(2, Building_Position)},
+            { 2, StartPathFindInfo.GetTarget(3, Building_Position)},
+            { 3, StartPathFindInfo.GetTarget(4, Building_Position)},
+        },
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindSidewalkPosition))
+        );
         public static IEnumerable<CodeInstruction> Plane_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
-            { 1, new StartPathFindInfo(true, 0, Building_Position)},
-            { 2, new StartPathFindInfo(false, 1, Building_Position)},
-            { 3, new StartPathFindInfo(false, 2, Building_Position)},
-        }
-                );
+            { 1, StartPathFindInfo.GetSource(0, Building_Position)},
+            { 2, StartPathFindInfo.GetTarget(1, Building_Position)},
+            { 3, StartPathFindInfo.GetTarget(2, Building_Position)},
+        },
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindSidewalkPosition))
+        );
         public static IEnumerable<CodeInstruction> Blimp_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
-            { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
-            { 2, new StartPathFindInfo(false, 1, Building_Position)},
-        }
-                );
+            { 1, StartPathFindInfo.GetSource(0, Building_CalculateSidewalkPosition)},
+            { 2, StartPathFindInfo.GetTarget(1, Building_Position)},
+        },
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindSidewalkPosition))
+        );
         public static IEnumerable<CodeInstruction> Copter_StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original) => StartPathFind_Transpiler(instructions, original, new Dictionary<int, StartPathFindInfo>()
         {
-            { 1, new StartPathFindInfo(true, 0, Building_CalculateSidewalkPosition)},
-            { 2, new StartPathFindInfo(false, 1, Building_Position)},
-        }
-                );
+            { 1, StartPathFindInfo.GetSource(0, Building_CalculateSidewalkPosition)},
+            { 2, StartPathFindInfo.GetTarget(1, Building_Position)},
+        },
+             AccessTools.Method(typeof(Patcher), nameof(GetStartPathFindSidewalkPosition))
+        );
 
 
-        private static IEnumerable<CodeInstruction> StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original, Dictionary<int, StartPathFindInfo> toPatch)
+        private static IEnumerable<CodeInstruction> StartPathFind_Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original, Dictionary<int, StartPathFindInfo> toPatch, MethodInfo replaceMethod)
         {
             var enumerator = instructions.GetEnumerator();
             var getInstance = AccessTools.PropertyGetter(typeof(Singleton<BuildingManager>), nameof(Singleton<BuildingManager>.instance));
@@ -185,7 +216,7 @@ namespace BuildingSpawnPoints
                     {
                         yield return new CodeInstruction(OpCodes.Ldc_I4, (int)PointType.Unspawn);
                         yield return original.GetLDArg("vehicleData");
-                        yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Vehicle), info.IsSource ? nameof(Vehicle.m_sourceBuilding) : nameof(Vehicle.m_targetBuilding)));
+                        yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Vehicle), info.FieldName));
 
                         for (; instruction != null && (instruction.opcode != info.OpCode || instruction.operand != info.Operand); instruction = enumerator.Current)
                         {
@@ -195,8 +226,8 @@ namespace BuildingSpawnPoints
 
                         yield return original.GetLDArg("vehicleID");
                         yield return original.GetLDArg("vehicleData");
-                        yield return new CodeInstruction(OpCodes.Ldloca_S, info.Index);
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.GetStartPathFindPosition)));
+                        yield return new CodeInstruction(OpCodes.Ldloca_S, info.VarIndex);
+                        yield return new CodeInstruction(OpCodes.Call, replaceMethod);
 
                         enumerator.MoveNext();
                         continue;
@@ -328,18 +359,21 @@ namespace BuildingSpawnPoints
 
         private struct StartPathFindInfo
         {
-            public bool IsSource;
-            public int Index;
+            public string FieldName;
+            public int VarIndex;
             public OpCode OpCode;
             public object Operand;
 
-            public StartPathFindInfo(bool isSource, int index, CodeInstruction instruction)
+            private StartPathFindInfo(string fieldName, int varIndex, CodeInstruction instruction)
             {
-                IsSource = isSource;
-                Index = index;
+                FieldName = fieldName;
+                VarIndex = varIndex;
                 OpCode = instruction.opcode;
                 Operand = instruction.operand;
             }
+
+            public static StartPathFindInfo GetSource(int varIndex, CodeInstruction instruction) => new StartPathFindInfo(nameof(Vehicle.m_sourceBuilding), varIndex, instruction);
+            public static StartPathFindInfo GetTarget(int varIndex, CodeInstruction instruction) => new StartPathFindInfo(nameof(Vehicle.m_targetBuilding), varIndex, instruction);
         }
     }
 }

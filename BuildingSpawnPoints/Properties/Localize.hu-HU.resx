@@ -120,6 +120,9 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Járművek kezdőpontjának változtatása és létrehozása</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
+    <value />
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Összes járműtípus hozzáadása</value>
   </data>

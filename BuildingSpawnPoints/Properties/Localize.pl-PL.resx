@@ -142,6 +142,9 @@
     <value>[UPDATED] Dodano wsparcie dla DLC Hotele i Schroniska
 [TRANSLATION] Dodano tłumaczenia chińskie tradycyjne, tajskie i ukraińskie.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
+    <value />
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Dodaj wszystkie typy pojazdów</value>
   </data>

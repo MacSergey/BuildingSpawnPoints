@@ -130,6 +130,9 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Přidána podpora bankovních vozidel z Financial Districts DLC.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
+    <value />
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Přidat všechny typy vozidel</value>
   </data>

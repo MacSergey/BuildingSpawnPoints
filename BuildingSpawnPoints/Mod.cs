@@ -18,6 +18,7 @@ namespace BuildingSpawnPoints
 
         public override List<ModVersion> Versions => new List<ModVersion>()
         {
+            new ModVersion(new Version(1,4,5), new DateTime(2026, 3, 8)),
             new ModVersion(new Version(1,4,4), new DateTime(2025, 9, 29)),
             new ModVersion(new Version(1,4,3), new DateTime(2025, 5, 23)),
             new ModVersion(new Version(1,4,2), new DateTime(2024, 10, 26)),
@@ -36,7 +37,7 @@ namespace BuildingSpawnPoints
             new ModVersion(new Version(1,0,1), new DateTime(2021, 6, 10)),
             new ModVersion(new Version(1,0), new DateTime(2021, 6, 8)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 20, 1, 1);
+        protected override Version RequiredGameVersion => new Version(1, 21, 1, 5);
 
         protected override ulong StableWorkshopId => 2511258910ul;
         protected override ulong BetaWorkshopId => 2504315382ul;
@@ -185,19 +186,19 @@ namespace BuildingSpawnPoints
 
         private bool Patch_PoliceCarAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(PoliceCarAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_AccessPosition_Transpiler), typeof(PoliceCarAI), "StartPathFind", parameters);
         }
         private bool Patch_FireTruckAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(FireTruckAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_AccessPosition_Transpiler), typeof(FireTruckAI), "StartPathFind", parameters);
         }
         private bool Patch_DisasterResponseVehicleAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(DisasterResponseVehicleAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_SidewalkPosition_Transpiler), typeof(DisasterResponseVehicleAI), "StartPathFind", parameters);
         }
         private bool Patch_ParkMaintenanceVehicleAI_StartPathFind(Type[] parameters)
         {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_Transpiler), typeof(ParkMaintenanceVehicleAI), "StartPathFind", parameters);
+            return AddTranspiler(typeof(Patcher), nameof(Patcher.Service_StartPathFind_SidewalkPosition_Transpiler), typeof(ParkMaintenanceVehicleAI), "StartPathFind", parameters);
         }
         private bool Patch_BusAI_StartPathFind(Type[] parameters)
         {

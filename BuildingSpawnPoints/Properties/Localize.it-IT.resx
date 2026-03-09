@@ -142,6 +142,9 @@
     <value>[UPDATED] Aggiunto il supporto DLC Hotels&amp;Retreats.
 [TRANSLATION] Aggiunte traduzioni in Cinese tradizionale, Tailandese e Ucraino.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
+    <value />
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Aggiungi tutti i tipi di veicoli</value>
   </data>
