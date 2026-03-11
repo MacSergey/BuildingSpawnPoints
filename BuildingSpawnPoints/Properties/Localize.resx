@@ -187,7 +187,7 @@
     <value>[UPDATED] Updated required game version to 1.20.1-f1</value>
   </data>
   <data name="Mod_WhatsNewMessage1_4_5" xml:space="preserve">
-    <value>[UPDATED] Updated required game version to 1.21.1-f5</value>
+    <value>[UPDATED] The mod is compatible with the game version 1.21.1-f5</value>
   </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Add all types of vehicles</value>
