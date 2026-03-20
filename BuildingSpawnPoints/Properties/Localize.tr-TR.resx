@@ -120,21 +120,9 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Araç oluşma noktası ekleyin veya değiştirin</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Plazalar ve Gezinti Yerleri DLC Desteği Eklendi.</value>
   </data>
-  
-  
-  
-  
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Tüm araç türlerini ekle</value>
   </data>
@@ -195,30 +183,21 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Yok et</value>
   </data>
-  
   <data name="Property_PointType" xml:space="preserve">
     <value>Tür</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Konum</value>
   </data>
-  
-  
-  
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Seçilen türdeki tüm binalara uygula</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Gerçekten bu türdeki tüm binalara bunu uygulamak istediğinize emin misiniz?</value>
   </data>
-  
-  
-  
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>#{0} nolu bina</value>
   </data>
-  
-  
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Bina seçiniz</value>
   </data>
@@ -231,11 +210,15 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Varsayılan taşıtlar</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Acil durum araçları</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Uçaklar</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Toplu taşıma</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Hizmet araçları</value>
   </data>
@@ -260,7 +243,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hava Balonu</value>
   </data>
-  
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Banka kamyonu</value>
+  </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bisiklet</value>
   </data>
