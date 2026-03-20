@@ -120,14 +120,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Zmień i dodaj punkty spawnu pojazdów</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Dodano wsparcie DLC Place &amp; Promenady.</value>
   </data>
@@ -298,7 +290,7 @@
     <value>Balon</value>
   </data>
   <data name="VehicleType_BankTruck" xml:space="preserve">
-    <value>Ciężarówka bankowa</value>
+    <value>Bankowóz</value>
   </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Rower</value>

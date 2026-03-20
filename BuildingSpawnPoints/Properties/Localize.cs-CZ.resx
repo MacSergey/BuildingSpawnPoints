@@ -138,8 +138,18 @@
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[NEW] Přidána podpora bankovních vozidel z Financial Districts DLC.</value>
   </data>
-  
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[NEW] Přidána možnost tahání bodů myší.
+[NEW] Přidána 3D značka znázorňující skutečnou výšku bodu.
+[UPDATED] Nový styl UI.
+[NEW] Štítky vozidel mají různé barvy dle druhu vozidla.
+[NEW] Přidána zkratka pro přidávání bodů.
+[FIXED] Přidána možnost nastavení bodu kamionů na rybí trh.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[UPDATED] Přidána podpora Hotels&amp;Retreats DLC.
+[TRANSLATION] Přidány překlady v standardní čínštině, thajštině a ukrajinštině.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Přidat všechny typy vozidel</value>
   </data>
@@ -210,7 +220,7 @@
     <value>Pozice</value>
   </data>
   <data name="Settings_ColorTags" xml:space="preserve">
-    <value>Barevné značky vozidel na panelu</value>
+    <value>Barevné štítky vozidel na panelu</value>
   </data>
   <data name="Settings_Marker3D" xml:space="preserve">
     <value>3D značka bodu</value>
@@ -225,7 +235,7 @@
     <value>Opravdu chcete použít toto nastavení pro všechny budovy tohoto typu?</value>
   </data>
   <data name="Tool_InfoCorrect" xml:space="preserve">
-    <value>NASTAVIT PRAVDIVÉ</value>
+    <value>NASTAVIT NA PRAVDA</value>
   </data>
   <data name="Tool_InfoDragPoint" xml:space="preserve">
     <value>Přetáhněte bod pro změnu jeho pozice</value>
@@ -237,7 +247,7 @@
     <value>Budova #{0}</value>
   </data>
   <data name="Tool_InfoIncorrect" xml:space="preserve">
-    <value>NASTAVIT NEPRAVDIVÉ</value>
+    <value>NASTAVIT NA NEPRAVDA</value>
   </data>
   <data name="Tool_InfoPointHeight" xml:space="preserve">
     <value>Podrž {0} pro změnu výšky</value>
@@ -264,7 +274,7 @@
     <value>Veřejná doprava</value>
   </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
-    <value>Servisní vozidla</value>
+    <value>Služby</value>
   </data>
   <data name="VehicleTypeGroup_Ships" xml:space="preserve">
     <value>Lodě</value>

@@ -120,21 +120,21 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>Araç oluşma noktası ekleyin veya değiştirin</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
     <value>[UPDATED] Plazalar ve Gezinti Yerleri DLC Desteği Eklendi.</value>
   </data>
-  
-  
-  
-  
+  <data name="Mod_WhatsNewMessage1_4" xml:space="preserve">
+    <value>[YENİ] Noktaları fareyle sürükleme özelliği eklendi.
+[YENİ] Noktanın gerçek yüksekliğini görmeyi sağlayan 3D işaretleyici eklendi.
+[GÜNCELLENDİ] Yeni kullanıcı arayüzü stili.
+[YENİ] Araç etiketleri, araç tipine bağlı olarak farklı renklere sahip.
+[YENİ] Yeni nokta eklemek için kısayol eklendi.
+[DÜZELTİLDİ] Kargo kamyonu noktasını balık pazarına ayarlama özelliği eklendi.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_4_1" xml:space="preserve">
+    <value>[GÜNCELLENDİ] Hotels&amp;Retreats DLC desteği eklendi.
+[ÇEVİRİ] Geleneksel Çince, Tayca ve Ukraynaca çeviriler eklendi.</value>
+  </data>
   <data name="Panel_AddAllVehicle" xml:space="preserve">
     <value>Tüm araç türlerini ekle</value>
   </data>
@@ -195,30 +195,48 @@
   <data name="PointType_Unspawn" xml:space="preserve">
     <value>Yok et</value>
   </data>
-  
+  <data name="Property_FollowGround" xml:space="preserve">
+    <value>Zemin seviyesini takip edin</value>
+  </data>
   <data name="Property_PointType" xml:space="preserve">
     <value>Tür</value>
   </data>
   <data name="Property_Position" xml:space="preserve">
     <value>Konum</value>
   </data>
-  
-  
-  
+  <data name="Settings_ColorTags" xml:space="preserve">
+    <value>Panelde renkli araç etiketleri</value>
+  </data>
+  <data name="Settings_Marker3D" xml:space="preserve">
+    <value>3D nokta işaretleyici</value>
+  </data>
+  <data name="Settings_ShortcutAddNewPoint" xml:space="preserve">
+    <value>Nokta ekle</value>
+  </data>
   <data name="Tool_ApplyToAllCaption" xml:space="preserve">
     <value>Seçilen türdeki tüm binalara uygula</value>
   </data>
   <data name="Tool_ApplyToAllMessage" xml:space="preserve">
     <value>Gerçekten bu türdeki tüm binalara bunu uygulamak istediğinize emin misiniz?</value>
   </data>
-  
-  
-  
+  <data name="Tool_InfoCorrect" xml:space="preserve">
+    <value>DOĞRU AYARLA</value>
+  </data>
+  <data name="Tool_InfoDragPoint" xml:space="preserve">
+    <value>Noktayı sürükleyerek konumunu değiştirebilirsiniz</value>
+  </data>
+  <data name="Tool_InfoEmptyPoint" xml:space="preserve">
+    <value>Boş nokta</value>
+  </data>
   <data name="Tool_InfoHoverBuilding" xml:space="preserve">
     <value>#{0} nolu bina</value>
   </data>
-  
-  
+  <data name="Tool_InfoIncorrect" xml:space="preserve">
+    <value>YANLIŞ AYARLA</value>
+  </data>
+  <data name="Tool_InfoPointHeight" xml:space="preserve">
+    <value>Yüksekliği değiştirmek için {0} tuşunu basılı tutun</value>
+  </data>
   <data name="Tool_InfoSelectBuilding" xml:space="preserve">
     <value>Bina seçiniz</value>
   </data>
@@ -231,11 +249,15 @@
   <data name="VehicleTypeGroup_Default" xml:space="preserve">
     <value>Varsayılan taşıtlar</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Emergency" xml:space="preserve">
+    <value>Acil durum araçları</value>
+  </data>
   <data name="VehicleTypeGroup_Planes" xml:space="preserve">
     <value>Uçaklar</value>
   </data>
-  
+  <data name="VehicleTypeGroup_Public" xml:space="preserve">
+    <value>Toplu taşıma</value>
+  </data>
   <data name="VehicleTypeGroup_Service" xml:space="preserve">
     <value>Hizmet araçları</value>
   </data>
@@ -260,7 +282,9 @@
   <data name="VehicleType_Balloon" xml:space="preserve">
     <value>Hava Balonu</value>
   </data>
-  
+  <data name="VehicleType_BankTruck" xml:space="preserve">
+    <value>Banka kamyonu</value>
+  </data>
   <data name="VehicleType_Bicycle" xml:space="preserve">
     <value>Bisiklet</value>
   </data>
